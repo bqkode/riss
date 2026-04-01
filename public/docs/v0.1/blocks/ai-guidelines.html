@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ai Guidelines - Riss Documentation</title>
+  <meta name="description" content="Ai Guidelines - YAML-based wireframe description format documentation">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; line-height: 1.65; color: #1a1a1a; background: #fff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; min-height: 100vh;
+    }
+    .docs-nav {
+      width: 260px; min-width: 260px; padding: 20px 16px;
+      border-right: 1px solid #e5e7eb; background: #fafafa;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 17px; color: #111; text-decoration: none;
+      display: block; margin-bottom: 4px;
+    }
+    .nav-home {
+      font-size: 13px; color: #6b7280; text-decoration: none; display: block; margin-bottom: 16px;
+    }
+    .nav-home:hover { color: #2563eb; }
+    .docs-nav h3 {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: #9ca3af; margin: 16px 0 6px;
+    }
+    .docs-nav ul { list-style: none; }
+    .docs-nav li a {
+      display: block; padding: 3px 8px; font-size: 13px; color: #374151;
+      text-decoration: none; border-radius: 4px; transition: background 0.15s;
+    }
+    .docs-nav li a:hover { background: #e5e7eb; }
+    .docs-nav li a.active { background: #2563eb; color: #fff; }
+
+    .docs-content {
+      flex: 1; max-width: 800px; padding: 40px 48px; margin: 0 auto;
+    }
+    .docs-content h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+    .docs-content h2 { font-size: 22px; font-weight: 600; margin: 32px 0 12px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
+    .docs-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+    .docs-content h4 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
+    .docs-content p { margin: 0 0 12px; }
+    .docs-content ul, .docs-content ol { margin: 0 0 12px; padding-left: 24px; }
+    .docs-content li { margin: 2px 0; }
+    .docs-content a { color: #2563eb; text-decoration: none; }
+    .docs-content a:hover { text-decoration: underline; }
+    .anchor { color: #d1d5db; text-decoration: none; margin-right: 4px; font-weight: 400; }
+    .anchor:hover { color: #2563eb; }
+
+    .docs-content code {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em; background: #f3f4f6; padding: 2px 5px; border-radius: 3px;
+    }
+    .docs-content pre {
+      background: #1e1e2e; color: #cdd6f4; border-radius: 8px;
+      padding: 16px 20px; margin: 0 0 16px; overflow-x: auto; line-height: 1.5;
+    }
+    .docs-content pre code {
+      background: none; padding: 0; font-size: 13px; color: inherit;
+    }
+    .docs-content table {
+      width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14px;
+    }
+    .docs-content th, .docs-content td {
+      text-align: left; padding: 8px 12px; border: 1px solid #e5e7eb;
+    }
+    .docs-content th { background: #f9fafb; font-weight: 600; }
+    .docs-content blockquote {
+      border-left: 3px solid #2563eb; padding: 8px 16px; margin: 0 0 16px;
+      background: #f0f7ff; color: #374151; font-size: 14px;
+    }
+    .docs-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 24px 0; }
+    .docs-content img { max-width: 100%; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .docs-nav {
+        width: 100%; min-width: auto; height: auto; position: static;
+        border-right: none; border-bottom: 1px solid #e5e7eb;
+      }
+      .docs-content { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  
+    <nav class="docs-nav" aria-label="Documentation">
+      <a href="/" class="nav-logo">Riss</a>
+      <a href="/docs/v0.1/" class="nav-home">Documentation</a>
+      <h3>Core Docs</h3>
+      <ul><li><a href="/docs/v0.1/spec.html">Riss Specification</a></li>
+<li><a href="/docs/v0.1/ai-guide.html">Riss AI Generation Guide</a></li>
+<li><a href="/docs/v0.1/blocks.html">RissBlocks Specification</a></li></ul>
+      <h3>Block Reference</h3>
+      <ul><li><a href="/docs/v0.1/blocks/ai-guidelines.html" class="active">Ai Guidelines</a></li>
+<li><a href="/docs/v0.1/blocks/collections.html">Collections</a></li>
+<li><a href="/docs/v0.1/blocks/communication.html">Communication</a></li>
+<li><a href="/docs/v0.1/blocks/content.html">Content</a></li>
+<li><a href="/docs/v0.1/blocks/cta.html">Cta</a></li>
+<li><a href="/docs/v0.1/blocks/custom-blocks.html">Custom Blocks</a></li>
+<li><a href="/docs/v0.1/blocks/dashboard.html">Dashboard</a></li>
+<li><a href="/docs/v0.1/blocks/ecommerce.html">Ecommerce</a></li>
+<li><a href="/docs/v0.1/blocks/features.html">Features</a></li>
+<li><a href="/docs/v0.1/blocks/feedback.html">Feedback</a></li>
+<li><a href="/docs/v0.1/blocks/footer.html">Footer</a></li>
+<li><a href="/docs/v0.1/blocks/forms.html">Forms</a></li>
+<li><a href="/docs/v0.1/blocks/hero-header.html">Hero Header</a></li>
+<li><a href="/docs/v0.1/blocks/navigation.html">Navigation</a></li>
+<li><a href="/docs/v0.1/blocks/pricing.html">Pricing</a></li>
+<li><a href="/docs/v0.1/blocks/social-proof.html">Social Proof</a></li>
+<li><a href="/docs/v0.1/blocks/user-profile.html">User Profile</a></li></ul>
+    </nav>
+  
+  <main class="docs-content">
+    <h1 id="ai-generation-guidelines-for-rissblocks"><a href="#ai-generation-guidelines-for-rissblocks" class="anchor">#</a> AI Generation Guidelines for RissBlocks</h1>
+<p><a href="..//docs/v0.1/blocks.html">← Back to RissBlocks</a></p>
+<hr>
+<h2 id="when-to-use-blocks-vs-raw-elements"><a href="#when-to-use-blocks-vs-raw-elements" class="anchor">#</a> When to use blocks vs. raw elements</h2>
+<p><strong>Use blocks when:</strong></p>
+<ul>
+<li>The pattern matches a core block closely (hero, feature-grid, pricing-table, etc.)</li>
+<li>You want consistent, best-practice layout</li>
+<li>The screen structure should be quickly scannable by a human</li>
+</ul>
+<p><strong>Use raw elements when:</strong></p>
+<ul>
+<li>The section is highly custom or doesn&#39;t match any block pattern</li>
+<li>You need precise control over layout that block parameters don&#39;t expose</li>
+<li>You&#39;re building something the blocks weren&#39;t designed for</li>
+</ul>
+<p><strong>Mixing is encouraged.</strong> A screen can contain both blocks and raw elements:</p>
+<pre><code class="language-yaml">children:
+  - block: top-nav
+    logo: &quot;MyApp&quot;
+    items: [...]
+
+  - block: hero
+    heading: &quot;Welcome&quot;
+
+  # Custom section using raw elements
+  - type: stack
+    padding: xl
+    children:
+      - type: text
+        variant: h2
+        content: &quot;Something unique&quot;
+      - type: row
+        # ... custom layout
+
+  - block: footer
+    variant: simple
+</code></pre>
+<hr>
+<h2 id="block-generation-rules"><a href="#block-generation-rules" class="anchor">#</a> Block generation rules</h2>
+<ol>
+<li><strong>Prefer blocks over manual construction.</strong> If a section maps to a core block, use the block.</li>
+<li><strong>Blocks are direct screen children only.</strong> Do not nest blocks inside blocks, or place blocks inside <code>stack</code>, <code>row</code>, <code>grid</code>, or other layout elements. If you need to arrange blocks side-by-side, use raw elements instead.</li>
+<li><strong>Use realistic content.</strong> Fill block parameters with realistic data, not &quot;Lorem ipsum&quot;.</li>
+<li><strong>Override only what you need.</strong> Rely on defaults for parameters you don&#39;t need to customize.</li>
+<li><strong>Annotate custom behavior.</strong> If a block needs behavior the parameters don&#39;t express, add an <code>annotation</code>.</li>
+<li><strong>Keep parameter count reasonable.</strong> When defining custom blocks, aim for 3-8 parameters. If you need more, the pattern might be too complex for a single block.</li>
+<li><strong>Use the standard icon set.</strong> Block parameters that accept icon names use the same icon set defined in <a href="..//docs/v0.1/spec.html#63-content-elements">RISS_SPEC.md section 6</a>. Unrecognized icon names render as a small labeled square.</li>
+</ol>
+<hr>
+<h2 id="full-page-example-with-blocks"><a href="#full-page-example-with-blocks" class="anchor">#</a> Full page example with blocks</h2>
+<pre><code class="language-yaml">riss: &quot;0.1&quot;
+
+meta:
+  name: &quot;SaaSLanding&quot;
+  viewport: { width: 1440, height: 900 }
+  theme:
+    mode: light
+    accent: &quot;#6366F1&quot;
+
+screens:
+  - id: landing
+    title: &quot;Landing Page&quot;
+    children:
+      - block: announcement-bar
+        message: &quot;We just raised our Series A! Read the story →&quot;
+
+      - block: top-nav
+        logo: &quot;Acme&quot;
+        items:
+          - label: &quot;Product&quot;
+          - label: &quot;Pricing&quot;
+          - label: &quot;Docs&quot;
+          - label: &quot;Blog&quot;
+        cta-label: &quot;Sign Up&quot;
+        cta-secondary-label: &quot;Log In&quot;
+
+      - block: hero
+        variant: split
+        heading: &quot;The developer platform for modern teams&quot;
+        subheading: &quot;Build, deploy, and scale without the infrastructure headaches.&quot;
+        cta-label: &quot;Start Free&quot;
+        cta-secondary-label: &quot;Watch Demo&quot;
+        image-label: &quot;Dashboard Screenshot&quot;
+
+      - block: logo-bar
+        title: &quot;Trusted by 2,000+ teams&quot;
+        logos: 6
+        labels: [&quot;Vercel&quot;, &quot;Stripe&quot;, &quot;Linear&quot;, &quot;Notion&quot;, &quot;Figma&quot;, &quot;Supabase&quot;]
+
+      - block: feature-grid
+        title: &quot;Everything you need&quot;
+        subtitle: &quot;A complete platform from prototype to production.&quot;
+        columns: 3
+        items:
+          - icon: refresh
+            title: &quot;Instant Deploys&quot;
+            description: &quot;Push to git and your app is live in seconds.&quot;
+          - icon: lock
+            title: &quot;Secure by Default&quot;
+            description: &quot;SOC 2, encryption at rest, and role-based access.&quot;
+          - icon: users
+            title: &quot;Team Collaboration&quot;
+            description: &quot;Real-time editing, comments, and branch previews.&quot;
+          - icon: chart
+            title: &quot;Built-in Analytics&quot;
+            description: &quot;Track performance without third-party scripts.&quot;
+          - icon: settings
+            title: &quot;Fully Configurable&quot;
+            description: &quot;Customize everything from build to runtime.&quot;
+          - icon: globe
+            title: &quot;Global Edge Network&quot;
+            description: &quot;Fast everywhere, with 50+ edge locations.&quot;
+
+      - block: alternating-rows
+        items:
+          - heading: &quot;Ship faster&quot;
+            body: &quot;Zero-config deploys mean less time on DevOps and more time building features your users love.&quot;
+            image-label: &quot;Deploy Flow Screenshot&quot;
+            cta-label: &quot;See how it works&quot;
+          - heading: &quot;Scale effortlessly&quot;
+            body: &quot;Auto-scaling infrastructure handles traffic spikes so you don&#39;t have to page your oncall.&quot;
+            image-label: &quot;Scaling Dashboard&quot;
+          - heading: &quot;Debug in production&quot;
+            body: &quot;Real-time logs, traces, and error tracking built directly into the platform.&quot;
+            image-label: &quot;Debug Console&quot;
+
+      - block: stats-row
+        items:
+          - value: &quot;2,000+&quot;
+            label: &quot;Teams&quot;
+          - value: &quot;50M&quot;
+            label: &quot;Deploys&quot;
+          - value: &quot;99.99%&quot;
+            label: &quot;Uptime&quot;
+          - value: &quot;4.9/5&quot;
+            label: &quot;Satisfaction&quot;
+
+      - block: testimonial-grid
+        title: &quot;Loved by developers&quot;
+        columns: 3
+        items:
+          - quote: &quot;Migrating to Acme cut our deploy times by 80%. The DX is unmatched.&quot;
+            author: &quot;Sarah Chen&quot;
+            role: &quot;CTO, Startupify&quot;
+          - quote: &quot;Finally, infrastructure that gets out of my way.&quot;
+            author: &quot;Marcus Johnson&quot;
+            role: &quot;Senior Engineer, ScaleUp&quot;
+          - quote: &quot;The best investment our engineering team made this year.&quot;
+            author: &quot;Anna Björk&quot;
+            role: &quot;VP Engineering, NordicTech&quot;
+
+      - block: pricing-table
+        title: &quot;Simple, transparent pricing&quot;
+        subtitle: &quot;No hidden fees. Cancel anytime.&quot;
+        toggle: [&quot;Monthly&quot;, &quot;Annual&quot;]
+        tiers:
+          - name: &quot;Hobby&quot;
+            price: &quot;$0&quot;
+            period: &quot;/month&quot;
+            description: &quot;For personal projects.&quot;
+            features: [&quot;1 project&quot;, &quot;100K requests/mo&quot;, &quot;Community support&quot;]
+            cta-label: &quot;Get Started&quot;
+            cta-variant: outline
+          - name: &quot;Pro&quot;
+            price: &quot;$29&quot;
+            period: &quot;/month&quot;
+            description: &quot;For growing teams.&quot;
+            features: [&quot;Unlimited projects&quot;, &quot;10M requests/mo&quot;, &quot;Priority support&quot;, &quot;Custom domains&quot;]
+            cta-label: &quot;Start Free Trial&quot;
+            highlighted: true
+          - name: &quot;Enterprise&quot;
+            price: &quot;Custom&quot;
+            description: &quot;For organizations at scale.&quot;
+            features: [&quot;Everything in Pro&quot;, &quot;SSO &amp; SAML&quot;, &quot;SLA&quot;, &quot;Dedicated support&quot;]
+            cta-label: &quot;Contact Sales&quot;
+            cta-variant: outline
+
+      - block: accordion
+        title: &quot;Frequently Asked Questions&quot;
+        items:
+          - question: &quot;Do I need a credit card to start?&quot;
+            answer: &quot;No, the Hobby plan is completely free with no credit card required.&quot;
+          - question: &quot;Can I switch plans later?&quot;
+            answer: &quot;Yes, you can upgrade or downgrade at any time. Changes take effect immediately.&quot;
+          - question: &quot;What happens if I exceed my request limit?&quot;
+            answer: &quot;We&#39;ll notify you and your app stays online. You can upgrade or we&#39;ll discuss options.&quot;
+          - question: &quot;Do you offer a startup discount?&quot;
+            answer: &quot;Yes! Startups with under $5M in funding get 50% off Pro for the first year.&quot;
+
+      - block: cta-banner
+        heading: &quot;Ready to ship faster?&quot;
+        subheading: &quot;Join 2,000+ teams building on Acme.&quot;
+        cta-label: &quot;Start Free&quot;
+        cta-secondary-label: &quot;Talk to Sales&quot;
+        background: accent-soft
+
+      - block: footer
+        variant: multi-column
+        logo: &quot;Acme&quot;
+        tagline: &quot;The developer platform for modern teams.&quot;
+        columns:
+          - title: &quot;Product&quot;
+            links: [&quot;Features&quot;, &quot;Pricing&quot;, &quot;Changelog&quot;, &quot;Status&quot;]
+          - title: &quot;Developers&quot;
+            links: [&quot;Documentation&quot;, &quot;API Reference&quot;, &quot;CLI&quot;, &quot;Examples&quot;]
+          - title: &quot;Company&quot;
+            links: [&quot;About&quot;, &quot;Blog&quot;, &quot;Careers&quot;, &quot;Contact&quot;]
+          - title: &quot;Legal&quot;
+            links: [&quot;Privacy&quot;, &quot;Terms&quot;, &quot;DPA&quot;, &quot;Security&quot;]
+        social: [&quot;twitter&quot;, &quot;github&quot;, &quot;linkedin&quot;, &quot;discord&quot;]
+        copyright: &quot;© 2026 Acme Inc. All rights reserved.&quot;
+</code></pre>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommerce - Riss Documentation</title>
+  <meta name="description" content="Ecommerce - YAML-based wireframe description format documentation">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; line-height: 1.65; color: #1a1a1a; background: #fff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; min-height: 100vh;
+    }
+    .docs-nav {
+      width: 260px; min-width: 260px; padding: 20px 16px;
+      border-right: 1px solid #e5e7eb; background: #fafafa;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 17px; color: #111; text-decoration: none;
+      display: block; margin-bottom: 4px;
+    }
+    .nav-home {
+      font-size: 13px; color: #6b7280; text-decoration: none; display: block; margin-bottom: 16px;
+    }
+    .nav-home:hover { color: #2563eb; }
+    .docs-nav h3 {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: #9ca3af; margin: 16px 0 6px;
+    }
+    .docs-nav ul { list-style: none; }
+    .docs-nav li a {
+      display: block; padding: 3px 8px; font-size: 13px; color: #374151;
+      text-decoration: none; border-radius: 4px; transition: background 0.15s;
+    }
+    .docs-nav li a:hover { background: #e5e7eb; }
+    .docs-nav li a.active { background: #2563eb; color: #fff; }
+
+    .docs-content {
+      flex: 1; max-width: 800px; padding: 40px 48px; margin: 0 auto;
+    }
+    .docs-content h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+    .docs-content h2 { font-size: 22px; font-weight: 600; margin: 32px 0 12px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
+    .docs-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+    .docs-content h4 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
+    .docs-content p { margin: 0 0 12px; }
+    .docs-content ul, .docs-content ol { margin: 0 0 12px; padding-left: 24px; }
+    .docs-content li { margin: 2px 0; }
+    .docs-content a { color: #2563eb; text-decoration: none; }
+    .docs-content a:hover { text-decoration: underline; }
+    .anchor { color: #d1d5db; text-decoration: none; margin-right: 4px; font-weight: 400; }
+    .anchor:hover { color: #2563eb; }
+
+    .docs-content code {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em; background: #f3f4f6; padding: 2px 5px; border-radius: 3px;
+    }
+    .docs-content pre {
+      background: #1e1e2e; color: #cdd6f4; border-radius: 8px;
+      padding: 16px 20px; margin: 0 0 16px; overflow-x: auto; line-height: 1.5;
+    }
+    .docs-content pre code {
+      background: none; padding: 0; font-size: 13px; color: inherit;
+    }
+    .docs-content table {
+      width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14px;
+    }
+    .docs-content th, .docs-content td {
+      text-align: left; padding: 8px 12px; border: 1px solid #e5e7eb;
+    }
+    .docs-content th { background: #f9fafb; font-weight: 600; }
+    .docs-content blockquote {
+      border-left: 3px solid #2563eb; padding: 8px 16px; margin: 0 0 16px;
+      background: #f0f7ff; color: #374151; font-size: 14px;
+    }
+    .docs-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 24px 0; }
+    .docs-content img { max-width: 100%; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .docs-nav {
+        width: 100%; min-width: auto; height: auto; position: static;
+        border-right: none; border-bottom: 1px solid #e5e7eb;
+      }
+      .docs-content { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  
+    <nav class="docs-nav" aria-label="Documentation">
+      <a href="/" class="nav-logo">Riss</a>
+      <a href="/docs/v0.1/" class="nav-home">Documentation</a>
+      <h3>Core Docs</h3>
+      <ul><li><a href="/docs/v0.1/spec.html">Riss Specification</a></li>
+<li><a href="/docs/v0.1/ai-guide.html">Riss AI Generation Guide</a></li>
+<li><a href="/docs/v0.1/blocks.html">RissBlocks Specification</a></li></ul>
+      <h3>Block Reference</h3>
+      <ul><li><a href="/docs/v0.1/blocks/ai-guidelines.html">Ai Guidelines</a></li>
+<li><a href="/docs/v0.1/blocks/collections.html">Collections</a></li>
+<li><a href="/docs/v0.1/blocks/communication.html">Communication</a></li>
+<li><a href="/docs/v0.1/blocks/content.html">Content</a></li>
+<li><a href="/docs/v0.1/blocks/cta.html">Cta</a></li>
+<li><a href="/docs/v0.1/blocks/custom-blocks.html">Custom Blocks</a></li>
+<li><a href="/docs/v0.1/blocks/dashboard.html">Dashboard</a></li>
+<li><a href="/docs/v0.1/blocks/ecommerce.html" class="active">Ecommerce</a></li>
+<li><a href="/docs/v0.1/blocks/features.html">Features</a></li>
+<li><a href="/docs/v0.1/blocks/feedback.html">Feedback</a></li>
+<li><a href="/docs/v0.1/blocks/footer.html">Footer</a></li>
+<li><a href="/docs/v0.1/blocks/forms.html">Forms</a></li>
+<li><a href="/docs/v0.1/blocks/hero-header.html">Hero Header</a></li>
+<li><a href="/docs/v0.1/blocks/navigation.html">Navigation</a></li>
+<li><a href="/docs/v0.1/blocks/pricing.html">Pricing</a></li>
+<li><a href="/docs/v0.1/blocks/social-proof.html">Social Proof</a></li>
+<li><a href="/docs/v0.1/blocks/user-profile.html">User Profile</a></li></ul>
+    </nav>
+  
+  <main class="docs-content">
+    <h1 id="e-commerce-blocks"><a href="#e-commerce-blocks" class="anchor">#</a> E-Commerce Blocks</h1>
+<p><a href="..//docs/v0.1/blocks.html">← Back to RissBlocks</a></p>
+<hr>
+<h2 id="product-card-grid"><a href="#product-card-grid" class="anchor">#</a> <code>product-card-grid</code></h2>
+<p>A grid of product cards with optional filters.</p>
+<pre><code class="language-yaml">- block: product-card-grid
+  columns: 3
+  items:
+    - image-label: &quot;Trail Runner&quot;
+      title: &quot;Trail Runner Pro&quot;
+      price: &quot;kr 1,299&quot;
+      rating: 4.5
+    - image-label: &quot;Road Runner&quot;
+      title: &quot;Road Runner Lite&quot;
+      price: &quot;kr 999&quot;
+      original-price: &quot;kr 1,299&quot;
+      rating: 4.2
+      badge: &quot;Sale&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>columns</code></td>
+<td>Number (2-4)</td>
+<td><code>3</code></td>
+<td>Grid columns.</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Each: <code>{ image-label?, title, price, original-price?, rating?, badge?, cta-label? }</code>.</td>
+</tr>
+<tr>
+<td><code>show-rating</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Show star ratings.</td>
+</tr>
+<tr>
+<td><code>show-cart-button</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Show &quot;Add to Cart&quot; button.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="product-detail"><a href="#product-detail" class="anchor">#</a> <code>product-detail</code></h2>
+<p>Full product detail section (image + info + variants + CTA).</p>
+<pre><code class="language-yaml">- block: product-detail
+  image-label: &quot;Product Photo&quot;
+  image-count: 4
+  category: &quot;Outdoor Gear&quot;
+  title: &quot;Fjelljakke Pro Hardshell&quot;
+  price: &quot;kr 2,499&quot;
+  rating: 4.0
+  reviews: 128
+  description: &quot;Premium hardshell jacket designed for demanding alpine conditions.&quot;
+  variants:
+    - label: &quot;Size&quot;
+      options: [&quot;S&quot;, &quot;M&quot;, &quot;L&quot;, &quot;XL&quot;]
+      selected: 0
+    - label: &quot;Color&quot;
+      options: [&quot;Black&quot;, &quot;Navy&quot;, &quot;Olive&quot;]
+      selected: 0
+  cta-label: &quot;Add to Cart&quot;
+  wishlist: true
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>image-label</code></td>
+<td>String</td>
+<td><code>&quot;Product Photo&quot;</code></td>
+<td>Image placeholder label.</td>
+</tr>
+<tr>
+<td><code>image-count</code></td>
+<td>Number</td>
+<td><code>1</code></td>
+<td>Number of images (renders dot indicators if &gt; 1).</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td>String</td>
+<td>—</td>
+<td>Product category label.</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><strong>String (required)</strong></td>
+<td>—</td>
+<td>Product name.</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td><strong>String (required)</strong></td>
+<td>—</td>
+<td>Price display.</td>
+</tr>
+<tr>
+<td><code>original-price</code></td>
+<td>String</td>
+<td>—</td>
+<td>Crossed-out original price (for sales).</td>
+</tr>
+<tr>
+<td><code>rating</code></td>
+<td>Number</td>
+<td>—</td>
+<td>Star rating (1-5).</td>
+</tr>
+<tr>
+<td><code>reviews</code></td>
+<td>Number</td>
+<td>—</td>
+<td>Review count.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>String</td>
+<td>—</td>
+<td>Product description text.</td>
+</tr>
+<tr>
+<td><code>variants</code></td>
+<td>Array</td>
+<td>—</td>
+<td>Each: <code>{ label, options[], selected? }</code>.</td>
+</tr>
+<tr>
+<td><code>cta-label</code></td>
+<td>String</td>
+<td><code>&quot;Add to Cart&quot;</code></td>
+<td>Primary action button.</td>
+</tr>
+<tr>
+<td><code>wishlist</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Show wishlist/heart button.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="cart-summary"><a href="#cart-summary" class="anchor">#</a> <code>cart-summary</code></h2>
+<p>Shopping cart contents and order total.</p>
+<pre><code class="language-yaml">- block: cart-summary
+  items:
+    - title: &quot;Fjelljakke Pro&quot;
+      subtitle: &quot;Black / Size L&quot;
+      price: &quot;kr 2,499&quot;
+      quantity: 1
+    - title: &quot;Trail Runner Pro&quot;
+      subtitle: &quot;Blue / Size 42&quot;
+      price: &quot;kr 1,299&quot;
+      quantity: 2
+  subtotal: &quot;kr 5,097&quot;
+  shipping: &quot;Free&quot;
+  total: &quot;kr 5,097&quot;
+  cta-label: &quot;Checkout&quot;
+  promo-code: true
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>items</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Each: <code>{ title, subtitle?, price, quantity?, image-label? }</code>.</td>
+</tr>
+<tr>
+<td><code>subtotal</code></td>
+<td>String</td>
+<td>—</td>
+<td>Subtotal display.</td>
+</tr>
+<tr>
+<td><code>shipping</code></td>
+<td>String</td>
+<td>—</td>
+<td>Shipping cost/label.</td>
+</tr>
+<tr>
+<td><code>discount</code></td>
+<td>String</td>
+<td>—</td>
+<td>Discount line.</td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td><strong>String (required)</strong></td>
+<td>—</td>
+<td>Total display.</td>
+</tr>
+<tr>
+<td><code>cta-label</code></td>
+<td>String</td>
+<td><code>&quot;Checkout&quot;</code></td>
+<td>Primary button.</td>
+</tr>
+<tr>
+<td><code>promo-code</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Show promo code input.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="checkout-steps"><a href="#checkout-steps" class="anchor">#</a> <code>checkout-steps</code></h2>
+<p>A checkout flow with step indicator.</p>
+<blockquote>
+<p><strong>Distinction from <code>multi-step-form</code>:</strong> This block renders a read-only step indicator for e-commerce checkout flows. For a full form wizard with fields, navigation buttons, and step tracking, use <a href="forms.html"><code>multi-step-form</code></a>.</p>
+</blockquote>
+<pre><code class="language-yaml">- block: checkout-steps
+  steps: [&quot;Shipping&quot;, &quot;Payment&quot;, &quot;Review&quot;]
+  current-step: 2
+  variant: numbered
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>steps</code></td>
+<td><strong>String[] (required)</strong></td>
+<td>—</td>
+<td>Step labels.</td>
+</tr>
+<tr>
+<td><code>current-step</code></td>
+<td>Number</td>
+<td><code>1</code></td>
+<td>Active step (1-based).</td>
+</tr>
+<tr>
+<td><code>variant</code></td>
+<td><code>numbered</code>, <code>dots</code>, <code>bar</code></td>
+<td><code>numbered</code></td>
+<td>Step indicator style.</td>
+</tr>
+</tbody></table>
+
+  </main>
+</body>
+</html>

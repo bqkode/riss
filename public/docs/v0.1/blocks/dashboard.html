@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Riss Documentation</title>
+  <meta name="description" content="Dashboard - YAML-based wireframe description format documentation">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; line-height: 1.65; color: #1a1a1a; background: #fff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; min-height: 100vh;
+    }
+    .docs-nav {
+      width: 260px; min-width: 260px; padding: 20px 16px;
+      border-right: 1px solid #e5e7eb; background: #fafafa;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 17px; color: #111; text-decoration: none;
+      display: block; margin-bottom: 4px;
+    }
+    .nav-home {
+      font-size: 13px; color: #6b7280; text-decoration: none; display: block; margin-bottom: 16px;
+    }
+    .nav-home:hover { color: #2563eb; }
+    .docs-nav h3 {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: #9ca3af; margin: 16px 0 6px;
+    }
+    .docs-nav ul { list-style: none; }
+    .docs-nav li a {
+      display: block; padding: 3px 8px; font-size: 13px; color: #374151;
+      text-decoration: none; border-radius: 4px; transition: background 0.15s;
+    }
+    .docs-nav li a:hover { background: #e5e7eb; }
+    .docs-nav li a.active { background: #2563eb; color: #fff; }
+
+    .docs-content {
+      flex: 1; max-width: 800px; padding: 40px 48px; margin: 0 auto;
+    }
+    .docs-content h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+    .docs-content h2 { font-size: 22px; font-weight: 600; margin: 32px 0 12px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
+    .docs-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+    .docs-content h4 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
+    .docs-content p { margin: 0 0 12px; }
+    .docs-content ul, .docs-content ol { margin: 0 0 12px; padding-left: 24px; }
+    .docs-content li { margin: 2px 0; }
+    .docs-content a { color: #2563eb; text-decoration: none; }
+    .docs-content a:hover { text-decoration: underline; }
+    .anchor { color: #d1d5db; text-decoration: none; margin-right: 4px; font-weight: 400; }
+    .anchor:hover { color: #2563eb; }
+
+    .docs-content code {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em; background: #f3f4f6; padding: 2px 5px; border-radius: 3px;
+    }
+    .docs-content pre {
+      background: #1e1e2e; color: #cdd6f4; border-radius: 8px;
+      padding: 16px 20px; margin: 0 0 16px; overflow-x: auto; line-height: 1.5;
+    }
+    .docs-content pre code {
+      background: none; padding: 0; font-size: 13px; color: inherit;
+    }
+    .docs-content table {
+      width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14px;
+    }
+    .docs-content th, .docs-content td {
+      text-align: left; padding: 8px 12px; border: 1px solid #e5e7eb;
+    }
+    .docs-content th { background: #f9fafb; font-weight: 600; }
+    .docs-content blockquote {
+      border-left: 3px solid #2563eb; padding: 8px 16px; margin: 0 0 16px;
+      background: #f0f7ff; color: #374151; font-size: 14px;
+    }
+    .docs-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 24px 0; }
+    .docs-content img { max-width: 100%; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .docs-nav {
+        width: 100%; min-width: auto; height: auto; position: static;
+        border-right: none; border-bottom: 1px solid #e5e7eb;
+      }
+      .docs-content { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  
+    <nav class="docs-nav" aria-label="Documentation">
+      <a href="/" class="nav-logo">Riss</a>
+      <a href="/docs/v0.1/" class="nav-home">Documentation</a>
+      <h3>Core Docs</h3>
+      <ul><li><a href="/docs/v0.1/spec.html">Riss Specification</a></li>
+<li><a href="/docs/v0.1/ai-guide.html">Riss AI Generation Guide</a></li>
+<li><a href="/docs/v0.1/blocks.html">RissBlocks Specification</a></li></ul>
+      <h3>Block Reference</h3>
+      <ul><li><a href="/docs/v0.1/blocks/ai-guidelines.html">Ai Guidelines</a></li>
+<li><a href="/docs/v0.1/blocks/collections.html">Collections</a></li>
+<li><a href="/docs/v0.1/blocks/communication.html">Communication</a></li>
+<li><a href="/docs/v0.1/blocks/content.html">Content</a></li>
+<li><a href="/docs/v0.1/blocks/cta.html">Cta</a></li>
+<li><a href="/docs/v0.1/blocks/custom-blocks.html">Custom Blocks</a></li>
+<li><a href="/docs/v0.1/blocks/dashboard.html" class="active">Dashboard</a></li>
+<li><a href="/docs/v0.1/blocks/ecommerce.html">Ecommerce</a></li>
+<li><a href="/docs/v0.1/blocks/features.html">Features</a></li>
+<li><a href="/docs/v0.1/blocks/feedback.html">Feedback</a></li>
+<li><a href="/docs/v0.1/blocks/footer.html">Footer</a></li>
+<li><a href="/docs/v0.1/blocks/forms.html">Forms</a></li>
+<li><a href="/docs/v0.1/blocks/hero-header.html">Hero Header</a></li>
+<li><a href="/docs/v0.1/blocks/navigation.html">Navigation</a></li>
+<li><a href="/docs/v0.1/blocks/pricing.html">Pricing</a></li>
+<li><a href="/docs/v0.1/blocks/social-proof.html">Social Proof</a></li>
+<li><a href="/docs/v0.1/blocks/user-profile.html">User Profile</a></li></ul>
+    </nav>
+  
+  <main class="docs-content">
+    <h1 id="data-dashboard-blocks"><a href="#data-dashboard-blocks" class="anchor">#</a> Data &amp; Dashboard Blocks</h1>
+<p><a href="..//docs/v0.1/blocks.html">← Back to RissBlocks</a></p>
+<hr>
+<h2 id="stat-cards-row"><a href="#stat-cards-row" class="anchor">#</a> <code>stat-cards-row</code></h2>
+<p>A row of metric/KPI cards.</p>
+<pre><code class="language-yaml">- block: stat-cards-row
+  items:
+    - label: &quot;Total Users&quot;
+      value: &quot;12,847&quot;
+      trend: &quot;+12%&quot;
+      trend-direction: up
+    - label: &quot;Active Now&quot;
+      value: &quot;342&quot;
+      trend: &quot;+3%&quot;
+      trend-direction: up
+    - label: &quot;Revenue&quot;
+      value: &quot;$48,290&quot;
+      trend: &quot;-2%&quot;
+      trend-direction: down
+    - label: &quot;Conversion&quot;
+      value: &quot;3.24%&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>items</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Each: <code>{ label, value, trend?, trend-direction?, icon? }</code>.</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>Number (2-6)</td>
+<td>Auto (item count)</td>
+<td>Number of columns.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="data-table"><a href="#data-table" class="anchor">#</a> <code>data-table</code></h2>
+<p>A full-featured data table with optional search, filters, pagination, and actions.</p>
+<blockquote>
+<p><strong>Relation to core element:</strong> This block expands to a layout containing a <a href="..//docs/v0.1/spec.html#66-data-display-elements"><code>table</code></a> element plus search, filter, and pagination chrome. Use the core <code>table</code> element for a simple static table without controls.</p>
+</blockquote>
+<pre><code class="language-yaml">- block: data-table
+  title: &quot;Users&quot;
+  search: true
+  columns:
+    - label: &quot;Name&quot;
+      width: &quot;1/4&quot;
+    - label: &quot;Email&quot;
+      width: &quot;1/4&quot;
+    - label: &quot;Role&quot;
+      width: &quot;1/6&quot;
+    - label: &quot;Status&quot;
+      width: &quot;1/6&quot;
+    - label: &quot;Actions&quot;
+      width: &quot;1/6&quot;
+      align: right
+  rows:
+    - [&quot;Alice Johnson&quot;, &quot;alice@example.com&quot;, &quot;Admin&quot;, &quot;Active&quot;, &quot;...&quot;]
+    - [&quot;Bob Smith&quot;, &quot;bob@example.com&quot;, &quot;Editor&quot;, &quot;Active&quot;, &quot;...&quot;]
+    - [&quot;Carol White&quot;, &quot;carol@example.com&quot;, &quot;Viewer&quot;, &quot;Inactive&quot;, &quot;...&quot;]
+  pagination: true
+  total-rows: 247
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td>String</td>
+<td>—</td>
+<td>Table heading.</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Show search bar above table.</td>
+</tr>
+<tr>
+<td><code>filters</code></td>
+<td>Array</td>
+<td>—</td>
+<td>Filter controls: <code>{ label, options[] }</code>.</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Column definitions: <code>{ label, width?, align? }</code>.</td>
+</tr>
+<tr>
+<td><code>rows</code></td>
+<td><strong>Array[] (required)</strong></td>
+<td>—</td>
+<td>Row data (array of string arrays).</td>
+</tr>
+<tr>
+<td><code>pagination</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Show pagination controls.</td>
+</tr>
+<tr>
+<td><code>total-rows</code></td>
+<td>Number</td>
+<td>—</td>
+<td>Total row count (for pagination display).</td>
+</tr>
+<tr>
+<td><code>actions</code></td>
+<td>Array</td>
+<td>—</td>
+<td>Bulk action buttons: <code>{ label, icon? }</code>.</td>
+</tr>
+<tr>
+<td><code>striped</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Alternate row backgrounds.</td>
+</tr>
+<tr>
+<td><code>selectable</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Show row checkboxes.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="activity-feed"><a href="#activity-feed" class="anchor">#</a> <code>activity-feed</code></h2>
+<p>A list of timestamped events.</p>
+<pre><code class="language-yaml">- block: activity-feed
+  title: &quot;Recent Activity&quot;
+  items:
+    - icon: user
+      text: &quot;New user signup: Alice Johnson&quot;
+      time: &quot;2 minutes ago&quot;
+    - icon: download
+      text: &quot;Report exported by Bob Smith&quot;
+      time: &quot;15 minutes ago&quot;
+    - icon: edit
+      text: &quot;Settings updated by Carol White&quot;
+      time: &quot;1 hour ago&quot;
+  show-more: &quot;View all activity&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td>String</td>
+<td>—</td>
+<td>Section heading.</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Each: <code>{ icon?, avatar?, text, time, action? }</code>.</td>
+</tr>
+<tr>
+<td><code>show-more</code></td>
+<td>String</td>
+<td>—</td>
+<td>&quot;View all&quot; link label.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="chart-card"><a href="#chart-card" class="anchor">#</a> <code>chart-card</code></h2>
+<p>A card containing a chart placeholder.</p>
+<pre><code class="language-yaml">- block: chart-card
+  title: &quot;Revenue Over Time&quot;
+  chart-type: line
+  chart-label: &quot;Monthly Revenue — Jan to Dec&quot;
+  aspect: &quot;16/7&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td><strong>String (required)</strong></td>
+<td>—</td>
+<td>Card heading.</td>
+</tr>
+<tr>
+<td><code>chart-type</code></td>
+<td><code>line</code>, <code>bar</code>, <code>pie</code>, <code>donut</code>, <code>area</code></td>
+<td><code>line</code></td>
+<td>Type of chart (rendered as labeled placeholder).</td>
+</tr>
+<tr>
+<td><code>chart-label</code></td>
+<td>String</td>
+<td>—</td>
+<td>Description inside the placeholder.</td>
+</tr>
+<tr>
+<td><code>aspect</code></td>
+<td>String</td>
+<td><code>&quot;16/9&quot;</code></td>
+<td>Chart area aspect ratio.</td>
+</tr>
+<tr>
+<td><code>subtitle</code></td>
+<td>String</td>
+<td>—</td>
+<td>Subtitle below heading.</td>
+</tr>
+<tr>
+<td><code>actions</code></td>
+<td>Array</td>
+<td>—</td>
+<td>Top-right action buttons: <code>{ label?, icon? }</code>.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="kanban-board"><a href="#kanban-board" class="anchor">#</a> <code>kanban-board</code></h2>
+<p>A columnar board of draggable cards (task management pattern).</p>
+<pre><code class="language-yaml">- block: kanban-board
+  columns:
+    - title: &quot;To Do&quot;
+      cards:
+        - title: &quot;Design homepage wireframe&quot;
+          tag: &quot;Design&quot;
+          avatar: &quot;BQ&quot;
+        - title: &quot;Write API spec&quot;
+          tag: &quot;Backend&quot;
+    - title: &quot;In Progress&quot;
+      cards:
+        - title: &quot;Implement auth flow&quot;
+          tag: &quot;Backend&quot;
+          avatar: &quot;KN&quot;
+    - title: &quot;Done&quot;
+      cards:
+        - title: &quot;Setup project repo&quot;
+          tag: &quot;DevOps&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>columns</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Each: <code>{ title, cards[] }</code>. Cards: <code>{ title, subtitle?, tag?, avatar?, color? }</code>.</td>
+</tr>
+<tr>
+<td><code>add-card</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Show &quot;+ Add card&quot; button in each column.</td>
+</tr>
+</tbody></table>
+
+  </main>
+</body>
+</html>

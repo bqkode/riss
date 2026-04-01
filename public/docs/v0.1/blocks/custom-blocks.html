@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Blocks - Riss Documentation</title>
+  <meta name="description" content="Custom Blocks - YAML-based wireframe description format documentation">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; line-height: 1.65; color: #1a1a1a; background: #fff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; min-height: 100vh;
+    }
+    .docs-nav {
+      width: 260px; min-width: 260px; padding: 20px 16px;
+      border-right: 1px solid #e5e7eb; background: #fafafa;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 17px; color: #111; text-decoration: none;
+      display: block; margin-bottom: 4px;
+    }
+    .nav-home {
+      font-size: 13px; color: #6b7280; text-decoration: none; display: block; margin-bottom: 16px;
+    }
+    .nav-home:hover { color: #2563eb; }
+    .docs-nav h3 {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: #9ca3af; margin: 16px 0 6px;
+    }
+    .docs-nav ul { list-style: none; }
+    .docs-nav li a {
+      display: block; padding: 3px 8px; font-size: 13px; color: #374151;
+      text-decoration: none; border-radius: 4px; transition: background 0.15s;
+    }
+    .docs-nav li a:hover { background: #e5e7eb; }
+    .docs-nav li a.active { background: #2563eb; color: #fff; }
+
+    .docs-content {
+      flex: 1; max-width: 800px; padding: 40px 48px; margin: 0 auto;
+    }
+    .docs-content h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+    .docs-content h2 { font-size: 22px; font-weight: 600; margin: 32px 0 12px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
+    .docs-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+    .docs-content h4 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
+    .docs-content p { margin: 0 0 12px; }
+    .docs-content ul, .docs-content ol { margin: 0 0 12px; padding-left: 24px; }
+    .docs-content li { margin: 2px 0; }
+    .docs-content a { color: #2563eb; text-decoration: none; }
+    .docs-content a:hover { text-decoration: underline; }
+    .anchor { color: #d1d5db; text-decoration: none; margin-right: 4px; font-weight: 400; }
+    .anchor:hover { color: #2563eb; }
+
+    .docs-content code {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em; background: #f3f4f6; padding: 2px 5px; border-radius: 3px;
+    }
+    .docs-content pre {
+      background: #1e1e2e; color: #cdd6f4; border-radius: 8px;
+      padding: 16px 20px; margin: 0 0 16px; overflow-x: auto; line-height: 1.5;
+    }
+    .docs-content pre code {
+      background: none; padding: 0; font-size: 13px; color: inherit;
+    }
+    .docs-content table {
+      width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14px;
+    }
+    .docs-content th, .docs-content td {
+      text-align: left; padding: 8px 12px; border: 1px solid #e5e7eb;
+    }
+    .docs-content th { background: #f9fafb; font-weight: 600; }
+    .docs-content blockquote {
+      border-left: 3px solid #2563eb; padding: 8px 16px; margin: 0 0 16px;
+      background: #f0f7ff; color: #374151; font-size: 14px;
+    }
+    .docs-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 24px 0; }
+    .docs-content img { max-width: 100%; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .docs-nav {
+        width: 100%; min-width: auto; height: auto; position: static;
+        border-right: none; border-bottom: 1px solid #e5e7eb;
+      }
+      .docs-content { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  
+    <nav class="docs-nav" aria-label="Documentation">
+      <a href="/" class="nav-logo">Riss</a>
+      <a href="/docs/v0.1/" class="nav-home">Documentation</a>
+      <h3>Core Docs</h3>
+      <ul><li><a href="/docs/v0.1/spec.html">Riss Specification</a></li>
+<li><a href="/docs/v0.1/ai-guide.html">Riss AI Generation Guide</a></li>
+<li><a href="/docs/v0.1/blocks.html">RissBlocks Specification</a></li></ul>
+      <h3>Block Reference</h3>
+      <ul><li><a href="/docs/v0.1/blocks/ai-guidelines.html">Ai Guidelines</a></li>
+<li><a href="/docs/v0.1/blocks/collections.html">Collections</a></li>
+<li><a href="/docs/v0.1/blocks/communication.html">Communication</a></li>
+<li><a href="/docs/v0.1/blocks/content.html">Content</a></li>
+<li><a href="/docs/v0.1/blocks/cta.html">Cta</a></li>
+<li><a href="/docs/v0.1/blocks/custom-blocks.html" class="active">Custom Blocks</a></li>
+<li><a href="/docs/v0.1/blocks/dashboard.html">Dashboard</a></li>
+<li><a href="/docs/v0.1/blocks/ecommerce.html">Ecommerce</a></li>
+<li><a href="/docs/v0.1/blocks/features.html">Features</a></li>
+<li><a href="/docs/v0.1/blocks/feedback.html">Feedback</a></li>
+<li><a href="/docs/v0.1/blocks/footer.html">Footer</a></li>
+<li><a href="/docs/v0.1/blocks/forms.html">Forms</a></li>
+<li><a href="/docs/v0.1/blocks/hero-header.html">Hero Header</a></li>
+<li><a href="/docs/v0.1/blocks/navigation.html">Navigation</a></li>
+<li><a href="/docs/v0.1/blocks/pricing.html">Pricing</a></li>
+<li><a href="/docs/v0.1/blocks/social-proof.html">Social Proof</a></li>
+<li><a href="/docs/v0.1/blocks/user-profile.html">User Profile</a></li></ul>
+    </nav>
+  
+  <main class="docs-content">
+    <h1 id="custom-blocks"><a href="#custom-blocks" class="anchor">#</a> Custom Blocks</h1>
+<p><a href="..//docs/v0.1/blocks.html">← Back to RissBlocks</a></p>
+<hr>
+<p>Users and AI can define custom blocks within a <code>.riss.yaml</code> file using the <code>blocks</code> top-level field. Custom blocks are expanded by the renderer like core blocks.</p>
+<h2 id="defining-a-custom-block"><a href="#defining-a-custom-block" class="anchor">#</a> Defining a custom block</h2>
+<pre><code class="language-yaml">riss: &quot;0.1&quot;
+
+meta:
+  name: &quot;MyApp&quot;
+  viewport: { width: 390, height: 844 }
+
+blocks:
+  - id: metric-card
+    description: &quot;A card showing a single metric with trend&quot;
+    params:
+      - name: label
+        required: true
+      - name: value
+        required: true
+      - name: trend
+        default: null
+      - name: trend-direction
+        default: null
+      - name: icon
+        default: null
+    template:
+      - type: card
+        padding: lg
+        children:
+          - type: row
+            align: center
+            justify: between
+            children:
+              - type: stack
+                gap: xs
+                children:
+                  - type: text
+                    variant: caption
+                    content: &quot;{{label}}&quot;
+                    color: text-secondary
+                  - type: text
+                    variant: h2
+                    content: &quot;{{value}}&quot;
+              - type: icon
+                name: &quot;{{icon}}&quot;
+                size: 24
+                color: text-secondary
+                if: &quot;{{icon}}&quot;
+          - type: text
+            variant: caption
+            content: &quot;{{trend}}&quot;
+            color: &quot;{{trend-direction == &#39;up&#39; ? &#39;success&#39; : trend-direction == &#39;down&#39; ? &#39;error&#39; : &#39;text-secondary&#39;}}&quot;
+            if: &quot;{{trend}}&quot;
+
+screens:
+  - id: dashboard
+    title: &quot;Dashboard&quot;
+    children:
+      - type: grid
+        columns: 3
+        gap: md
+        children:
+          - block: metric-card
+            label: &quot;Users&quot;
+            value: &quot;12,847&quot;
+            trend: &quot;+12%&quot;
+            trend-direction: up
+            icon: users
+          - block: metric-card
+            label: &quot;Revenue&quot;
+            value: &quot;$48K&quot;
+            trend: &quot;-2%&quot;
+            trend-direction: down
+            icon: arrow-up
+</code></pre>
+<h2 id="definition-fields"><a href="#definition-fields" class="anchor">#</a> Definition fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><strong>Yes</strong></td>
+<td>Block identifier. Must not conflict with core block names.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>No</td>
+<td>Human-readable description of the block.</td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td><strong>Yes</strong></td>
+<td>Parameter definitions: <code>{ name, required?, default? }</code>.</td>
+</tr>
+<tr>
+<td><code>template</code></td>
+<td><strong>Yes</strong></td>
+<td>Riss element tree. Use <code>{{param_name}}</code> for parameter interpolation.</td>
+</tr>
+</tbody></table>
+<h2 id="template-interpolation"><a href="#template-interpolation" class="anchor">#</a> Template interpolation</h2>
+<ul>
+<li><code>{{param_name}}</code> — Replaced with the parameter value.</li>
+<li><code>if: &quot;{{param_name}}&quot;</code> — Conditionally render element only if the parameter is truthy.</li>
+<li><code>{{param == &#39;value&#39; ? &#39;result_a&#39; : &#39;result_b&#39;}}</code> — Ternary expression. Compares a parameter against a string literal and returns one of two values. Ternaries can be nested for multi-branch logic (see the <code>metric-card</code> example above).</li>
+<li>Nested access is NOT supported in v0.1. Keep parameters flat.</li>
+<li>Only <code>==</code> comparisons are supported in v0.1. No arithmetic, no <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, or boolean operators.</li>
+</ul>
+
+  </main>
+</body>
+</html>

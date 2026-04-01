@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Header - Riss Documentation</title>
+  <meta name="description" content="Hero Header - YAML-based wireframe description format documentation">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; line-height: 1.65; color: #1a1a1a; background: #fff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; min-height: 100vh;
+    }
+    .docs-nav {
+      width: 260px; min-width: 260px; padding: 20px 16px;
+      border-right: 1px solid #e5e7eb; background: #fafafa;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 17px; color: #111; text-decoration: none;
+      display: block; margin-bottom: 4px;
+    }
+    .nav-home {
+      font-size: 13px; color: #6b7280; text-decoration: none; display: block; margin-bottom: 16px;
+    }
+    .nav-home:hover { color: #2563eb; }
+    .docs-nav h3 {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: #9ca3af; margin: 16px 0 6px;
+    }
+    .docs-nav ul { list-style: none; }
+    .docs-nav li a {
+      display: block; padding: 3px 8px; font-size: 13px; color: #374151;
+      text-decoration: none; border-radius: 4px; transition: background 0.15s;
+    }
+    .docs-nav li a:hover { background: #e5e7eb; }
+    .docs-nav li a.active { background: #2563eb; color: #fff; }
+
+    .docs-content {
+      flex: 1; max-width: 800px; padding: 40px 48px; margin: 0 auto;
+    }
+    .docs-content h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+    .docs-content h2 { font-size: 22px; font-weight: 600; margin: 32px 0 12px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
+    .docs-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+    .docs-content h4 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
+    .docs-content p { margin: 0 0 12px; }
+    .docs-content ul, .docs-content ol { margin: 0 0 12px; padding-left: 24px; }
+    .docs-content li { margin: 2px 0; }
+    .docs-content a { color: #2563eb; text-decoration: none; }
+    .docs-content a:hover { text-decoration: underline; }
+    .anchor { color: #d1d5db; text-decoration: none; margin-right: 4px; font-weight: 400; }
+    .anchor:hover { color: #2563eb; }
+
+    .docs-content code {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em; background: #f3f4f6; padding: 2px 5px; border-radius: 3px;
+    }
+    .docs-content pre {
+      background: #1e1e2e; color: #cdd6f4; border-radius: 8px;
+      padding: 16px 20px; margin: 0 0 16px; overflow-x: auto; line-height: 1.5;
+    }
+    .docs-content pre code {
+      background: none; padding: 0; font-size: 13px; color: inherit;
+    }
+    .docs-content table {
+      width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14px;
+    }
+    .docs-content th, .docs-content td {
+      text-align: left; padding: 8px 12px; border: 1px solid #e5e7eb;
+    }
+    .docs-content th { background: #f9fafb; font-weight: 600; }
+    .docs-content blockquote {
+      border-left: 3px solid #2563eb; padding: 8px 16px; margin: 0 0 16px;
+      background: #f0f7ff; color: #374151; font-size: 14px;
+    }
+    .docs-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 24px 0; }
+    .docs-content img { max-width: 100%; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .docs-nav {
+        width: 100%; min-width: auto; height: auto; position: static;
+        border-right: none; border-bottom: 1px solid #e5e7eb;
+      }
+      .docs-content { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  
+    <nav class="docs-nav" aria-label="Documentation">
+      <a href="/" class="nav-logo">Riss</a>
+      <a href="/docs/v0.1/" class="nav-home">Documentation</a>
+      <h3>Core Docs</h3>
+      <ul><li><a href="/docs/v0.1/spec.html">Riss Specification</a></li>
+<li><a href="/docs/v0.1/ai-guide.html">Riss AI Generation Guide</a></li>
+<li><a href="/docs/v0.1/blocks.html">RissBlocks Specification</a></li></ul>
+      <h3>Block Reference</h3>
+      <ul><li><a href="/docs/v0.1/blocks/ai-guidelines.html">Ai Guidelines</a></li>
+<li><a href="/docs/v0.1/blocks/collections.html">Collections</a></li>
+<li><a href="/docs/v0.1/blocks/communication.html">Communication</a></li>
+<li><a href="/docs/v0.1/blocks/content.html">Content</a></li>
+<li><a href="/docs/v0.1/blocks/cta.html">Cta</a></li>
+<li><a href="/docs/v0.1/blocks/custom-blocks.html">Custom Blocks</a></li>
+<li><a href="/docs/v0.1/blocks/dashboard.html">Dashboard</a></li>
+<li><a href="/docs/v0.1/blocks/ecommerce.html">Ecommerce</a></li>
+<li><a href="/docs/v0.1/blocks/features.html">Features</a></li>
+<li><a href="/docs/v0.1/blocks/feedback.html">Feedback</a></li>
+<li><a href="/docs/v0.1/blocks/footer.html">Footer</a></li>
+<li><a href="/docs/v0.1/blocks/forms.html">Forms</a></li>
+<li><a href="/docs/v0.1/blocks/hero-header.html" class="active">Hero Header</a></li>
+<li><a href="/docs/v0.1/blocks/navigation.html">Navigation</a></li>
+<li><a href="/docs/v0.1/blocks/pricing.html">Pricing</a></li>
+<li><a href="/docs/v0.1/blocks/social-proof.html">Social Proof</a></li>
+<li><a href="/docs/v0.1/blocks/user-profile.html">User Profile</a></li></ul>
+    </nav>
+  
+  <main class="docs-content">
+    <h1 id="hero-header-blocks"><a href="#hero-header-blocks" class="anchor">#</a> Hero &amp; Header Blocks</h1>
+<p><a href="..//docs/v0.1/blocks.html">← Back to RissBlocks</a></p>
+<hr>
+<h2 id="hero"><a href="#hero" class="anchor">#</a> <code>hero</code></h2>
+<p>The primary above-the-fold section. Supports multiple layout variants.</p>
+<pre><code class="language-yaml">- block: hero
+  variant: centered
+  heading: &quot;Build something great&quot;
+  subheading: &quot;A short value proposition that explains the product.&quot;
+  cta-label: &quot;Get Started&quot;
+  cta-secondary-label: &quot;Learn More&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>variant</code></td>
+<td><code>centered</code>, <code>split</code>, <code>split-reverse</code>, <code>with-search</code>, <code>with-input</code></td>
+<td><code>centered</code></td>
+<td>Layout variant.</td>
+</tr>
+<tr>
+<td><code>heading</code></td>
+<td><strong>String (required)</strong></td>
+<td>—</td>
+<td>Primary heading.</td>
+</tr>
+<tr>
+<td><code>subheading</code></td>
+<td>String</td>
+<td>—</td>
+<td>Supporting text below the heading.</td>
+</tr>
+<tr>
+<td><code>cta-label</code></td>
+<td>String</td>
+<td>—</td>
+<td>Primary CTA button label.</td>
+</tr>
+<tr>
+<td><code>cta-secondary-label</code></td>
+<td>String</td>
+<td>—</td>
+<td>Secondary CTA button label.</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>Boolean or String</td>
+<td><code>false</code></td>
+<td>Show image placeholder. String sets the label.</td>
+</tr>
+<tr>
+<td><code>image-position</code></td>
+<td><code>right</code>, <code>left</code>, <code>bottom</code>, <code>background</code></td>
+<td><code>right</code></td>
+<td>Image placement (for <code>split</code> variants, auto-inferred).</td>
+</tr>
+<tr>
+<td><code>background</code></td>
+<td>Color</td>
+<td><code>background</code></td>
+<td>Section background.</td>
+</tr>
+<tr>
+<td><code>align</code></td>
+<td><code>left</code>, <code>center</code></td>
+<td>Depends on variant</td>
+<td>Text alignment.</td>
+</tr>
+<tr>
+<td><code>badge</code></td>
+<td>String</td>
+<td>—</td>
+<td>Small badge/label above the heading (e.g., &quot;New&quot;, &quot;Beta&quot;).</td>
+</tr>
+</tbody></table>
+<p>Variant behavior:</p>
+<ul>
+<li><code>centered</code> — Full-width, text centered, optional image below text.</li>
+<li><code>split</code> — Text left, image right (50/50).</li>
+<li><code>split-reverse</code> — Image left, text right.</li>
+<li><code>with-search</code> — Centered text + prominent search input instead of CTA buttons.</li>
+<li><code>with-input</code> — Centered text + email input + submit button (newsletter/waitlist).</li>
+</ul>
+<hr>
+<h2 id="page-header"><a href="#page-header" class="anchor">#</a> <code>page-header</code></h2>
+<p>A simpler header for inner pages. Heading + optional breadcrumb, description, and actions.</p>
+<pre><code class="language-yaml">- block: page-header
+  title: &quot;Team Settings&quot;
+  description: &quot;Manage your team members and their permissions.&quot;
+  breadcrumb: [&quot;Home&quot;, &quot;Settings&quot;, &quot;Team&quot;]
+  actions:
+    - label: &quot;Invite Member&quot;
+      icon: plus
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td><strong>String (required)</strong></td>
+<td>—</td>
+<td>Page heading.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>String</td>
+<td>—</td>
+<td>Subtitle / description text.</td>
+</tr>
+<tr>
+<td><code>breadcrumb</code></td>
+<td>String[]</td>
+<td>—</td>
+<td>Breadcrumb path items.</td>
+</tr>
+<tr>
+<td><code>actions</code></td>
+<td>Array of <code>{ label, icon?, variant? }</code></td>
+<td>—</td>
+<td>Action buttons aligned right.</td>
+</tr>
+<tr>
+<td><code>tabs</code></td>
+<td>Array of <code>{ label, active? }</code></td>
+<td>—</td>
+<td>Tab strip below the header.</td>
+</tr>
+<tr>
+<td><code>divider</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Bottom divider line.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="announcement-bar"><a href="#announcement-bar" class="anchor">#</a> <code>announcement-bar</code></h2>
+<p>A thin, dismissible banner at the top of the screen.</p>
+<pre><code class="language-yaml">- block: announcement-bar
+  message: &quot;🎉 v2.0 is here — see what&#39;s new&quot;
+  action: &quot;Read changelog&quot;
+  color: accent
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>message</code></td>
+<td><strong>String (required)</strong></td>
+<td>—</td>
+<td>Banner text.</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td>String</td>
+<td>—</td>
+<td>Link/button label.</td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td>Color</td>
+<td><code>accent-soft</code></td>
+<td>Background color.</td>
+</tr>
+<tr>
+<td><code>dismissable</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Show close button.</td>
+</tr>
+</tbody></table>
+
+  </main>
+</body>
+</html>

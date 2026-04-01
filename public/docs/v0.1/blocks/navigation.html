@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation - Riss Documentation</title>
+  <meta name="description" content="Navigation - YAML-based wireframe description format documentation">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; line-height: 1.65; color: #1a1a1a; background: #fff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; min-height: 100vh;
+    }
+    .docs-nav {
+      width: 260px; min-width: 260px; padding: 20px 16px;
+      border-right: 1px solid #e5e7eb; background: #fafafa;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 17px; color: #111; text-decoration: none;
+      display: block; margin-bottom: 4px;
+    }
+    .nav-home {
+      font-size: 13px; color: #6b7280; text-decoration: none; display: block; margin-bottom: 16px;
+    }
+    .nav-home:hover { color: #2563eb; }
+    .docs-nav h3 {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: #9ca3af; margin: 16px 0 6px;
+    }
+    .docs-nav ul { list-style: none; }
+    .docs-nav li a {
+      display: block; padding: 3px 8px; font-size: 13px; color: #374151;
+      text-decoration: none; border-radius: 4px; transition: background 0.15s;
+    }
+    .docs-nav li a:hover { background: #e5e7eb; }
+    .docs-nav li a.active { background: #2563eb; color: #fff; }
+
+    .docs-content {
+      flex: 1; max-width: 800px; padding: 40px 48px; margin: 0 auto;
+    }
+    .docs-content h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+    .docs-content h2 { font-size: 22px; font-weight: 600; margin: 32px 0 12px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
+    .docs-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+    .docs-content h4 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
+    .docs-content p { margin: 0 0 12px; }
+    .docs-content ul, .docs-content ol { margin: 0 0 12px; padding-left: 24px; }
+    .docs-content li { margin: 2px 0; }
+    .docs-content a { color: #2563eb; text-decoration: none; }
+    .docs-content a:hover { text-decoration: underline; }
+    .anchor { color: #d1d5db; text-decoration: none; margin-right: 4px; font-weight: 400; }
+    .anchor:hover { color: #2563eb; }
+
+    .docs-content code {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em; background: #f3f4f6; padding: 2px 5px; border-radius: 3px;
+    }
+    .docs-content pre {
+      background: #1e1e2e; color: #cdd6f4; border-radius: 8px;
+      padding: 16px 20px; margin: 0 0 16px; overflow-x: auto; line-height: 1.5;
+    }
+    .docs-content pre code {
+      background: none; padding: 0; font-size: 13px; color: inherit;
+    }
+    .docs-content table {
+      width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14px;
+    }
+    .docs-content th, .docs-content td {
+      text-align: left; padding: 8px 12px; border: 1px solid #e5e7eb;
+    }
+    .docs-content th { background: #f9fafb; font-weight: 600; }
+    .docs-content blockquote {
+      border-left: 3px solid #2563eb; padding: 8px 16px; margin: 0 0 16px;
+      background: #f0f7ff; color: #374151; font-size: 14px;
+    }
+    .docs-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 24px 0; }
+    .docs-content img { max-width: 100%; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .docs-nav {
+        width: 100%; min-width: auto; height: auto; position: static;
+        border-right: none; border-bottom: 1px solid #e5e7eb;
+      }
+      .docs-content { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  
+    <nav class="docs-nav" aria-label="Documentation">
+      <a href="/" class="nav-logo">Riss</a>
+      <a href="/docs/v0.1/" class="nav-home">Documentation</a>
+      <h3>Core Docs</h3>
+      <ul><li><a href="/docs/v0.1/spec.html">Riss Specification</a></li>
+<li><a href="/docs/v0.1/ai-guide.html">Riss AI Generation Guide</a></li>
+<li><a href="/docs/v0.1/blocks.html">RissBlocks Specification</a></li></ul>
+      <h3>Block Reference</h3>
+      <ul><li><a href="/docs/v0.1/blocks/ai-guidelines.html">Ai Guidelines</a></li>
+<li><a href="/docs/v0.1/blocks/collections.html">Collections</a></li>
+<li><a href="/docs/v0.1/blocks/communication.html">Communication</a></li>
+<li><a href="/docs/v0.1/blocks/content.html">Content</a></li>
+<li><a href="/docs/v0.1/blocks/cta.html">Cta</a></li>
+<li><a href="/docs/v0.1/blocks/custom-blocks.html">Custom Blocks</a></li>
+<li><a href="/docs/v0.1/blocks/dashboard.html">Dashboard</a></li>
+<li><a href="/docs/v0.1/blocks/ecommerce.html">Ecommerce</a></li>
+<li><a href="/docs/v0.1/blocks/features.html">Features</a></li>
+<li><a href="/docs/v0.1/blocks/feedback.html">Feedback</a></li>
+<li><a href="/docs/v0.1/blocks/footer.html">Footer</a></li>
+<li><a href="/docs/v0.1/blocks/forms.html">Forms</a></li>
+<li><a href="/docs/v0.1/blocks/hero-header.html">Hero Header</a></li>
+<li><a href="/docs/v0.1/blocks/navigation.html" class="active">Navigation</a></li>
+<li><a href="/docs/v0.1/blocks/pricing.html">Pricing</a></li>
+<li><a href="/docs/v0.1/blocks/social-proof.html">Social Proof</a></li>
+<li><a href="/docs/v0.1/blocks/user-profile.html">User Profile</a></li></ul>
+    </nav>
+  
+  <main class="docs-content">
+    <h1 id="navigation-blocks"><a href="#navigation-blocks" class="anchor">#</a> Navigation Blocks</h1>
+<p><a href="..//docs/v0.1/blocks.html">← Back to RissBlocks</a></p>
+<hr>
+<h2 id="sidebar-nav"><a href="#sidebar-nav" class="anchor">#</a> <code>sidebar-nav</code></h2>
+<p>A vertical sidebar navigation panel. Typically used inside a <code>row</code> alongside main content.</p>
+<pre><code class="language-yaml">- block: sidebar-nav
+  logo: &quot;AppName&quot;
+  items:
+    - icon: home
+      label: &quot;Dashboard&quot;
+      active: true
+    - icon: users
+      label: &quot;Users&quot;
+    - icon: file
+      label: &quot;Reports&quot;
+    - icon: settings
+      label: &quot;Settings&quot;
+  footer:
+    avatar: &quot;BQ&quot;
+    name: &quot;Bear&quot;
+    subtitle: &quot;Admin&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>logo</code></td>
+<td>String</td>
+<td>—</td>
+<td>App name or logo label.</td>
+</tr>
+<tr>
+<td><code>logo-icon</code></td>
+<td>String</td>
+<td>—</td>
+<td>Icon beside the logo.</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Nav items: <code>{ icon, label, active?, badge? }</code>.</td>
+</tr>
+<tr>
+<td><code>groups</code></td>
+<td>Array</td>
+<td>—</td>
+<td>Grouped items: <code>{ title, items[] }</code>. Alternative to flat <code>items</code>.</td>
+</tr>
+<tr>
+<td><code>footer</code></td>
+<td>Object</td>
+<td>—</td>
+<td>Bottom section: <code>{ avatar?, name?, subtitle? }</code>.</td>
+</tr>
+<tr>
+<td><code>width</code></td>
+<td>Number</td>
+<td><code>260</code></td>
+<td>Sidebar width in pixels.</td>
+</tr>
+<tr>
+<td><code>collapsible</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Can collapse to icon-only mode.</td>
+</tr>
+<tr>
+<td><code>background</code></td>
+<td>Color</td>
+<td><code>surface</code></td>
+<td>Background color.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="top-nav"><a href="#top-nav" class="anchor">#</a> <code>top-nav</code></h2>
+<p>A horizontal top navigation bar for marketing pages and desktop layouts.</p>
+<blockquote>
+<p><strong>Relation to core element:</strong> For a simpler mobile-style app bar with leading/trailing icons, see the <a href="..//docs/v0.1/spec.html#65-navigation-elements"><code>navbar</code></a> element. Use <code>top-nav</code> for marketing sites and desktop apps with logo, nav links, and CTA buttons.</p>
+</blockquote>
+<pre><code class="language-yaml">- block: top-nav
+  logo: &quot;Riss&quot;
+  items:
+    - label: &quot;Product&quot;
+    - label: &quot;Docs&quot;
+    - label: &quot;Pricing&quot;
+  cta-label: &quot;Sign Up&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>logo</code></td>
+<td>String</td>
+<td>—</td>
+<td>App name / logo label.</td>
+</tr>
+<tr>
+<td><code>logo-icon</code></td>
+<td>String</td>
+<td>—</td>
+<td>Icon beside the logo.</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td>Array</td>
+<td><code>[]</code></td>
+<td>Nav links: <code>{ label, active? }</code>.</td>
+</tr>
+<tr>
+<td><code>cta-label</code></td>
+<td>String</td>
+<td>—</td>
+<td>Right-side CTA button label.</td>
+</tr>
+<tr>
+<td><code>cta-secondary-label</code></td>
+<td>String</td>
+<td>—</td>
+<td>Ghost/outline button before primary CTA.</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Show search input.</td>
+</tr>
+<tr>
+<td><code>avatar</code></td>
+<td>String</td>
+<td>—</td>
+<td>User avatar initials (shows user menu area).</td>
+</tr>
+<tr>
+<td><code>sticky</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Note: sticky rendering (annotation only in v0.1).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="breadcrumb-header"><a href="#breadcrumb-header" class="anchor">#</a> <code>breadcrumb-header</code></h2>
+<p>Breadcrumb navigation + page title combined.</p>
+<pre><code class="language-yaml">- block: breadcrumb-header
+  breadcrumb: [&quot;Home&quot;, &quot;Products&quot;, &quot;Running Shoes&quot;]
+  title: &quot;Running Shoes&quot;
+  description: &quot;High-performance footwear for every terrain.&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>breadcrumb</code></td>
+<td><strong>String[] (required)</strong></td>
+<td>—</td>
+<td>Path items. Last item = current page.</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>String</td>
+<td>—</td>
+<td>Page heading (defaults to last breadcrumb item).</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>String</td>
+<td>—</td>
+<td>Subtitle text.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="bottom-nav"><a href="#bottom-nav" class="anchor">#</a> <code>bottom-nav</code></h2>
+<p>A bottom tab-style navigation bar for mobile apps.</p>
+<blockquote>
+<p><strong>Relation to core element:</strong> This block is a parameterized version of the <a href="..//docs/v0.1/spec.html#65-navigation-elements"><code>tabbar</code></a> element. Use the core <code>tabbar</code> element when you need full control over the bar; use this block for quick mobile navigation with sensible defaults.</p>
+</blockquote>
+<pre><code class="language-yaml">- block: bottom-nav
+  items:
+    - icon: home
+      label: &quot;Home&quot;
+      active: true
+    - icon: search
+      label: &quot;Explore&quot;
+    - icon: plus
+      label: &quot;Create&quot;
+    - icon: bell
+      label: &quot;Notifications&quot;
+      badge: &quot;3&quot;
+    - icon: user
+      label: &quot;Profile&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>items</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Tab items: <code>{ icon, label, active?, badge? }</code>.</td>
+</tr>
+<tr>
+<td><code>variant</code></td>
+<td><code>icon-label</code>, <code>icon-only</code>, <code>label-only</code></td>
+<td><code>icon-label</code></td>
+<td>Display mode for tab items.</td>
+</tr>
+<tr>
+<td><code>background</code></td>
+<td>Color</td>
+<td><code>background</code></td>
+<td>Bar background color.</td>
+</tr>
+<tr>
+<td><code>active-color</code></td>
+<td>Color</td>
+<td><code>accent</code></td>
+<td>Color for the active tab icon and label.</td>
+</tr>
+</tbody></table>
+
+  </main>
+</body>
+</html>

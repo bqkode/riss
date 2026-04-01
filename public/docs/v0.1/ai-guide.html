@@ -1,0 +1,2446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riss AI Generation Guide v0.1 - Riss Documentation</title>
+  <meta name="description" content="Riss AI Generation Guide v0.1 - YAML-based wireframe description format documentation">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; line-height: 1.65; color: #1a1a1a; background: #fff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; min-height: 100vh;
+    }
+    .docs-nav {
+      width: 260px; min-width: 260px; padding: 20px 16px;
+      border-right: 1px solid #e5e7eb; background: #fafafa;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 17px; color: #111; text-decoration: none;
+      display: block; margin-bottom: 4px;
+    }
+    .nav-home {
+      font-size: 13px; color: #6b7280; text-decoration: none; display: block; margin-bottom: 16px;
+    }
+    .nav-home:hover { color: #2563eb; }
+    .docs-nav h3 {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: #9ca3af; margin: 16px 0 6px;
+    }
+    .docs-nav ul { list-style: none; }
+    .docs-nav li a {
+      display: block; padding: 3px 8px; font-size: 13px; color: #374151;
+      text-decoration: none; border-radius: 4px; transition: background 0.15s;
+    }
+    .docs-nav li a:hover { background: #e5e7eb; }
+    .docs-nav li a.active { background: #2563eb; color: #fff; }
+
+    .docs-content {
+      flex: 1; max-width: 800px; padding: 40px 48px; margin: 0 auto;
+    }
+    .docs-content h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+    .docs-content h2 { font-size: 22px; font-weight: 600; margin: 32px 0 12px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
+    .docs-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+    .docs-content h4 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
+    .docs-content p { margin: 0 0 12px; }
+    .docs-content ul, .docs-content ol { margin: 0 0 12px; padding-left: 24px; }
+    .docs-content li { margin: 2px 0; }
+    .docs-content a { color: #2563eb; text-decoration: none; }
+    .docs-content a:hover { text-decoration: underline; }
+    .anchor { color: #d1d5db; text-decoration: none; margin-right: 4px; font-weight: 400; }
+    .anchor:hover { color: #2563eb; }
+
+    .docs-content code {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em; background: #f3f4f6; padding: 2px 5px; border-radius: 3px;
+    }
+    .docs-content pre {
+      background: #1e1e2e; color: #cdd6f4; border-radius: 8px;
+      padding: 16px 20px; margin: 0 0 16px; overflow-x: auto; line-height: 1.5;
+    }
+    .docs-content pre code {
+      background: none; padding: 0; font-size: 13px; color: inherit;
+    }
+    .docs-content table {
+      width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14px;
+    }
+    .docs-content th, .docs-content td {
+      text-align: left; padding: 8px 12px; border: 1px solid #e5e7eb;
+    }
+    .docs-content th { background: #f9fafb; font-weight: 600; }
+    .docs-content blockquote {
+      border-left: 3px solid #2563eb; padding: 8px 16px; margin: 0 0 16px;
+      background: #f0f7ff; color: #374151; font-size: 14px;
+    }
+    .docs-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 24px 0; }
+    .docs-content img { max-width: 100%; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .docs-nav {
+        width: 100%; min-width: auto; height: auto; position: static;
+        border-right: none; border-bottom: 1px solid #e5e7eb;
+      }
+      .docs-content { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  
+    <nav class="docs-nav" aria-label="Documentation">
+      <a href="/" class="nav-logo">Riss</a>
+      <a href="/docs/v0.1/" class="nav-home">Documentation</a>
+      <h3>Core Docs</h3>
+      <ul><li><a href="/docs/v0.1/spec.html">Riss Specification</a></li>
+<li><a href="/docs/v0.1/ai-guide.html" class="active">Riss AI Generation Guide</a></li>
+<li><a href="/docs/v0.1/blocks.html">RissBlocks Specification</a></li></ul>
+      <h3>Block Reference</h3>
+      <ul><li><a href="/docs/v0.1/blocks/ai-guidelines.html">Ai Guidelines</a></li>
+<li><a href="/docs/v0.1/blocks/collections.html">Collections</a></li>
+<li><a href="/docs/v0.1/blocks/communication.html">Communication</a></li>
+<li><a href="/docs/v0.1/blocks/content.html">Content</a></li>
+<li><a href="/docs/v0.1/blocks/cta.html">Cta</a></li>
+<li><a href="/docs/v0.1/blocks/custom-blocks.html">Custom Blocks</a></li>
+<li><a href="/docs/v0.1/blocks/dashboard.html">Dashboard</a></li>
+<li><a href="/docs/v0.1/blocks/ecommerce.html">Ecommerce</a></li>
+<li><a href="/docs/v0.1/blocks/features.html">Features</a></li>
+<li><a href="/docs/v0.1/blocks/feedback.html">Feedback</a></li>
+<li><a href="/docs/v0.1/blocks/footer.html">Footer</a></li>
+<li><a href="/docs/v0.1/blocks/forms.html">Forms</a></li>
+<li><a href="/docs/v0.1/blocks/hero-header.html">Hero Header</a></li>
+<li><a href="/docs/v0.1/blocks/navigation.html">Navigation</a></li>
+<li><a href="/docs/v0.1/blocks/pricing.html">Pricing</a></li>
+<li><a href="/docs/v0.1/blocks/social-proof.html">Social Proof</a></li>
+<li><a href="/docs/v0.1/blocks/user-profile.html">User Profile</a></li></ul>
+    </nav>
+  
+  <main class="docs-content">
+    <h1 id="riss-ai-generation-guide-v01"><a href="#riss-ai-generation-guide-v01" class="anchor">#</a> Riss AI Generation Guide v0.1</h1>
+<blockquote>
+<p>A complete reference for AI language models generating <code>.riss.yaml</code> wireframe files. This guide covers the full format specification, structural rules, and best practices needed to produce valid, high-quality wireframes.</p>
+</blockquote>
+<blockquote>
+<p><strong>Documentation Policy:</strong> The markdown files in <code>docs/</code> are the source of truth. Running <code>npm run build:docs</code> generates versioned HTML in <code>public/docs/&lt;version&gt;/</code> for AI agents. When updating docs, edit the markdown sources in <code>docs/</code> and rebuild.</p>
+</blockquote>
+<hr>
+<h2 id="table-of-contents"><a href="#table-of-contents" class="anchor">#</a> Table of Contents</h2>
+<ol>
+<li><a href="#1-overview">Overview</a></li>
+<li><a href="#2-file-structure">File Structure</a></li>
+<li><a href="#3-meta-configuration">Meta Configuration</a></li>
+<li><a href="#4-screens">Screens</a></li>
+<li><a href="#5-screen-navigation--flows">Screen Navigation &amp; Flows</a></li>
+<li><a href="#6-user-roles">User Roles</a></li>
+<li><a href="#7-layout-system">Layout System</a></li>
+<li><a href="#8-styling-system">Styling System</a></li>
+<li><a href="#9-element-reference">Element Reference</a></li>
+<li><a href="#10-rissblocks-pre-built-patterns">RissBlocks (Pre-built Patterns)</a></li>
+<li><a href="#11-custom-blocks">Custom Blocks</a></li>
+<li><a href="#12-annotations">Annotations</a></li>
+<li><a href="#13-generation-rules--best-practices">Generation Rules &amp; Best Practices</a></li>
+<li><a href="#14-validation-checklist">Validation Checklist</a></li>
+<li><a href="#15-complete-examples">Complete Examples</a></li>
+</ol>
+<hr>
+<h2 id="1-overview"><a href="#1-overview" class="anchor">#</a> 1. Overview</h2>
+<p><strong>Riss</strong> (Norwegian: <em>sketch, outline</em>) is a YAML-based wireframe description format. A <code>.riss.yaml</code> file describes one or more application screens as a tree of layout and content elements. The renderer produces clean wireframe visualizations — not finished UI.</p>
+<h3 id="what-you-are-generating"><a href="#what-you-are-generating" class="anchor">#</a> What you are generating</h3>
+<ul>
+<li>Static wireframes, not interactive prototypes</li>
+<li>Grayscale layouts with an optional accent color</li>
+<li>Visual communication tools for human stakeholders to validate before development begins</li>
+</ul>
+<h3 id="key-principles"><a href="#key-principles" class="anchor">#</a> Key principles</h3>
+<ol>
+<li><strong>Predictable structure</strong> — Minimal ambiguity, small set of well-defined elements</li>
+<li><strong>Visually honest</strong> — Wireframe style sets correct expectations</li>
+<li><strong>Deterministic</strong> — Same file always produces the same visual output</li>
+<li><strong>Composable</strong> — Few element types with composable properties, plus 57 pre-built blocks</li>
+</ol>
+<hr>
+<h2 id="2-file-structure"><a href="#2-file-structure" class="anchor">#</a> 2. File Structure</h2>
+<h3 id="file-requirements"><a href="#file-requirements" class="anchor">#</a> File requirements</h3>
+<ul>
+<li><strong>Extension:</strong> <code>.riss.yaml</code></li>
+<li><strong>Encoding:</strong> UTF-8</li>
+<li><strong>YAML version:</strong> 1.2 (2-space indentation)</li>
+<li><strong>Scope:</strong> One project/app per file, may contain multiple screens</li>
+</ul>
+<h3 id="top-level-document-structure"><a href="#top-level-document-structure" class="anchor">#</a> Top-level document structure</h3>
+<p>Every <code>.riss.yaml</code> file MUST have this shape:</p>
+<pre><code class="language-yaml">riss: &quot;0.1&quot;                   # Required — spec version, always &quot;0.1&quot;
+
+meta:                          # Required — project metadata
+  name: &quot;Project Name&quot;        # Required — project/app name
+  description: &quot;...&quot;          # Optional
+  viewport:                    # Optional (defaults to 390x844)
+    width: 390
+    height: 844
+  theme:                       # Optional
+    mode: light                # light | dark (default: light)
+    accent: &quot;#2563EB&quot;          # Hex color (default: #2563EB)
+  roles: []                    # Optional — user role definitions
+
+blocks: []                     # Optional — custom block definitions
+
+screens:                       # Required — at least one screen
+  - id: screen_id
+    title: &quot;Screen Title&quot;
+    children: [...]
+</code></pre>
+<h3 id="top-level-fields"><a href="#top-level-fields" class="anchor">#</a> Top-level fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>riss</code></td>
+<td><strong>Yes</strong></td>
+<td>Must be <code>&quot;0.1&quot;</code></td>
+</tr>
+<tr>
+<td><code>meta</code></td>
+<td><strong>Yes</strong></td>
+<td>Project metadata and defaults</td>
+</tr>
+<tr>
+<td><code>blocks</code></td>
+<td>No</td>
+<td>Custom block definitions</td>
+</tr>
+<tr>
+<td><code>screens</code></td>
+<td><strong>Yes</strong></td>
+<td>Screen definitions (min 1)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="3-meta-configuration"><a href="#3-meta-configuration" class="anchor">#</a> 3. Meta Configuration</h2>
+<h3 id="meta-object"><a href="#meta-object" class="anchor">#</a> <code>meta</code> object</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>name</code></td>
+<td><strong>Yes</strong></td>
+<td>—</td>
+<td>Project or app name</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>Brief project description</td>
+</tr>
+<tr>
+<td><code>viewport</code></td>
+<td>No</td>
+<td><code>{ width: 390, height: 844 }</code></td>
+<td>Default viewport size in pixels</td>
+</tr>
+<tr>
+<td><code>theme</code></td>
+<td>No</td>
+<td><code>{ mode: light }</code></td>
+<td>Visual theme settings</td>
+</tr>
+<tr>
+<td><code>theme.mode</code></td>
+<td>No</td>
+<td><code>light</code></td>
+<td><code>light</code> or <code>dark</code></td>
+</tr>
+<tr>
+<td><code>theme.accent</code></td>
+<td>No</td>
+<td><code>&quot;#2563EB&quot;</code></td>
+<td>Accent color hex — the only hex you should set</td>
+</tr>
+<tr>
+<td><code>roles</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>Role definitions (see <a href="#6-user-roles">Section 6</a>)</td>
+</tr>
+</tbody></table>
+<h3 id="viewport-presets"><a href="#viewport-presets" class="anchor">#</a> Viewport presets</h3>
+<p>Choose the viewport that matches your target device:</p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Width</th>
+<th>Height</th>
+<th>Use for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>iPhone (standard)</td>
+<td>390</td>
+<td>844</td>
+<td>Mobile apps (default)</td>
+</tr>
+<tr>
+<td>iPhone SE</td>
+<td>375</td>
+<td>667</td>
+<td>Compact mobile</td>
+</tr>
+<tr>
+<td>Android (standard)</td>
+<td>412</td>
+<td>915</td>
+<td>Android apps</td>
+</tr>
+<tr>
+<td>iPad</td>
+<td>820</td>
+<td>1180</td>
+<td>Tablet apps</td>
+</tr>
+<tr>
+<td>Desktop (laptop)</td>
+<td>1440</td>
+<td>900</td>
+<td>Web apps, dashboards</td>
+</tr>
+<tr>
+<td>Desktop (wide)</td>
+<td>1920</td>
+<td>1080</td>
+<td>Full-width web apps</td>
+</tr>
+</tbody></table>
+<p><strong>Always specify the viewport explicitly</strong> — don&#39;t rely on the default. It signals intent.</p>
+<pre><code class="language-yaml"># Mobile app
+meta:
+  name: &quot;MyApp&quot;
+  viewport: { width: 390, height: 844 }
+
+# Desktop web app
+meta:
+  name: &quot;AdminPanel&quot;
+  viewport: { width: 1440, height: 900 }
+</code></pre>
+<hr>
+<h2 id="4-screens"><a href="#4-screens" class="anchor">#</a> 4. Screens</h2>
+<p>Each screen is a single viewport representing one page, view, or state of the application.</p>
+<h3 id="screen-definition"><a href="#screen-definition" class="anchor">#</a> Screen definition</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><strong>Yes</strong></td>
+<td>—</td>
+<td>Unique identifier (snake_case, alphanumeric + underscores)</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><strong>Yes</strong></td>
+<td>—</td>
+<td>Display name, rendered above the frame</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td>No</td>
+<td>—</td>
+<td>URL path or route (e.g., <code>/login</code>, <code>/products/:id</code>)</td>
+</tr>
+<tr>
+<td><code>viewport</code></td>
+<td>No</td>
+<td>Inherits from <code>meta.viewport</code></td>
+<td>Override viewport for this screen</td>
+</tr>
+<tr>
+<td><code>background</code></td>
+<td>No</td>
+<td><code>background</code> token</td>
+<td>Screen background color</td>
+</tr>
+<tr>
+<td><code>statusbar</code></td>
+<td>No</td>
+<td><code>true</code></td>
+<td>Show device status bar (mobile viewports)</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>No</td>
+<td>—</td>
+<td>Restrict entire screen to role(s)</td>
+</tr>
+<tr>
+<td><code>children</code></td>
+<td><strong>Yes</strong></td>
+<td><code>[]</code></td>
+<td>Element tree</td>
+</tr>
+</tbody></table>
+<h3 id="screen-id-conventions"><a href="#screen-id-conventions" class="anchor">#</a> Screen ID conventions</h3>
+<ul>
+<li>Use <code>snake_case</code>: <code>home</code>, <code>product_detail</code>, <code>user_settings</code></li>
+<li>Be descriptive: <code>checkout_payment</code> not <code>step3</code></li>
+<li>Each ID must be unique within the file</li>
+</ul>
+<pre><code class="language-yaml">screens:
+  - id: home
+    title: &quot;Home&quot;
+    path: &quot;/&quot;
+    children: [...]
+
+  - id: product_detail
+    title: &quot;Product Detail&quot;
+    path: &quot;/products/:id&quot;
+    children: [...]
+</code></pre>
+<hr>
+<h2 id="5-screen-navigation-flows"><a href="#5-screen-navigation-flows" class="anchor">#</a> 5. Screen Navigation &amp; Flows</h2>
+<p>The <code>next</code> property on any <strong>element or block</strong> declares which screen(s) the user can navigate to by interacting with it. This creates a directed graph of navigation flow. Place <code>next</code> on the element that represents the user action — a button, a link, a card, or a CTA block.</p>
+<h3 id="single-target-on-an-element"><a href="#single-target-on-an-element" class="anchor">#</a> Single target (on an element)</h3>
+<pre><code class="language-yaml">- id: login
+  title: &quot;Login&quot;
+  children:
+    - type: scroll
+      children: [...]
+    - type: button
+      label: &quot;Log in&quot;
+      variant: primary
+      next: home              # String — one target
+</code></pre>
+<h3 id="single-target-on-a-block"><a href="#single-target-on-a-block" class="anchor">#</a> Single target (on a block)</h3>
+<pre><code class="language-yaml">- id: signup
+  title: &quot;Sign Up&quot;
+  children:
+    - type: scroll
+      children: [...]
+    - block: cta-banner
+      cta-label: &quot;Create account&quot;
+      next: onboarding        # Works on blocks too
+</code></pre>
+<h3 id="multiple-targets-branching"><a href="#multiple-targets-branching" class="anchor">#</a> Multiple targets (branching)</h3>
+<pre><code class="language-yaml">- id: welcome
+  title: &quot;Welcome&quot;
+  children:
+    - type: button
+      label: &quot;Sign up&quot;
+      next: signup
+    - type: button
+      label: &quot;Log in&quot;
+      next: login             # Each button points to a different screen
+</code></pre>
+<h3 id="no-target-endpoint"><a href="#no-target-endpoint" class="anchor">#</a> No target (endpoint)</h3>
+<pre><code class="language-yaml">- id: confirmation
+  title: &quot;Order Confirmed&quot;
+  # No element with `next` — this is an end screen
+  children: [...]
+</code></pre>
+<h3 id="building-a-complete-flow"><a href="#building-a-complete-flow" class="anchor">#</a> Building a complete flow</h3>
+<p>A typical app flow creates a directed graph:</p>
+<pre><code class="language-yaml">screens:
+  # Entry point — CTA branches to login or signup
+  - id: welcome
+    title: &quot;Welcome&quot;
+    children:
+      - block: cta-banner
+        heading: &quot;Get started&quot;
+        cta-label: &quot;Sign up&quot;
+        cta-secondary-label: &quot;Log in&quot;
+        next: [login, signup]
+
+  # Login converges to home
+  - id: login
+    title: &quot;Login&quot;
+    path: &quot;/login&quot;
+    children:
+      - type: scroll
+        children: [...]
+      - block: cta-banner
+        cta-label: &quot;Log in&quot;
+        next: home
+
+  # Signup goes through onboarding first
+  - id: signup
+    title: &quot;Sign Up&quot;
+    path: &quot;/signup&quot;
+    children:
+      - type: scroll
+        children: [...]
+      - block: cta-banner
+        cta-label: &quot;Create account&quot;
+        next: onboarding
+
+  # Onboarding converges to home
+  - id: onboarding
+    title: &quot;Onboarding&quot;
+    path: &quot;/onboarding&quot;
+    children:
+      - type: scroll
+        children: [...]
+      - block: cta-banner
+        cta-label: &quot;Get started&quot;
+        next: home
+
+  # Home — CTA branches to detail views
+  - id: home
+    title: &quot;Home&quot;
+    path: &quot;/&quot;
+    children:
+      - type: scroll
+        children: [...]
+      - block: cta-inline
+        heading: &quot;Explore&quot;
+        cta-label: &quot;See all&quot;
+        next: [product_detail, search]
+
+  # End screens (no block with next)
+  - id: product_detail
+    title: &quot;Product Detail&quot;
+    path: &quot;/products/:id&quot;
+    children: [...]
+
+  - id: search
+    title: &quot;Search&quot;
+    path: &quot;/search&quot;
+    children: [...]
+</code></pre>
+<p>This creates the flow:</p>
+<pre><code>welcome ──→ login ──→ home ──→ product_detail
+    │                  │
+    └──→ signup ──→ onboarding
+                       │
+                       └──→ home ──→ search
+</code></pre>
+<h3 id="navigation-flow-rules"><a href="#navigation-flow-rules" class="anchor">#</a> Navigation flow rules</h3>
+<ol>
+<li>Every <code>next</code> value must reference a valid screen <code>id</code> defined in the same file</li>
+<li>The first screen in the <code>screens</code> array is the entry point</li>
+<li>Flows can branch (one-to-many via array) and converge (many-to-one)</li>
+<li>Circular references are allowed (e.g., <code>home → settings → home</code>)</li>
+<li>Place <code>next</code> on the element or block that represents the user action (button, link, card, CTA block, etc.)</li>
+<li>Multiple elements in a screen can each have their own <code>next</code> — flow arrows originate from each element&#39;s position</li>
+</ol>
+<pre><code class="language-yaml">- type: button
+  label: &quot;Sign Up&quot;
+  variant: primary
+  annotation: &quot;Navigates to screen: signup&quot;
+</code></pre>
+<hr>
+<h2 id="6-user-roles"><a href="#6-user-roles" class="anchor">#</a> 6. User Roles</h2>
+<p>Roles annotate which user types can see specific screens, elements, or blocks. They are a <strong>visual communication tool</strong> — they don&#39;t enforce access control, they communicate intent on the wireframe.</p>
+<h3 id="defining-roles"><a href="#defining-roles" class="anchor">#</a> Defining roles</h3>
+<p>Roles are defined in <code>meta.roles</code>. Each role needs a unique <code>id</code>, a human-readable <code>label</code>, and a <code>color</code> for visual distinction.</p>
+<pre><code class="language-yaml">meta:
+  name: &quot;TeamApp&quot;
+  roles:
+    - id: admin
+      label: &quot;Admin&quot;
+      color: &quot;#DC2626&quot;      # Red
+    - id: manager
+      label: &quot;Manager&quot;
+      color: &quot;#D97706&quot;      # Amber
+    - id: member
+      label: &quot;Member&quot;
+      color: &quot;#2563EB&quot;      # Blue
+    - id: guest
+      label: &quot;Guest&quot;
+      color: &quot;#9333EA&quot;      # Purple
+</code></pre>
+<h3 id="role-definition-fields"><a href="#role-definition-fields" class="anchor">#</a> Role definition fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><strong>Yes</strong></td>
+<td>Unique identifier (snake_case)</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td><strong>Yes</strong></td>
+<td>Human-readable display name</td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td><strong>Yes</strong></td>
+<td>Hex color for visual marking (<code>#RGB</code>, <code>#RRGGBB</code>, or <code>#RRGGBBAA</code>)</td>
+</tr>
+</tbody></table>
+<h3 id="applying-roles"><a href="#applying-roles" class="anchor">#</a> Applying roles</h3>
+<p>The <code>role</code> property can be set on <strong>any screen, element, or block</strong>. It accepts a single role id or an array.</p>
+<h4 id="restrict-an-entire-screen"><a href="#restrict-an-entire-screen" class="anchor">#</a> Restrict an entire screen</h4>
+<p>When a screen has a <code>role</code>, the entire screen — including all children — is considered restricted. The role badge appears on the screen frame itself.</p>
+<pre><code class="language-yaml">screens:
+  - id: admin_dashboard
+    title: &quot;Admin Dashboard&quot;
+    role: admin
+    children: [...]
+</code></pre>
+<h4 id="restrict-a-specific-element"><a href="#restrict-a-specific-element" class="anchor">#</a> Restrict a specific element</h4>
+<pre><code class="language-yaml">- type: button
+  label: &quot;Delete User&quot;
+  variant: primary
+  color: error
+  role: admin
+</code></pre>
+<h4 id="restrict-to-multiple-roles"><a href="#restrict-to-multiple-roles" class="anchor">#</a> Restrict to multiple roles</h4>
+<pre><code class="language-yaml">- type: card
+  padding: lg
+  role: [admin, manager]
+  children:
+    - type: text
+      variant: h4
+      content: &quot;Budget Overview&quot;
+</code></pre>
+<h4 id="restrict-a-block"><a href="#restrict-a-block" class="anchor">#</a> Restrict a block</h4>
+<pre><code class="language-yaml">- block: data-table
+  title: &quot;User Management&quot;
+  role: admin
+  columns: [...]
+</code></pre>
+<h3 id="how-roles-render"><a href="#how-roles-render" class="anchor">#</a> How roles render</h3>
+<p>Elements with a <code>role</code> property get:</p>
+<ol>
+<li>A <strong>colored dashed outline</strong> using the role&#39;s color</li>
+<li>A <strong>role badge</strong> (small label) at the top-right corner</li>
+<li>A <strong>role legend</strong> at the bottom of the screen listing all roles used</li>
+</ol>
+<pre><code>┌─────────────────────────────────┐
+│  User List                      │  ← no role (visible to all)
+│  ┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐  │
+│  ╎ [Admin]        Delete All ╎  │  ← red dashed outline + badge
+│  └─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘  │
+│                                 │
+│  ┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐  │
+│  ╎ [Admin] [Manager]        ╎  │  ← multi-role: both badges
+│  ╎ Edit User Details        ╎  │
+│  └─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘  │
+│                                 │
+│  ──────────────────────────     │
+│  Roles: ● Admin  ● Manager     │  ← legend
+└─────────────────────────────────┘
+</code></pre>
+<h3 id="role-behavior-rules"><a href="#role-behavior-rules" class="anchor">#</a> Role behavior rules</h3>
+<ol>
+<li><strong>No inheritance.</strong> A child inside a role-restricted parent does NOT automatically carry that role. Each <code>role</code> is independent.</li>
+<li><strong>Screen-level role = all children restricted.</strong> If the <em>screen</em> has a <code>role</code>, the entire screen is restricted — you don&#39;t need to mark each child.</li>
+<li><strong>Elements without <code>role</code> are visible to all.</strong> This is the default.</li>
+<li><strong>Validation:</strong> Every <code>role</code> value must reference a role <code>id</code> defined in <code>meta.roles</code>. If <code>role</code> is used anywhere, <code>meta.roles</code> must exist and be non-empty.</li>
+</ol>
+<h3 id="when-to-use-roles"><a href="#when-to-use-roles" class="anchor">#</a> When to use roles</h3>
+<ul>
+<li><strong>Do</strong> apply roles at the highest meaningful level — prefer marking a whole <code>card</code> or <code>section</code> over individual children</li>
+<li><strong>Do</strong> use distinct, contrasting colors so role boundaries are easy to scan</li>
+<li><strong>Do</strong> mark screens that are entirely restricted (admin panels, settings pages)</li>
+<li><strong>Don&#39;t</strong> mark every element — most elements are visible to all users</li>
+<li><strong>Don&#39;t</strong> use roles for feature flags or A/B tests — roles are for user types</li>
+</ul>
+<h3 id="complete-role-example"><a href="#complete-role-example" class="anchor">#</a> Complete role example</h3>
+<pre><code class="language-yaml">riss: &quot;0.1&quot;
+
+meta:
+  name: &quot;TeamApp&quot;
+  viewport: { width: 1440, height: 900 }
+  theme:
+    mode: light
+    accent: &quot;#2563EB&quot;
+  roles:
+    - id: admin
+      label: &quot;Admin&quot;
+      color: &quot;#DC2626&quot;
+    - id: manager
+      label: &quot;Manager&quot;
+      color: &quot;#D97706&quot;
+    - id: member
+      label: &quot;Member&quot;
+      color: &quot;#2563EB&quot;
+
+screens:
+  # Admin-only screen
+  - id: user_management
+    title: &quot;User Management&quot;
+    path: &quot;/admin/users&quot;
+    role: admin
+    children:
+      - type: navbar
+        title: &quot;User Management&quot;
+      - type: scroll
+        grow: 1
+        padding: xl
+        children:
+          - type: table
+            columns:
+              - label: &quot;Name&quot;
+                width: &quot;1/3&quot;
+              - label: &quot;Role&quot;
+                width: &quot;1/3&quot;
+              - label: &quot;Actions&quot;
+                width: &quot;1/3&quot;
+            rows:
+              - [&quot;Alice&quot;, &quot;Admin&quot;, &quot;Edit&quot;]
+              - [&quot;Bob&quot;, &quot;Manager&quot;, &quot;Edit&quot;]
+
+  # Shared screen with role-restricted elements
+  - id: dashboard
+    title: &quot;Dashboard&quot;
+    path: &quot;/dashboard&quot;
+    children:
+      - type: navbar
+        title: &quot;Dashboard&quot;
+
+      - type: scroll
+        grow: 1
+        padding: xl
+        gap: lg
+        children:
+          # Visible to everyone
+          - type: card
+            padding: lg
+            children:
+              - type: text
+                variant: h4
+                content: &quot;Team Activity&quot;
+              - type: text
+                content: &quot;Sprint 12 started today&quot;
+                color: text-secondary
+
+          # Only managers and admins
+          - type: card
+            padding: lg
+            role: [admin, manager]
+            children:
+              - type: text
+                variant: h4
+                content: &quot;Budget Overview&quot;
+              - type: progress
+                value: 80
+                color: warning
+
+          # Only admins
+          - type: card
+            padding: lg
+            role: admin
+            children:
+              - type: text
+                variant: h4
+                content: &quot;Danger Zone&quot;
+                color: error
+              - type: button
+                label: &quot;Delete Team&quot;
+                variant: outline
+                color: error
+</code></pre>
+<hr>
+<h2 id="7-layout-system"><a href="#7-layout-system" class="anchor">#</a> 7. Layout System</h2>
+<p>Riss uses a flexbox-inspired layout model. Every element that accepts <code>children</code> is a layout container.</p>
+<h3 id="layout-direction"><a href="#layout-direction" class="anchor">#</a> Layout direction</h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>stack</code></td>
+<td>Children flow top to bottom (column)</td>
+<td><strong>Default</strong></td>
+</tr>
+<tr>
+<td><code>row</code></td>
+<td>Children flow left to right</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>grid</code></td>
+<td>Multi-column grid (requires <code>columns</code>)</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h3 id="alignment"><a href="#alignment" class="anchor">#</a> Alignment</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Values</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>align</code></td>
+<td><code>start</code>, <code>center</code>, <code>end</code>, <code>stretch</code></td>
+<td><code>stretch</code></td>
+<td>Cross-axis alignment</td>
+</tr>
+<tr>
+<td><code>justify</code></td>
+<td><code>start</code>, <code>center</code>, <code>end</code>, <code>between</code>, <code>around</code>, <code>evenly</code></td>
+<td><code>start</code></td>
+<td>Main-axis distribution</td>
+</tr>
+<tr>
+<td><code>align-self</code></td>
+<td><code>start</code>, <code>center</code>, <code>end</code>, <code>stretch</code></td>
+<td>Inherits</td>
+<td>Override parent alignment</td>
+</tr>
+</tbody></table>
+<h3 id="sizing"><a href="#sizing" class="anchor">#</a> Sizing</h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number</td>
+<td>Pixels (<code>width: 200</code>)</td>
+</tr>
+<tr>
+<td><code>&quot;full&quot;</code></td>
+<td>100% of parent</td>
+</tr>
+<tr>
+<td><code>&quot;half&quot;</code></td>
+<td>50% of parent</td>
+</tr>
+<tr>
+<td><code>&quot;1/3&quot;</code>, <code>&quot;2/3&quot;</code></td>
+<td>33.33%, 66.67%</td>
+</tr>
+<tr>
+<td><code>&quot;1/4&quot;</code>, <code>&quot;3/4&quot;</code></td>
+<td>25%, 75%</td>
+</tr>
+<tr>
+<td><code>&quot;auto&quot;</code></td>
+<td>Size to content (default)</td>
+</tr>
+</tbody></table>
+<p>Additional sizing properties: <code>min-width</code>, <code>min-height</code>, <code>max-width</code>, <code>max-height</code>, <code>grow</code> (flex-grow), <code>shrink</code> (flex-shrink).</p>
+<h3 id="spacing"><a href="#spacing" class="anchor">#</a> Spacing</h3>
+<p><strong>Always use tokens, not pixel values:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Pixels</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>none</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>xs</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>sm</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>md</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>lg</code></td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>xl</code></td>
+<td>32</td>
+</tr>
+<tr>
+<td><code>2xl</code></td>
+<td>48</td>
+</tr>
+<tr>
+<td><code>3xl</code></td>
+<td>64</td>
+</tr>
+</tbody></table>
+<p>Properties: <code>padding</code>, <code>padding-x</code>, <code>padding-y</code>, <code>margin</code>, <code>margin-x</code>, <code>margin-y</code>, <code>gap</code></p>
+<p>Raw pixel numbers are also accepted (<code>padding: 12</code>) but tokens are preferred.</p>
+<h3 id="grid-properties"><a href="#grid-properties" class="anchor">#</a> Grid properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>columns</code></td>
+<td>Number of columns (1-12)</td>
+</tr>
+<tr>
+<td><code>column-gap</code></td>
+<td>Override horizontal gap</td>
+</tr>
+<tr>
+<td><code>row-gap</code></td>
+<td>Override vertical gap</td>
+</tr>
+<tr>
+<td><code>span</code></td>
+<td>On child: how many columns to span (1-12)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="8-styling-system"><a href="#8-styling-system" class="anchor">#</a> 8. Styling System</h2>
+<h3 id="color-tokens"><a href="#color-tokens" class="anchor">#</a> Color tokens</h3>
+<p><strong>Always use tokens, not hex values.</strong> The only hex you should set is <code>meta.theme.accent</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>background</code></td>
+<td>Screen/page background</td>
+</tr>
+<tr>
+<td><code>surface</code></td>
+<td>Card/container backgrounds</td>
+</tr>
+<tr>
+<td><code>surface-raised</code></td>
+<td>Elevated surfaces (modals)</td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td>Primary text</td>
+</tr>
+<tr>
+<td><code>text-secondary</code></td>
+<td>Muted/secondary text</td>
+</tr>
+<tr>
+<td><code>text-disabled</code></td>
+<td>Disabled text</td>
+</tr>
+<tr>
+<td><code>border</code></td>
+<td>Default border color</td>
+</tr>
+<tr>
+<td><code>border-strong</code></td>
+<td>Emphasized border</td>
+</tr>
+<tr>
+<td><code>accent</code></td>
+<td>Primary action color (from <code>meta.theme.accent</code>)</td>
+</tr>
+<tr>
+<td><code>accent-soft</code></td>
+<td>Accent at 15% opacity</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td>Success states</td>
+</tr>
+<tr>
+<td><code>warning</code></td>
+<td>Warning states</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td>Error states</td>
+</tr>
+<tr>
+<td><code>placeholder</code></td>
+<td>Image/content placeholders</td>
+</tr>
+</tbody></table>
+<h3 id="border"><a href="#border" class="anchor">#</a> Border</h3>
+<pre><code class="language-yaml"># Shorthand
+border: true                  # 1px solid border-color on all sides
+
+# Object form
+border:
+  color: border-strong
+  width: 2
+  style: dashed               # solid | dashed
+  sides: [top, bottom]        # all | top | bottom | left | right | array
+</code></pre>
+<h3 id="border-radius"><a href="#border-radius" class="anchor">#</a> Border radius</h3>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Pixels</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>none</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>sm</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>md</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>lg</code></td>
+<td>12</td>
+</tr>
+<tr>
+<td><code>xl</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>full</code></td>
+<td>9999 (circular)</td>
+</tr>
+</tbody></table>
+<h3 id="elevation"><a href="#elevation" class="anchor">#</a> Elevation</h3>
+<p><code>elevation: none | sm | md | lg</code> — Drop shadow. Use sparingly, primarily for cards and modals.</p>
+<h3 id="overflow"><a href="#overflow" class="anchor">#</a> Overflow</h3>
+<p><code>overflow: visible | hidden | scroll</code> — <code>scroll</code> renders scroll indicators in the wireframe.</p>
+<hr>
+<h2 id="9-element-reference"><a href="#9-element-reference" class="anchor">#</a> 9. Element Reference</h2>
+<h3 id="quick-reference-all-element-types"><a href="#quick-reference-all-element-types" class="anchor">#</a> Quick reference — all element types</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Types</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Layout</strong></td>
+<td><code>stack</code>, <code>row</code>, <code>grid</code>, <code>scroll</code></td>
+</tr>
+<tr>
+<td><strong>Container</strong></td>
+<td><code>card</code>, <code>section</code>, <code>modal</code>, <code>bottomsheet</code></td>
+</tr>
+<tr>
+<td><strong>Content</strong></td>
+<td><code>text</code>, <code>image</code>, <code>icon</code>, <code>avatar</code>, <code>divider</code>, <code>spacer</code>, <code>badge</code>, <code>chip</code>, <code>progress</code></td>
+</tr>
+<tr>
+<td><strong>Interactive</strong></td>
+<td><code>button</code>, <code>input</code>, <code>textarea</code>, <code>checkbox</code>, <code>radio</code>, <code>toggle</code>, <code>select</code>, <code>slider</code></td>
+</tr>
+<tr>
+<td><strong>Navigation</strong></td>
+<td><code>navbar</code>, <code>tabbar</code>, <code>tabs</code>, <code>breadcrumb</code></td>
+</tr>
+<tr>
+<td><strong>Data</strong></td>
+<td><code>list</code>, <code>list-item</code>, <code>table</code>, <code>placeholder</code></td>
+</tr>
+<tr>
+<td><strong>Feedback</strong></td>
+<td><code>alert</code>, <code>toast</code>, <code>skeleton</code>, <code>empty-state</code>, <code>spinner</code></td>
+</tr>
+<tr>
+<td><strong>Meta</strong></td>
+<td><code>annotation</code></td>
+</tr>
+</tbody></table>
+<h3 id="layout-elements"><a href="#layout-elements" class="anchor">#</a> Layout elements</h3>
+<h4 id="stack-vertical-container"><a href="#stack-vertical-container" class="anchor">#</a> <code>stack</code> — Vertical container</h4>
+<pre><code class="language-yaml">- type: stack
+  gap: md
+  padding: lg
+  children:
+    - type: text
+      content: &quot;First&quot;
+    - type: text
+      content: &quot;Second&quot;
+</code></pre>
+<h4 id="row-horizontal-container"><a href="#row-horizontal-container" class="anchor">#</a> <code>row</code> — Horizontal container</h4>
+<pre><code class="language-yaml">- type: row
+  gap: sm
+  align: center
+  children:
+    - type: icon
+      name: star
+    - type: text
+      content: &quot;Starred&quot;
+</code></pre>
+<p>Key property: <code>wrap: true</code> enables line wrapping.</p>
+<h4 id="grid-multi-column-grid"><a href="#grid-multi-column-grid" class="anchor">#</a> <code>grid</code> — Multi-column grid</h4>
+<pre><code class="language-yaml">- type: grid
+  columns: 3
+  gap: md
+  children:
+    - type: card
+      children: [...]
+    - type: card
+      span: 2              # Spans 2 columns
+      children: [...]
+</code></pre>
+<h4 id="scroll-scrollable-container"><a href="#scroll-scrollable-container" class="anchor">#</a> <code>scroll</code> — Scrollable container</h4>
+<pre><code class="language-yaml">- type: scroll
+  direction: horizontal    # vertical (default) | horizontal
+  height: 200
+  gap: md
+  children: [...]
+</code></pre>
+<h3 id="container-elements"><a href="#container-elements" class="anchor">#</a> Container elements</h3>
+<h4 id="card"><a href="#card" class="anchor">#</a> <code>card</code></h4>
+<pre><code class="language-yaml">- type: card
+  variant: outlined         # outlined (default) | elevated | filled
+  padding: md
+  elevation: sm
+  rounded: md
+  children: [...]
+</code></pre>
+<h4 id="section-logical-grouping-no-visible-boundary"><a href="#section-logical-grouping-no-visible-boundary" class="anchor">#</a> <code>section</code> — Logical grouping (no visible boundary)</h4>
+<pre><code class="language-yaml">- type: section
+  title: &quot;Recent Activity&quot;
+  children: [...]
+</code></pre>
+<h4 id="modal"><a href="#modal" class="anchor">#</a> <code>modal</code></h4>
+<pre><code class="language-yaml">- type: modal
+  title: &quot;Confirm Delete&quot;
+  width: &quot;2/3&quot;
+  closable: true
+  children: [...]
+</code></pre>
+<h4 id="bottomsheet"><a href="#bottomsheet" class="anchor">#</a> <code>bottomsheet</code></h4>
+<pre><code class="language-yaml">- type: bottomsheet
+  title: &quot;Options&quot;
+  height: &quot;half&quot;            # &quot;auto&quot; | &quot;half&quot; | &quot;full&quot; | number
+  handle: true
+  children: [...]
+</code></pre>
+<h3 id="content-elements"><a href="#content-elements" class="anchor">#</a> Content elements</h3>
+<h4 id="text"><a href="#text" class="anchor">#</a> <code>text</code></h4>
+<pre><code class="language-yaml">- type: text
+  variant: h1               # h1-h6, body, body-sm, caption, label, overline, code
+  content: &quot;Heading Text&quot;   # Required
+  color: text-secondary
+  weight: bold              # normal | medium | semibold | bold
+  align: center             # left | center | right
+  max-lines: 2              # Truncate with ellipsis
+</code></pre>
+<p>Typography scale:</p>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Size</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>h1</code></td>
+<td>32px</td>
+<td>bold</td>
+</tr>
+<tr>
+<td><code>h2</code></td>
+<td>24px</td>
+<td>bold</td>
+</tr>
+<tr>
+<td><code>h3</code></td>
+<td>20px</td>
+<td>semibold</td>
+</tr>
+<tr>
+<td><code>h4</code></td>
+<td>18px</td>
+<td>semibold</td>
+</tr>
+<tr>
+<td><code>h5</code></td>
+<td>16px</td>
+<td>semibold</td>
+</tr>
+<tr>
+<td><code>h6</code></td>
+<td>14px</td>
+<td>semibold</td>
+</tr>
+<tr>
+<td><code>body</code></td>
+<td>16px</td>
+<td>normal</td>
+</tr>
+<tr>
+<td><code>body-sm</code></td>
+<td>14px</td>
+<td>normal</td>
+</tr>
+<tr>
+<td><code>caption</code></td>
+<td>12px</td>
+<td>normal</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>12px</td>
+<td>medium</td>
+</tr>
+<tr>
+<td><code>overline</code></td>
+<td>10px</td>
+<td>semibold</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>14px</td>
+<td>normal (mono)</td>
+</tr>
+</tbody></table>
+<h4 id="image-image-placeholder"><a href="#image-image-placeholder" class="anchor">#</a> <code>image</code> — Image placeholder</h4>
+<pre><code class="language-yaml">- type: image
+  aspect: &quot;16/9&quot;             # &quot;W/H&quot; format
+  label: &quot;Hero Banner&quot;
+  rounded: md
+</code></pre>
+<h4 id="icon"><a href="#icon" class="anchor">#</a> <code>icon</code></h4>
+<pre><code class="language-yaml">- type: icon
+  name: heart                # Required — from standard icon set
+  size: 24                   # Default: 20
+  color: accent
+</code></pre>
+<p>Standard icon set (v0.1):</p>
+<p><code>home</code>, <code>search</code>, <code>settings</code>, <code>user</code>, <code>users</code>, <code>bell</code>, <code>mail</code>, <code>heart</code>, <code>star</code>, <code>bookmark</code>, <code>share</code>, <code>edit</code>, <code>trash</code>, <code>plus</code>, <code>minus</code>, <code>close</code>, <code>check</code>, <code>chevron-left</code>, <code>chevron-right</code>, <code>chevron-up</code>, <code>chevron-down</code>, <code>arrow-left</code>, <code>arrow-right</code>, <code>arrow-up</code>, <code>arrow-down</code>, <code>menu</code>, <code>more-horizontal</code>, <code>more-vertical</code>, <code>filter</code>, <code>sort</code>, <code>download</code>, <code>upload</code>, <code>camera</code>, <code>image</code>, <code>video</code>, <code>mic</code>, <code>phone</code>, <code>map-pin</code>, <code>clock</code>, <code>calendar</code>, <code>link</code>, <code>lock</code>, <code>unlock</code>, <code>eye</code>, <code>eye-off</code>, <code>info</code>, <code>help</code>, <code>warning</code>, <code>error</code>, <code>play</code>, <code>pause</code>, <code>skip-forward</code>, <code>skip-back</code>, <code>refresh</code>, <code>copy</code>, <code>file</code>, <code>folder</code>, <code>chart</code>, <code>globe</code>, <code>inbox</code>, <code>dollar-sign</code>, <code>credit-card</code>, <code>shield</code>, <code>zap</code>, <code>code</code></p>
+<h4 id="avatar"><a href="#avatar" class="anchor">#</a> <code>avatar</code></h4>
+<pre><code class="language-yaml">- type: avatar
+  size: 48                   # Diameter in pixels (default: 40)
+  initials: &quot;BQ&quot;
+</code></pre>
+<h4 id="divider-spacer-badge-chip-progress"><a href="#divider-spacer-badge-chip-progress" class="anchor">#</a> <code>divider</code>, <code>spacer</code>, <code>badge</code>, <code>chip</code>, <code>progress</code></h4>
+<pre><code class="language-yaml">- type: divider
+  margin-y: sm
+
+- type: spacer
+  size: 16                   # Omit for flexible spacer (grow: 1)
+
+- type: badge
+  content: &quot;3&quot;               # 1-3 chars, or omit for dot
+  color: error
+
+- type: chip
+  label: &quot;Outdoor&quot;           # Required
+  variant: outlined          # filled (default) | outlined
+  removable: true
+
+- type: progress
+  value: 65                  # 0-100
+  color: accent
+</code></pre>
+<h3 id="interactive-elements"><a href="#interactive-elements" class="anchor">#</a> Interactive elements</h3>
+<h4 id="button"><a href="#button" class="anchor">#</a> <code>button</code></h4>
+<pre><code class="language-yaml">- type: button
+  label: &quot;Get Started&quot;        # Required
+  variant: primary             # primary | secondary | outline | ghost | text
+  size: lg                     # sm | md | lg
+  full-width: true
+  leading-icon: plus
+  trailing-icon: arrow-right
+  icon-only: true              # Render as icon button (needs leading-icon)
+  disabled: false
+</code></pre>
+<h4 id="input"><a href="#input" class="anchor">#</a> <code>input</code></h4>
+<pre><code class="language-yaml">- type: input
+  label: &quot;Email&quot;
+  placeholder: &quot;you@example.com&quot;
+  value: &quot;&quot;
+  helper: &quot;We&#39;ll never share your email&quot;
+  error: &quot;Invalid email address&quot;
+  leading-icon: mail
+  variant: outlined            # outlined | filled | underline
+  required: true
+  disabled: false
+</code></pre>
+<h4 id="textarea"><a href="#textarea" class="anchor">#</a> <code>textarea</code></h4>
+<pre><code class="language-yaml">- type: textarea
+  label: &quot;Message&quot;
+  placeholder: &quot;Write your message...&quot;
+  rows: 4
+</code></pre>
+<h4 id="checkbox-radio-toggle-select-slider"><a href="#checkbox-radio-toggle-select-slider" class="anchor">#</a> <code>checkbox</code>, <code>radio</code>, <code>toggle</code>, <code>select</code>, <code>slider</code></h4>
+<pre><code class="language-yaml">- type: checkbox
+  label: &quot;I agree to the terms&quot;
+  checked: false
+
+- type: radio
+  label: &quot;Delivery method&quot;
+  options: [&quot;Standard&quot;, &quot;Express&quot;, &quot;Same day&quot;]
+  selected: 0                  # 0-based index
+  direction: vertical          # vertical | horizontal
+
+- type: toggle
+  label: &quot;Dark mode&quot;
+  checked: true
+
+- type: select
+  label: &quot;Country&quot;
+  placeholder: &quot;Choose...&quot;
+  options: [&quot;Norway&quot;, &quot;Sweden&quot;, &quot;Denmark&quot;]
+  selected: 0
+
+- type: slider
+  label: &quot;Volume&quot;
+  min: 0
+  max: 100
+  value: 75
+</code></pre>
+<h3 id="navigation-elements"><a href="#navigation-elements" class="anchor">#</a> Navigation elements</h3>
+<h4 id="navbar-top-navigation-bar-mobile"><a href="#navbar-top-navigation-bar-mobile" class="anchor">#</a> <code>navbar</code> — Top navigation bar (mobile)</h4>
+<pre><code class="language-yaml">- type: navbar
+  title: &quot;Settings&quot;
+  leading: icon:arrow-left      # Shortcuts: &quot;icon:NAME&quot;, &quot;avatar&quot;, &quot;menu&quot;
+  trailing:
+    - icon:search
+    - icon:more-vertical
+</code></pre>
+<p>Fixed height of 56px, always at top.</p>
+<h4 id="tabbar-bottom-tab-bar"><a href="#tabbar-bottom-tab-bar" class="anchor">#</a> <code>tabbar</code> — Bottom tab bar</h4>
+<pre><code class="language-yaml">- type: tabbar
+  items:
+    - icon: home
+      label: &quot;Home&quot;
+      active: true
+    - icon: search
+      label: &quot;Search&quot;
+    - icon: user
+      label: &quot;Profile&quot;
+</code></pre>
+<p>Fixed height of 56px + safe area, always at bottom.</p>
+<h4 id="tabs-inline-tab-strip"><a href="#tabs-inline-tab-strip" class="anchor">#</a> <code>tabs</code> — Inline tab strip</h4>
+<pre><code class="language-yaml">- type: tabs
+  variant: underline           # underline | filled | pill
+  items:
+    - label: &quot;Overview&quot;
+      active: true
+    - label: &quot;Details&quot;
+    - label: &quot;Reviews&quot;
+</code></pre>
+<h4 id="breadcrumb"><a href="#breadcrumb" class="anchor">#</a> <code>breadcrumb</code></h4>
+<pre><code class="language-yaml">- type: breadcrumb
+  items: [&quot;Home&quot;, &quot;Products&quot;, &quot;Running Shoes&quot;]
+  separator: &quot;/&quot;
+</code></pre>
+<h3 id="data-display-elements"><a href="#data-display-elements" class="anchor">#</a> Data display elements</h3>
+<h4 id="list-list-item"><a href="#list-list-item" class="anchor">#</a> <code>list</code> + <code>list-item</code></h4>
+<pre><code class="language-yaml">- type: list
+  dividers: true
+  children:
+    - type: list-item
+      leading: avatar           # &quot;avatar&quot;, &quot;icon:NAME&quot;, &quot;checkbox&quot;, &quot;image&quot;
+      title: &quot;Ola Nordmann&quot;
+      subtitle: &quot;Online now&quot;
+      trailing: icon:chevron-right   # &quot;icon:NAME&quot;, &quot;toggle&quot;, &quot;badge:N&quot;, &quot;text:VALUE&quot;
+      size: md                  # sm | md | lg
+</code></pre>
+<h4 id="table"><a href="#table" class="anchor">#</a> <code>table</code></h4>
+<pre><code class="language-yaml">- type: table
+  striped: true
+  columns:
+    - label: &quot;Name&quot;
+      width: &quot;1/3&quot;
+    - label: &quot;Status&quot;
+      width: &quot;1/3&quot;
+      align: center
+  rows:
+    - [&quot;Alice&quot;, &quot;Active&quot;]
+    - [&quot;Bob&quot;, &quot;Inactive&quot;]
+</code></pre>
+<h4 id="placeholder-generic-content-placeholder"><a href="#placeholder-generic-content-placeholder" class="anchor">#</a> <code>placeholder</code> — Generic content placeholder</h4>
+<pre><code class="language-yaml">- type: placeholder
+  label: &quot;Interactive Map&quot;
+  icon: map-pin
+  aspect: &quot;4/3&quot;
+</code></pre>
+<p>Use for charts, maps, video players, or any complex content without a specific element type.</p>
+<h3 id="feedback-elements"><a href="#feedback-elements" class="anchor">#</a> Feedback elements</h3>
+<pre><code class="language-yaml">- type: alert
+  variant: warning              # info | success | warning | error
+  title: &quot;Connection unstable&quot;
+  message: &quot;Some features may not work.&quot;
+  dismissable: true
+
+- type: toast
+  message: &quot;Item saved&quot;
+  variant: success
+  action: &quot;Undo&quot;
+
+- type: skeleton
+  variant: text                 # text | rect | circle | card | avatar | list-item
+  lines: 3
+
+- type: empty-state
+  icon: inbox
+  title: &quot;No messages yet&quot;
+  message: &quot;Messages will appear here.&quot;
+  action: &quot;Compose&quot;
+
+- type: spinner
+  size: 32
+  color: accent
+</code></pre>
+<hr>
+<h2 id="10-rissblocks-pre-built-patterns"><a href="#10-rissblocks-pre-built-patterns" class="anchor">#</a> 10. RissBlocks (Pre-built Patterns)</h2>
+<p>RissBlocks are parameterized, pre-built wireframe sections composed of Riss primitives. Use them for common UI patterns instead of manually building element trees.</p>
+<h3 id="using-a-block"><a href="#using-a-block" class="anchor">#</a> Using a block</h3>
+<pre><code class="language-yaml">children:
+  - block: hero                 # Block type (required)
+    heading: &quot;Ship faster&quot;      # Block-specific parameters
+    subheading: &quot;AI-generated wireframes.&quot;
+    cta-label: &quot;Get Started&quot;
+</code></pre>
+<h3 id="block-syntax"><a href="#block-syntax" class="anchor">#</a> Block syntax</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>block</code></td>
+<td><strong>Yes</strong></td>
+<td>Block type name</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>No</td>
+<td>Instance identifier</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>No</td>
+<td>Role restriction (same as elements)</td>
+</tr>
+<tr>
+<td><code>annotation</code></td>
+<td>No</td>
+<td>Annotation text</td>
+</tr>
+<tr>
+<td>Other fields</td>
+<td>Varies</td>
+<td>Block-specific parameters</td>
+</tr>
+</tbody></table>
+<h3 id="when-to-use-blocks-vs-raw-elements"><a href="#when-to-use-blocks-vs-raw-elements" class="anchor">#</a> When to use blocks vs. raw elements</h3>
+<p><strong>Use blocks when:</strong></p>
+<ul>
+<li>The pattern matches a core block closely</li>
+<li>You want consistent, best-practice layout</li>
+<li>The screen structure should be quickly scannable</li>
+</ul>
+<p><strong>Use raw elements when:</strong></p>
+<ul>
+<li>The section is highly custom</li>
+<li>You need precise layout control that block parameters don&#39;t expose</li>
+<li>You&#39;re building something the blocks weren&#39;t designed for</li>
+</ul>
+<p><strong>Mixing is encouraged.</strong> A screen can contain both blocks and raw elements.</p>
+<h3 id="block-placement-rules"><a href="#block-placement-rules" class="anchor">#</a> Block placement rules</h3>
+<ol>
+<li><strong>Blocks are direct screen children only.</strong> Do NOT nest blocks inside other blocks, or place blocks inside <code>stack</code>, <code>row</code>, <code>grid</code>, or other layout elements.</li>
+<li><strong>Use realistic content.</strong> Fill parameters with real-sounding data, not &quot;Lorem ipsum.&quot;</li>
+<li><strong>Override only what you need.</strong> Rely on defaults for parameters you don&#39;t customize.</li>
+</ol>
+<h3 id="all-57-core-blocks"><a href="#all-57-core-blocks" class="anchor">#</a> All 57 core blocks</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Blocks</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Hero &amp; Header</strong></td>
+<td><code>hero</code>, <code>page-header</code>, <code>announcement-bar</code></td>
+</tr>
+<tr>
+<td><strong>Navigation</strong></td>
+<td><code>sidebar-nav</code>, <code>top-nav</code>, <code>breadcrumb-header</code>, <code>bottom-nav</code></td>
+</tr>
+<tr>
+<td><strong>Content</strong></td>
+<td><code>side-by-side</code>, <code>alternating-rows</code>, <code>content-carousel</code>, <code>blog-card-grid</code>, <code>timeline</code>, <code>rich-text</code></td>
+</tr>
+<tr>
+<td><strong>Features &amp; Benefits</strong></td>
+<td><code>feature-grid</code>, <code>feature-list</code>, <code>checklist</code>, <code>how-it-works</code></td>
+</tr>
+<tr>
+<td><strong>Social Proof</strong></td>
+<td><code>logo-bar</code>, <code>testimonial-card</code>, <code>testimonial-grid</code>, <code>stats-row</code>, <code>rating-block</code></td>
+</tr>
+<tr>
+<td><strong>Pricing</strong></td>
+<td><code>pricing-table</code>, <code>pricing-card</code></td>
+</tr>
+<tr>
+<td><strong>Call to Action</strong></td>
+<td><code>cta-banner</code>, <code>cta-inline</code>, <code>cta-with-input</code></td>
+</tr>
+<tr>
+<td><strong>Forms</strong></td>
+<td><code>login-form</code>, <code>signup-form</code>, <code>contact-form</code>, <code>search-with-filters</code>, <code>multi-step-form</code>, <code>settings-form</code></td>
+</tr>
+<tr>
+<td><strong>Data &amp; Dashboard</strong></td>
+<td><code>stat-cards-row</code>, <code>data-table</code>, <code>activity-feed</code>, <code>chart-card</code>, <code>kanban-board</code></td>
+</tr>
+<tr>
+<td><strong>E-Commerce</strong></td>
+<td><code>product-card-grid</code>, <code>product-detail</code>, <code>cart-summary</code>, <code>checkout-steps</code></td>
+</tr>
+<tr>
+<td><strong>User &amp; Profile</strong></td>
+<td><code>profile-header</code>, <code>team-grid</code>, <code>avatar-list</code></td>
+</tr>
+<tr>
+<td><strong>Lists &amp; Collections</strong></td>
+<td><code>card-grid</code>, <code>media-gallery</code>, <code>accordion</code>, <code>ranked-list</code></td>
+</tr>
+<tr>
+<td><strong>Feedback &amp; State</strong></td>
+<td><code>empty-state-block</code>, <code>error-page</code>, <code>loading-skeleton</code>, <code>confirmation</code></td>
+</tr>
+<tr>
+<td><strong>Communication</strong></td>
+<td><code>chat-thread</code>, <code>comment-thread</code>, <code>notification-list</code></td>
+</tr>
+<tr>
+<td><strong>Footer</strong></td>
+<td><code>footer</code></td>
+</tr>
+</tbody></table>
+<h3 id="common-block-parameters"><a href="#common-block-parameters" class="anchor">#</a> Common block parameters</h3>
+<p>These parameter names recur across many blocks with consistent meaning:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td>String</td>
+<td>Section heading</td>
+</tr>
+<tr>
+<td><code>subtitle</code></td>
+<td>String</td>
+<td>Secondary text below title</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td>Array</td>
+<td>Primary data array (cards, features, etc.)</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>Number</td>
+<td>Grid column count</td>
+</tr>
+<tr>
+<td><code>cta-label</code></td>
+<td>String</td>
+<td>Primary CTA button label</td>
+</tr>
+<tr>
+<td><code>cta-secondary-label</code></td>
+<td>String</td>
+<td>Secondary button label</td>
+</tr>
+<tr>
+<td><code>variant</code></td>
+<td>String</td>
+<td>Visual/layout variation</td>
+</tr>
+<tr>
+<td><code>icon</code></td>
+<td>String</td>
+<td>Icon name from standard set</td>
+</tr>
+<tr>
+<td><code>image-label</code></td>
+<td>String</td>
+<td>Label on image placeholder</td>
+</tr>
+<tr>
+<td><code>show-more</code></td>
+<td>String</td>
+<td>&quot;View all&quot; link label</td>
+</tr>
+<tr>
+<td><code>background</code></td>
+<td>Color</td>
+<td>Section background color</td>
+</tr>
+</tbody></table>
+<h3 id="blocks-vs-elements-disambiguation"><a href="#blocks-vs-elements-disambiguation" class="anchor">#</a> Blocks vs. elements disambiguation</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Block</th>
+<th>Use element when</th>
+<th>Use block when</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>navbar</code></td>
+<td><code>top-nav</code></td>
+<td>Mobile app bars with icons</td>
+<td>Marketing pages with logo, links, CTA</td>
+</tr>
+<tr>
+<td><code>tabbar</code></td>
+<td><code>bottom-nav</code></td>
+<td>Full control over bottom bar</td>
+<td>Quick mobile nav with defaults</td>
+</tr>
+<tr>
+<td><code>table</code></td>
+<td><code>data-table</code></td>
+<td>Simple static tables</td>
+<td>Tables with search, filters, pagination</td>
+</tr>
+<tr>
+<td><code>skeleton</code></td>
+<td><code>loading-skeleton</code></td>
+<td>Single shimmer shape</td>
+<td>Full-section loading pattern</td>
+</tr>
+<tr>
+<td><code>empty-state</code></td>
+<td><code>empty-state-block</code></td>
+<td>Simple inline empty state</td>
+<td>Full-section with illustration and CTA</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="11-custom-blocks"><a href="#11-custom-blocks" class="anchor">#</a> 11. Custom Blocks</h2>
+<p>You can define reusable blocks within a <code>.riss.yaml</code> file for patterns that aren&#39;t covered by core blocks.</p>
+<h3 id="defining-a-custom-block"><a href="#defining-a-custom-block" class="anchor">#</a> Defining a custom block</h3>
+<pre><code class="language-yaml">blocks:
+  - id: metric-card
+    description: &quot;A card showing a single metric with trend&quot;
+    params:
+      - name: label
+        required: true
+      - name: value
+        required: true
+      - name: trend
+        default: null
+      - name: trend-direction
+        default: null
+      - name: icon
+        default: null
+    template:
+      - type: card
+        padding: lg
+        children:
+          - type: row
+            align: center
+            justify: between
+            children:
+              - type: stack
+                gap: xs
+                children:
+                  - type: text
+                    variant: caption
+                    content: &quot;{{label}}&quot;
+                    color: text-secondary
+                  - type: text
+                    variant: h2
+                    content: &quot;{{value}}&quot;
+              - type: icon
+                name: &quot;{{icon}}&quot;
+                size: 24
+                color: text-secondary
+                if: &quot;{{icon}}&quot;
+          - type: text
+            variant: caption
+            content: &quot;{{trend}}&quot;
+            color: &quot;{{trend-direction == &#39;up&#39; ? &#39;success&#39; : trend-direction == &#39;down&#39; ? &#39;error&#39; : &#39;text-secondary&#39;}}&quot;
+            if: &quot;{{trend}}&quot;
+</code></pre>
+<h3 id="using-a-custom-block"><a href="#using-a-custom-block" class="anchor">#</a> Using a custom block</h3>
+<pre><code class="language-yaml">screens:
+  - id: dashboard
+    title: &quot;Dashboard&quot;
+    children:
+      - type: grid
+        columns: 3
+        gap: md
+        children:
+          - block: metric-card
+            label: &quot;Users&quot;
+            value: &quot;12,847&quot;
+            trend: &quot;+12%&quot;
+            trend-direction: up
+            icon: users
+</code></pre>
+<h3 id="template-interpolation"><a href="#template-interpolation" class="anchor">#</a> Template interpolation</h3>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>{{param_name}}</code></td>
+<td>Replaced with parameter value</td>
+</tr>
+<tr>
+<td><code>if: &quot;{{param_name}}&quot;</code></td>
+<td>Conditionally render element only if param is truthy</td>
+</tr>
+<tr>
+<td><code>{{param == &#39;value&#39; ? &#39;a&#39; : &#39;b&#39;}}</code></td>
+<td>Ternary expression (only <code>==</code> comparisons)</td>
+</tr>
+<tr>
+<td>Nested ternary</td>
+<td><code>{{x == &#39;a&#39; ? &#39;r1&#39; : x == &#39;b&#39; ? &#39;r2&#39; : &#39;r3&#39;}}</code></td>
+</tr>
+</tbody></table>
+<h3 id="limitations-in-v01"><a href="#limitations-in-v01" class="anchor">#</a> Limitations in v0.1</h3>
+<ul>
+<li>No nested property access — keep parameters flat</li>
+<li>Only <code>==</code> comparisons — no <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, or boolean operators</li>
+<li>No arithmetic expressions</li>
+<li>Custom block <code>id</code> must not conflict with core block names</li>
+</ul>
+<hr>
+<h2 id="12-annotations"><a href="#12-annotations" class="anchor">#</a> 12. Annotations</h2>
+<p>Annotations are comments that render visually on the wireframe. Use them to communicate design intent, requirements, or behavioral notes.</p>
+<h3 id="inline-annotations-on-any-element"><a href="#inline-annotations-on-any-element" class="anchor">#</a> Inline annotations (on any element)</h3>
+<pre><code class="language-yaml">- type: button
+  label: &quot;Submit&quot;
+  annotation: &quot;Must validate all required fields before enabling&quot;
+</code></pre>
+<h3 id="standalone-annotation-element"><a href="#standalone-annotation-element" class="anchor">#</a> Standalone annotation element</h3>
+<pre><code class="language-yaml">- type: annotation
+  content: &quot;This section should pull data from the activity feed API&quot;
+  position: top-right         # top-left | top-right | bottom-left | bottom-right | inline
+  color: warning              # default | info | warning | accent
+</code></pre>
+<p>The renderer auto-numbers annotations (1, 2, 3...) and renders a legend below the screen.</p>
+<h3 id="when-to-annotate"><a href="#when-to-annotate" class="anchor">#</a> When to annotate</h3>
+<ul>
+<li>Interactive behavior that isn&#39;t obvious from the wireframe</li>
+<li>API or data source requirements</li>
+<li>Navigation targets (<code>&quot;Taps navigate to screen: product_detail&quot;</code>)</li>
+<li>Conditional visibility logic</li>
+<li>Placeholder content that represents dynamic data</li>
+</ul>
+<hr>
+<h2 id="13-generation-rules-best-practices"><a href="#13-generation-rules-best-practices" class="anchor">#</a> 13. Generation Rules &amp; Best Practices</h2>
+<h3 id="structure-checklist"><a href="#structure-checklist" class="anchor">#</a> Structure checklist</h3>
+<p>Every generated file MUST include:</p>
+<pre><code class="language-yaml">riss: &quot;0.1&quot;
+meta:
+  name: &quot;...&quot;
+  viewport: { ... }
+  theme:
+    mode: light
+screens:
+  - id: ...
+    title: &quot;...&quot;
+    children: [...]
+</code></pre>
+<h3 id="golden-rules"><a href="#golden-rules" class="anchor">#</a> Golden rules</h3>
+<ol>
+<li><p><strong>Start with the screen skeleton.</strong> Think: navbar at top? Tabbar at bottom? Scrollable content in the middle? Build the structure first, then fill details.</p>
+</li>
+<li><p><strong>Use <code>stack</code> as the default layout.</strong> Only use <code>row</code> for horizontal arrangements, <code>grid</code> for uniform grids.</p>
+</li>
+<li><p><strong>Nest meaningfully.</strong> Each level should represent a visual or logical grouping. Don&#39;t wrap single elements in unnecessary containers.</p>
+</li>
+<li><p><strong>Use spacing tokens, not pixels.</strong> <code>gap: md</code> not <code>gap: 16</code>.</p>
+</li>
+<li><p><strong>Use color tokens, not hex.</strong> <code>color: text-secondary</code> not <code>color: &quot;#6B7280&quot;</code>. Only set hex for <code>meta.theme.accent</code>.</p>
+</li>
+<li><p><strong>Establish visual hierarchy.</strong> Use heading variants (<code>h1</code>–<code>h6</code>) to show importance.</p>
+</li>
+<li><p><strong>Annotate ambiguous elements.</strong> If a placeholder, chart, or interaction isn&#39;t obvious, add an <code>annotation</code>.</p>
+</li>
+<li><p><strong>Use the right element.</strong> Don&#39;t build a list with <code>stack</code> + <code>divider</code> — use <code>list</code> + <code>list-item</code>. Don&#39;t build a card with bordered <code>stack</code> — use <code>card</code>.</p>
+</li>
+<li><p><strong>Realistic, concise content.</strong> Real-sounding names, prices, dates — not &quot;Lorem ipsum&quot; or &quot;Text here&quot;.</p>
+</li>
+<li><p><strong>Every screen needs navigation context.</strong> Mobile screens need <code>navbar</code> and/or <code>tabbar</code>. Desktop screens need a sidebar or top navigation.</p>
+</li>
+<li><p><strong>Prefer blocks over manual construction.</strong> If a section maps to a core block, use the block.</p>
+</li>
+<li><p><strong>Blocks are direct screen children only.</strong> Never nest blocks inside other elements or other blocks.</p>
+</li>
+</ol>
+<h3 id="common-screen-skeletons"><a href="#common-screen-skeletons" class="anchor">#</a> Common screen skeletons</h3>
+<h4 id="mobile-app-screen"><a href="#mobile-app-screen" class="anchor">#</a> Mobile app screen</h4>
+<pre><code class="language-yaml">- id: screen_name
+  title: &quot;Screen Name&quot;
+  children:
+    - type: navbar
+      title: &quot;Screen Name&quot;
+      leading: icon:arrow-left
+
+    - type: scroll
+      grow: 1
+      padding: lg
+      gap: md
+      children:
+        # ... screen content
+
+    - type: tabbar
+      items:
+        - icon: home
+          label: &quot;Home&quot;
+          active: true
+        - icon: search
+          label: &quot;Search&quot;
+        - icon: user
+          label: &quot;Profile&quot;
+</code></pre>
+<h4 id="desktop-app-screen"><a href="#desktop-app-screen" class="anchor">#</a> Desktop app screen</h4>
+<pre><code class="language-yaml">- id: screen_name
+  title: &quot;Screen Name&quot;
+  viewport: { width: 1440, height: 900 }
+  children:
+    - type: row
+      height: &quot;full&quot;
+      children:
+        # Sidebar
+        - type: stack
+          width: 240
+          background: surface
+          border: { sides: right }
+          children:
+            # ... nav items
+
+        # Main
+        - type: stack
+          grow: 1
+          children:
+            # Top bar
+            - type: row
+              padding: lg
+              border: { sides: bottom }
+              children:
+                # ... search, actions
+
+            # Content
+            - type: scroll
+              grow: 1
+              padding: xl
+              children:
+                # ... page content
+</code></pre>
+<h4 id="landing-page-blocks-based"><a href="#landing-page-blocks-based" class="anchor">#</a> Landing page (blocks-based)</h4>
+<pre><code class="language-yaml">- id: landing
+  title: &quot;Landing Page&quot;
+  viewport: { width: 1440, height: 900 }
+  children:
+    - block: top-nav
+      logo: &quot;AppName&quot;
+      items:
+        - label: &quot;Features&quot;
+        - label: &quot;Pricing&quot;
+        - label: &quot;Docs&quot;
+      cta-label: &quot;Sign Up&quot;
+
+    - block: hero
+      heading: &quot;Your main value proposition&quot;
+      subheading: &quot;Supporting text that elaborates.&quot;
+      cta-label: &quot;Get Started&quot;
+
+    - block: feature-grid
+      columns: 3
+      items:
+        - icon: zap
+          title: &quot;Fast&quot;
+          description: &quot;Built for speed.&quot;
+        - icon: shield
+          title: &quot;Secure&quot;
+          description: &quot;Enterprise-grade security.&quot;
+        - icon: users
+          title: &quot;Collaborative&quot;
+          description: &quot;Built for teams.&quot;
+
+    - block: footer
+      variant: simple
+</code></pre>
+<h3 id="multi-screen-best-practices"><a href="#multi-screen-best-practices" class="anchor">#</a> Multi-screen best practices</h3>
+<ul>
+<li>Give each screen a unique, descriptive <code>id</code></li>
+<li>Keep navigation elements consistent across screens at the same level</li>
+<li>Mark the active tab/nav item correctly per screen</li>
+<li>Use <code>next</code> on blocks to declare screen flow</li>
+<li>Use <code>annotation</code> on interactive elements to clarify navigation targets</li>
+</ul>
+<hr>
+<h2 id="14-validation-checklist"><a href="#14-validation-checklist" class="anchor">#</a> 14. Validation Checklist</h2>
+<p>Before outputting a <code>.riss.yaml</code> file, verify:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><code>riss</code> field is <code>&quot;0.1&quot;</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>meta.name</code> is a non-empty string</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>screens</code> is a non-empty array</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Every screen has a unique <code>id</code> (snake_case)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Every screen has <code>title</code> and <code>children</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Every element has a valid <code>type</code> from the element reference</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Required properties for each element type are present</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>children</code> only appears on container/layout elements (<code>stack</code>, <code>row</code>, <code>grid</code>, <code>scroll</code>, <code>card</code>, <code>section</code>, <code>modal</code>, <code>bottomsheet</code>, <code>list</code>, screen root)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Content elements do NOT have <code>children</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Color values are recognized tokens or valid hex (<code>#RGB</code>, <code>#RRGGBB</code>, <code>#RRGGBBAA</code>)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Spacing values are recognized tokens or non-negative numbers</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Size values are numbers, fraction strings, <code>&quot;full&quot;</code>, <code>&quot;half&quot;</code>, or <code>&quot;auto&quot;</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Every <code>role</code> value references a role <code>id</code> defined in <code>meta.roles</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>If <code>role</code> is used anywhere, <code>meta.roles</code> is defined and non-empty</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Every block <code>next</code> value references a valid screen <code>id</code> in the same file</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Blocks appear only as direct screen children, not nested inside elements or other blocks</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Custom block <code>id</code> does not conflict with core block names</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="15-complete-examples"><a href="#15-complete-examples" class="anchor">#</a> 15. Complete Examples</h2>
+<h3 id="example-1-multi-screen-mobile-app-with-navigation-flow-and-roles"><a href="#example-1-multi-screen-mobile-app-with-navigation-flow-and-roles" class="anchor">#</a> Example 1: Multi-screen mobile app with navigation flow and roles</h3>
+<pre><code class="language-yaml">riss: &quot;0.1&quot;
+
+meta:
+  name: &quot;TaskFlow&quot;
+  description: &quot;Team task management app&quot;
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: &quot;#6366F1&quot;
+  roles:
+    - id: admin
+      label: &quot;Admin&quot;
+      color: &quot;#DC2626&quot;
+    - id: member
+      label: &quot;Member&quot;
+      color: &quot;#2563EB&quot;
+
+screens:
+  - id: login
+    title: &quot;Login&quot;
+    path: &quot;/login&quot;
+    children:
+      - type: stack
+        padding: xl
+        justify: center
+        height: &quot;full&quot;
+        gap: lg
+        children:
+          - type: stack
+            align: center
+            gap: sm
+            children:
+              - type: icon
+                name: zap
+                size: 48
+                color: accent
+              - type: text
+                variant: h2
+                content: &quot;TaskFlow&quot;
+                align: center
+              - type: text
+                variant: body
+                content: &quot;Sign in to your workspace&quot;
+                color: text-secondary
+                align: center
+
+          - type: input
+            label: &quot;Email&quot;
+            placeholder: &quot;you@company.com&quot;
+            leading-icon: mail
+
+          - type: input
+            label: &quot;Password&quot;
+            placeholder: &quot;Enter password&quot;
+            leading-icon: lock
+            trailing-icon: eye-off
+
+      - block: cta-banner
+        heading: &quot;Sign In&quot;
+        cta-label: &quot;Sign In&quot;
+        next: home
+
+  - id: home
+    title: &quot;Home&quot;
+    path: &quot;/&quot;
+    children:
+      - type: navbar
+        title: &quot;TaskFlow&quot;
+        trailing:
+          - icon:bell
+          - icon:settings
+
+      - type: scroll
+        grow: 1
+        padding: lg
+        gap: lg
+        children:
+          - type: text
+            variant: h2
+            content: &quot;Good morning, Ola&quot;
+
+          - type: grid
+            columns: 2
+            gap: md
+            children:
+              - type: card
+                padding: md
+                children:
+                  - type: text
+                    variant: caption
+                    content: &quot;Open Tasks&quot;
+                    color: text-secondary
+                  - type: text
+                    variant: h2
+                    content: &quot;12&quot;
+
+              - type: card
+                padding: md
+                children:
+                  - type: text
+                    variant: caption
+                    content: &quot;Due Today&quot;
+                    color: text-secondary
+                  - type: text
+                    variant: h2
+                    content: &quot;3&quot;
+                    color: warning
+
+          - type: text
+            variant: h4
+            content: &quot;Recent Tasks&quot;
+
+          - type: list
+            children:
+              - type: list-item
+                leading: &quot;icon:check&quot;
+                title: &quot;Update API documentation&quot;
+                subtitle: &quot;Due tomorrow&quot;
+                trailing: &quot;icon:chevron-right&quot;
+              - type: list-item
+                leading: &quot;icon:check&quot;
+                title: &quot;Review pull request #42&quot;
+                subtitle: &quot;Due today&quot;
+                trailing: &quot;icon:chevron-right&quot;
+              - type: list-item
+                leading: &quot;icon:check&quot;
+                title: &quot;Deploy staging environment&quot;
+                subtitle: &quot;Overdue&quot;
+                trailing: &quot;icon:chevron-right&quot;
+
+      - block: cta-inline
+        heading: &quot;View tasks&quot;
+        cta-label: &quot;See all&quot;
+        next: [task_detail, settings]
+
+      - type: tabbar
+        items:
+          - icon: home
+            label: &quot;Home&quot;
+            active: true
+          - icon: inbox
+            label: &quot;Tasks&quot;
+          - icon: plus
+            label: &quot;New&quot;
+          - icon: users
+            label: &quot;Team&quot;
+          - icon: user
+            label: &quot;Profile&quot;
+
+  - id: task_detail
+    title: &quot;Task Detail&quot;
+    path: &quot;/tasks/:id&quot;
+    children:
+      - type: navbar
+        title: &quot;Task Detail&quot;
+        leading: icon:arrow-left
+        trailing: icon:more-vertical
+
+      - type: scroll
+        grow: 1
+        padding: lg
+        gap: md
+        children:
+          - type: chip
+            label: &quot;In Progress&quot;
+            variant: filled
+
+          - type: text
+            variant: h3
+            content: &quot;Update API documentation&quot;
+
+          - type: text
+            content: &quot;Review and update the REST API docs to reflect the v2 endpoints. Include request/response examples for each route.&quot;
+            color: text-secondary
+
+          - type: divider
+
+          - type: row
+            gap: lg
+            children:
+              - type: stack
+                gap: xs
+                children:
+                  - type: text
+                    variant: label
+                    content: &quot;ASSIGNEE&quot;
+                    color: text-secondary
+                  - type: row
+                    gap: sm
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 24
+                        initials: &quot;ON&quot;
+                      - type: text
+                        variant: body-sm
+                        content: &quot;Ola Nordmann&quot;
+
+              - type: stack
+                gap: xs
+                children:
+                  - type: text
+                    variant: label
+                    content: &quot;DUE DATE&quot;
+                    color: text-secondary
+                  - type: text
+                    variant: body-sm
+                    content: &quot;Apr 15, 2026&quot;
+
+          - type: divider
+
+          # Admin-only: reassign and delete
+          - type: card
+            padding: md
+            role: admin
+            children:
+              - type: text
+                variant: label
+                content: &quot;ADMIN ACTIONS&quot;
+              - type: row
+                gap: sm
+                children:
+                  - type: button
+                    label: &quot;Reassign&quot;
+                    variant: outline
+                    size: sm
+                  - type: button
+                    label: &quot;Delete Task&quot;
+                    variant: outline
+                    size: sm
+                    color: error
+
+  - id: settings
+    title: &quot;Settings&quot;
+    path: &quot;/settings&quot;
+    role: admin
+    children:
+      - type: navbar
+        title: &quot;Settings&quot;
+        leading: icon:arrow-left
+
+      - type: scroll
+        grow: 1
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: &quot;Workspace Settings&quot;
+
+          - type: input
+            label: &quot;Workspace Name&quot;
+            value: &quot;Acme Corp&quot;
+
+          - type: select
+            label: &quot;Default Role&quot;
+            options: [&quot;Admin&quot;, &quot;Member&quot;]
+            selected: 1
+
+          - type: toggle
+            label: &quot;Allow member invitations&quot;
+            checked: true
+
+          - type: divider
+
+          - type: button
+            label: &quot;Save Changes&quot;
+            variant: primary
+            full-width: true
+</code></pre>
+<h3 id="example-2-saas-landing-page-with-blocks"><a href="#example-2-saas-landing-page-with-blocks" class="anchor">#</a> Example 2: SaaS landing page with blocks</h3>
+<pre><code class="language-yaml">riss: &quot;0.1&quot;
+
+meta:
+  name: &quot;CloudSync&quot;
+  viewport: { width: 1440, height: 900 }
+  theme:
+    mode: light
+    accent: &quot;#6366F1&quot;
+
+screens:
+  - id: landing
+    title: &quot;Landing Page&quot;
+    children:
+      - block: top-nav
+        logo: &quot;CloudSync&quot;
+        items:
+          - label: &quot;Features&quot;
+          - label: &quot;Pricing&quot;
+          - label: &quot;Docs&quot;
+          - label: &quot;Blog&quot;
+        cta-label: &quot;Start Free&quot;
+        cta-secondary-label: &quot;Log In&quot;
+
+      - block: hero
+        variant: split
+        heading: &quot;Sync your data across every cloud&quot;
+        subheading: &quot;One API. Every provider. Zero vendor lock-in.&quot;
+        cta-label: &quot;Start Free&quot;
+        cta-secondary-label: &quot;View Demo&quot;
+        next: [signup, login]
+        image-label: &quot;Dashboard Preview&quot;
+
+      - block: logo-bar
+        title: &quot;Trusted by 500+ companies&quot;
+        logos: 5
+        labels: [&quot;AWS&quot;, &quot;Azure&quot;, &quot;GCP&quot;, &quot;Vercel&quot;, &quot;Cloudflare&quot;]
+
+      - block: feature-grid
+        title: &quot;Why teams choose CloudSync&quot;
+        columns: 3
+        items:
+          - icon: refresh
+            title: &quot;Real-time Sync&quot;
+            description: &quot;Changes propagate in under 100ms across all connected clouds.&quot;
+          - icon: lock
+            title: &quot;End-to-end Encryption&quot;
+            description: &quot;Your data is encrypted at rest and in transit. Always.&quot;
+          - icon: chart
+            title: &quot;Usage Analytics&quot;
+            description: &quot;Track sync volume, latency, and errors from one dashboard.&quot;
+
+      - block: pricing-table
+        title: &quot;Simple pricing&quot;
+        subtitle: &quot;No hidden fees. Scale as you grow.&quot;
+        tiers:
+          - name: &quot;Starter&quot;
+            price: &quot;$0&quot;
+            period: &quot;/month&quot;
+            description: &quot;For side projects.&quot;
+            features: [&quot;1 connection&quot;, &quot;1GB/month&quot;, &quot;Community support&quot;]
+            cta-label: &quot;Get Started&quot;
+            cta-variant: outline
+          - name: &quot;Pro&quot;
+            price: &quot;$49&quot;
+            period: &quot;/month&quot;
+            description: &quot;For growing teams.&quot;
+            features: [&quot;Unlimited connections&quot;, &quot;100GB/month&quot;, &quot;Priority support&quot;, &quot;SSO&quot;]
+            cta-label: &quot;Start Trial&quot;
+            highlighted: true
+          - name: &quot;Enterprise&quot;
+            price: &quot;Custom&quot;
+            description: &quot;For large organizations.&quot;
+            features: [&quot;Everything in Pro&quot;, &quot;Dedicated support&quot;, &quot;SLA&quot;, &quot;On-premise option&quot;]
+            cta-label: &quot;Contact Sales&quot;
+            cta-variant: outline
+
+      - block: cta-banner
+        heading: &quot;Ready to unify your cloud?&quot;
+        subheading: &quot;Start syncing in under 5 minutes.&quot;
+        cta-label: &quot;Start Free&quot;
+        background: accent-soft
+
+      - block: footer
+        variant: multi-column
+        logo: &quot;CloudSync&quot;
+        tagline: &quot;One API. Every cloud.&quot;
+        columns:
+          - title: &quot;Product&quot;
+            links: [&quot;Features&quot;, &quot;Pricing&quot;, &quot;Changelog&quot;]
+          - title: &quot;Resources&quot;
+            links: [&quot;Docs&quot;, &quot;API Reference&quot;, &quot;Status&quot;]
+          - title: &quot;Company&quot;
+            links: [&quot;About&quot;, &quot;Blog&quot;, &quot;Careers&quot;]
+        copyright: &quot;2026 CloudSync Inc.&quot;
+
+  - id: signup
+    title: &quot;Sign Up&quot;
+    path: &quot;/signup&quot;
+    children:
+      - block: signup-form
+        heading: &quot;Create your account&quot;
+        fields: [&quot;name&quot;, &quot;email&quot;, &quot;password&quot;]
+        cta-label: &quot;Create Account&quot;
+        social: [&quot;google&quot;, &quot;github&quot;]
+        footer-text: &quot;Already have an account?&quot;
+        footer-link: &quot;Log in&quot;
+        next: dashboard
+
+  - id: login
+    title: &quot;Log In&quot;
+    path: &quot;/login&quot;
+    children:
+      - block: login-form
+        heading: &quot;Welcome back&quot;
+        cta-label: &quot;Sign In&quot;
+        social: [&quot;google&quot;, &quot;github&quot;]
+        footer-text: &quot;Don&#39;t have an account?&quot;
+        footer-link: &quot;Sign up&quot;
+        next: dashboard
+
+  - id: dashboard
+    title: &quot;Dashboard&quot;
+    path: &quot;/dashboard&quot;
+    children:
+      - block: top-nav
+        logo: &quot;CloudSync&quot;
+        items:
+          - label: &quot;Dashboard&quot;
+          - label: &quot;Connections&quot;
+          - label: &quot;Logs&quot;
+
+      - block: stat-cards-row
+        items:
+          - label: &quot;Active Connections&quot;
+            value: &quot;8&quot;
+            trend: &quot;+2 this week&quot;
+          - label: &quot;Data Synced&quot;
+            value: &quot;42.8 GB&quot;
+            trend: &quot;+12% from last month&quot;
+          - label: &quot;Sync Errors&quot;
+            value: &quot;0&quot;
+            trend: &quot;All clear&quot;
+          - label: &quot;Avg Latency&quot;
+            value: &quot;47ms&quot;
+            trend: &quot;-8ms from last week&quot;
+
+      - block: chart-card
+        title: &quot;Sync Volume (Last 30 Days)&quot;
+        chart-type: line
+        height: 300
+
+      - block: data-table
+        title: &quot;Recent Sync Operations&quot;
+        columns: [&quot;Timestamp&quot;, &quot;Source&quot;, &quot;Destination&quot;, &quot;Size&quot;, &quot;Status&quot;]
+        rows:
+          - [&quot;2 min ago&quot;, &quot;AWS S3&quot;, &quot;GCP Storage&quot;, &quot;128 MB&quot;, &quot;Success&quot;]
+          - [&quot;15 min ago&quot;, &quot;Azure Blob&quot;, &quot;AWS S3&quot;, &quot;2.4 GB&quot;, &quot;Success&quot;]
+          - [&quot;1 hour ago&quot;, &quot;GCP Storage&quot;, &quot;Azure Blob&quot;, &quot;512 MB&quot;, &quot;Success&quot;]
+        show-search: true
+        show-pagination: true
+</code></pre>
+<hr>
+<h2 id="appendix-quick-reference"><a href="#appendix-quick-reference" class="anchor">#</a> Appendix: Quick Reference</h2>
+<h3 id="spacing-sizing-cheatsheet"><a href="#spacing-sizing-cheatsheet" class="anchor">#</a> Spacing &amp; sizing cheatsheet</h3>
+<pre><code>Spacing:  none=0  xs=4  sm=8  md=16  lg=24  xl=32  2xl=48  3xl=64
+Radius:   none=0  sm=4  md=8  lg=12  xl=16  full=9999
+Sizes:    &quot;auto&quot;  &quot;full&quot;  &quot;half&quot;  &quot;1/3&quot;  &quot;2/3&quot;  &quot;1/4&quot;  &quot;3/4&quot;  or pixels
+</code></pre>
+<h3 id="element-children-rules"><a href="#element-children-rules" class="anchor">#</a> Element children rules</h3>
+<p><strong>Can have children:</strong> <code>stack</code>, <code>row</code>, <code>grid</code>, <code>scroll</code>, <code>card</code>, <code>section</code>, <code>modal</code>, <code>bottomsheet</code>, <code>list</code></p>
+<p><strong>Cannot have children:</strong> <code>text</code>, <code>image</code>, <code>icon</code>, <code>avatar</code>, <code>divider</code>, <code>spacer</code>, <code>badge</code>, <code>chip</code>, <code>progress</code>, <code>button</code>, <code>input</code>, <code>textarea</code>, <code>checkbox</code>, <code>radio</code>, <code>toggle</code>, <code>select</code>, <code>slider</code>, <code>placeholder</code>, <code>alert</code>, <code>toast</code>, <code>skeleton</code>, <code>empty-state</code>, <code>spinner</code>, <code>table</code>, <code>breadcrumb</code>, <code>tabs</code>, <code>tabbar</code>, <code>annotation</code></p>
+<hr>
+<p><em>Riss AI Generation Guide v0.1 — because every great product starts as a sketch.</em></p>
+
+  </main>
+</body>
+</html>

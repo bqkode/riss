@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RissBlocks Specification v0.1 - Riss Documentation</title>
+  <meta name="description" content="RissBlocks Specification v0.1 - YAML-based wireframe description format documentation">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; line-height: 1.65; color: #1a1a1a; background: #fff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; min-height: 100vh;
+    }
+    .docs-nav {
+      width: 260px; min-width: 260px; padding: 20px 16px;
+      border-right: 1px solid #e5e7eb; background: #fafafa;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 17px; color: #111; text-decoration: none;
+      display: block; margin-bottom: 4px;
+    }
+    .nav-home {
+      font-size: 13px; color: #6b7280; text-decoration: none; display: block; margin-bottom: 16px;
+    }
+    .nav-home:hover { color: #2563eb; }
+    .docs-nav h3 {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: #9ca3af; margin: 16px 0 6px;
+    }
+    .docs-nav ul { list-style: none; }
+    .docs-nav li a {
+      display: block; padding: 3px 8px; font-size: 13px; color: #374151;
+      text-decoration: none; border-radius: 4px; transition: background 0.15s;
+    }
+    .docs-nav li a:hover { background: #e5e7eb; }
+    .docs-nav li a.active { background: #2563eb; color: #fff; }
+
+    .docs-content {
+      flex: 1; max-width: 800px; padding: 40px 48px; margin: 0 auto;
+    }
+    .docs-content h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+    .docs-content h2 { font-size: 22px; font-weight: 600; margin: 32px 0 12px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
+    .docs-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+    .docs-content h4 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
+    .docs-content p { margin: 0 0 12px; }
+    .docs-content ul, .docs-content ol { margin: 0 0 12px; padding-left: 24px; }
+    .docs-content li { margin: 2px 0; }
+    .docs-content a { color: #2563eb; text-decoration: none; }
+    .docs-content a:hover { text-decoration: underline; }
+    .anchor { color: #d1d5db; text-decoration: none; margin-right: 4px; font-weight: 400; }
+    .anchor:hover { color: #2563eb; }
+
+    .docs-content code {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em; background: #f3f4f6; padding: 2px 5px; border-radius: 3px;
+    }
+    .docs-content pre {
+      background: #1e1e2e; color: #cdd6f4; border-radius: 8px;
+      padding: 16px 20px; margin: 0 0 16px; overflow-x: auto; line-height: 1.5;
+    }
+    .docs-content pre code {
+      background: none; padding: 0; font-size: 13px; color: inherit;
+    }
+    .docs-content table {
+      width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14px;
+    }
+    .docs-content th, .docs-content td {
+      text-align: left; padding: 8px 12px; border: 1px solid #e5e7eb;
+    }
+    .docs-content th { background: #f9fafb; font-weight: 600; }
+    .docs-content blockquote {
+      border-left: 3px solid #2563eb; padding: 8px 16px; margin: 0 0 16px;
+      background: #f0f7ff; color: #374151; font-size: 14px;
+    }
+    .docs-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 24px 0; }
+    .docs-content img { max-width: 100%; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .docs-nav {
+        width: 100%; min-width: auto; height: auto; position: static;
+        border-right: none; border-bottom: 1px solid #e5e7eb;
+      }
+      .docs-content { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  
+    <nav class="docs-nav" aria-label="Documentation">
+      <a href="/" class="nav-logo">Riss</a>
+      <a href="/docs/v0.1/" class="nav-home">Documentation</a>
+      <h3>Core Docs</h3>
+      <ul><li><a href="/docs/v0.1/spec.html">Riss Specification</a></li>
+<li><a href="/docs/v0.1/ai-guide.html">Riss AI Generation Guide</a></li>
+<li><a href="/docs/v0.1/blocks.html" class="active">RissBlocks Specification</a></li></ul>
+      <h3>Block Reference</h3>
+      <ul><li><a href="/docs/v0.1/blocks/ai-guidelines.html">Ai Guidelines</a></li>
+<li><a href="/docs/v0.1/blocks/collections.html">Collections</a></li>
+<li><a href="/docs/v0.1/blocks/communication.html">Communication</a></li>
+<li><a href="/docs/v0.1/blocks/content.html">Content</a></li>
+<li><a href="/docs/v0.1/blocks/cta.html">Cta</a></li>
+<li><a href="/docs/v0.1/blocks/custom-blocks.html">Custom Blocks</a></li>
+<li><a href="/docs/v0.1/blocks/dashboard.html">Dashboard</a></li>
+<li><a href="/docs/v0.1/blocks/ecommerce.html">Ecommerce</a></li>
+<li><a href="/docs/v0.1/blocks/features.html">Features</a></li>
+<li><a href="/docs/v0.1/blocks/feedback.html">Feedback</a></li>
+<li><a href="/docs/v0.1/blocks/footer.html">Footer</a></li>
+<li><a href="/docs/v0.1/blocks/forms.html">Forms</a></li>
+<li><a href="/docs/v0.1/blocks/hero-header.html">Hero Header</a></li>
+<li><a href="/docs/v0.1/blocks/navigation.html">Navigation</a></li>
+<li><a href="/docs/v0.1/blocks/pricing.html">Pricing</a></li>
+<li><a href="/docs/v0.1/blocks/social-proof.html">Social Proof</a></li>
+<li><a href="/docs/v0.1/blocks/user-profile.html">User Profile</a></li></ul>
+    </nav>
+  
+  <main class="docs-content">
+    <h1 id="rissblocks-specification-v01"><a href="#rissblocks-specification-v01" class="anchor">#</a> RissBlocks Specification v0.1</h1>
+<blockquote>
+<p><strong>RissBlocks</strong> are pre-built, composable wireframe patterns that ship with Riss. Each block is a template composed of Riss primitives (elements from the core spec) that represents a commonly used UI section. Screens contain RissBlocks as children, and the renderer expands them into their underlying element trees.</p>
+</blockquote>
+<hr>
+<h2 id="table-of-contents"><a href="#table-of-contents" class="anchor">#</a> Table of Contents</h2>
+<ol>
+<li><a href="#1-concept">Concept</a></li>
+<li><a href="#2-block-structure">Block Structure</a></li>
+<li><a href="#3-core-blocks-reference">Core Blocks Reference</a></li>
+<li><a href="#4-blocks-vs-elements-disambiguation">Blocks vs. Elements Disambiguation</a></li>
+<li><a href="#5-common-block-parameters">Common Block Parameters</a></li>
+<li><a href="#6-versioning">Versioning</a></li>
+<li><a href="blocks/custom-blocks.html">Custom Blocks</a></li>
+<li><a href="blocks/ai-guidelines.html">AI Generation Guidelines</a></li>
+</ol>
+<hr>
+<h2 id="1-concept"><a href="#1-concept" class="anchor">#</a> 1. Concept</h2>
+<h3 id="what-is-a-rissblock"><a href="#what-is-a-rissblock" class="anchor">#</a> What is a RissBlock?</h3>
+<p>A RissBlock is a <strong>reusable, parameterized wireframe section</strong>. It sits between raw Riss elements (primitives) and full screens in the abstraction hierarchy:</p>
+<pre><code>Screen
+  └─ RissBlock (e.g., hero, pricing-table, feature-grid)
+       └─ Riss Elements (stack, row, text, button, card, ...)
+</code></pre>
+<h3 id="why-rissblocks"><a href="#why-rissblocks" class="anchor">#</a> Why RissBlocks?</h3>
+<ol>
+<li><strong>Faster AI generation</strong> — Instead of generating 40+ lines of nested primitives for a hero section, the AI writes <code>block: hero</code> with a few parameters. Less room for structural errors.</li>
+<li><strong>Consistent patterns</strong> — Blocks encode best-practice layout and spacing. A <code>testimonial-carousel</code> always looks right.</li>
+<li><strong>Human readability</strong> — A stakeholder can scan a screen and see <code>hero</code>, <code>feature-grid</code>, <code>pricing-table</code>, <code>footer</code> — instantly understanding the page structure.</li>
+<li><strong>Customizable</strong> — Every block parameter has a sensible default. Override only what you need.</li>
+</ol>
+<h3 id="core-vs-custom"><a href="#core-vs-custom" class="anchor">#</a> Core vs. Custom</h3>
+<ul>
+<li><strong>Core blocks</strong> ship with Riss. They cover the most common UI patterns across web and mobile. Renderers MUST support all core blocks.</li>
+<li><strong>Custom blocks</strong> can be defined by AI or users within a <code>.riss.yaml</code> file using the <code>blocks</code> top-level field (see <a href="blocks/custom-blocks.html">Custom Blocks</a>). Renderers expand them using the block definition.</li>
+</ul>
+<hr>
+<h2 id="2-block-structure"><a href="#2-block-structure" class="anchor">#</a> 2. Block Structure</h2>
+<h3 id="using-a-block-in-a-screen"><a href="#using-a-block-in-a-screen" class="anchor">#</a> Using a block in a screen</h3>
+<pre><code class="language-yaml">screens:
+  - id: landing
+    title: &quot;Landing Page&quot;
+    children:
+      - block: hero
+        heading: &quot;Ship faster with Riss&quot;
+        subheading: &quot;AI-generated wireframes your team can actually validate.&quot;
+        cta-label: &quot;Get Started&quot;
+        cta-secondary-label: &quot;See Demo&quot;
+        image: true
+
+      - block: logo-bar
+        title: &quot;Trusted by&quot;
+        logos: 6
+
+      - block: feature-grid
+        columns: 3
+        items:
+          - icon: edit
+            title: &quot;AI-First&quot;
+            description: &quot;Generated correctly by language models, every time.&quot;
+          - icon: eye
+            title: &quot;Visually Honest&quot;
+            description: &quot;Wireframes set correct expectations.&quot;
+          - icon: refresh
+            title: &quot;Deterministic&quot;
+            description: &quot;Same file, same output. Always.&quot;
+
+      - block: footer
+        variant: multi-column
+</code></pre>
+<h3 id="block-syntax"><a href="#block-syntax" class="anchor">#</a> Block syntax</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>block</code></td>
+<td><strong>Yes</strong></td>
+<td>Block type identifier. Must match a core block name or a custom block defined in the file&#39;s <code>blocks</code> section.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>No</td>
+<td>Optional unique identifier for this block instance.</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>No</td>
+<td>Role id or array of role ids. Restricts this block to the specified role(s). Renders a colored outline and badge. See <a href="..//docs/v0.1/spec.html#7-roles">Roles</a>.</td>
+</tr>
+<tr>
+<td><code>annotation</code></td>
+<td>No</td>
+<td>Annotation text (same as element annotations).</td>
+</tr>
+<tr>
+<td><code>next</code></td>
+<td>No</td>
+<td>Navigation target(s) — screen id(s) this block navigates to. Creates flow arrows between screens.</td>
+</tr>
+<tr>
+<td>All other fields</td>
+<td>Varies</td>
+<td>Block-specific parameters. Each block defines its own parameters with defaults.</td>
+</tr>
+</tbody></table>
+<h3 id="how-blocks-render"><a href="#how-blocks-render" class="anchor">#</a> How blocks render</h3>
+<p>The renderer expands each block into its underlying Riss element tree, applying the provided parameters. The expanded tree is then rendered identically to hand-written elements. Blocks are a <strong>convenience layer</strong>, not a new rendering primitive.</p>
+<p><strong>Scrolling behavior:</strong> Blocks are placed sequentially in the screen&#39;s <code>children</code> list. If the combined height of all blocks exceeds the viewport, the screen scrolls vertically. Blocks do not create their own scroll containers — the screen itself is the scroll boundary.</p>
+<p><strong>Responsive behavior:</strong> RissBlocks v0.1 does not define a formal breakpoint system. Each block renders for the viewport size specified in <code>meta.viewport</code>. Blocks with a <code>columns</code> parameter should gracefully reduce columns on narrow viewports (e.g., a 3-column grid on a 390px viewport may render as a single column). Formal responsive breakpoints are planned for a future version.</p>
+<h3 id="parameter-types"><a href="#parameter-types" class="anchor">#</a> Parameter types</h3>
+<p>Block parameter tables reference the following types from the core <a href="/docs/v0.1/spec.html">Riss Specification</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Definition</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Color</strong></td>
+<td>A semantic color token (<code>accent</code>, <code>surface</code>, <code>text-secondary</code>, etc.) or a hex string (<code>#RRGGBB</code>).</td>
+<td><a href="/docs/v0.1/spec.html#5-styling-system">RISS_SPEC.md § 5 — Styling System</a></td>
+</tr>
+<tr>
+<td><strong>Spacing</strong></td>
+<td>A spacing token (<code>none</code>, <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>, <code>2xl</code>, <code>3xl</code>) or a pixel number.</td>
+<td><a href="/docs/v0.1/spec.html#4-layout-system">RISS_SPEC.md § 4 — Layout System</a></td>
+</tr>
+<tr>
+<td><strong>Icon name</strong></td>
+<td>A string from the standard icon set. Unrecognized names render as a labeled square.</td>
+<td><a href="/docs/v0.1/spec.html#63-content-elements">RISS_SPEC.md § 6.3 — <code>icon</code> element</a></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="3-core-blocks-reference"><a href="#3-core-blocks-reference" class="anchor">#</a> 3. Core Blocks Reference</h2>
+<h3 id="category-overview"><a href="#category-overview" class="anchor">#</a> Category Overview</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Blocks</th>
+<th>Spec</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Hero &amp; Header</strong></td>
+<td><code>hero</code>, <code>page-header</code>, <code>announcement-bar</code></td>
+<td><a href="blocks/hero-header.html">hero-header.md</a></td>
+</tr>
+<tr>
+<td><strong>Navigation</strong></td>
+<td><code>sidebar-nav</code>, <code>top-nav</code>, <code>breadcrumb-header</code>, <code>bottom-nav</code></td>
+<td><a href="blocks/navigation.html">navigation.md</a></td>
+</tr>
+<tr>
+<td><strong>Content</strong></td>
+<td><code>side-by-side</code>, <code>alternating-rows</code>, <code>content-carousel</code>, <code>blog-card-grid</code>, <code>timeline</code>, <code>rich-text</code></td>
+<td><a href="blocks/content.html">content.md</a></td>
+</tr>
+<tr>
+<td><strong>Features &amp; Benefits</strong></td>
+<td><code>feature-grid</code>, <code>feature-list</code>, <code>checklist</code>, <code>how-it-works</code></td>
+<td><a href="blocks/features.html">features.md</a></td>
+</tr>
+<tr>
+<td><strong>Social Proof</strong></td>
+<td><code>logo-bar</code>, <code>testimonial-card</code>, <code>testimonial-grid</code>, <code>stats-row</code>, <code>rating-block</code></td>
+<td><a href="blocks/social-proof.html">social-proof.md</a></td>
+</tr>
+<tr>
+<td><strong>Pricing</strong></td>
+<td><code>pricing-table</code>, <code>pricing-card</code></td>
+<td><a href="blocks/pricing.html">pricing.md</a></td>
+</tr>
+<tr>
+<td><strong>Call to Action</strong></td>
+<td><code>cta-banner</code>, <code>cta-inline</code>, <code>cta-with-input</code></td>
+<td><a href="blocks/cta.html">cta.md</a></td>
+</tr>
+<tr>
+<td><strong>Forms</strong></td>
+<td><code>login-form</code>, <code>signup-form</code>, <code>contact-form</code>, <code>search-with-filters</code>, <code>multi-step-form</code>, <code>settings-form</code></td>
+<td><a href="blocks/forms.html">forms.md</a></td>
+</tr>
+<tr>
+<td><strong>Data &amp; Dashboard</strong></td>
+<td><code>stat-cards-row</code>, <code>data-table</code>, <code>activity-feed</code>, <code>chart-card</code>, <code>kanban-board</code></td>
+<td><a href="blocks/dashboard.html">dashboard.md</a></td>
+</tr>
+<tr>
+<td><strong>E-Commerce</strong></td>
+<td><code>product-card-grid</code>, <code>product-detail</code>, <code>cart-summary</code>, <code>checkout-steps</code></td>
+<td><a href="blocks/ecommerce.html">ecommerce.md</a></td>
+</tr>
+<tr>
+<td><strong>User &amp; Profile</strong></td>
+<td><code>profile-header</code>, <code>team-grid</code>, <code>avatar-list</code></td>
+<td><a href="blocks/user-profile.html">user-profile.md</a></td>
+</tr>
+<tr>
+<td><strong>Lists &amp; Collections</strong></td>
+<td><code>card-grid</code>, <code>media-gallery</code>, <code>accordion</code>, <code>ranked-list</code></td>
+<td><a href="blocks/collections.html">collections.md</a></td>
+</tr>
+<tr>
+<td><strong>Feedback &amp; State</strong></td>
+<td><code>empty-state-block</code>, <code>error-page</code>, <code>loading-skeleton</code>, <code>confirmation</code></td>
+<td><a href="blocks/feedback.html">feedback.md</a></td>
+</tr>
+<tr>
+<td><strong>Communication</strong></td>
+<td><code>chat-thread</code>, <code>comment-thread</code>, <code>notification-list</code></td>
+<td><a href="blocks/communication.html">communication.md</a></td>
+</tr>
+<tr>
+<td><strong>Footer</strong></td>
+<td><code>footer</code></td>
+<td><a href="blocks/footer.html">footer.md</a></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="quick-reference-all-57-core-blocks"><a href="#quick-reference-all-57-core-blocks" class="anchor">#</a> Quick Reference — All 57 Core Blocks</h2>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hero</code></td>
+<td>Hero &amp; Header</td>
+<td>Above-the-fold section with heading, CTA, optional image</td>
+</tr>
+<tr>
+<td><code>page-header</code></td>
+<td>Hero &amp; Header</td>
+<td>Inner page header with breadcrumb and actions</td>
+</tr>
+<tr>
+<td><code>announcement-bar</code></td>
+<td>Hero &amp; Header</td>
+<td>Thin dismissible banner</td>
+</tr>
+<tr>
+<td><code>sidebar-nav</code></td>
+<td>Navigation</td>
+<td>Vertical sidebar navigation</td>
+</tr>
+<tr>
+<td><code>top-nav</code></td>
+<td>Navigation</td>
+<td>Horizontal top navigation bar</td>
+</tr>
+<tr>
+<td><code>breadcrumb-header</code></td>
+<td>Navigation</td>
+<td>Breadcrumb + page title</td>
+</tr>
+<tr>
+<td><code>bottom-nav</code></td>
+<td>Navigation</td>
+<td>Bottom tab navigation bar (mobile)</td>
+</tr>
+<tr>
+<td><code>side-by-side</code></td>
+<td>Content</td>
+<td>Two-column: text + image</td>
+</tr>
+<tr>
+<td><code>alternating-rows</code></td>
+<td>Content</td>
+<td>Zigzag text/image rows</td>
+</tr>
+<tr>
+<td><code>content-carousel</code></td>
+<td>Content</td>
+<td>Horizontal scrollable cards</td>
+</tr>
+<tr>
+<td><code>blog-card-grid</code></td>
+<td>Content</td>
+<td>Article card grid</td>
+</tr>
+<tr>
+<td><code>timeline</code></td>
+<td>Content</td>
+<td>Vertical timeline</td>
+</tr>
+<tr>
+<td><code>rich-text</code></td>
+<td>Content</td>
+<td>Long-form content block</td>
+</tr>
+<tr>
+<td><code>feature-grid</code></td>
+<td>Features</td>
+<td>Icon + title + description grid</td>
+</tr>
+<tr>
+<td><code>feature-list</code></td>
+<td>Features</td>
+<td>Vertical feature list</td>
+</tr>
+<tr>
+<td><code>checklist</code></td>
+<td>Features</td>
+<td>Checkmark item list</td>
+</tr>
+<tr>
+<td><code>how-it-works</code></td>
+<td>Features</td>
+<td>Numbered process steps</td>
+</tr>
+<tr>
+<td><code>logo-bar</code></td>
+<td>Social Proof</td>
+<td>Partner/client logo row</td>
+</tr>
+<tr>
+<td><code>testimonial-card</code></td>
+<td>Social Proof</td>
+<td>Single testimonial</td>
+</tr>
+<tr>
+<td><code>testimonial-grid</code></td>
+<td>Social Proof</td>
+<td>Multiple testimonials grid</td>
+</tr>
+<tr>
+<td><code>stats-row</code></td>
+<td>Social Proof</td>
+<td>Large stat numbers row</td>
+</tr>
+<tr>
+<td><code>rating-block</code></td>
+<td>Social Proof</td>
+<td>Aggregate rating display</td>
+</tr>
+<tr>
+<td><code>pricing-table</code></td>
+<td>Pricing</td>
+<td>Multi-tier pricing</td>
+</tr>
+<tr>
+<td><code>pricing-card</code></td>
+<td>Pricing</td>
+<td>Single pricing plan</td>
+</tr>
+<tr>
+<td><code>cta-banner</code></td>
+<td>CTA</td>
+<td>Full-width call to action</td>
+</tr>
+<tr>
+<td><code>cta-inline</code></td>
+<td>CTA</td>
+<td>Compact inline CTA card</td>
+</tr>
+<tr>
+<td><code>cta-with-input</code></td>
+<td>CTA</td>
+<td>CTA with email input</td>
+</tr>
+<tr>
+<td><code>login-form</code></td>
+<td>Forms</td>
+<td>Standard login</td>
+</tr>
+<tr>
+<td><code>signup-form</code></td>
+<td>Forms</td>
+<td>Registration form</td>
+</tr>
+<tr>
+<td><code>contact-form</code></td>
+<td>Forms</td>
+<td>Contact/inquiry form</td>
+</tr>
+<tr>
+<td><code>search-with-filters</code></td>
+<td>Forms</td>
+<td>Search + filter controls</td>
+</tr>
+<tr>
+<td><code>multi-step-form</code></td>
+<td>Forms</td>
+<td>Form wizard with steps</td>
+</tr>
+<tr>
+<td><code>settings-form</code></td>
+<td>Forms</td>
+<td>Grouped settings</td>
+</tr>
+<tr>
+<td><code>stat-cards-row</code></td>
+<td>Dashboard</td>
+<td>Metric/KPI cards</td>
+</tr>
+<tr>
+<td><code>data-table</code></td>
+<td>Dashboard</td>
+<td>Filterable data table</td>
+</tr>
+<tr>
+<td><code>activity-feed</code></td>
+<td>Dashboard</td>
+<td>Timestamped event list</td>
+</tr>
+<tr>
+<td><code>chart-card</code></td>
+<td>Dashboard</td>
+<td>Chart placeholder card</td>
+</tr>
+<tr>
+<td><code>kanban-board</code></td>
+<td>Dashboard</td>
+<td>Columnar card board</td>
+</tr>
+<tr>
+<td><code>product-card-grid</code></td>
+<td>E-Commerce</td>
+<td>Product cards grid</td>
+</tr>
+<tr>
+<td><code>product-detail</code></td>
+<td>E-Commerce</td>
+<td>Full product info section</td>
+</tr>
+<tr>
+<td><code>cart-summary</code></td>
+<td>E-Commerce</td>
+<td>Cart + order total</td>
+</tr>
+<tr>
+<td><code>checkout-steps</code></td>
+<td>E-Commerce</td>
+<td>Checkout step indicator</td>
+</tr>
+<tr>
+<td><code>profile-header</code></td>
+<td>User &amp; Profile</td>
+<td>User profile header</td>
+</tr>
+<tr>
+<td><code>team-grid</code></td>
+<td>User &amp; Profile</td>
+<td>Team member cards</td>
+</tr>
+<tr>
+<td><code>avatar-list</code></td>
+<td>User &amp; Profile</td>
+<td>Compact user list</td>
+</tr>
+<tr>
+<td><code>card-grid</code></td>
+<td>Collections</td>
+<td>Generic card grid</td>
+</tr>
+<tr>
+<td><code>media-gallery</code></td>
+<td>Collections</td>
+<td>Image/video grid</td>
+</tr>
+<tr>
+<td><code>accordion</code></td>
+<td>Collections</td>
+<td>Expandable Q&amp;A / sections</td>
+</tr>
+<tr>
+<td><code>ranked-list</code></td>
+<td>Collections</td>
+<td>Numbered ranked list</td>
+</tr>
+<tr>
+<td><code>empty-state-block</code></td>
+<td>Feedback</td>
+<td>Empty state with CTA</td>
+</tr>
+<tr>
+<td><code>error-page</code></td>
+<td>Feedback</td>
+<td>Full-page error state</td>
+</tr>
+<tr>
+<td><code>loading-skeleton</code></td>
+<td>Feedback</td>
+<td>Skeleton loading pattern</td>
+</tr>
+<tr>
+<td><code>confirmation</code></td>
+<td>Feedback</td>
+<td>Success/confirmation state</td>
+</tr>
+<tr>
+<td><code>chat-thread</code></td>
+<td>Communication</td>
+<td>Chat messages + input</td>
+</tr>
+<tr>
+<td><code>comment-thread</code></td>
+<td>Communication</td>
+<td>Comment section with replies</td>
+</tr>
+<tr>
+<td><code>notification-list</code></td>
+<td>Communication</td>
+<td>Notification feed</td>
+</tr>
+<tr>
+<td><code>footer</code></td>
+<td>Footer</td>
+<td>Page footer</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="4-blocks-vs-elements-disambiguation"><a href="#4-blocks-vs-elements-disambiguation" class="anchor">#</a> 4. Blocks vs. Elements Disambiguation</h2>
+<p>Several core blocks have names similar to core Riss elements. They serve different purposes:</p>
+<table>
+<thead>
+<tr>
+<th>Core Element</th>
+<th>RissBlock</th>
+<th>When to use the element</th>
+<th>When to use the block</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>navbar</code></td>
+<td><code>top-nav</code></td>
+<td>Mobile app bars with leading/trailing icons and a center title.</td>
+<td>Marketing pages and desktop apps with logo, nav links, and CTA buttons.</td>
+</tr>
+<tr>
+<td><code>tabbar</code></td>
+<td><code>bottom-nav</code></td>
+<td>When you need full control over the bottom bar within a hand-built screen.</td>
+<td>Quick mobile bottom navigation with sensible defaults and variants.</td>
+</tr>
+<tr>
+<td><code>table</code></td>
+<td><code>data-table</code></td>
+<td>Simple static tables without controls.</td>
+<td>Tables with search, filters, pagination, and bulk actions.</td>
+</tr>
+<tr>
+<td><code>skeleton</code></td>
+<td><code>loading-skeleton</code></td>
+<td>A single shimmer shape (text line, circle, rectangle).</td>
+<td>A full-section loading pattern composed of multiple skeleton shapes.</td>
+</tr>
+<tr>
+<td><code>empty-state</code></td>
+<td><code>empty-state-block</code></td>
+<td>A simple inline empty state with icon, title, and action.</td>
+<td>A full-section empty state with richer structure, illustration, and CTA.</td>
+</tr>
+</tbody></table>
+<p>Additionally, two blocks share similar step-indicator UIs but serve different purposes:</p>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>checkout-steps</code></td>
+<td>A read-only step indicator for e-commerce checkout flows. No form fields.</td>
+</tr>
+<tr>
+<td><code>multi-step-form</code></td>
+<td>A full form wizard with fields per step, forward/back navigation buttons.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="5-common-block-parameters"><a href="#5-common-block-parameters" class="anchor">#</a> 5. Common Block Parameters</h2>
+<p>These parameter names recur across many blocks with consistent meaning:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td>String</td>
+<td>Section heading rendered above the block content.</td>
+</tr>
+<tr>
+<td><code>subtitle</code></td>
+<td>String</td>
+<td>Secondary text below the title.</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td>Array</td>
+<td>The primary data array for the block (cards, features, list entries, etc.).</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>Number</td>
+<td>Number of grid columns for layout.</td>
+</tr>
+<tr>
+<td><code>cta-label</code></td>
+<td>String</td>
+<td>Primary call-to-action button label.</td>
+</tr>
+<tr>
+<td><code>cta-secondary-label</code></td>
+<td>String</td>
+<td>Secondary/outline button label.</td>
+</tr>
+<tr>
+<td><code>variant</code></td>
+<td>String (enum)</td>
+<td>Visual or layout variation of the block.</td>
+</tr>
+<tr>
+<td><code>icon</code></td>
+<td>String</td>
+<td>Icon name from the <a href="/docs/v0.1/spec.html#63-content-elements">standard icon set</a>.</td>
+</tr>
+<tr>
+<td><code>image-label</code></td>
+<td>String</td>
+<td>Text label rendered centered on an image placeholder rectangle.</td>
+</tr>
+<tr>
+<td><code>show-more</code></td>
+<td>String</td>
+<td>&quot;View all&quot; link label shown below the block content.</td>
+</tr>
+<tr>
+<td><code>background</code></td>
+<td>Color</td>
+<td>Section background color. Accepts <a href="/docs/v0.1/spec.html#5-styling-system">color tokens</a>.</td>
+</tr>
+<tr>
+<td><code>next</code></td>
+<td>String | String[]</td>
+<td>Navigation target(s) — screen id(s) this block navigates to. Creates flow arrows between screens.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="6-versioning"><a href="#6-versioning" class="anchor">#</a> 6. Versioning</h2>
+<p>RissBlocks follows the same version numbering as the core Riss specification. All blocks in this document are part of <strong>v0.1</strong>.</p>
+<ul>
+<li><strong>v0.1</strong> (this document) — 57 core blocks across 15 categories. Custom block definitions with parameter interpolation.</li>
+<li>Future versions may add new core blocks. Renderers should gracefully ignore unrecognized block types (render a labeled placeholder rather than failing).</li>
+<li>Core block names are reserved across all versions. Custom blocks must not reuse core block names.</li>
+</ul>
+<hr>
+<p><em>RissBlocks — compose screens from proven patterns.</em></p>
+
+  </main>
+</body>
+</html>

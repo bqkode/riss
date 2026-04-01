@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content - Riss Documentation</title>
+  <meta name="description" content="Content - YAML-based wireframe description format documentation">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; line-height: 1.65; color: #1a1a1a; background: #fff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; min-height: 100vh;
+    }
+    .docs-nav {
+      width: 260px; min-width: 260px; padding: 20px 16px;
+      border-right: 1px solid #e5e7eb; background: #fafafa;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 17px; color: #111; text-decoration: none;
+      display: block; margin-bottom: 4px;
+    }
+    .nav-home {
+      font-size: 13px; color: #6b7280; text-decoration: none; display: block; margin-bottom: 16px;
+    }
+    .nav-home:hover { color: #2563eb; }
+    .docs-nav h3 {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: #9ca3af; margin: 16px 0 6px;
+    }
+    .docs-nav ul { list-style: none; }
+    .docs-nav li a {
+      display: block; padding: 3px 8px; font-size: 13px; color: #374151;
+      text-decoration: none; border-radius: 4px; transition: background 0.15s;
+    }
+    .docs-nav li a:hover { background: #e5e7eb; }
+    .docs-nav li a.active { background: #2563eb; color: #fff; }
+
+    .docs-content {
+      flex: 1; max-width: 800px; padding: 40px 48px; margin: 0 auto;
+    }
+    .docs-content h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+    .docs-content h2 { font-size: 22px; font-weight: 600; margin: 32px 0 12px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
+    .docs-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+    .docs-content h4 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
+    .docs-content p { margin: 0 0 12px; }
+    .docs-content ul, .docs-content ol { margin: 0 0 12px; padding-left: 24px; }
+    .docs-content li { margin: 2px 0; }
+    .docs-content a { color: #2563eb; text-decoration: none; }
+    .docs-content a:hover { text-decoration: underline; }
+    .anchor { color: #d1d5db; text-decoration: none; margin-right: 4px; font-weight: 400; }
+    .anchor:hover { color: #2563eb; }
+
+    .docs-content code {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em; background: #f3f4f6; padding: 2px 5px; border-radius: 3px;
+    }
+    .docs-content pre {
+      background: #1e1e2e; color: #cdd6f4; border-radius: 8px;
+      padding: 16px 20px; margin: 0 0 16px; overflow-x: auto; line-height: 1.5;
+    }
+    .docs-content pre code {
+      background: none; padding: 0; font-size: 13px; color: inherit;
+    }
+    .docs-content table {
+      width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14px;
+    }
+    .docs-content th, .docs-content td {
+      text-align: left; padding: 8px 12px; border: 1px solid #e5e7eb;
+    }
+    .docs-content th { background: #f9fafb; font-weight: 600; }
+    .docs-content blockquote {
+      border-left: 3px solid #2563eb; padding: 8px 16px; margin: 0 0 16px;
+      background: #f0f7ff; color: #374151; font-size: 14px;
+    }
+    .docs-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 24px 0; }
+    .docs-content img { max-width: 100%; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .docs-nav {
+        width: 100%; min-width: auto; height: auto; position: static;
+        border-right: none; border-bottom: 1px solid #e5e7eb;
+      }
+      .docs-content { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  
+    <nav class="docs-nav" aria-label="Documentation">
+      <a href="/" class="nav-logo">Riss</a>
+      <a href="/docs/v0.1/" class="nav-home">Documentation</a>
+      <h3>Core Docs</h3>
+      <ul><li><a href="/docs/v0.1/spec.html">Riss Specification</a></li>
+<li><a href="/docs/v0.1/ai-guide.html">Riss AI Generation Guide</a></li>
+<li><a href="/docs/v0.1/blocks.html">RissBlocks Specification</a></li></ul>
+      <h3>Block Reference</h3>
+      <ul><li><a href="/docs/v0.1/blocks/ai-guidelines.html">Ai Guidelines</a></li>
+<li><a href="/docs/v0.1/blocks/collections.html">Collections</a></li>
+<li><a href="/docs/v0.1/blocks/communication.html">Communication</a></li>
+<li><a href="/docs/v0.1/blocks/content.html" class="active">Content</a></li>
+<li><a href="/docs/v0.1/blocks/cta.html">Cta</a></li>
+<li><a href="/docs/v0.1/blocks/custom-blocks.html">Custom Blocks</a></li>
+<li><a href="/docs/v0.1/blocks/dashboard.html">Dashboard</a></li>
+<li><a href="/docs/v0.1/blocks/ecommerce.html">Ecommerce</a></li>
+<li><a href="/docs/v0.1/blocks/features.html">Features</a></li>
+<li><a href="/docs/v0.1/blocks/feedback.html">Feedback</a></li>
+<li><a href="/docs/v0.1/blocks/footer.html">Footer</a></li>
+<li><a href="/docs/v0.1/blocks/forms.html">Forms</a></li>
+<li><a href="/docs/v0.1/blocks/hero-header.html">Hero Header</a></li>
+<li><a href="/docs/v0.1/blocks/navigation.html">Navigation</a></li>
+<li><a href="/docs/v0.1/blocks/pricing.html">Pricing</a></li>
+<li><a href="/docs/v0.1/blocks/social-proof.html">Social Proof</a></li>
+<li><a href="/docs/v0.1/blocks/user-profile.html">User Profile</a></li></ul>
+    </nav>
+  
+  <main class="docs-content">
+    <h1 id="content-blocks"><a href="#content-blocks" class="anchor">#</a> Content Blocks</h1>
+<p><a href="..//docs/v0.1/blocks.html">← Back to RissBlocks</a></p>
+<hr>
+<h2 id="side-by-side"><a href="#side-by-side" class="anchor">#</a> <code>side-by-side</code></h2>
+<p>Two-column layout: content on one side, media on the other.</p>
+<pre><code class="language-yaml">- block: side-by-side
+  heading: &quot;Built for speed&quot;
+  body: &quot;Our engine processes 10x faster than alternatives.&quot;
+  image-label: &quot;Performance Dashboard Screenshot&quot;
+  image-position: right
+  cta-label: &quot;Learn More&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>heading</code></td>
+<td><strong>String (required)</strong></td>
+<td>—</td>
+<td>Section heading.</td>
+</tr>
+<tr>
+<td><code>body</code></td>
+<td>String</td>
+<td>—</td>
+<td>Body text.</td>
+</tr>
+<tr>
+<td><code>image-label</code></td>
+<td>String</td>
+<td><code>&quot;Image&quot;</code></td>
+<td>Placeholder label for the media side.</td>
+</tr>
+<tr>
+<td><code>image-position</code></td>
+<td><code>left</code>, <code>right</code></td>
+<td><code>right</code></td>
+<td>Which side the image is on.</td>
+</tr>
+<tr>
+<td><code>image-aspect</code></td>
+<td>String</td>
+<td><code>&quot;4/3&quot;</code></td>
+<td>Aspect ratio of the image placeholder.</td>
+</tr>
+<tr>
+<td><code>cta-label</code></td>
+<td>String</td>
+<td>—</td>
+<td>Optional CTA button.</td>
+</tr>
+<tr>
+<td><code>bullets</code></td>
+<td>String[]</td>
+<td>—</td>
+<td>Bullet points instead of (or in addition to) body text.</td>
+</tr>
+<tr>
+<td><code>split</code></td>
+<td><code>&quot;50/50&quot;</code>, <code>&quot;60/40&quot;</code>, <code>&quot;40/60&quot;</code></td>
+<td><code>&quot;50/50&quot;</code></td>
+<td>Column width ratio.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="alternating-rows"><a href="#alternating-rows" class="anchor">#</a> <code>alternating-rows</code></h2>
+<p>Multiple side-by-side sections that alternate image position (zigzag layout).</p>
+<pre><code class="language-yaml">- block: alternating-rows
+  items:
+    - heading: &quot;Easy to write&quot;
+      body: &quot;YAML that any AI can generate correctly.&quot;
+      image-label: &quot;Code Editor&quot;
+    - heading: &quot;Easy to read&quot;
+      body: &quot;Non-technical stakeholders understand it at a glance.&quot;
+      image-label: &quot;Wireframe Preview&quot;
+    - heading: &quot;Easy to render&quot;
+      body: &quot;Deterministic output, every time.&quot;
+      image-label: &quot;Rendered Output&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>items</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Each item: <code>{ heading, body?, image-label?, cta-label?, bullets? }</code>.</td>
+</tr>
+<tr>
+<td><code>start-position</code></td>
+<td><code>left</code>, <code>right</code></td>
+<td><code>right</code></td>
+<td>Image position for the first row (alternates after).</td>
+</tr>
+<tr>
+<td><code>gap</code></td>
+<td>Spacing</td>
+<td><code>2xl</code></td>
+<td>Vertical gap between rows.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="content-carousel"><a href="#content-carousel" class="anchor">#</a> <code>content-carousel</code></h2>
+<p>A horizontally scrollable row of cards.</p>
+<pre><code class="language-yaml">- block: content-carousel
+  title: &quot;Recently Viewed&quot;
+  items:
+    - image-label: &quot;Product A&quot;
+      title: &quot;Trail Runner Pro&quot;
+      subtitle: &quot;kr 1,299&quot;
+    - image-label: &quot;Product B&quot;
+      title: &quot;Summit Jacket&quot;
+      subtitle: &quot;kr 2,499&quot;
+    - image-label: &quot;Product C&quot;
+      title: &quot;Base Layer&quot;
+      subtitle: &quot;kr 599&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td>String</td>
+<td>—</td>
+<td>Section heading above the carousel.</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Each item: <code>{ image-label?, title, subtitle?, cta-label? }</code>.</td>
+</tr>
+<tr>
+<td><code>card-width</code></td>
+<td>Number</td>
+<td><code>200</code></td>
+<td>Width of each card in pixels.</td>
+</tr>
+<tr>
+<td><code>show-more</code></td>
+<td>String</td>
+<td>—</td>
+<td>&quot;View all&quot; link label.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="blog-card-grid"><a href="#blog-card-grid" class="anchor">#</a> <code>blog-card-grid</code></h2>
+<p>A grid of article/blog post cards.</p>
+<pre><code class="language-yaml">- block: blog-card-grid
+  title: &quot;Latest Posts&quot;
+  columns: 3
+  items:
+    - image-label: &quot;Cover Image&quot;
+      category: &quot;Engineering&quot;
+      title: &quot;How we built Riss&quot;
+      excerpt: &quot;A deep dive into our YAML-based wireframe format.&quot;
+      author: &quot;Bear&quot;
+      date: &quot;Mar 15, 2026&quot;
+    - image-label: &quot;Cover Image&quot;
+      category: &quot;Design&quot;
+      title: &quot;Wireframes vs Mockups&quot;
+      excerpt: &quot;Why wireframes are still the best starting point.&quot;
+      author: &quot;Kari&quot;
+      date: &quot;Mar 10, 2026&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td>String</td>
+<td>—</td>
+<td>Section heading.</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>Number (1-4)</td>
+<td><code>3</code></td>
+<td>Number of columns.</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Each: <code>{ image-label?, category?, title, excerpt?, author?, date?, read-time? }</code>.</td>
+</tr>
+<tr>
+<td><code>show-more</code></td>
+<td>String</td>
+<td>—</td>
+<td>&quot;View all&quot; link label.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="timeline"><a href="#timeline" class="anchor">#</a> <code>timeline</code></h2>
+<p>A vertical timeline of events.</p>
+<pre><code class="language-yaml">- block: timeline
+  items:
+    - date: &quot;March 2026&quot;
+      title: &quot;v0.1 Released&quot;
+      description: &quot;Core elements, layout system, and annotations.&quot;
+    - date: &quot;June 2026&quot;
+      title: &quot;v0.2 — Templates&quot;
+      description: &quot;Custom reusable component definitions.&quot;
+    - date: &quot;Q4 2026&quot;
+      title: &quot;v1.0 — Stable&quot;
+      description: &quot;Multi-file support and interactive prototypes.&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>items</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Each: <code>{ date?, title, description?, icon? }</code>.</td>
+</tr>
+<tr>
+<td><code>variant</code></td>
+<td><code>default</code>, <code>alternating</code>, <code>compact</code></td>
+<td><code>default</code></td>
+<td>Layout style.</td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td>Color</td>
+<td><code>accent</code></td>
+<td>Line/dot color.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="rich-text"><a href="#rich-text" class="anchor">#</a> <code>rich-text</code></h2>
+<p>A long-form content block with typographic hierarchy (article body, documentation, etc.).</p>
+<pre><code class="language-yaml">- block: rich-text
+  content:
+    - type: h2
+      text: &quot;Getting Started&quot;
+    - type: paragraph
+      text: &quot;Riss files use standard YAML syntax with a small set of well-defined elements.&quot;
+    - type: paragraph
+      text: &quot;Each file describes one or more screens as a tree of layout and content nodes.&quot;
+    - type: h3
+      text: &quot;Installation&quot;
+    - type: code
+      text: &quot;npm install @riss/renderer&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>content</code></td>
+<td><strong>Array (required)</strong></td>
+<td>—</td>
+<td>Each: <code>{ type, text }</code>. Types: <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>paragraph</code>, <code>code</code>, <code>blockquote</code>, <code>list</code>.</td>
+</tr>
+<tr>
+<td><code>max-width</code></td>
+<td>Number</td>
+<td><code>720</code></td>
+<td>Max content width for readability.</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Note:</strong> The <code>type</code> values in the <code>content</code> array (<code>h2</code>, <code>paragraph</code>, <code>code</code>, etc.) are rich-text content node types, not Riss element types. The renderer maps them to appropriate <code>text</code> elements internally (e.g., <code>type: h2</code> becomes a <code>text</code> element with <code>variant: h2</code>).</p>
+</blockquote>
+
+  </main>
+</body>
+</html>
