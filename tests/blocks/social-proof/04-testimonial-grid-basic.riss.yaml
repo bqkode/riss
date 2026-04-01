@@ -1,0 +1,38 @@
+riss: "0.1"
+meta:
+  name: Test - Testimonial Grid Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: testimonial_grid_basic
+    title: Test - Testimonial Grid Basic
+    children:
+      - block: testimonial-grid
+        title: Hva kundene våre sier
+        columns: 3
+        items:
+          - quote: Implementeringen gikk smertefritt. Vi var i gang på under en uke, og supporten har vært fantastisk hele veien.
+            author: Lars Eriksen
+            role: CTO
+            company: Nordvik Digital
+            avatar:
+              initials: LE
+            rating: 5
+          - quote: Endelig en plattform som faktisk forstår behovene til norske bedrifter. Integrasjonene med BankID og Altinn sparer oss enormt med tid.
+            author: Marte Solberg
+            role: Head of Product
+            company: Fjordtech Solutions
+            avatar:
+              initials: MS
+            rating: 4
+          - quote: Vi dobblet konverteringsraten vår innen tre måneder. ROI-en har vært langt over forventningene våre.
+            author: Henrik Dahl
+            role: Marketing Director
+            company: Brygge Media
+            avatar:
+              initials: HD
+            rating: 5

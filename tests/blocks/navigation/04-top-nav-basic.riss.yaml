@@ -1,0 +1,22 @@
+riss: "0.1"
+meta:
+  name: Test - Top Navigation Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: top_navigation_basic
+    title: Test - Top Navigation Basic
+    children:
+      - block: top-nav
+        logo: Launchpad
+        items:
+          - label: Features
+          - label: Pricing
+          - label: Docs
+          - label: Blog
+        cta-label: Get Started
+        cta-secondary-label: Sign In

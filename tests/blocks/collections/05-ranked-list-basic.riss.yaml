@@ -1,0 +1,53 @@
+riss: "0.1"
+meta:
+  name: Test - Ranked List Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: ranked_list_basic
+    title: Test - Ranked List Basic
+    children:
+      - block: ranked-list
+        title: Top Contributors
+        numbered: true
+        show-medals: true
+        items:
+          - title: Erik Solberg
+            subtitle: Oslo, Norway
+            avatar: ES
+            value: 2,847 pts
+            badge: Champion
+          - title: Ingrid Haugen
+            subtitle: Bergen, Norway
+            avatar: IH
+            value: 2,391 pts
+            badge: Elite
+          - title: Lars Pedersen
+            subtitle: Trondheim, Norway
+            avatar: LP
+            value: 1,956 pts
+            badge: Elite
+          - title: Astrid Bakke
+            subtitle: Stavanger, Norway
+            avatar: AB
+            value: 1,724 pts
+          - title: Magnus Dahl
+            subtitle: Tromsø, Norway
+            avatar: MD
+            value: 1,503 pts
+          - title: Sofie Lund
+            subtitle: Kristiansand, Norway
+            avatar: SL
+            value: 1,287 pts
+          - title: Henrik Moen
+            subtitle: Drammen, Norway
+            avatar: HM
+            value: 1,104 pts
+          - title: Thea Kristiansen
+            subtitle: Bodø, Norway
+            avatar: TK
+            value: 982 pts

@@ -1,0 +1,41 @@
+riss: "0.1"
+meta:
+  name: Test - Team Grid Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: team_grid_basic
+    title: Test - Team Grid Basic
+    children:
+      - block: team-grid
+        title: Our Team
+        columns: 4
+        items:
+          - name: Erik Solberg
+            role: CEO & Founder
+            avatar: ES
+          - name: Ingrid Haugen
+            role: CTO
+            avatar: IH
+          - name: Lars Pedersen
+            role: Lead Designer
+            avatar: LP
+          - name: Astrid Bakke
+            role: Head of Engineering
+            avatar: AB
+          - name: Magnus Dahl
+            role: Product Manager
+            avatar: MD
+          - name: Sofie Lund
+            role: Frontend Developer
+            avatar: SL
+          - name: Henrik Moen
+            role: Backend Developer
+            avatar: HM
+          - name: Thea Kristiansen
+            role: UX Researcher
+            avatar: TK

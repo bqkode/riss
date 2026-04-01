@@ -1,0 +1,149 @@
+# Edge case: custom block exercising ALL interpolation features
+# Tests: {{param}}, {{param}} in color/icon, if: "{{param}}", ternary, nested ternary
+riss: "0.1"
+meta:
+  name: "Custom Block Interpolation"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#6366F1"
+
+blocks:
+  - id: status-card
+    description: "A flexible status card exercising all interpolation patterns"
+    params:
+      - name: title
+        required: true
+      - name: subtitle
+        default: null
+      - name: status
+        required: true
+      - name: icon-name
+        default: null
+      - name: badge-text
+        default: null
+      - name: action-label
+        default: null
+    template:
+      - type: card
+        padding: md
+        children:
+          - type: row
+            align: center
+            justify: between
+            children:
+              - type: stack
+                gap: xs
+                grow: 1
+                children:
+                  # Simple {{param}} replacement in content
+                  - type: text
+                    variant: h4
+                    content: "{{title}}"
+
+                  # if: conditional — only show subtitle when provided
+                  - type: text
+                    variant: body-sm
+                    content: "{{subtitle}}"
+                    color: text-secondary
+                    if: "{{subtitle}}"
+
+                  # Nested ternary in color field
+                  # status == 'active' -> success
+                  # status == 'error' -> error
+                  # status == 'warning' -> warning
+                  # else -> text-secondary
+                  - type: text
+                    variant: label
+                    content: "{{status}}"
+                    color: "{{status == 'active' ? 'success' : status == 'error' ? 'error' : status == 'warning' ? 'warning' : 'text-secondary'}}"
+
+              # {{param}} in icon name field — only show icon when provided
+              - type: icon
+                name: "{{icon-name}}"
+                size: 24
+                color: "{{status == 'active' ? 'success' : status == 'error' ? 'error' : 'text-secondary'}}"
+                if: "{{icon-name}}"
+
+          # if: conditional — badge only when provided
+          - type: row
+            margin-y: xs
+            if: "{{badge-text}}"
+            children:
+              - type: badge
+                content: "{{badge-text}}"
+                color: "{{status == 'error' ? 'error' : 'accent'}}"
+
+          # if: conditional — action button only when provided
+          - type: button
+            label: "{{action-label}}"
+            variant: "{{status == 'error' ? 'primary' : 'outline'}}"
+            color: "{{status == 'error' ? 'error' : 'accent'}}"
+            size: sm
+            full-width: true
+            if: "{{action-label}}"
+
+screens:
+  - id: interpolation_test
+    title: "Block Interpolation"
+    path: /test/interpolation
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: md
+            gap: md
+            children:
+
+              # Instance 1: All params provided — everything visible, active status
+              - type: section
+                title: "All params — active"
+                children:
+                  - block: status-card
+                    title: "Payment Service"
+                    subtitle: "Processing 1,247 transactions/min"
+                    status: "active"
+                    icon-name: "zap"
+                    badge-text: "OK"
+                    action-label: "View Dashboard"
+
+              # Instance 2: Error status — tests error ternary path
+              - type: section
+                title: "Error status — icon, badge, action"
+                children:
+                  - block: status-card
+                    title: "Database Cluster"
+                    subtitle: "Connection pool exhausted"
+                    status: "error"
+                    icon-name: "error"
+                    badge-text: "!"
+                    action-label: "Restart Cluster"
+
+              # Instance 3: Warning status — no icon, no badge, no action
+              - type: section
+                title: "Warning — minimal params"
+                children:
+                  - block: status-card
+                    title: "Cache Layer"
+                    status: "warning"
+
+              # Instance 4: Inactive/fallback — subtitle + icon, no badge/action
+              - type: section
+                title: "Inactive — fallback ternary"
+                children:
+                  - block: status-card
+                    title: "Notification Queue"
+                    subtitle: "Paused by admin at 14:30"
+                    status: "paused"
+                    icon-name: "pause"
+
+              # Instance 5: Active — no subtitle, has badge and action
+              - type: section
+                title: "Active — badge and action only"
+                children:
+                  - block: status-card
+                    title: "CDN Edge Nodes"
+                    status: "active"
+                    badge-text: "12"
+                    action-label: "View Nodes"

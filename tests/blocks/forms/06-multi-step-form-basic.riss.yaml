@@ -1,0 +1,28 @@
+riss: "0.1"
+meta:
+  name: Test - Multi-Step Form Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: multi_step_form_basic
+    title: Test - Multi-Step Form Basic
+    children:
+      - block: multi-step-form
+        steps:
+          - label: Personal
+            completed: true
+          - label: Address
+            active: true
+          - label: Payment
+          - label: Review
+        current-step: 2
+        fields:
+          - name
+          - email
+          - phone
+        cta-label: Next
+        cta-secondary-label: Back

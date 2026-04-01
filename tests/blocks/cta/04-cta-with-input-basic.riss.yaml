@@ -1,0 +1,19 @@
+riss: "0.1"
+meta:
+  name: Test - CTA With Input Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: cta_with_input_basic
+    title: Test - CTA With Input Basic
+    children:
+      - block: cta-with-input
+        heading: Stay in the loop
+        subheading: Get product updates, tips, and insights delivered to your inbox. No spam, unsubscribe anytime.
+        placeholder: Enter your email
+        cta-label: Subscribe
+        background: accent-soft

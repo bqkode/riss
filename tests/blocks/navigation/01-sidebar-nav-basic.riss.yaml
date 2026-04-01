@@ -1,0 +1,27 @@
+riss: "0.1"
+meta:
+  name: Test - Sidebar Navigation Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: sidebar_navigation_basic
+    title: Test - Sidebar Navigation Basic
+    children:
+      - block: sidebar-nav
+        logo: Acme Inc
+        items:
+          - icon: home
+            label: Dashboard
+            active: true
+          - icon: users
+            label: Users
+          - icon: file
+            label: Reports
+          - icon: settings
+            label: Settings
+          - icon: help
+            label: Help

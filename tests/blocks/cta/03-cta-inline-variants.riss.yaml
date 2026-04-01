@@ -1,0 +1,31 @@
+riss: "0.1"
+meta:
+  name: Test - CTA Inline Variants
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: cta_inline_variants
+    title: Test - CTA Inline Variants
+    children:
+      - block: cta-inline
+        heading: Explore the documentation
+        cta-label: Read the docs
+        icon: book-open
+        variant: card
+      - block: cta-inline
+        heading: Need help getting started?
+        cta-label: Book a demo
+        icon: calendar
+        variant: banner
+      - block: cta-inline
+        heading: See what's new in v3.0
+        cta-label: View changelog
+        variant: card
+      - block: cta-inline
+        heading: Questions? We're here to help.
+        cta-label: Contact support
+        variant: banner

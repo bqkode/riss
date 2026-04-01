@@ -1,0 +1,17 @@
+riss: "0.1"
+meta:
+  name: Test - Side by Side Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: side_by_side_basic
+    title: Test - Side by Side Basic
+    children:
+      - block: side-by-side
+        heading: Built for teams who move fast
+        body: Collaborate in real time with your entire team. Share context, review changes, and ship features without switching tools or losing momentum.
+        image-label: Team collaboration dashboard

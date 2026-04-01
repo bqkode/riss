@@ -1,0 +1,45 @@
+riss: "0.1"
+meta:
+  name: Test - Feature List Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: feature_list_basic
+    title: Test - Feature List Basic
+    children:
+      - block: feature-list
+        icon-color: accent
+        dividers: true
+        items:
+          - icon: upload-cloud
+            title: One-click imports
+            description: Migrate from any existing platform with a single click. We handle schema mapping, data validation, and zero-downtime cutover automatically.
+          - icon: repeat
+            title: Bi-directional sync
+            description: Keep data consistent across systems with real-time two-way synchronization. Conflict resolution rules are fully configurable.
+          - icon: layers
+            title: Version control
+            description: Every change is tracked with full history. Roll back to any previous state or compare versions side by side.
+          - icon: share-2
+            title: Webhooks and events
+            description: Subscribe to granular events and receive real-time notifications via webhooks with automatic retries and dead-letter queues.
+          - icon: key
+            title: API key management
+            description: Create scoped API keys with fine-grained permissions and expiration policies. Rotate keys without downtime.
+      - block: feature-list
+        icon-color: accent
+        dividers: false
+        items:
+          - icon: clock
+            title: Scheduled jobs
+            description: Run recurring tasks on a cron schedule with built-in monitoring, alerting, and retry logic.
+          - icon: activity
+            title: Health checks
+            description: Automatic endpoint monitoring with configurable thresholds and instant Slack or PagerDuty notifications.
+          - icon: archive
+            title: Data retention
+            description: Set custom retention policies per project. Data is automatically archived and purged according to your compliance requirements.

@@ -1,0 +1,46 @@
+# Test: Card element with default properties
+# Verifies basic card rendering with border, padding, and text children.
+riss: "0.1"
+meta:
+  name: Test - Card Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: card_basic
+    title: Test - Card Basic
+    children:
+      - type: stack
+        padding: lg
+        gap: lg
+        children:
+          - type: card
+            children:
+              - type: text
+                variant: h3
+                content: Velkommen tilbake
+              - type: text
+                content: Du har 3 uleste meldinger fra Kari Nordmann og Erik Hansen.
+          - type: card
+            children:
+              - type: text
+                variant: h4
+                content: Neste avtale
+              - type: text
+                content: Tannlegetime hos Dr. Johansen, Storgata 12, Oslo.
+              - type: text
+                variant: caption
+                color: text-secondary
+                content: Tirsdag 14. april kl. 10:30
+              - type: button
+                label: Se detaljer
+                variant: outline
+                size: sm
+          - type: card
+            children:
+              - type: text
+                content: Ingen nye varsler.
+                color: text-secondary

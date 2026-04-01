@@ -1,0 +1,37 @@
+riss: "0.1"
+meta:
+  name: Test - Checklist Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: checklist_basic
+    title: Test - Checklist Basic
+    children:
+      - block: checklist
+        title: Everything included in the Pro plan
+        columns: 1
+        icon: check
+        icon-color: success
+        items:
+          - Unlimited projects and environments
+          - Up to 50 team members
+          - Custom domains with automatic SSL
+          - Priority email and chat support
+          - Advanced analytics and reporting
+          - SSO with SAML and OIDC providers
+      - block: checklist
+        title: What you get with Enterprise
+        columns: 2
+        icon: check
+        icon-color: success
+        items:
+          - Everything in Pro
+          - Unlimited team members
+          - Dedicated account manager
+          - 99.99% uptime SLA
+          - Custom data retention policies
+          - On-premise deployment option

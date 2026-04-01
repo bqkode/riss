@@ -1,0 +1,444 @@
+# Test: row element with ALL properties
+# Verifies wrap, alignment/justify combos, sizing, grow, shrink
+riss: "0.1"
+meta:
+  name: "Test - Row All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  # Screen 1: wrap behavior
+  - id: row_wrap
+    title: "Row Wrap"
+    path: /test/row-wrap
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # wrap: false (default) - items overflow
+          - type: section
+            title: "wrap: false (default)"
+            children:
+              - type: row
+                gap: sm
+                wrap: false
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Kategori 1"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Kategori 2"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Kategori 3"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Kategori 4"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Kategori 5"
+
+          # wrap: true - items wrap to next line
+          - type: section
+            title: "wrap: true"
+            children:
+              - type: row
+                gap: sm
+                wrap: true
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Oslo"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Bergen"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Trondheim"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Stavanger"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Kristiansand"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Tromso"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Drammen"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Fredrikstad"
+
+  # Screen 2: All alignment + justify combos
+  - id: row_align_justify_combos
+    title: "Row Align + Justify Combos"
+    path: /test/row-combos
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # align: start + justify: between
+          - type: section
+            title: "align: start, justify: between"
+            children:
+              - type: row
+                align: start
+                justify: between
+                padding: md
+                background: surface
+                border: true
+                height: 80
+                children:
+                  - type: text
+                    variant: h3
+                    content: "Dagligvarer"
+                  - type: text
+                    variant: body-sm
+                    color: text-secondary
+                    content: "12 varer"
+
+          # align: center + justify: between
+          - type: section
+            title: "align: center, justify: between"
+            children:
+              - type: row
+                align: center
+                justify: between
+                padding: md
+                background: surface
+                border: true
+                height: 80
+                children:
+                  - type: row
+                    gap: sm
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "SJ"
+                      - type: text
+                        content: "Signe Johansen"
+                  - type: icon
+                    name: chevron-right
+
+          # align: end + justify: end
+          - type: section
+            title: "align: end, justify: end"
+            children:
+              - type: row
+                align: end
+                justify: end
+                gap: sm
+                padding: md
+                background: surface
+                border: true
+                height: 80
+                children:
+                  - type: text
+                    variant: caption
+                    color: text-secondary
+                    content: "Total:"
+                  - type: text
+                    variant: h3
+                    content: "3 750 kr"
+
+          # align: stretch + justify: evenly
+          - type: section
+            title: "align: stretch, justify: evenly"
+            children:
+              - type: row
+                align: stretch
+                justify: evenly
+                gap: sm
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    align: center
+                    justify: center
+                    children:
+                      - type: text
+                        variant: h3
+                        content: "142"
+                      - type: text
+                        variant: caption
+                        content: "Ordre"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    align: center
+                    justify: center
+                    children:
+                      - type: text
+                        variant: h3
+                        content: "98%"
+                      - type: text
+                        variant: caption
+                        content: "Leveranse"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    rounded: md
+                    align: center
+                    justify: center
+                    children:
+                      - type: text
+                        variant: h3
+                        content: "4.8"
+                      - type: text
+                        variant: caption
+                        content: "Vurdering"
+
+  # Screen 3: Sizing with width/height fractions + grow/shrink
+  - id: row_sizing
+    title: "Row Sizing"
+    path: /test/row-sizing
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # width fractions inside a row
+          - type: section
+            title: "width: half + half"
+            children:
+              - type: row
+                gap: sm
+                children:
+                  - type: stack
+                    width: "half"
+                    padding: md
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        content: "Forste halvdel"
+                  - type: stack
+                    width: "half"
+                    padding: md
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        content: "Andre halvdel"
+
+          # 1/3 + 2/3
+          - type: section
+            title: "width: 1/3 + 2/3"
+            children:
+              - type: row
+                gap: sm
+                children:
+                  - type: stack
+                    width: "1/3"
+                    padding: md
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        content: "Sidemeny"
+                  - type: stack
+                    width: "2/3"
+                    padding: md
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        content: "Hovedinnhold"
+
+          # 1/4 + 3/4
+          - type: section
+            title: "width: 1/4 + 3/4"
+            children:
+              - type: row
+                gap: sm
+                children:
+                  - type: stack
+                    width: "1/4"
+                    padding: md
+                    background: surface
+                    border: true
+                    children:
+                      - type: icon
+                        name: settings
+                  - type: stack
+                    width: "3/4"
+                    padding: md
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        content: "Innstillinger for brukerkonto"
+
+          # grow and shrink
+          - type: section
+            title: "grow: 1 + grow: 0 (fixed width)"
+            children:
+              - type: row
+                gap: sm
+                children:
+                  - type: stack
+                    grow: 1
+                    padding: md
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        content: "Sokefelt (grow: 1)"
+                  - type: stack
+                    shrink: 0
+                    width: 80
+                    padding: md
+                    background: accent-soft
+                    border: true
+                    rounded: md
+                    align: center
+                    children:
+                      - type: text
+                        content: "Sok"
+
+          # Multiple grow factors
+          - type: section
+            title: "grow: 1 + grow: 2 + grow: 1"
+            children:
+              - type: row
+                gap: sm
+                children:
+                  - type: stack
+                    grow: 1
+                    padding: md
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "1fr"
+                  - type: stack
+                    grow: 2
+                    padding: md
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "2fr"
+                  - type: stack
+                    grow: 1
+                    padding: md
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "1fr"
+
+          # height: full inside a fixed-height row
+          - type: section
+            title: "height: full inside row"
+            children:
+              - type: row
+                gap: sm
+                height: 120
+                children:
+                  - type: stack
+                    height: "full"
+                    width: "half"
+                    padding: md
+                    background: surface
+                    border: true
+                    justify: center
+                    children:
+                      - type: text
+                        content: "height: full"
+                  - type: stack
+                    height: "auto"
+                    width: "half"
+                    padding: md
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        content: "height: auto"

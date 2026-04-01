@@ -1,0 +1,105 @@
+# Test: Progress element — values and color tokens
+# Verifies progress bar at key percentage values and with all color tokens.
+
+riss: "0.1"
+meta:
+  name: "Test - Progress Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: progress_values
+    title: "Progress Values"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "VERDIER (0-100)"
+
+          # 0%
+          - type: text
+            variant: caption
+            content: "0% — Ikke startet"
+          - type: progress
+            value: 0
+            color: accent
+
+          # 25%
+          - type: text
+            variant: caption
+            content: "25% — P\u00E5begynt"
+          - type: progress
+            value: 25
+            color: accent
+
+          # 50%
+          - type: text
+            variant: caption
+            content: "50% — Halvveis"
+          - type: progress
+            value: 50
+            color: accent
+
+          # 75%
+          - type: text
+            variant: caption
+            content: "75% — Nesten ferdig"
+          - type: progress
+            value: 75
+            color: accent
+
+          # 100%
+          - type: text
+            variant: caption
+            content: "100% — Fullf\u00F8rt"
+          - type: progress
+            value: 100
+            color: accent
+
+  - id: progress_colors
+    title: "Progress Colors"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "FARGETOKENS"
+
+          # accent
+          - type: text
+            variant: caption
+            content: "accent — Filopplasting (65%)"
+          - type: progress
+            value: 65
+            color: accent
+
+          # success
+          - type: text
+            variant: caption
+            content: "success — Sparem\u00E5l n\u00E5dd (100%)"
+          - type: progress
+            value: 100
+            color: success
+
+          # warning
+          - type: text
+            variant: caption
+            content: "warning — Lagringsplass brukt (78%)"
+          - type: progress
+            value: 78
+            color: warning
+
+          # error
+          - type: text
+            variant: caption
+            content: "error — Budsjett overskredet (92%)"
+          - type: progress
+            value: 92
+            color: error

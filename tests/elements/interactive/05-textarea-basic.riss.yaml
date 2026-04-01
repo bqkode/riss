@@ -1,0 +1,119 @@
+# Test: textarea element
+# Verifies: placeholder, value, label, rows (3, 4, 6), helper, error
+riss: "0.1"
+meta:
+  name: "Test - Textarea Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: textarea_basic
+    title: "Textarea Basic"
+    path: /test/textarea-basic
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Placeholder only
+          - type: section
+            title: "Placeholder"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: textarea
+                    placeholder: "Describe the issue you encountered..."
+
+          # Pre-filled value
+          - type: section
+            title: "Pre-filled Value"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: textarea
+                    label: "Bio"
+                    value: "Product designer based in Oslo. I specialize in design systems and component libraries for mobile applications."
+
+          # Label + placeholder
+          - type: section
+            title: "Label + Placeholder"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: textarea
+                    label: "Project Description"
+                    placeholder: "Tell us about your project goals and timeline..."
+
+          # rows: 3 (default)
+          - type: section
+            title: "rows: 3"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: textarea
+                    label: "Quick Note"
+                    placeholder: "Add a short note..."
+                    rows: 3
+
+          # rows: 4
+          - type: section
+            title: "rows: 4"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: textarea
+                    label: "Feedback"
+                    placeholder: "What could we improve about your experience?"
+                    rows: 4
+
+          # rows: 6
+          - type: section
+            title: "rows: 6"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: textarea
+                    label: "Cover Letter"
+                    placeholder: "Explain why you are a great fit for this role..."
+                    rows: 6
+
+          # Helper text
+          - type: section
+            title: "Helper Text"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: textarea
+                    label: "Commit Message"
+                    placeholder: "Summarize your changes..."
+                    rows: 3
+                    helper: "Keep the first line under 72 characters"
+
+          # Error message
+          - type: section
+            title: "Error Message"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: textarea
+                    label: "Review"
+                    value: "OK"
+                    rows: 3
+                    error: "Review must be at least 20 characters long"

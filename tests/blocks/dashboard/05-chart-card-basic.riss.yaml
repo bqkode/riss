@@ -1,0 +1,19 @@
+riss: "0.1"
+meta:
+  name: Test - Chart Card Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: chart_card_basic
+    title: Test - Chart Card Basic
+    children:
+      - block: chart-card
+        title: Revenue
+        subtitle: Last 12 months
+        chart-type: line
+        chart-label: Monthly revenue trend
+        aspect: 16/9

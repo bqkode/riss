@@ -1,0 +1,81 @@
+# Test: empty-state element with various configurations
+# Verifies icon, title, message, and action button rendering.
+riss: "0.1"
+meta:
+  name: "Test - Empty State Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: empty_inbox
+    title: "Empty State - Inbox"
+    path: /test/empty-inbox
+    children:
+      - type: stack
+        padding: lg
+        justify: center
+        height: "full"
+        children:
+          - type: empty-state
+            icon: inbox
+            title: "No messages yet"
+            message: "When you receive messages from your team, they will appear here."
+            action: "Compose Message"
+
+  - id: empty_search
+    title: "Empty State - Search"
+    path: /test/empty-search
+    children:
+      - type: navbar
+        title: "Search"
+        leading: icon:arrow-left
+
+      - type: stack
+        padding: lg
+        justify: center
+        height: "full"
+        children:
+          - type: empty-state
+            icon: search
+            title: "No results found"
+            message: "We could not find anything matching your search. Try different keywords or check your spelling."
+            action: "Clear Search"
+
+  - id: empty_files
+    title: "Empty State - Files"
+    path: /test/empty-files
+    children:
+      - type: navbar
+        title: "Documents"
+        leading: icon:arrow-left
+
+      - type: stack
+        padding: lg
+        justify: center
+        height: "full"
+        children:
+          - type: empty-state
+            icon: file
+            title: "No documents uploaded"
+            message: "Upload your first document to get started. We support PDF, Word, and Excel files."
+            action: "Upload Document"
+
+  - id: empty_favorites
+    title: "Empty State - Favorites"
+    path: /test/empty-favorites
+    children:
+      - type: navbar
+        title: "Favorites"
+        leading: icon:arrow-left
+
+      - type: stack
+        padding: lg
+        justify: center
+        height: "full"
+        children:
+          - type: empty-state
+            icon: heart
+            title: "No favorites saved"
+            message: "Tap the heart icon on any item to save it here for quick access later."

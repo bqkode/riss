@@ -1,0 +1,25 @@
+riss: "0.1"
+meta:
+  name: Test - Footer Compact
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: footer_compact
+    title: Test - Footer Compact
+    children:
+      - block: footer
+        variant: compact
+        logo: Fjordtech
+        links:
+          - Privacy
+          - Terms
+          - Contact
+        social:
+          - twitter
+          - github
+          - linkedin
+        copyright: © 2026 Fjordtech AS. All rights reserved.

@@ -1,0 +1,17 @@
+riss: "0.1"
+meta:
+  name: Test - Hero with Search for Travel Booking
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: hero_with_search_for_travel_bo
+    title: Test - Hero with Search for Travel Booking
+    children:
+      - block: hero
+        variant: with-search
+        heading: Find your next adventure
+        subheading: Search over 2 million hotels, flights, and experiences across 190 countries. Best price guaranteed.

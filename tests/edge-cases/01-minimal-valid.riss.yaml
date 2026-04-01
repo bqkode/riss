@@ -1,0 +1,11 @@
+# Edge case: smallest possible valid .riss.yaml file
+# Tests that the parser handles the absolute minimum required fields
+riss: "0.1"
+meta:
+  name: "Minimal"
+screens:
+  - id: main
+    title: "Main"
+    children:
+      - type: text
+        content: "Hello, Riss."

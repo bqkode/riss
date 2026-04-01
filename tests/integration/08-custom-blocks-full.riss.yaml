@@ -1,0 +1,196 @@
+# Integration test: custom block definitions with parameterized templates,
+# conditionals, ternary expressions, and usage in screens.
+riss: "0.1"
+
+meta:
+  name: "MetricsApp"
+  viewport: { width: 1440, height: 900 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+blocks:
+  - id: metric-card
+    description: "A card showing a single KPI metric with optional trend indicator"
+    params:
+      - name: label
+        required: true
+      - name: value
+        required: true
+      - name: trend
+        default: null
+      - name: trend-direction
+        default: null
+      - name: icon
+        default: null
+    template:
+      - type: card
+        padding: lg
+        children:
+          - type: row
+            align: center
+            justify: between
+            children:
+              - type: stack
+                gap: xs
+                children:
+                  - type: text
+                    variant: caption
+                    content: "{{label}}"
+                    color: text-secondary
+                  - type: text
+                    variant: h2
+                    content: "{{value}}"
+              - type: icon
+                name: "{{icon}}"
+                size: 24
+                color: text-secondary
+                if: "{{icon}}"
+          - type: text
+            variant: caption
+            content: "{{trend}}"
+            color: "{{trend-direction == 'up' ? 'success' : trend-direction == 'down' ? 'error' : 'text-secondary'}}"
+            if: "{{trend}}"
+
+  - id: section-header
+    description: "A section heading with optional subtitle and action button"
+    params:
+      - name: title
+        required: true
+      - name: subtitle
+        default: null
+      - name: action-label
+        default: null
+    template:
+      - type: row
+        align: center
+        justify: between
+        padding: md
+        children:
+          - type: stack
+            gap: xs
+            children:
+              - type: text
+                variant: h3
+                content: "{{title}}"
+              - type: text
+                variant: body-sm
+                content: "{{subtitle}}"
+                color: text-secondary
+                if: "{{subtitle}}"
+          - type: spacer
+          - type: button
+            label: "{{action-label}}"
+            variant: outline
+            size: sm
+            if: "{{action-label}}"
+
+  - id: feature-row
+    description: "A row showing a feature with icon, description, and optional toggle"
+    params:
+      - name: icon
+        required: true
+      - name: title
+        required: true
+      - name: description
+        required: true
+      - name: enabled
+        default: null
+    template:
+      - type: row
+        align: center
+        gap: md
+        padding: md
+        children:
+          - type: icon
+            name: "{{icon}}"
+            size: 24
+            color: accent
+          - type: stack
+            grow: 1
+            gap: xs
+            children:
+              - type: text
+                variant: h4
+                content: "{{title}}"
+              - type: text
+                variant: body
+                content: "{{description}}"
+                color: text-secondary
+          - type: toggle
+            value: "{{enabled}}"
+            if: "{{enabled}}"
+
+screens:
+  - id: analytics_dashboard
+    title: "Analytics Dashboard"
+    path: /analytics
+    children:
+      - type: navbar
+        title: "MetricsApp"
+        leading: icon:bar-chart
+        trailing:
+          - icon:bell
+          - icon:settings
+
+      - type: scroll
+        grow: 1
+        padding: xl
+        gap: lg
+        children:
+          # Section: Key Metrics
+          - block: section-header
+            title: "Key Metrics"
+            subtitle: "Last 30 days"
+            action-label: "Export"
+
+          - type: grid
+            columns: 4
+            gap: md
+            children:
+              - block: metric-card
+                label: "Total Users"
+                value: "84,291"
+                trend: "+14.2% vs last month"
+                trend-direction: up
+                icon: users
+              - block: metric-card
+                label: "Revenue"
+                value: "$192,400"
+                trend: "+8.1% vs last month"
+                trend-direction: up
+                icon: dollar-sign
+              - block: metric-card
+                label: "Bounce Rate"
+                value: "34.7%"
+                trend: "-3.2% vs last month"
+                trend-direction: down
+                icon: trending-down
+              - block: metric-card
+                label: "Avg. Session"
+                value: "4m 32s"
+                trend: "No change"
+                icon: clock
+
+          # Section: Features (no action button)
+          - block: section-header
+            title: "Feature Flags"
+
+          - type: card
+            children:
+              - block: feature-row
+                icon: zap
+                title: "Real-Time Sync"
+                description: "Enable live data synchronization across all connected dashboards."
+                enabled: true
+              - type: divider
+              - block: feature-row
+                icon: shield
+                title: "Advanced Security"
+                description: "Two-factor authentication and IP allowlisting for all team members."
+                enabled: false
+              - type: divider
+              - block: feature-row
+                icon: globe
+                title: "Public API Access"
+                description: "Allow third-party integrations to read analytics data via REST API."

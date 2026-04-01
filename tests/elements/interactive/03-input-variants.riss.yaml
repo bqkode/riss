@@ -1,0 +1,56 @@
+# Test: all 3 input variants
+# Verifies that each input variant renders correctly:
+#   outlined  - border around the input (default)
+#   filled    - filled background, no visible border
+#   underline - bottom border only
+riss: "0.1"
+meta:
+  name: "Test - Input Variants"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: input_variants
+    title: "Input Variants"
+    path: /test/input-variants
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # outlined (default)
+          - type: section
+            title: "variant: outlined"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    variant: outlined
+                    placeholder: "Enter your full name"
+
+          # filled
+          - type: section
+            title: "variant: filled"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    variant: filled
+                    placeholder: "Search products..."
+
+          # underline
+          - type: section
+            title: "variant: underline"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    variant: underline
+                    placeholder: "Company website URL"

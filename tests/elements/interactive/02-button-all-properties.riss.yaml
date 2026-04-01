@@ -1,0 +1,186 @@
+# Test: button with ALL properties
+# Verifies: variant, size (sm/md/lg), color tokens (accent/error/success/warning),
+#   leading-icon, trailing-icon, icon-only, full-width, disabled
+riss: "0.1"
+meta:
+  name: "Test - Button All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: button_all_props
+    title: "Button All Properties"
+    path: /test/button-all-props
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Size variants
+          - type: section
+            title: "Sizes"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Small"
+                    variant: primary
+                    size: sm
+                  - type: button
+                    label: "Medium"
+                    variant: primary
+                    size: md
+                  - type: button
+                    label: "Large"
+                    variant: primary
+                    size: lg
+
+          # Color tokens
+          - type: section
+            title: "Color Tokens"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Accent Action"
+                    variant: primary
+                    color: accent
+                  - type: button
+                    label: "Delete Account"
+                    variant: primary
+                    color: error
+                  - type: button
+                    label: "Payment Confirmed"
+                    variant: primary
+                    color: success
+                  - type: button
+                    label: "Unsaved Changes"
+                    variant: primary
+                    color: warning
+
+          # Leading icon
+          - type: section
+            title: "Leading Icon"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Download PDF"
+                    variant: primary
+                    leading-icon: download
+                  - type: button
+                    label: "Add to Cart"
+                    variant: outline
+                    leading-icon: plus
+
+          # Trailing icon
+          - type: section
+            title: "Trailing Icon"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Next Step"
+                    variant: primary
+                    trailing-icon: arrow-right
+                  - type: button
+                    label: "Open in Browser"
+                    variant: outline
+                    trailing-icon: external-link
+
+          # Icon-only buttons
+          - type: section
+            title: "Icon Only"
+            children:
+              - type: row
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    variant: primary
+                    leading-icon: plus
+                    icon-only: true
+                  - type: button
+                    variant: outline
+                    leading-icon: heart
+                    icon-only: true
+                  - type: button
+                    variant: ghost
+                    leading-icon: more-horizontal
+                    icon-only: true
+                  - type: button
+                    variant: ghost
+                    leading-icon: settings
+                    icon-only: true
+
+          # Full-width
+          - type: section
+            title: "Full Width"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Sign In"
+                    variant: primary
+                    size: lg
+                    full-width: true
+                  - type: button
+                    label: "Continue with Google"
+                    variant: outline
+                    size: lg
+                    full-width: true
+                    leading-icon: globe
+
+          # Disabled states
+          - type: section
+            title: "Disabled"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Submit Order"
+                    variant: primary
+                    disabled: true
+                  - type: button
+                    label: "Edit Profile"
+                    variant: outline
+                    disabled: true
+                  - type: button
+                    label: "Remove"
+                    variant: ghost
+                    disabled: true
+
+          # Combined properties
+          - type: section
+            title: "Combined: size + color + icon + full-width"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Permanently Delete"
+                    variant: primary
+                    size: lg
+                    color: error
+                    leading-icon: trash
+                    full-width: true
+                  - type: button
+                    label: "Mark as Complete"
+                    variant: primary
+                    size: sm
+                    color: success
+                    trailing-icon: check

@@ -1,0 +1,101 @@
+# Test: alert element with ALL 4 variants
+# Verifies info, success, warning, error variants with dismissable and icon options.
+riss: "0.1"
+meta:
+  name: "Test - Alert Variants"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: alert_variants
+    title: "Alert - All Variants"
+    path: /test/alert-variants
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Info variant
+          - type: section
+            title: "variant: info"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: alert
+                    variant: info
+                    title: "Software update available"
+                    message: "Version 4.2 includes new collaboration features and performance improvements."
+                    dismissable: true
+
+          # Success variant
+          - type: section
+            title: "variant: success"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: alert
+                    variant: success
+                    title: "Payment confirmed"
+                    message: "Your order of kr 2 499 has been processed. A receipt has been sent to your email."
+                    dismissable: true
+
+          # Warning variant
+          - type: section
+            title: "variant: warning"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: alert
+                    variant: warning
+                    title: "Storage almost full"
+                    message: "You have used 4.7 GB of 5 GB. Consider upgrading your plan or removing unused files."
+                    dismissable: true
+
+          # Error variant
+          - type: section
+            title: "variant: error"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: alert
+                    variant: error
+                    title: "Connection failed"
+                    message: "Unable to reach the server. Check your internet connection and try again."
+                    dismissable: true
+
+          # Icon: true (default)
+          - type: section
+            title: "icon: true (default)"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: alert
+                    variant: info
+                    title: "Scheduled maintenance"
+                    message: "The system will be unavailable on Sunday 5 April from 02:00 to 04:00."
+                    icon: true
+
+          # Icon: false
+          - type: section
+            title: "icon: false"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: alert
+                    variant: warning
+                    title: "Browser not supported"
+                    message: "Some features may not work correctly in Internet Explorer. Please use a modern browser."
+                    icon: false

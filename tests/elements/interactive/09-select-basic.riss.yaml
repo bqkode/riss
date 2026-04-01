@@ -1,0 +1,114 @@
+# Test: select element
+# Verifies: label, placeholder, options (3-5 items), selected (index, null), error
+riss: "0.1"
+meta:
+  name: "Test - Select Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: select_basic
+    title: "Select Basic"
+    path: /test/select-basic
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Placeholder, nothing selected
+          - type: section
+            title: "Placeholder, no selection"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: select
+                    label: "Country"
+                    placeholder: "Choose..."
+                    options:
+                      - "Norway"
+                      - "Sweden"
+                      - "Denmark"
+                      - "Finland"
+                      - "Iceland"
+
+          # First option selected
+          - type: section
+            title: "selected: 0"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: select
+                    label: "Language"
+                    placeholder: "Choose..."
+                    options:
+                      - "English"
+                      - "Norwegian"
+                      - "Swedish"
+                    selected: 0
+
+          # Middle option selected
+          - type: section
+            title: "selected: 2"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: select
+                    label: "Department"
+                    placeholder: "Choose..."
+                    options:
+                      - "Engineering"
+                      - "Design"
+                      - "Marketing"
+                      - "Sales"
+                      - "Operations"
+                    selected: 2
+
+          # With error message
+          - type: section
+            title: "Error Message"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: select
+                    label: "Time Zone"
+                    placeholder: "Choose..."
+                    options:
+                      - "UTC-8 Pacific"
+                      - "UTC-5 Eastern"
+                      - "UTC+0 London"
+                      - "UTC+1 Oslo"
+                    error: "Please select a time zone to continue"
+
+          # Multiple selects in a form context
+          - type: section
+            title: "Form Context"
+            children:
+              - type: stack
+                gap: md
+                padding: md
+                children:
+                  - type: select
+                    label: "Role"
+                    placeholder: "Choose..."
+                    options:
+                      - "Developer"
+                      - "Designer"
+                      - "Product Manager"
+                      - "QA Engineer"
+                    selected: 0
+                  - type: select
+                    label: "Experience Level"
+                    placeholder: "Choose..."
+                    options:
+                      - "Junior (0-2 years)"
+                      - "Mid-level (3-5 years)"
+                      - "Senior (6+ years)"

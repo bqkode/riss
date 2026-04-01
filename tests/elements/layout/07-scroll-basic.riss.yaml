@@ -1,0 +1,417 @@
+# Test: scroll element with vertical and horizontal directions
+# Verifies scrollable containers with overflowing children
+riss: "0.1"
+meta:
+  name: "Test - Scroll Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  # Screen 1: Vertical scroll with many children
+  - id: scroll_vertical
+    title: "Scroll Vertical"
+    path: /test/scroll-vertical
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            gap: md
+            padding: md
+            children:
+              - type: text
+                variant: h2
+                content: "Ansattliste"
+              - type: text
+                variant: body-sm
+                color: text-secondary
+                content: "Alle ansatte i Bergen-kontoret"
+
+              - type: card
+                padding: md
+                children:
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "AH"
+                      - type: stack
+                        gap: xs
+                        grow: 1
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Anders Haugen"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "Teknisk leder"
+
+              - type: card
+                padding: md
+                children:
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "BK"
+                      - type: stack
+                        gap: xs
+                        grow: 1
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Berit Karlsen"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "UX-designer"
+
+              - type: card
+                padding: md
+                children:
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "CN"
+                      - type: stack
+                        gap: xs
+                        grow: 1
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Christian Nordheim"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "Backend-utvikler"
+
+              - type: card
+                padding: md
+                children:
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "DM"
+                      - type: stack
+                        gap: xs
+                        grow: 1
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Dagny Moen"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "Prosjektleder"
+
+              - type: card
+                padding: md
+                children:
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "EV"
+                      - type: stack
+                        gap: xs
+                        grow: 1
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Eirik Voll"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "Frontend-utvikler"
+
+              - type: card
+                padding: md
+                children:
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "FR"
+                      - type: stack
+                        gap: xs
+                        grow: 1
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Frida Rasmussen"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "Dataingeniør"
+
+              - type: card
+                padding: md
+                children:
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "GS"
+                      - type: stack
+                        gap: xs
+                        grow: 1
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Geir Strand"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "DevOps-ingeniør"
+
+              - type: card
+                padding: md
+                children:
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "HL"
+                      - type: stack
+                        gap: xs
+                        grow: 1
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Hilde Larsen"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "Kvalitetssikring"
+
+              - type: card
+                padding: md
+                children:
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "IB"
+                      - type: stack
+                        gap: xs
+                        grow: 1
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Ivar Bakken"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "Systemarkitekt"
+
+              - type: card
+                padding: md
+                children:
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: avatar
+                        size: 40
+                        initials: "JT"
+                      - type: stack
+                        gap: xs
+                        grow: 1
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Julie Tangen"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "Produktdesigner"
+
+  # Screen 2: Horizontal scroll with fixed-width cards
+  - id: scroll_horizontal
+    title: "Scroll Horizontal"
+    path: /test/scroll-horizontal
+    children:
+      - type: stack
+        gap: lg
+        padding: md
+        children:
+          - type: text
+            variant: h2
+            content: "Populære reisemal"
+
+          # Horizontal scroll with destination cards
+          - type: scroll
+            direction: horizontal
+            children:
+              - type: card
+                width: 200
+                padding: md
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: image
+                        aspect: "4/3"
+                        label: "Lofoten"
+                        rounded: md
+                      - type: text
+                        variant: h4
+                        content: "Lofoten"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Nordland fylke"
+                      - type: row
+                        gap: xs
+                        align: center
+                        children:
+                          - type: icon
+                            name: star
+                            size: 14
+                            color: warning
+                          - type: text
+                            variant: caption
+                            content: "4.9 (2 340 anmeldelser)"
+
+              - type: card
+                width: 200
+                padding: md
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: image
+                        aspect: "4/3"
+                        label: "Geirangerfjorden"
+                        rounded: md
+                      - type: text
+                        variant: h4
+                        content: "Geirangerfjorden"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "More og Romsdal"
+                      - type: row
+                        gap: xs
+                        align: center
+                        children:
+                          - type: icon
+                            name: star
+                            size: 14
+                            color: warning
+                          - type: text
+                            variant: caption
+                            content: "4.8 (1 876 anmeldelser)"
+
+              - type: card
+                width: 200
+                padding: md
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: image
+                        aspect: "4/3"
+                        label: "Trolltunga"
+                        rounded: md
+                      - type: text
+                        variant: h4
+                        content: "Trolltunga"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Vestland fylke"
+                      - type: row
+                        gap: xs
+                        align: center
+                        children:
+                          - type: icon
+                            name: star
+                            size: 14
+                            color: warning
+                          - type: text
+                            variant: caption
+                            content: "4.7 (3 102 anmeldelser)"
+
+              - type: card
+                width: 200
+                padding: md
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: image
+                        aspect: "4/3"
+                        label: "Preikestolen"
+                        rounded: md
+                      - type: text
+                        variant: h4
+                        content: "Preikestolen"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Rogaland fylke"
+                      - type: row
+                        gap: xs
+                        align: center
+                        children:
+                          - type: icon
+                            name: star
+                            size: 14
+                            color: warning
+                          - type: text
+                            variant: caption
+                            content: "4.8 (2 654 anmeldelser)"
+
+              - type: card
+                width: 200
+                padding: md
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: image
+                        aspect: "4/3"
+                        label: "Flam"
+                        rounded: md
+                      - type: text
+                        variant: h4
+                        content: "Flamsbana"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Vestland fylke"
+                      - type: row
+                        gap: xs
+                        align: center
+                        children:
+                          - type: icon
+                            name: star
+                            size: 14
+                            color: warning
+                          - type: text
+                            variant: caption
+                            content: "4.6 (1 489 anmeldelser)"

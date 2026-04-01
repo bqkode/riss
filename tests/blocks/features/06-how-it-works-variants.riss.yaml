@@ -1,0 +1,67 @@
+riss: "0.1"
+meta:
+  name: Test - How It Works Variants
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: how_it_works_variants
+    title: Test - How It Works Variants
+    children:
+      - block: how-it-works
+        title: How our CI/CD pipeline works
+        variant: horizontal
+        numbered: true
+        connector: true
+        items:
+          - title: Code push
+            description: A developer pushes a commit or opens a pull request on the main branch.
+            icon: git-commit
+          - title: Build and test
+            description: The pipeline runs your build script, unit tests, and integration tests in parallel.
+            icon: play
+          - title: Review and approve
+            description: Automated checks pass and a teammate approves the pull request.
+            icon: check-circle
+          - title: Deploy to production
+            description: Changes are rolled out with zero downtime across all regions.
+            icon: rocket
+      - block: how-it-works
+        title: Our design process
+        variant: vertical
+        numbered: false
+        connector: true
+        items:
+          - title: Research
+            description: We interview users, analyze support tickets, and review analytics to identify the highest-impact opportunities.
+            icon: search
+          - title: Ideation
+            description: The team sketches multiple approaches, evaluates trade-offs, and converges on a direction through structured critique.
+            icon: lightbulb
+          - title: Prototyping
+            description: Interactive prototypes are built and tested with real users to validate assumptions before development begins.
+            icon: pen-tool
+          - title: Delivery
+            description: Engineers implement the design with pixel-perfect fidelity, guided by detailed specs and regular design QA sessions.
+            icon: package
+      - block: how-it-works
+        title: Incident response workflow
+        variant: horizontal
+        numbered: true
+        connector: false
+        items:
+          - title: Alert triggered
+            description: Monitoring detects an anomaly and pages the on-call engineer via PagerDuty.
+            icon: bell
+          - title: Triage and assess
+            description: The responder evaluates severity, checks dashboards, and opens an incident channel.
+            icon: activity
+          - title: Mitigate
+            description: The team applies a fix or rolls back the offending deployment to restore service.
+            icon: tool
+          - title: Post-mortem
+            description: A blameless review documents root cause, timeline, and action items to prevent recurrence.
+            icon: file-text

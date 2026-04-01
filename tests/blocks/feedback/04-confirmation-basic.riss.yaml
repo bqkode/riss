@@ -1,0 +1,27 @@
+riss: "0.1"
+meta:
+  name: Test - Confirmation Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: confirmation_basic
+    title: Test - Confirmation Basic
+    children:
+      - block: confirmation
+        icon: check
+        icon-color: success
+        title: Order Confirmed!
+        message: Thank you for your purchase. You will receive a confirmation email with your order details and tracking information shortly.
+        details:
+          - label: Order
+            value: "#NOR-2847"
+          - label: Total
+            value: kr 2,499
+          - label: Delivery
+            value: 3-5 business days
+        cta-label: Track Order
+        cta-secondary-label: Continue Shopping

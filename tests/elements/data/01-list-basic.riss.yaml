@@ -1,0 +1,99 @@
+# Test: list element with divider options
+# Verifies list rendering with dividers: true/false and inset-dividers: true/false.
+riss: "0.1"
+meta:
+  name: "Test - List Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: list_dividers
+    title: "List - Divider Variants"
+    path: /test/list-dividers
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # dividers: true (default)
+          - type: section
+            title: "dividers: true (default)"
+            children:
+              - type: list
+                dividers: true
+                children:
+                  - type: list-item
+                    title: "Kari Nordmann"
+                    subtitle: "Product Manager"
+                  - type: list-item
+                    title: "Ola Hansen"
+                    subtitle: "Software Engineer"
+                  - type: list-item
+                    title: "Erik Bakke"
+                    subtitle: "UX Designer"
+                  - type: list-item
+                    title: "Ingrid Solberg"
+                    subtitle: "Data Analyst"
+
+          # dividers: false
+          - type: section
+            title: "dividers: false"
+            children:
+              - type: list
+                dividers: false
+                children:
+                  - type: list-item
+                    title: "Morning standup"
+                    subtitle: "09:00 - 09:15"
+                  - type: list-item
+                    title: "Sprint planning"
+                    subtitle: "10:00 - 11:00"
+                  - type: list-item
+                    title: "Design review"
+                    subtitle: "13:30 - 14:00"
+                  - type: list-item
+                    title: "Retrospective"
+                    subtitle: "15:00 - 16:00"
+
+          # inset-dividers: true
+          - type: section
+            title: "inset-dividers: true"
+            children:
+              - type: list
+                dividers: true
+                inset-dividers: true
+                children:
+                  - type: list-item
+                    leading: avatar
+                    title: "Bjorn Eriksen"
+                    subtitle: "Sent you a message"
+                  - type: list-item
+                    leading: avatar
+                    title: "Astrid Haugen"
+                    subtitle: "Shared a document"
+                  - type: list-item
+                    leading: avatar
+                    title: "Magnus Vold"
+                    subtitle: "Commented on your post"
+
+          # inset-dividers: false
+          - type: section
+            title: "inset-dividers: false"
+            children:
+              - type: list
+                dividers: true
+                inset-dividers: false
+                children:
+                  - type: list-item
+                    leading: avatar
+                    title: "Camilla Nordby"
+                    subtitle: "Online now"
+                  - type: list-item
+                    leading: avatar
+                    title: "Lars Berg"
+                    subtitle: "Last seen 20 min ago"
+                  - type: list-item
+                    leading: avatar
+                    title: "Hanna Dahl"
+                    subtitle: "Last seen yesterday"

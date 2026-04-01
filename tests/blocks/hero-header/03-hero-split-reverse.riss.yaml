@@ -1,0 +1,21 @@
+riss: "0.1"
+meta:
+  name: Test - Hero Split Reverse with Image Left
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: hero_split_reverse_with_image_
+    title: Test - Hero Split Reverse with Image Left
+    children:
+      - block: hero
+        variant: split-reverse
+        heading: Design collaboration that actually works
+        subheading: Real-time editing, version control, and handoff in one platform. Your entire team, finally on the same page.
+        cta-label: Try it free for 14 days
+        cta-secondary-label: Watch demo
+        image: true
+        image-position: left

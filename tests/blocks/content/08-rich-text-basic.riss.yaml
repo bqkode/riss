@@ -1,0 +1,49 @@
+riss: "0.1"
+meta:
+  name: Test - Rich Text Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: rich_text_basic
+    title: Test - Rich Text Basic
+    children:
+      - block: rich-text
+        max-width: 720
+        content:
+          - type: h2
+            text: Getting started with the SDK
+          - type: paragraph
+            text: The developer SDK gives you programmatic access to every feature available in the dashboard. This guide walks through installation, authentication, and your first API call.
+          - type: code
+            language: bash
+            text: npm install @acme/sdk@latest
+          - type: paragraph
+            text: Once installed, initialize the client with your API key. You can find your key in the dashboard under Settings > API Keys.
+          - type: code
+            language: javascript
+            text: |
+              import { AcmeClient } from '@acme/sdk';
+
+              const client = new AcmeClient({
+                apiKey: process.env.ACME_API_KEY,
+                environment: 'production',
+              });
+
+              const projects = await client.projects.list();
+              console.log(projects);
+          - type: blockquote
+            text: Never hard-code API keys in your source code. Always use environment variables or a secrets manager to keep credentials secure.
+          - type: h2
+            text: Core concepts
+          - type: paragraph
+            text: Before diving deeper, it helps to understand the key abstractions the SDK is built around.
+          - type: list
+            items:
+              - "Projects: Top-level containers that group related resources and configurations together"
+              - "Environments: Isolated contexts like development, staging, and production within a project"
+              - "Deployments: Immutable snapshots of your application that can be promoted across environments"
+              - "Events: Structured logs emitted by the platform that you can subscribe to via webhooks"

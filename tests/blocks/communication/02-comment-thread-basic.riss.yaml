@@ -1,0 +1,49 @@
+riss: "0.1"
+meta:
+  name: Test - Comment Thread Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: comment_thread_basic
+    title: Test - Comment Thread Basic
+    children:
+      - block: comment-thread
+        title: Comments
+        count: 24
+        show-input: true
+        items:
+          - author: Marte Svendsen
+            avatar: MS
+            time: 2 hours ago
+            text: Fantastisk utsikt fra toppen! Hvilken rute tok dere opp?
+            likes: 12
+          - author: Jonas Berg
+            avatar: JB
+            time: 1 hour ago
+            text: Vi gikk denne ruten i fjor sommer. Anbefaler å starte tidlig for å unngå folkemengdene.
+            likes: 8
+            replies:
+              - author: Marte Svendsen
+                avatar: MS
+                time: 45 min ago
+                text: Godt tips! Vi starter som regel rundt kl 06.
+                likes: 3
+              - author: Erik Holm
+                avatar: EH
+                time: 30 min ago
+                text: Enig, tidlig start er nøkkelen. Tok oss ca 6 timer totalt.
+                likes: 2
+          - author: Lise Karlsen
+            avatar: LK
+            time: 45 min ago
+            text: Er denne ruten egnet for barn? Vi har en på 10 år som er ganske sprek.
+            likes: 4
+          - author: Anders Nilsen
+            avatar: AN
+            time: 15 min ago
+            text: Tusen takk for delingen! Legger dette til på bucketlisten min.
+            likes: 6

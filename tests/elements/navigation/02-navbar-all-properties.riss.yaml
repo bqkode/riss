@@ -1,0 +1,157 @@
+# Test: navbar element with ALL properties
+# Verifies title, subtitle, leading shortcuts, trailing variants,
+# background, border-bottom, and elevated properties.
+riss: "0.1"
+meta:
+  name: "Test - Navbar All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: navbar_title_subtitle
+    title: "Navbar - Title + Subtitle"
+    path: /test/navbar-title-subtitle
+    children:
+      - type: navbar
+        title: "Innboks"
+        subtitle: "3 uleste meldinger"
+        leading: icon:arrow-left
+        trailing: icon:more-vertical
+
+      - type: stack
+        padding: lg
+        gap: sm
+        children:
+          - type: text
+            variant: body
+            content: "Navbar with both title and subtitle rendered."
+
+  - id: navbar_leading_shortcuts
+    title: "Navbar - Leading Shortcuts"
+    path: /test/navbar-leading-shortcuts
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Leading: icon
+          - type: section
+            title: "leading: icon:arrow-left"
+            children:
+              - type: navbar
+                title: "Back Navigation"
+                leading: icon:arrow-left
+
+          # Leading: avatar
+          - type: section
+            title: "leading: avatar"
+            children:
+              - type: navbar
+                title: "Profile"
+                leading: avatar
+
+          # Leading: menu
+          - type: section
+            title: "leading: menu"
+            children:
+              - type: navbar
+                title: "Dashboard"
+                leading: menu
+
+  - id: navbar_trailing_variants
+    title: "Navbar - Trailing Variants"
+    path: /test/navbar-trailing-variants
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Trailing: string shortcut
+          - type: section
+            title: "trailing: string"
+            children:
+              - type: navbar
+                title: "Notifications"
+                leading: icon:arrow-left
+                trailing: icon:bell
+
+          # Trailing: element
+          - type: section
+            title: "trailing: element"
+            children:
+              - type: navbar
+                title: "Edit Profile"
+                leading: icon:arrow-left
+                trailing:
+                  type: button
+                  label: "Save"
+                  variant: ghost
+                  size: sm
+
+          # Trailing: array
+          - type: section
+            title: "trailing: array"
+            children:
+              - type: navbar
+                title: "Search Results"
+                leading: icon:arrow-left
+                trailing:
+                  - icon:filter
+                  - icon:search
+                  - icon:more-vertical
+
+  - id: navbar_background_border_elevated
+    title: "Navbar - Background, Border, Elevated"
+    path: /test/navbar-bg-border
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Background: background (default)
+          - type: section
+            title: "background: background"
+            children:
+              - type: navbar
+                title: "Default Background"
+                leading: icon:arrow-left
+                background: background
+                border-bottom: true
+
+          # Background: surface
+          - type: section
+            title: "background: surface"
+            children:
+              - type: navbar
+                title: "Surface Background"
+                leading: icon:arrow-left
+                background: surface
+                border-bottom: true
+
+          # border-bottom: false
+          - type: section
+            title: "border-bottom: false"
+            children:
+              - type: navbar
+                title: "No Bottom Border"
+                leading: icon:arrow-left
+                border-bottom: false
+
+          # elevated: true
+          - type: section
+            title: "elevated: true"
+            children:
+              - type: navbar
+                title: "Elevated Navbar"
+                leading: icon:arrow-left
+                elevated: true
+                border-bottom: false
+
+          # elevated: false (default)
+          - type: section
+            title: "elevated: false"
+            children:
+              - type: navbar
+                title: "Flat Navbar"
+                leading: icon:arrow-left
+                elevated: false
+                border-bottom: true

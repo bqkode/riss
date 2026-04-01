@@ -1,0 +1,26 @@
+riss: "0.1"
+meta:
+  name: Test - Alternating Rows Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: alternating_rows_basic
+    title: Test - Alternating Rows Basic
+    children:
+      - block: alternating-rows
+        start-position: right
+        gap: 64
+        items:
+          - heading: Design with confidence
+            body: Our component library gives you pixel-perfect building blocks that work together seamlessly. No more wrestling with inconsistent spacing or mismatched styles.
+            image-label: Component library preview
+          - heading: Prototype in minutes
+            body: Go from idea to interactive prototype without writing a single line of code. Share with stakeholders and gather feedback before a single sprint begins.
+            image-label: Interactive prototype editor
+          - heading: Hand off with precision
+            body: Developers get exact specs, assets, and code snippets automatically generated from your designs. No more redlines or guesswork during implementation.
+            image-label: Developer handoff screen

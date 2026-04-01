@@ -1,0 +1,781 @@
+# Test: grid element with ALL properties
+# Verifies columns 1-12, gap, column-gap, row-gap, children with span
+riss: "0.1"
+meta:
+  name: "Test - Grid All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  # Screen 1: Column counts 1-6
+  - id: grid_columns_1_to_6
+    title: "Grid Columns 1-6"
+    path: /test/grid-cols-1-6
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: section
+            title: "columns: 1"
+            children:
+              - type: grid
+                columns: 1
+                gap: sm
+                children:
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Fullbredde rad"
+
+          - type: section
+            title: "columns: 2"
+            children:
+              - type: grid
+                columns: 2
+                gap: sm
+                children:
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "1"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "2"
+
+          - type: section
+            title: "columns: 3"
+            children:
+              - type: grid
+                columns: 3
+                gap: sm
+                children:
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "1"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "2"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "3"
+
+          - type: section
+            title: "columns: 4"
+            children:
+              - type: grid
+                columns: 4
+                gap: xs
+                children:
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "1"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "2"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "3"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "4"
+
+          - type: section
+            title: "columns: 5"
+            children:
+              - type: grid
+                columns: 5
+                gap: xs
+                children:
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "1"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "2"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "3"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "4"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "5"
+
+          - type: section
+            title: "columns: 6"
+            children:
+              - type: grid
+                columns: 6
+                gap: xs
+                children:
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "1"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "2"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "3"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "4"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "5"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "6"
+
+  # Screen 2: Columns 7-12
+  - id: grid_columns_7_to_12
+    title: "Grid Columns 7-12"
+    path: /test/grid-cols-7-12
+    viewport: { width: 1440, height: 900 }
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: section
+            title: "columns: 7"
+            children:
+              - type: grid
+                columns: 7
+                gap: xs
+                children:
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Ma"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Ti"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "On"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "To"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Fr"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Lo"
+                  - type: stack
+                    padding: xs
+                    background: accent-soft
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "So"
+
+          - type: section
+            title: "columns: 8"
+            children:
+              - type: grid
+                columns: 8
+                gap: xs
+                children:
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "1"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "2"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "3"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "4"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "5"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "6"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "7"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "8"
+
+          - type: section
+            title: "columns: 12"
+            children:
+              - type: grid
+                columns: 12
+                gap: xs
+                children:
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "1"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "2"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "3"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "4"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "5"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "6"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "7"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "8"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "9"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "10"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "11"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "12"
+
+  # Screen 3: column-gap vs row-gap
+  - id: grid_gap_variants
+    title: "Grid Gap Variants"
+    path: /test/grid-gap-variants
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # column-gap and row-gap different
+          - type: section
+            title: "column-gap: lg, row-gap: xs"
+            children:
+              - type: grid
+                columns: 3
+                column-gap: lg
+                row-gap: xs
+                children:
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Jan"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Feb"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Mar"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Apr"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Mai"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Jun"
+
+          # Opposite: small column-gap, large row-gap
+          - type: section
+            title: "column-gap: xs, row-gap: xl"
+            children:
+              - type: grid
+                columns: 2
+                column-gap: xs
+                row-gap: xl
+                children:
+                  - type: card
+                    padding: md
+                    children:
+                      - type: text
+                        content: "Prosjekt Alfa"
+                  - type: card
+                    padding: md
+                    children:
+                      - type: text
+                        content: "Prosjekt Beta"
+                  - type: card
+                    padding: md
+                    children:
+                      - type: text
+                        content: "Prosjekt Gamma"
+                  - type: card
+                    padding: md
+                    children:
+                      - type: text
+                        content: "Prosjekt Delta"
+
+  # Screen 4: span property on children
+  - id: grid_span
+    title: "Grid Span"
+    path: /test/grid-span
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # span: 1 (default)
+          - type: section
+            title: "4 columns, all span: 1 (default)"
+            children:
+              - type: grid
+                columns: 4
+                gap: sm
+                children:
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "A"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "B"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "C"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "D"
+
+          # span: 2 in a 4-column grid
+          - type: section
+            title: "4 columns, span: 2 items"
+            children:
+              - type: grid
+                columns: 4
+                gap: sm
+                children:
+                  - type: card
+                    span: 2
+                    padding: md
+                    children:
+                      - type: text
+                        content: "Bredere kort (span: 2)"
+                  - type: card
+                    padding: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Normal"
+                  - type: card
+                    padding: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Normal"
+
+          # span: 3 in a 6-column grid
+          - type: section
+            title: "6 columns, span: 3 items"
+            children:
+              - type: grid
+                columns: 6
+                gap: sm
+                children:
+                  - type: card
+                    span: 3
+                    padding: md
+                    children:
+                      - type: text
+                        content: "Venstre halvdel (span: 3)"
+                  - type: card
+                    span: 3
+                    padding: md
+                    children:
+                      - type: text
+                        content: "Hoyre halvdel (span: 3)"
+
+          # Full-width span
+          - type: section
+            title: "3 columns with full-width header"
+            children:
+              - type: grid
+                columns: 3
+                gap: sm
+                children:
+                  - type: card
+                    span: 3
+                    padding: md
+                    variant: filled
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "Oversikt over avdelinger"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        gap: xs
+                        children:
+                          - type: text
+                            variant: label
+                            content: "Salg"
+                          - type: text
+                            variant: h3
+                            content: "23"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        gap: xs
+                        children:
+                          - type: text
+                            variant: label
+                            content: "Utvikling"
+                          - type: text
+                            variant: h3
+                            content: "18"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        gap: xs
+                        children:
+                          - type: text
+                            variant: label
+                            content: "Drift"
+                          - type: text
+                            variant: h3
+                            content: "12"
+                  # Mixed spans
+                  - type: card
+                    span: 2
+                    padding: sm
+                    children:
+                      - type: text
+                        content: "Administrasjon + HR (span: 2)"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Marked"

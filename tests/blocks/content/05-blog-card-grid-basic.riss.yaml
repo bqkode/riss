@@ -1,0 +1,59 @@
+riss: "0.1"
+meta:
+  name: Test - Blog Card Grid Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: blog_card_grid_basic
+    title: Test - Blog Card Grid Basic
+    children:
+      - block: blog-card-grid
+        title: From the blog
+        columns: 3
+        items:
+          - image-label: Abstract illustration of microservices
+            category: Engineering
+            title: Migrating to microservices without the chaos
+            excerpt: How we broke apart a monolith serving 2 million requests per second while maintaining zero downtime throughout the transition.
+            author: Sarah Chen
+            date: "2026-03-15"
+            read-time: 8 min read
+          - image-label: Graph showing growth metrics
+            category: Product
+            title: Announcing our new analytics dashboard
+            excerpt: A completely redesigned analytics experience with real-time updates, custom funnels, and cohort analysis built for product teams.
+            author: Marcus Johnson
+            date: "2026-03-10"
+            read-time: 5 min read
+          - image-label: Team working at whiteboard
+            category: Culture
+            title: How we run remote design sprints
+            excerpt: Our framework for running effective five-day design sprints with distributed teams across four time zones.
+            author: Priya Patel
+            date: "2026-03-05"
+            read-time: 6 min read
+          - image-label: Code editor with TypeScript
+            category: Engineering
+            title: Type-safe API clients with code generation
+            excerpt: Eliminate runtime errors and reduce boilerplate by generating fully typed API clients directly from your OpenAPI specifications.
+            author: Alex Rivera
+            date: "2026-02-28"
+            read-time: 10 min read
+          - image-label: Security lock illustration
+            category: Security
+            title: Our approach to zero-trust architecture
+            excerpt: A practical guide to implementing zero-trust principles without disrupting developer velocity or adding unnecessary friction.
+            author: Jordan Lee
+            date: "2026-02-20"
+            read-time: 7 min read
+          - image-label: Customer interview photograph
+            category: Customers
+            title: How Fintech Co reduced deploy time by 80%
+            excerpt: A deep dive into how one of our largest customers transformed their release process from weekly batches to continuous delivery.
+            author: Emma Torres
+            date: "2026-02-15"
+            read-time: 9 min read

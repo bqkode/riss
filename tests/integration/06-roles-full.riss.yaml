@@ -1,0 +1,155 @@
+# Integration test: role-based visibility across screens
+# Verifies meta.roles definitions, screen-level role restriction,
+# element-level single and multi-role restrictions, and role legend rendering.
+riss: "0.1"
+
+meta:
+  name: "TeamHub"
+  viewport: { width: 1440, height: 900 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+  roles:
+    - id: admin
+      label: "Admin"
+      color: "#DC2626"
+    - id: manager
+      label: "Manager"
+      color: "#D97706"
+    - id: member
+      label: "Member"
+      color: "#2563EB"
+
+screens:
+  - id: admin_panel
+    title: "Admin Panel"
+    path: /admin
+    role: admin
+    children:
+      - type: navbar
+        title: "Admin Panel"
+        leading: icon:shield
+        trailing:
+          - icon:bell
+          - icon:settings
+
+      - type: scroll
+        grow: 1
+        padding: xl
+        gap: lg
+        children:
+          - type: text
+            variant: h2
+            content: "User Management"
+
+          - type: text
+            variant: body
+            color: text-secondary
+            content: "Manage team members, assign roles, and control access permissions."
+
+          - block: data-table
+            title: "Team Members"
+            columns:
+              - label: "Name"
+              - label: "Email"
+              - label: "Role"
+              - label: "Last Active"
+              - label: "Actions"
+            rows:
+              - ["Astrid Lindberg", "astrid@teamhub.io", "Admin", "2 min ago", "..."]
+              - ["Erik Johansson", "erik@teamhub.io", "Manager", "1 hour ago", "..."]
+              - ["Sofia Andersson", "sofia@teamhub.io", "Manager", "3 hours ago", "..."]
+              - ["Nils Bergqvist", "nils@teamhub.io", "Member", "Yesterday", "..."]
+              - ["Maja Holm", "maja@teamhub.io", "Member", "2 days ago", "..."]
+            pagination: true
+
+  - id: team_dashboard
+    title: "Team Dashboard"
+    path: /dashboard
+    children:
+      - type: navbar
+        title: "Team Dashboard"
+        trailing:
+          - icon:bell
+          - icon:users
+          - icon:settings
+
+      - type: scroll
+        grow: 1
+        padding: xl
+        gap: lg
+        children:
+          - type: text
+            variant: h2
+            content: "Welcome back"
+
+          # Visible to everyone - no role restriction
+          - type: card
+            padding: lg
+            children:
+              - type: text
+                variant: h4
+                content: "Team Activity"
+              - type: list
+                children:
+                  - type: list-item
+                    title: "Sprint 24 planning completed"
+                    subtitle: "Today at 10:30"
+                  - type: list-item
+                    title: "Design review scheduled"
+                    subtitle: "Today at 14:00"
+                  - type: list-item
+                    title: "3 pull requests merged"
+                    subtitle: "Yesterday"
+
+          # Only managers and admins see the budget card
+          - type: card
+            padding: lg
+            role: [admin, manager]
+            children:
+              - type: text
+                variant: h4
+                content: "Budget Overview"
+              - type: text
+                content: "$38,750 spent of $50,000"
+                color: text-secondary
+              - type: progress
+                value: 77
+                color: warning
+              - type: text
+                variant: caption
+                color: text-secondary
+                content: "Q2 budget: 23% remaining with 6 weeks left"
+
+          # Only admins see the danger zone
+          - type: card
+            padding: lg
+            role: admin
+            children:
+              - type: text
+                variant: h4
+                content: "Danger Zone"
+                color: error
+              - type: text
+                content: "Permanently delete this team and all associated data. This action cannot be undone."
+                color: text-secondary
+              - type: button
+                label: "Delete Team"
+                variant: outline
+                color: error
+
+          # Actions row with mixed role restrictions
+          - type: row
+            gap: md
+            children:
+              - type: button
+                label: "Invite Member"
+                variant: primary
+                leading-icon: user-plus
+                role: [admin, manager]
+              - type: button
+                label: "Delete Team"
+                variant: outline
+                color: error
+                leading-icon: trash
+                role: admin

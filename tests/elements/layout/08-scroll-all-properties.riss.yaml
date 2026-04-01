@@ -1,0 +1,816 @@
+# Test: scroll element with ALL properties
+# Verifies height constraints, nesting within rows, horizontal with card widths,
+# vertical scroll with grow:1
+riss: "0.1"
+meta:
+  name: "Test - Scroll All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  # Screen 1: Vertical scroll with height constraint
+  - id: scroll_height_constrained
+    title: "Scroll Height Constrained"
+    path: /test/scroll-constrained
+    children:
+      - type: stack
+        gap: md
+        padding: md
+        children:
+          - type: text
+            variant: h2
+            content: "Handleliste"
+          - type: text
+            variant: body-sm
+            color: text-secondary
+            content: "Scroll innenfor en boks med fast hoyde"
+
+          # Vertical scroll with explicit height
+          - type: scroll
+            direction: vertical
+            height: 300
+            children:
+              - type: stack
+                gap: sm
+                padding: sm
+                children:
+                  - type: row
+                    gap: sm
+                    align: center
+                    padding: sm
+                    background: surface
+                    rounded: md
+                    children:
+                      - type: icon
+                        name: check
+                        color: success
+                      - type: text
+                        content: "Melk, 1 liter"
+                  - type: row
+                    gap: sm
+                    align: center
+                    padding: sm
+                    background: surface
+                    rounded: md
+                    children:
+                      - type: icon
+                        name: check
+                        color: success
+                      - type: text
+                        content: "Brunost, 500g"
+                  - type: row
+                    gap: sm
+                    align: center
+                    padding: sm
+                    background: surface
+                    rounded: md
+                    children:
+                      - type: icon
+                        name: check
+                        color: text-disabled
+                      - type: text
+                        content: "Knekkebrød, Wasa"
+                  - type: row
+                    gap: sm
+                    align: center
+                    padding: sm
+                    background: surface
+                    rounded: md
+                    children:
+                      - type: icon
+                        name: check
+                        color: text-disabled
+                      - type: text
+                        content: "Laks, 400g"
+                  - type: row
+                    gap: sm
+                    align: center
+                    padding: sm
+                    background: surface
+                    rounded: md
+                    children:
+                      - type: icon
+                        name: check
+                        color: text-disabled
+                      - type: text
+                        content: "Poteter, 2kg"
+                  - type: row
+                    gap: sm
+                    align: center
+                    padding: sm
+                    background: surface
+                    rounded: md
+                    children:
+                      - type: icon
+                        name: check
+                        color: text-disabled
+                      - type: text
+                        content: "Gulrotter, 750g"
+                  - type: row
+                    gap: sm
+                    align: center
+                    padding: sm
+                    background: surface
+                    rounded: md
+                    children:
+                      - type: icon
+                        name: check
+                        color: text-disabled
+                      - type: text
+                        content: "Egg, 12 stk"
+                  - type: row
+                    gap: sm
+                    align: center
+                    padding: sm
+                    background: surface
+                    rounded: md
+                    children:
+                      - type: icon
+                        name: check
+                        color: text-disabled
+                      - type: text
+                        content: "Smor, 250g"
+                  - type: row
+                    gap: sm
+                    align: center
+                    padding: sm
+                    background: surface
+                    rounded: md
+                    children:
+                      - type: icon
+                        name: check
+                        color: text-disabled
+                      - type: text
+                        content: "Flatbrod"
+                  - type: row
+                    gap: sm
+                    align: center
+                    padding: sm
+                    background: surface
+                    rounded: md
+                    children:
+                      - type: icon
+                        name: check
+                        color: text-disabled
+                      - type: text
+                        content: "Rømme, 3 dl"
+
+          - type: text
+            variant: caption
+            color: text-secondary
+            content: "10 varer totalt"
+
+  # Screen 2: Scroll nested within a row layout
+  - id: scroll_nested_in_row
+    title: "Scroll Nested in Row"
+    path: /test/scroll-nested
+    children:
+      - type: row
+        gap: none
+        height: "full"
+        children:
+          # Left sidebar: fixed width, vertical scroll
+          - type: stack
+            width: 120
+            background: surface
+            border:
+              sides: right
+              color: border
+            children:
+              - type: scroll
+                direction: vertical
+                height: "full"
+                children:
+                  - type: stack
+                    gap: none
+                    children:
+                      - type: stack
+                        padding: md
+                        align: center
+                        gap: xs
+                        children:
+                          - type: icon
+                            name: home
+                          - type: text
+                            variant: caption
+                            content: "Hjem"
+                      - type: stack
+                        padding: md
+                        align: center
+                        gap: xs
+                        background: accent-soft
+                        children:
+                          - type: icon
+                            name: inbox
+                            color: accent
+                          - type: text
+                            variant: caption
+                            content: "Innboks"
+                      - type: stack
+                        padding: md
+                        align: center
+                        gap: xs
+                        children:
+                          - type: icon
+                            name: calendar
+                          - type: text
+                            variant: caption
+                            content: "Kalender"
+                      - type: stack
+                        padding: md
+                        align: center
+                        gap: xs
+                        children:
+                          - type: icon
+                            name: users
+                          - type: text
+                            variant: caption
+                            content: "Kontakter"
+                      - type: stack
+                        padding: md
+                        align: center
+                        gap: xs
+                        children:
+                          - type: icon
+                            name: folder
+                          - type: text
+                            variant: caption
+                            content: "Filer"
+                      - type: stack
+                        padding: md
+                        align: center
+                        gap: xs
+                        children:
+                          - type: icon
+                            name: settings
+                          - type: text
+                            variant: caption
+                            content: "Innst."
+
+          # Right content: grows, contains scrollable content
+          - type: stack
+            grow: 1
+            padding: md
+            gap: md
+            children:
+              - type: text
+                variant: h3
+                content: "Innboks"
+              - type: scroll
+                direction: vertical
+                grow: 1
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: card
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: xs
+                            children:
+                              - type: row
+                                justify: between
+                                align: center
+                                children:
+                                  - type: text
+                                    weight: semibold
+                                    content: "Kari Pedersen"
+                                  - type: text
+                                    variant: caption
+                                    color: text-secondary
+                                    content: "10:32"
+                              - type: text
+                                content: "Motereferat fra mandag"
+                                max-lines: 1
+                      - type: card
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: xs
+                            children:
+                              - type: row
+                                justify: between
+                                align: center
+                                children:
+                                  - type: text
+                                    weight: semibold
+                                    content: "Olav Svendsen"
+                                  - type: text
+                                    variant: caption
+                                    color: text-secondary
+                                    content: "09:15"
+                              - type: text
+                                content: "Oppdatering: Servermigrering fullfort"
+                                max-lines: 1
+                      - type: card
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: xs
+                            children:
+                              - type: row
+                                justify: between
+                                align: center
+                                children:
+                                  - type: text
+                                    weight: semibold
+                                    content: "Silje Andreassen"
+                                  - type: text
+                                    variant: caption
+                                    color: text-secondary
+                                    content: "I gar"
+                              - type: text
+                                content: "Budsjettforslag for Q3 vedlagt"
+                                max-lines: 1
+                      - type: card
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: xs
+                            children:
+                              - type: row
+                                justify: between
+                                align: center
+                                children:
+                                  - type: text
+                                    weight: semibold
+                                    content: "Tor Lyngstad"
+                                  - type: text
+                                    variant: caption
+                                    color: text-secondary
+                                    content: "I gar"
+                              - type: text
+                                content: "Feilrapport: Innloggingsproblem iOS"
+                                max-lines: 1
+                      - type: card
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: xs
+                            children:
+                              - type: row
+                                justify: between
+                                align: center
+                                children:
+                                  - type: text
+                                    weight: semibold
+                                    content: "Nina Fossum"
+                                  - type: text
+                                    variant: caption
+                                    color: text-secondary
+                                    content: "Mandag"
+                              - type: text
+                                content: "Velkommen til nye ansatte i april"
+                                max-lines: 1
+
+  # Screen 3: Horizontal scroll with various card widths
+  - id: scroll_horizontal_widths
+    title: "Horizontal Scroll Widths"
+    path: /test/scroll-h-widths
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            gap: lg
+            padding-y: md
+            children:
+              - type: stack
+                gap: sm
+                padding-x: md
+                children:
+                  - type: text
+                    variant: h3
+                    content: "Smale kort (width: 120)"
+                  - type: scroll
+                    direction: horizontal
+                    children:
+                      - type: card
+                        width: 120
+                        padding: sm
+                        children:
+                          - type: stack
+                            align: center
+                            gap: xs
+                            children:
+                              - type: avatar
+                                size: 48
+                                initials: "VL"
+                              - type: text
+                                variant: caption
+                                content: "Vegard Lie"
+                      - type: card
+                        width: 120
+                        padding: sm
+                        children:
+                          - type: stack
+                            align: center
+                            gap: xs
+                            children:
+                              - type: avatar
+                                size: 48
+                                initials: "RK"
+                              - type: text
+                                variant: caption
+                                content: "Randi Kvam"
+                      - type: card
+                        width: 120
+                        padding: sm
+                        children:
+                          - type: stack
+                            align: center
+                            gap: xs
+                            children:
+                              - type: avatar
+                                size: 48
+                                initials: "PA"
+                              - type: text
+                                variant: caption
+                                content: "Per Aune"
+                      - type: card
+                        width: 120
+                        padding: sm
+                        children:
+                          - type: stack
+                            align: center
+                            gap: xs
+                            children:
+                              - type: avatar
+                                size: 48
+                                initials: "HS"
+                              - type: text
+                                variant: caption
+                                content: "Hanne Skog"
+                      - type: card
+                        width: 120
+                        padding: sm
+                        children:
+                          - type: stack
+                            align: center
+                            gap: xs
+                            children:
+                              - type: avatar
+                                size: 48
+                                initials: "OD"
+                              - type: text
+                                variant: caption
+                                content: "Ole Dahl"
+
+              - type: stack
+                gap: sm
+                padding-x: md
+                children:
+                  - type: text
+                    variant: h3
+                    content: "Medium kort (width: 240)"
+                  - type: scroll
+                    direction: horizontal
+                    children:
+                      - type: card
+                        width: 240
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: sm
+                            children:
+                              - type: image
+                                aspect: "16/9"
+                                label: "Fiskegrateng"
+                                rounded: sm
+                              - type: text
+                                weight: semibold
+                                content: "Fiskegrateng"
+                              - type: text
+                                variant: body-sm
+                                color: text-secondary
+                                content: "45 min. 4 porsjoner"
+                      - type: card
+                        width: 240
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: sm
+                            children:
+                              - type: image
+                                aspect: "16/9"
+                                label: "Kjottboller"
+                                rounded: sm
+                              - type: text
+                                weight: semibold
+                                content: "Kjottboller i brun saus"
+                              - type: text
+                                variant: body-sm
+                                color: text-secondary
+                                content: "60 min. 6 porsjoner"
+                      - type: card
+                        width: 240
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: sm
+                            children:
+                              - type: image
+                                aspect: "16/9"
+                                label: "Lapskaus"
+                                rounded: sm
+                              - type: text
+                                weight: semibold
+                                content: "Lapskaus"
+                              - type: text
+                                variant: body-sm
+                                color: text-secondary
+                                content: "90 min. 8 porsjoner"
+                      - type: card
+                        width: 240
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: sm
+                            children:
+                              - type: image
+                                aspect: "16/9"
+                                label: "Pinnekjott"
+                                rounded: sm
+                              - type: text
+                                weight: semibold
+                                content: "Pinnekjott"
+                              - type: text
+                                variant: body-sm
+                                color: text-secondary
+                                content: "3 timer. 6 porsjoner"
+
+              - type: stack
+                gap: sm
+                padding-x: md
+                children:
+                  - type: text
+                    variant: h3
+                    content: "Brede kort (width: 300)"
+                  - type: scroll
+                    direction: horizontal
+                    children:
+                      - type: card
+                        width: 300
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: md
+                            children:
+                              - type: row
+                                gap: md
+                                align: center
+                                children:
+                                  - type: avatar
+                                    size: 48
+                                    initials: "DR"
+                                  - type: stack
+                                    gap: xs
+                                    children:
+                                      - type: text
+                                        weight: semibold
+                                        content: "DNB Rente"
+                                      - type: text
+                                        variant: caption
+                                        color: text-secondary
+                                        content: "Sparekonto"
+                              - type: row
+                                justify: between
+                                children:
+                                  - type: text
+                                    variant: body-sm
+                                    color: text-secondary
+                                    content: "Saldo"
+                                  - type: text
+                                    weight: semibold
+                                    content: "142 800 kr"
+                      - type: card
+                        width: 300
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: md
+                            children:
+                              - type: row
+                                gap: md
+                                align: center
+                                children:
+                                  - type: avatar
+                                    size: 48
+                                    initials: "BK"
+                                  - type: stack
+                                    gap: xs
+                                    children:
+                                      - type: text
+                                        weight: semibold
+                                        content: "Brukskonto"
+                                      - type: text
+                                        variant: caption
+                                        color: text-secondary
+                                        content: "Daglig bruk"
+                              - type: row
+                                justify: between
+                                children:
+                                  - type: text
+                                    variant: body-sm
+                                    color: text-secondary
+                                    content: "Saldo"
+                                  - type: text
+                                    weight: semibold
+                                    content: "23 450 kr"
+                      - type: card
+                        width: 300
+                        padding: md
+                        children:
+                          - type: stack
+                            gap: md
+                            children:
+                              - type: row
+                                gap: md
+                                align: center
+                                children:
+                                  - type: avatar
+                                    size: 48
+                                    initials: "AK"
+                                  - type: stack
+                                    gap: xs
+                                    children:
+                                      - type: text
+                                        weight: semibold
+                                        content: "Aksjesparekonto"
+                                      - type: text
+                                        variant: caption
+                                        color: text-secondary
+                                        content: "Investering"
+                              - type: row
+                                justify: between
+                                children:
+                                  - type: text
+                                    variant: body-sm
+                                    color: text-secondary
+                                    content: "Verdi"
+                                  - type: text
+                                    weight: semibold
+                                    content: "287 340 kr"
+
+  # Screen 4: Vertical scroll with grow:1 in a layout
+  - id: scroll_grow
+    title: "Scroll with grow:1"
+    path: /test/scroll-grow
+    children:
+      - type: stack
+        height: "full"
+        children:
+          # Fixed header
+          - type: stack
+            padding: md
+            background: surface
+            border:
+              sides: bottom
+            children:
+              - type: row
+                justify: between
+                align: center
+                children:
+                  - type: text
+                    variant: h3
+                    content: "Notater"
+                  - type: row
+                    gap: sm
+                    children:
+                      - type: icon
+                        name: search
+                      - type: icon
+                        name: plus
+
+          # Scrollable middle area that grows to fill available space
+          - type: scroll
+            direction: vertical
+            grow: 1
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: card
+                    padding: md
+                    children:
+                      - type: stack
+                        gap: xs
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Sprint-planlegging uke 14"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "Oppdatert i dag kl. 11:45"
+                          - type: text
+                            variant: body-sm
+                            content: "Gjennomgang av backlog-prioritering. Fokus pa betalingsmodulen og brukerregistrering."
+                  - type: card
+                    padding: md
+                    children:
+                      - type: stack
+                        gap: xs
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Kundemote med Equinor"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "28. mars 2026"
+                          - type: text
+                            variant: body-sm
+                            content: "Presentasjon av prototypen. Tilbakemelding pa dashbord-visningen var positiv."
+                  - type: card
+                    padding: md
+                    children:
+                      - type: stack
+                        gap: xs
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Teknisk gjeld - oversikt"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "25. mars 2026"
+                          - type: text
+                            variant: body-sm
+                            content: "Migrering til ny database-driver. Estimert 3 utviklerdager."
+                  - type: card
+                    padding: md
+                    children:
+                      - type: stack
+                        gap: xs
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Designsystem v2"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "22. mars 2026"
+                          - type: text
+                            variant: body-sm
+                            content: "Nye fargetokens og typografi-oppdateringer. Kompatibel med eksisterende komponenter."
+                  - type: card
+                    padding: md
+                    children:
+                      - type: stack
+                        gap: xs
+                        children:
+                          - type: text
+                            weight: semibold
+                            content: "Onboarding-flyt"
+                          - type: text
+                            variant: body-sm
+                            color: text-secondary
+                            content: "20. mars 2026"
+                          - type: text
+                            variant: body-sm
+                            content: "Forenklet registrering fra 5 til 3 steg. A/B-test planlagt for uke 15."
+
+          # Fixed bottom bar
+          - type: stack
+            padding: md
+            background: surface
+            border:
+              sides: top
+            children:
+              - type: row
+                justify: evenly
+                children:
+                  - type: stack
+                    align: center
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: file
+                      - type: text
+                        variant: caption
+                        content: "Alle"
+                  - type: stack
+                    align: center
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: star
+                        color: accent
+                      - type: text
+                        variant: caption
+                        color: accent
+                        content: "Favoritter"
+                  - type: stack
+                    align: center
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: trash
+                      - type: text
+                        variant: caption
+                        content: "Slettet"

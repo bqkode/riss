@@ -1,0 +1,24 @@
+riss: "0.1"
+meta:
+  name: Test - Stats Row Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: stats_row_basic
+    title: Test - Stats Row Basic
+    children:
+      - block: stats-row
+        variant: inline
+        items:
+          - value: 2,500+
+            label: Active customers
+          - value: kr 48M
+            label: Revenue processed
+          - value: 99.9%
+            label: Uptime guarantee
+          - value: 4.8/5
+            label: Customer satisfaction

@@ -1,0 +1,40 @@
+riss: "0.1"
+meta:
+  name: Test - Sidebar Navigation with Groups
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: sidebar_navigation_with_groups
+    title: Test - Sidebar Navigation with Groups
+    children:
+      - block: sidebar-nav
+        logo: WorkOS
+        groups:
+          - title: Main
+            items:
+              - icon: home
+                label: Dashboard
+                active: true
+              - icon: inbox
+                label: Inbox
+                badge: "12"
+              - icon: calendar
+                label: Schedule
+              - icon: file
+                label: Documents
+          - title: Admin
+            items:
+              - icon: users
+                label: Team Members
+              - icon: shield
+                label: Permissions
+              - icon: settings
+                label: Settings
+        footer:
+          avatar: JD
+          name: Jane Doe
+          subtitle: jane@workos.com

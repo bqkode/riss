@@ -1,0 +1,26 @@
+riss: "0.1"
+meta:
+  name: Test - Login Form Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: login_form_basic
+    title: Test - Login Form Basic
+    children:
+      - block: login-form
+        logo: Fjordbank
+        heading: Welcome back
+        subheading: Sign in to manage your accounts and payments
+        email: true
+        password: true
+        remember-me: true
+        forgot-password: true
+        social:
+          - Google
+          - BankID
+        signup-link: true
+        cta-label: Sign in

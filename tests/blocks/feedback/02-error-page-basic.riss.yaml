@@ -1,0 +1,25 @@
+riss: "0.1"
+meta:
+  name: Test - Error Page Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: error_page_basic
+    title: Test - Error Page Basic
+    children:
+      - block: error-page
+        code: "404"
+        title: Page not found
+        message: The page you are looking for does not exist or has been moved. Check the URL or navigate back to the home page.
+        cta-label: Go Home
+        icon: warning
+      - block: error-page
+        code: "500"
+        title: Something went wrong
+        message: We are experiencing technical difficulties. Our team has been notified and is working on a fix. Please try again later.
+        cta-label: Try Again
+        icon: alert

@@ -1,0 +1,81 @@
+# Test: tabs element with all 3 variants
+# Verifies underline, filled, and pill tab styles with active states.
+riss: "0.1"
+meta:
+  name: "Test - Tabs Variants"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: tabs_variants
+    title: "Tabs - All Variants"
+    path: /test/tabs-variants
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Variant: underline (default)
+          - type: section
+            title: "variant: underline"
+            children:
+              - type: stack
+                gap: md
+                padding: md
+                children:
+                  - type: tabs
+                    variant: underline
+                    items:
+                      - label: "Overview"
+                        active: true
+                      - label: "Activity"
+                      - label: "Settings"
+
+                  - type: text
+                    variant: body-sm
+                    color: text-secondary
+                    content: "Underline tabs show an accent-colored bottom border on the active tab."
+
+          # Variant: filled
+          - type: section
+            title: "variant: filled"
+            children:
+              - type: stack
+                gap: md
+                padding: md
+                children:
+                  - type: tabs
+                    variant: filled
+                    items:
+                      - label: "All"
+                      - label: "Unread"
+                        active: true
+                      - label: "Starred"
+                      - label: "Archived"
+
+                  - type: text
+                    variant: body-sm
+                    color: text-secondary
+                    content: "Filled tabs use a solid background on the active tab."
+
+          # Variant: pill
+          - type: section
+            title: "variant: pill"
+            children:
+              - type: stack
+                gap: md
+                padding: md
+                children:
+                  - type: tabs
+                    variant: pill
+                    items:
+                      - label: "Day"
+                      - label: "Week"
+                      - label: "Month"
+                        active: true
+
+                  - type: text
+                    variant: body-sm
+                    color: text-secondary
+                    content: "Pill tabs render the active tab as a rounded pill shape."

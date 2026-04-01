@@ -1,0 +1,27 @@
+riss: "0.1"
+meta:
+  name: Test - Bottom Navigation Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: bottom_navigation_basic
+    title: Test - Bottom Navigation Basic
+    children:
+      - block: bottom-nav
+        items:
+          - icon: home
+            label: Home
+            active: true
+          - icon: search
+            label: Search
+          - icon: plus
+            label: Add
+          - icon: inbox
+            label: Inbox
+            badge: "3"
+          - icon: user
+            label: Profile

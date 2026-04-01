@@ -1,0 +1,49 @@
+riss: "0.1"
+meta:
+  name: Test - Side by Side All Parameters
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: side_by_side_all_parameters
+    title: Test - Side by Side All Parameters
+    children:
+      - block: side-by-side
+        heading: Real-time analytics at your fingertips
+        body: Monitor key performance indicators across every channel. Our unified dashboard surfaces the metrics that matter most to your business.
+        image-label: Analytics dashboard with live charts
+        image-position: right
+        image-aspect: 16/9
+        cta-label: Explore analytics
+        bullets:
+          - Track conversions across 30+ integrations
+          - Custom dashboards with drag-and-drop widgets
+          - Automated weekly performance reports
+        split: 50/50
+      - block: side-by-side
+        heading: Automate your entire workflow
+        body: Set up triggers, conditions, and actions that run in the background. Free your team from repetitive tasks so they can focus on what matters.
+        image-label: Workflow automation builder
+        image-position: left
+        image-aspect: 4/3
+        cta-label: See how it works
+        bullets:
+          - Visual drag-and-drop workflow editor
+          - 200+ pre-built automation templates
+          - Conditional logic and branching paths
+        split: 60/40
+      - block: side-by-side
+        heading: Enterprise-grade security built in
+        body: Your data is encrypted at rest and in transit. Role-based access controls, SSO, and audit logs keep your organization compliant and secure.
+        image-label: Security compliance dashboard
+        image-position: right
+        image-aspect: 4/3
+        cta-label: View security details
+        bullets:
+          - SOC 2 Type II and GDPR compliant
+          - Single sign-on with SAML and OIDC
+          - Granular role-based permissions
+        split: 40/60

@@ -1,0 +1,75 @@
+# Test: table element with ALL properties
+# Verifies column alignment, striped rows, and border options.
+riss: "0.1"
+meta:
+  name: "Test - Table All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: table_all_props
+    title: "Table - All Properties"
+    path: /test/table-all-props
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Table 1: Striped, bordered, mixed alignment
+          - type: section
+            title: "Striped + Bordered + Alignment"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: table
+                    striped: true
+                    border: true
+                    columns:
+                      - label: "Product"
+                        width: "2/5"
+                        align: left
+                      - label: "Quantity"
+                        width: "1/5"
+                        align: center
+                      - label: "Price"
+                        width: "1/5"
+                        align: right
+                      - label: "Total"
+                        width: "1/5"
+                        align: right
+                    rows:
+                      - ["Fjelljakke Pro", "2", "kr 1 499", "kr 2 998"]
+                      - ["Ullgenser Merino", "1", "kr 899", "kr 899"]
+                      - ["Tursko GTX", "1", "kr 2 199", "kr 2 199"]
+                      - ["Regnbukse Light", "3", "kr 599", "kr 1 797"]
+                      - ["Pannebånd Fleece", "5", "kr 149", "kr 745"]
+
+          # Table 2: No stripes, no border
+          - type: section
+            title: "No Stripes + No Border"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: table
+                    striped: false
+                    border: false
+                    columns:
+                      - label: "Name"
+                        width: "1/3"
+                        align: left
+                      - label: "Department"
+                        width: "1/3"
+                        align: left
+                      - label: "Start Date"
+                        width: "1/3"
+                        align: right
+                    rows:
+                      - ["Astrid Haugen", "Engineering", "15.01.2024"]
+                      - ["Bjorn Eriksen", "Design", "03.03.2023"]
+                      - ["Camilla Nordby", "Marketing", "22.08.2024"]
+                      - ["Lars Berg", "Finance", "11.06.2022"]

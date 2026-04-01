@@ -1,0 +1,21 @@
+riss: "0.1"
+meta:
+  name: Test - Checkout Steps Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#059669"
+screens:
+  - id: checkout_steps_basic
+    title: Test - Checkout Steps Basic
+    children:
+      - block: checkout-steps
+        variant: numbered
+        steps:
+          - Cart
+          - Shipping
+          - Payment
+          - Confirmation
+        current-step: 2

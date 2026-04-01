@@ -1,0 +1,162 @@
+# Edge case: 3 roles with single, multi-role, and all-roles assignments
+# Tests role badges, role legend, screen-level role, block role, no inheritance
+riss: "0.1"
+meta:
+  name: "Roles — Multiple Roles"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+  roles:
+    - id: admin
+      label: "Admin"
+      color: "#DC2626"
+    - id: editor
+      label: "Editor"
+      color: "#2563EB"
+    - id: viewer
+      label: "Viewer"
+      color: "#16A34A"
+
+blocks:
+  - id: action-bar
+    description: "A simple action bar with role"
+    params:
+      - name: label
+        required: true
+    template:
+      - type: row
+        padding: sm
+        gap: sm
+        background: surface
+        rounded: md
+        children:
+          - type: icon
+            name: zap
+            size: 20
+            color: accent
+          - type: text
+            variant: body-sm
+            content: "{{label}}"
+
+screens:
+  # Screen 1: Mixed role elements (no screen-level role)
+  - id: mixed_roles
+    title: "Mixed Role Elements"
+    path: /test/roles/mixed
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: md
+            gap: md
+            children:
+
+              # No role — visible to all
+              - type: card
+                padding: md
+                children:
+                  - type: text
+                    variant: h4
+                    content: "Public Content"
+                  - type: text
+                    variant: body-sm
+                    content: "This card has no role and is visible to everyone."
+                    color: text-secondary
+
+              # Single role: admin
+              - type: button
+                label: "Delete All Users"
+                variant: primary
+                color: error
+                role: admin
+
+              # Multi-role: admin + editor
+              - type: section
+                title: "Content Editor"
+                role: [admin, editor]
+                children:
+                  - type: input
+                    label: "Page Title"
+                    placeholder: "Enter title..."
+                  - type: textarea
+                    label: "Body"
+                    placeholder: "Write content..."
+                    rows: 3
+
+              # All three roles
+              - type: card
+                padding: md
+                role: [admin, editor, viewer]
+                children:
+                  - type: text
+                    variant: h4
+                    content: "Dashboard Widget"
+                  - type: text
+                    variant: body-sm
+                    content: "Visible to admin, editor, and viewer."
+                    color: text-secondary
+                  - type: progress
+                    value: 72
+                    label: "Project completion"
+
+              # Block with role
+              - block: action-bar
+                label: "Bulk Export (Admin Action)"
+                role: admin
+
+              # Nested: parent has role, child does NOT inherit
+              - type: card
+                padding: md
+                role: editor
+                children:
+                  - type: text
+                    variant: h4
+                    content: "Editor Panel"
+                    annotation: "The card is editor-only, but child elements do not inherit the role"
+                  # This child has no role — tests that role does NOT inherit
+                  - type: button
+                    label: "Publish Draft"
+                    variant: primary
+                  # This child has its OWN role — admin only
+                  - type: button
+                    label: "Force Publish (bypass review)"
+                    variant: primary
+                    color: error
+                    role: admin
+
+  # Screen 2: screen-level role (entire screen restricted)
+  - id: admin_only_screen
+    title: "Admin Settings"
+    path: /settings/admin
+    role: admin
+    children:
+      - type: stack
+        padding: md
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: "System Configuration"
+          - type: text
+            variant: body-sm
+            content: "This entire screen is restricted to the admin role."
+            color: text-secondary
+          - type: card
+            padding: md
+            children:
+              - type: toggle
+                label: "Maintenance mode"
+                checked: false
+              - type: toggle
+                label: "Allow public registrations"
+                checked: true
+              - type: select
+                label: "Log level"
+                options:
+                  - "Error"
+                  - "Warning"
+                  - "Info"
+                  - "Debug"
+                selected: 2

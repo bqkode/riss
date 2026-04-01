@@ -1,0 +1,265 @@
+# Test: Card variants and ALL card properties
+# Verifies outlined, elevated, and filled variants with their defaults.
+# Tests padding tokens, rounded tokens, elevation tokens, background colors,
+# and both border shorthand (true) and border object form.
+riss: "0.1"
+meta:
+  name: Test - Card Variants and Properties
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: card_variants_and_properties
+    title: Test - Card Variants and Properties
+    children:
+      - type: scroll
+        children:
+          - type: stack
+            padding: md
+            gap: md
+            children:
+              - type: text
+                variant: label
+                content: "VARIANT: OUTLINED"
+                color: text-secondary
+              - type: card
+                variant: outlined
+                children:
+                  - type: text
+                    variant: h4
+                    content: Sykkelverksted Bjerknes
+                  - type: text
+                    content: Service utfort av Torbjorn. Ny kjede og bremseklosser.
+              - type: text
+                variant: label
+                content: "VARIANT: ELEVATED"
+                color: text-secondary
+              - type: card
+                variant: elevated
+                children:
+                  - type: text
+                    variant: h4
+                    content: "Bestilling #4821"
+                  - type: text
+                    content: Sendt fra lageret i Trondheim. Estimert levering fredag.
+              - type: text
+                variant: label
+                content: "VARIANT: FILLED"
+                color: text-secondary
+              - type: card
+                variant: filled
+                children:
+                  - type: text
+                    variant: h4
+                    content: Medlemsstatus
+                  - type: text
+                    content: Aktiv siden mars 2024. Neste fornyelse om 47 dager.
+              - type: text
+                variant: label
+                content: PADDING TOKENS
+                color: text-secondary
+              - type: card
+                padding: none
+                children:
+                  - type: text
+                    variant: caption
+                    content: "padding: none"
+              - type: card
+                padding: xs
+                children:
+                  - type: text
+                    variant: caption
+                    content: "padding: xs (4px)"
+              - type: card
+                padding: sm
+                children:
+                  - type: text
+                    variant: caption
+                    content: "padding: sm (8px)"
+              - type: card
+                padding: md
+                children:
+                  - type: text
+                    variant: caption
+                    content: "padding: md (16px) - default"
+              - type: card
+                padding: lg
+                children:
+                  - type: text
+                    variant: caption
+                    content: "padding: lg (24px)"
+              - type: card
+                padding: xl
+                children:
+                  - type: text
+                    variant: caption
+                    content: "padding: xl (32px)"
+              - type: card
+                padding: 2xl
+                children:
+                  - type: text
+                    variant: caption
+                    content: "padding: 2xl (48px)"
+              - type: card
+                padding: 3xl
+                children:
+                  - type: text
+                    variant: caption
+                    content: "padding: 3xl (64px)"
+              - type: text
+                variant: label
+                content: ROUNDED TOKENS
+                color: text-secondary
+              - type: grid
+                columns: 3
+                gap: sm
+                children:
+                  - type: card
+                    rounded: none
+                    children:
+                      - type: text
+                        variant: caption
+                        content: none
+                  - type: card
+                    rounded: sm
+                    children:
+                      - type: text
+                        variant: caption
+                        content: sm
+                  - type: card
+                    rounded: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: md
+                  - type: card
+                    rounded: lg
+                    children:
+                      - type: text
+                        variant: caption
+                        content: lg
+                  - type: card
+                    rounded: xl
+                    children:
+                      - type: text
+                        variant: caption
+                        content: xl
+                  - type: card
+                    rounded: full
+                    children:
+                      - type: text
+                        variant: caption
+                        content: full
+              - type: text
+                variant: label
+                content: ELEVATION TOKENS
+                color: text-secondary
+              - type: grid
+                columns: 2
+                gap: md
+                children:
+                  - type: card
+                    variant: elevated
+                    elevation: none
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "elevation: none"
+                  - type: card
+                    variant: elevated
+                    elevation: sm
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "elevation: sm"
+                  - type: card
+                    variant: elevated
+                    elevation: md
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "elevation: md"
+                  - type: card
+                    variant: elevated
+                    elevation: lg
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "elevation: lg"
+              - type: text
+                variant: label
+                content: BACKGROUND COLORS
+                color: text-secondary
+              - type: card
+                variant: filled
+                background: surface
+                children:
+                  - type: text
+                    variant: caption
+                    content: "background: surface"
+              - type: card
+                variant: filled
+                background: surface-raised
+                children:
+                  - type: text
+                    variant: caption
+                    content: "background: surface-raised"
+              - type: card
+                variant: filled
+                background: accent-soft
+                children:
+                  - type: text
+                    variant: caption
+                    content: "background: accent-soft"
+              - type: card
+                variant: filled
+                background: "#FFF8E1"
+                children:
+                  - type: text
+                    variant: caption
+                    content: "background: #FFF8E1 (raw hex)"
+              - type: text
+                variant: label
+                content: "BORDER: SHORTHAND"
+                color: text-secondary
+              - type: card
+                border: true
+                children:
+                  - type: text
+                    content: "border: true (1px solid, all sides)"
+              - type: text
+                variant: label
+                content: "BORDER: OBJECT FORM"
+                color: text-secondary
+              - type: card
+                border:
+                  color: accent
+                  width: 2
+                  style: solid
+                  sides: all
+                children:
+                  - type: text
+                    content: 2px solid accent border on all sides
+              - type: card
+                border:
+                  color: error
+                  width: 1
+                  style: dashed
+                  sides:
+                    - top
+                    - bottom
+                children:
+                  - type: text
+                    content: 1px dashed error border on top and bottom only
+              - type: card
+                border:
+                  color: success
+                  width: 2
+                  style: solid
+                  sides: left
+                children:
+                  - type: text
+                    content: 2px solid success border on left side only

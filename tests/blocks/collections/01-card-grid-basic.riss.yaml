@@ -1,0 +1,46 @@
+riss: "0.1"
+meta:
+  name: Test - Card Grid Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: card_grid_basic
+    title: Test - Card Grid Basic
+    children:
+      - block: card-grid
+        title: Popular Destinations
+        columns: 3
+        image-aspect: 16/9
+        show-more: View all
+        items:
+          - image-label: Lofoten islands coastline
+            title: Lofoten
+            subtitle: Dramatic peaks and pristine beaches in Arctic Norway
+            cta-label: Explore
+            badge: Popular
+          - image-label: Bergen harbor and colorful houses
+            title: Bergen
+            subtitle: Gateway to the fjords with charming Bryggen wharf
+            cta-label: Explore
+            badge: Trending
+          - image-label: Tromsø northern lights
+            title: Tromsø
+            subtitle: Arctic capital and prime northern lights destination
+            cta-label: Explore
+          - image-label: Geirangerfjord panoramic view
+            title: Geirangerfjorden
+            subtitle: UNESCO World Heritage fjord with stunning waterfalls
+            cta-label: Explore
+          - image-label: Oslo opera house waterfront
+            title: Oslo
+            subtitle: Modern Nordic capital with world-class museums
+            cta-label: Explore
+            badge: New
+          - image-label: Preikestolen cliff view
+            title: Preikestolen
+            subtitle: Iconic cliff rising 604 meters above Lysefjorden
+            cta-label: Explore

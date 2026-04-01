@@ -1,0 +1,373 @@
+riss: "0.1"
+meta:
+  name: Integration - NordicAdmin Dashboard
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: dashboard
+    title: NordicAdmin - Dashboard
+    path: /dashboard
+    children:
+      - type: row
+        children:
+          - block: sidebar-nav
+            logo: NordicAdmin
+            items:
+              - icon: layout-dashboard
+                label: Dashboard
+                active: true
+              - icon: users
+                label: Users
+              - icon: shopping-bag
+                label: Orders
+              - icon: package
+                label: Products
+              - icon: bar-chart
+                label: Analytics
+              - icon: settings
+                label: Settings
+          - type: stack
+            flex: 1
+            children:
+              - type: row
+                padding: md
+                justify: space-between
+                align: center
+                children:
+                  - type: input
+                    placeholder: Sok i NordicAdmin...
+                    leading-icon: search
+                  - type: row
+                    gap: md
+                    align: center
+                    children:
+                      - type: icon
+                        name: bell
+                      - type: avatar
+                        initials: LH
+                        size: sm
+              - type: scroll
+                direction: vertical
+                children:
+                  - block: stat-cards-row
+                    columns: 4
+                    items:
+                      - label: Totale inntekter
+                        value: kr 1,248,000
+                        trend: +14.2%
+                        trend-direction: up
+                        icon: banknote
+                      - label: Aktive brukere
+                        value: 3,847
+                        trend: +7.8%
+                        trend-direction: up
+                        icon: users
+                      - label: Nye bestillinger
+                        value: "284"
+                        trend: +22.1%
+                        trend-direction: up
+                        icon: shopping-bag
+                      - label: Konverteringsrate
+                        value: 3.6%
+                        trend: "-0.4%"
+                        trend-direction: down
+                        icon: percent
+                  - type: row
+                    padding: md
+                    gap: md
+                    children:
+                      - block: chart-card
+                        title: Inntekter
+                        subtitle: Siste 6 maneder
+                        chart-type: line
+                        chart-label: Manedlig inntektstrend
+                        aspect: 16/9
+                      - block: activity-feed
+                        title: Siste aktivitet
+                        items:
+                          - avatar: Ingrid Haugen
+                            text: Ingrid Haugen la til ny bruker
+                            time: 3 minutter siden
+                            action: created
+                          - avatar: Lars Erik Dahl
+                            text: Lars Erik Dahl oppdaterte produktpriser
+                            time: 18 minutter siden
+                            action: updated
+                          - icon: shopping-bag
+                            text: "Ny bestilling #4821 mottatt"
+                            time: 32 minutter siden
+                            action: created
+                          - avatar: Silje Nygard
+                            text: "Silje Nygard godkjente retur #1204"
+                            time: 1 time siden
+                            action: approved
+                          - icon: alert-circle
+                            text: Lagerstatus lav for Fjelljakke Pro
+                            time: 2 timer siden
+                            action: alert
+                        show-more: Vis alle
+                  - block: data-table
+                    title: Siste bestillinger
+                    columns:
+                      - label: Ordre-ID
+                      - label: Kunde
+                      - label: Produkt
+                      - label: Belop
+                      - label: Status
+                    rows:
+                      - - "#4821"
+                        - Kristoffer Moen
+                        - Fjelljakke Expedition
+                        - kr 1,299
+                        - Sendt
+                      - - "#4820"
+                        - Marte Solberg
+                        - Tursko Allround GTX
+                        - kr 1,599
+                        - Under behandling
+                      - - "#4819"
+                        - Henrik Dahl
+                        - Ullgenser Merino 200
+                        - kr 899
+                        - Levert
+                      - - "#4818"
+                        - Astrid Haugen
+                        - Ryggsekk Fjord 45L
+                        - kr 1,499
+                        - Sendt
+                      - - "#4817"
+                        - Jonas Berg
+                        - Vindjakke Storm Pro
+                        - kr 1,199
+                        - Levert
+                      - - "#4816"
+                        - Liv Andersen
+                        - Softshell Bukse Flex
+                        - kr 799
+                        - Under behandling
+                      - - "#4815"
+                        - Erik Tonnesen
+                        - Dunjakkke Vinter 800
+                        - kr 2,999
+                        - Sendt
+                    pagination: true
+                    total-rows: 284
+  - id: users
+    title: NordicAdmin - Users
+    path: /users
+    children:
+      - type: row
+        children:
+          - block: sidebar-nav
+            logo: NordicAdmin
+            items:
+              - icon: layout-dashboard
+                label: Dashboard
+              - icon: users
+                label: Users
+                active: true
+              - icon: shopping-bag
+                label: Orders
+              - icon: package
+                label: Products
+              - icon: bar-chart
+                label: Analytics
+              - icon: settings
+                label: Settings
+          - type: stack
+            flex: 1
+            children:
+              - block: breadcrumb-header
+                breadcrumb:
+                  - Dashboard
+                  - Users
+                title: Brukere
+                description: Administrer brukerkontoer, roller og tilgangsniva.
+                actions:
+                  - label: Legg til bruker
+                    icon: plus
+                    variant: primary
+                  - label: Eksporter
+                    icon: download
+                    variant: secondary
+              - type: scroll
+                direction: vertical
+                children:
+                  - block: data-table
+                    title: Alle brukere
+                    search: true
+                    filters:
+                      - label: Rolle
+                        options:
+                          - Admin
+                          - Redaktor
+                          - Leser
+                      - label: Status
+                        options:
+                          - Aktiv
+                          - Inaktiv
+                          - Suspendert
+                    columns:
+                      - label: Navn
+                        width: 200px
+                        align: left
+                      - label: E-post
+                        width: 260px
+                        align: left
+                      - label: Rolle
+                        width: 120px
+                        align: center
+                      - label: Status
+                        width: 100px
+                        align: center
+                      - label: Sist aktiv
+                        width: 140px
+                        align: left
+                    rows:
+                      - - Ingrid Haugen
+                        - ingrid@nordmail.no
+                        - Admin
+                        - Aktiv
+                        - I dag 09:14
+                      - - Lars Erik Dahl
+                        - lars.dahl@fjordpost.no
+                        - Redaktor
+                        - Aktiv
+                        - I dag 08:42
+                      - - Silje Nygard
+                        - silje@bergen.no
+                        - Leser
+                        - Inaktiv
+                        - 12. mars 2026
+                      - - Kristoffer Moen
+                        - k.moen@tromsmail.no
+                        - Redaktor
+                        - Aktiv
+                        - I gar 16:30
+                      - - Marte Solberg
+                        - marte@oslo.no
+                        - Admin
+                        - Aktiv
+                        - I dag 10:05
+                      - - Henrik Dahl
+                        - henrik.dahl@stavanger.no
+                        - Leser
+                        - Aktiv
+                        - I gar 14:22
+                      - - Astrid Haugen
+                        - astrid@trondheim.no
+                        - Redaktor
+                        - Suspendert
+                        - 28. feb 2026
+                      - - Jonas Berg
+                        - jonas.berg@bodo.no
+                        - Leser
+                        - Aktiv
+                        - I dag 07:55
+                    pagination: true
+                    total-rows: 3847
+                    selectable: true
+                    actions:
+                      - label: Rediger
+                        icon: edit
+                      - label: Deaktiver
+                        icon: user-x
+                      - label: Slett
+                        icon: trash
+  - id: user_detail
+    title: NordicAdmin - User Detail
+    path: /users/ingrid-haugen
+    children:
+      - type: row
+        children:
+          - block: sidebar-nav
+            logo: NordicAdmin
+            items:
+              - icon: layout-dashboard
+                label: Dashboard
+              - icon: users
+                label: Users
+                active: true
+              - icon: shopping-bag
+                label: Orders
+              - icon: package
+                label: Products
+              - icon: bar-chart
+                label: Analytics
+              - icon: settings
+                label: Settings
+          - type: stack
+            flex: 1
+            children:
+              - block: breadcrumb-header
+                breadcrumb:
+                  - Dashboard
+                  - Users
+                  - Ingrid Haugen
+                title: Ingrid Haugen
+                description: Administrator - Registrert 14. januar 2025
+              - type: scroll
+                direction: vertical
+                children:
+                  - type: card
+                    padding: lg
+                    children:
+                      - type: row
+                        gap: lg
+                        align: center
+                        children:
+                          - type: avatar
+                            initials: IH
+                            size: xl
+                          - type: stack
+                            gap: xs
+                            children:
+                              - type: text
+                                variant: h3
+                                content: Ingrid Haugen
+                              - type: text
+                                variant: body
+                                color: text-secondary
+                                content: ingrid.haugen@nordmail.no
+                              - type: text
+                                variant: body-sm
+                                color: text-secondary
+                                content: "Admin - Aktiv - Sist innlogget: I dag 09:14"
+                  - type: tabs
+                    items:
+                      - label: Aktivitet
+                        active: true
+                      - label: Bestillinger
+                      - label: Innstillinger
+                  - block: activity-feed
+                    title: Brukeraktivitet
+                    items:
+                      - icon: log-in
+                        text: Logget inn fra Oslo, Norge
+                        time: I dag 09:14
+                        action: login
+                      - icon: edit
+                        text: Oppdaterte produktbeskrivelse for Fjelljakke Pro
+                        time: I gar 15:42
+                        action: updated
+                      - icon: user-plus
+                        text: La til ny bruker Henrik Dahl
+                        time: I gar 11:20
+                        action: created
+                      - icon: settings
+                        text: Endret rolleinnstillinger for Redaktor-gruppen
+                        time: 28. mars 2026
+                        action: updated
+                      - icon: download
+                        text: Eksporterte brukerliste som CSV
+                        time: 27. mars 2026
+                        action: exported
+                      - icon: shield
+                        text: Aktiverte tofaktorautentisering
+                        time: 15. mars 2026
+                        action: security
+                    show-more: Last inn mer

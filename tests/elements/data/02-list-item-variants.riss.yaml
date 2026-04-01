@@ -1,0 +1,188 @@
+# Test: list-item with ALL leading/trailing shortcuts and sizes
+# Verifies every leading shortcut, trailing shortcut, and size option.
+riss: "0.1"
+meta:
+  name: "Test - List Item Variants"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: list_item_leading
+    title: "List Item - Leading Shortcuts"
+    path: /test/list-item-leading
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Leading: avatar
+          - type: section
+            title: "leading: avatar"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: avatar
+                    title: "Kari Nordmann"
+                    subtitle: "Product Manager at Telenor"
+
+          # Leading: icon:user
+          - type: section
+            title: "leading: icon:user"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: icon:user
+                    title: "Personal Information"
+                    subtitle: "Name, email, phone number"
+
+          # Leading: icon:mail
+          - type: section
+            title: "leading: icon:mail"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: icon:mail
+                    title: "Email Preferences"
+                    subtitle: "Manage notification emails"
+
+          # Leading: checkbox
+          - type: section
+            title: "leading: checkbox"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: checkbox
+                    title: "Buy groceries"
+                    subtitle: "Milk, bread, eggs, cheese"
+                  - type: list-item
+                    leading: checkbox
+                    title: "Pick up dry cleaning"
+                    subtitle: "Ready after 15:00"
+
+          # Leading: image
+          - type: section
+            title: "leading: image"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: image
+                    title: "Norwegian Fjords"
+                    subtitle: "Geirangerfjorden, More og Romsdal"
+
+  - id: list_item_trailing
+    title: "List Item - Trailing Shortcuts"
+    path: /test/list-item-trailing
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Trailing: icon:chevron-right
+          - type: section
+            title: "trailing: icon:chevron-right"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: icon:user
+                    title: "Account Settings"
+                    subtitle: "Manage your account"
+                    trailing: icon:chevron-right
+
+          # Trailing: toggle
+          - type: section
+            title: "trailing: toggle"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: icon:bell
+                    title: "Push Notifications"
+                    subtitle: "Receive alerts on your device"
+                    trailing: toggle
+                  - type: list-item
+                    leading: icon:moon
+                    title: "Dark Mode"
+                    subtitle: "Reduce eye strain at night"
+                    trailing: toggle
+
+          # Trailing: badge:3
+          - type: section
+            title: "trailing: badge:3"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: icon:mail
+                    title: "Messages"
+                    subtitle: "From team members"
+                    trailing: "badge:3"
+
+          # Trailing: text:kr 299
+          - type: section
+            title: "trailing: text:kr 299"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: image
+                    title: "Premium Subscription"
+                    subtitle: "Monthly plan"
+                    trailing: "text:kr 299"
+
+  - id: list_item_sizes
+    title: "List Item - Sizes"
+    path: /test/list-item-sizes
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Size: sm
+          - type: section
+            title: "size: sm"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    title: "Wi-Fi"
+                    trailing: toggle
+                    size: sm
+                  - type: list-item
+                    title: "Bluetooth"
+                    trailing: toggle
+                    size: sm
+                  - type: list-item
+                    title: "Airplane Mode"
+                    trailing: toggle
+                    size: sm
+
+          # Size: md (default)
+          - type: section
+            title: "size: md (default)"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: avatar
+                    title: "Ola Hansen"
+                    subtitle: "Joined 2 weeks ago"
+                    trailing: icon:chevron-right
+                    size: md
+
+          # Size: lg
+          - type: section
+            title: "size: lg"
+            children:
+              - type: list
+                children:
+                  - type: list-item
+                    leading: avatar
+                    title: "Erik Bakke"
+                    subtitle: "Senior Developer at DNB. Working on the mobile banking platform."
+                    trailing: icon:chevron-right
+                    size: lg

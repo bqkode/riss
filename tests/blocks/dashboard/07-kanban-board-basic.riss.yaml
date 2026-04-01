@@ -1,0 +1,69 @@
+riss: "0.1"
+meta:
+  name: Test - Kanban Board Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: kanban_board_basic
+    title: Test - Kanban Board Basic
+    children:
+      - block: kanban-board
+        add-card: true
+        columns:
+          - title: Backlog
+            cards:
+              - title: Redesign onboarding flow
+                subtitle: Simplify the first-time user experience
+                tag: Design
+                avatar: Ingrid Haugen
+                color: purple
+              - title: Add export to CSV
+                subtitle: Allow users to download reports
+                tag: Feature
+                avatar: Lars Erik Dahl
+                color: blue
+              - title: Update privacy policy page
+                subtitle: Reflect new GDPR requirements
+                tag: Legal
+                avatar: Marte Solberg
+                color: gray
+          - title: In Progress
+            cards:
+              - title: Migrate database to PostgreSQL
+                subtitle: Move from MySQL to PostgreSQL 16
+                tag: Backend
+                avatar: Kristoffer Moen
+                color: orange
+              - title: Build notification center
+                subtitle: Real-time alerts and activity stream
+                tag: Feature
+                avatar: Silje Nygård
+                color: blue
+          - title: Review
+            cards:
+              - title: Implement dark mode
+                subtitle: Theme toggle and color token updates
+                tag: Frontend
+                avatar: Ingrid Haugen
+                color: green
+              - title: API rate limiting
+                subtitle: Add throttling for public endpoints
+                tag: Backend
+                avatar: Kristoffer Moen
+                color: orange
+          - title: Done
+            cards:
+              - title: SSO integration with Azure AD
+                subtitle: Enterprise single sign-on support
+                tag: Security
+                avatar: Lars Erik Dahl
+                color: red
+              - title: Performance audit
+                subtitle: Lighthouse scores above 90 on all pages
+                tag: DevOps
+                avatar: Marte Solberg
+                color: teal

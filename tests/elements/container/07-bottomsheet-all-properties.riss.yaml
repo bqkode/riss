@@ -1,0 +1,126 @@
+# Test: Bottomsheet with ALL properties
+# Tests height ("auto", "half", "full", pixel value), handle (true/false),
+# and title variations.
+riss: "0.1"
+meta:
+  name: Test - Bottomsheet All Properties
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: bottomsheet_all_properties
+    title: Test - Bottomsheet All Properties
+    children:
+      - type: bottomsheet
+        title: Velg betalingsmetode
+        height: auto
+        handle: true
+        children:
+          - type: list
+            children:
+              - type: list-item
+                leading: icon:credit-card
+                title: Visa **** 4829
+                subtitle: Utloper 09/27
+                trailing: icon:check
+              - type: list-item
+                leading: icon:credit-card
+                title: Mastercard **** 1053
+                subtitle: Utloper 03/28
+              - type: list-item
+                leading: icon:plus
+                title: Legg til nytt kort
+      - type: bottomsheet
+        title: Filtrer resultater
+        height: half
+        handle: false
+        children:
+          - type: stack
+            gap: md
+            padding: sm
+            children:
+              - type: select
+                label: Kategori
+                placeholder: Alle kategorier
+                options:
+                  - Elektronikk
+                  - Klaer
+                  - Hjem og hage
+                  - Sport og fritid
+              - type: select
+                label: Sorter etter
+                options:
+                  - Nyeste forst
+                  - "Pris: lav til hoy"
+                  - "Pris: hoy til lav"
+                  - Popularitet
+                selected: 0
+              - type: text
+                variant: label
+                content: PRISKLASSE
+              - type: row
+                gap: md
+                children:
+                  - type: input
+                    placeholder: Fra kr
+                  - type: input
+                    placeholder: Til kr
+              - type: checkbox
+                label: Kun varer pa lager
+                checked: true
+              - type: button
+                label: Vis 42 resultater
+                variant: primary
+                full-width: true
+      - type: bottomsheet
+        height: full
+        handle: true
+        children:
+          - type: stack
+            padding: md
+            gap: md
+            children:
+              - type: text
+                variant: h3
+                content: Alle varsler
+              - type: list
+                dividers: true
+                children:
+                  - type: list-item
+                    leading: icon:bell
+                    title: Ny melding fra Sofie Moen
+                    subtitle: Hei, har du sett det nye forslaget? - 5 min siden
+                  - type: list-item
+                    leading: icon:calendar
+                    title: "Paminnelse: Standup kl. 09:00"
+                    subtitle: Daglig teamsamtale i morgen tidlig - 1 time siden
+                  - type: list-item
+                    leading: icon:check
+                    title: Oppgave fullfort
+                    subtitle: Jonas Bakke lukket 'Oppdater landingsside' - 3 timer siden
+                  - type: list-item
+                    leading: icon:warning
+                    title: Serveradvarsel
+                    subtitle: Hoy CPU-bruk pa produksjonsserver - 6 timer siden
+      - type: bottomsheet
+        title: Hurtigvalg
+        height: 300
+        handle: true
+        children:
+          - type: list
+            children:
+              - type: list-item
+                leading: icon:camera
+                title: Ta bilde
+              - type: list-item
+                leading: icon:image
+                title: Velg fra galleri
+              - type: list-item
+                leading: icon:file
+                title: Velg fil
+              - type: list-item
+                leading: icon:link
+                title: Lim inn lenke

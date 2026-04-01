@@ -1,0 +1,159 @@
+# Edge case: every viewport preset
+# Verifies that each device preset renders at the correct dimensions
+riss: "0.1"
+meta:
+  name: "All Viewport Presets"
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: iphone
+    title: "iPhone (Standard)"
+    viewport: { width: 390, height: 844 }
+    children:
+      - type: stack
+        padding: lg
+        gap: sm
+        align: center
+        justify: center
+        height: "full"
+        children:
+          - type: icon
+            name: phone
+            size: 32
+            color: accent
+          - type: text
+            variant: h3
+            content: "iPhone"
+            align: center
+          - type: text
+            variant: body
+            content: "390 x 844"
+            color: text-secondary
+            align: center
+
+  - id: iphone_se
+    title: "iPhone SE"
+    viewport: { width: 375, height: 667 }
+    children:
+      - type: stack
+        padding: lg
+        gap: sm
+        align: center
+        justify: center
+        height: "full"
+        children:
+          - type: icon
+            name: phone
+            size: 32
+            color: accent
+          - type: text
+            variant: h3
+            content: "iPhone SE"
+            align: center
+          - type: text
+            variant: body
+            content: "375 x 667"
+            color: text-secondary
+            align: center
+
+  - id: android
+    title: "Android (Standard)"
+    viewport: { width: 412, height: 915 }
+    children:
+      - type: stack
+        padding: lg
+        gap: sm
+        align: center
+        justify: center
+        height: "full"
+        children:
+          - type: icon
+            name: phone
+            size: 32
+            color: accent
+          - type: text
+            variant: h3
+            content: "Android"
+            align: center
+          - type: text
+            variant: body
+            content: "412 x 915"
+            color: text-secondary
+            align: center
+
+  - id: ipad
+    title: "iPad"
+    viewport: { width: 820, height: 1180 }
+    children:
+      - type: stack
+        padding: xl
+        gap: sm
+        align: center
+        justify: center
+        height: "full"
+        children:
+          - type: icon
+            name: globe
+            size: 48
+            color: accent
+          - type: text
+            variant: h2
+            content: "iPad"
+            align: center
+          - type: text
+            variant: body
+            content: "820 x 1180"
+            color: text-secondary
+            align: center
+
+  - id: desktop
+    title: "Desktop (Laptop)"
+    viewport: { width: 1440, height: 900 }
+    children:
+      - type: stack
+        padding: xl
+        gap: sm
+        align: center
+        justify: center
+        height: "full"
+        children:
+          - type: icon
+            name: globe
+            size: 48
+            color: accent
+          - type: text
+            variant: h2
+            content: "Desktop"
+            align: center
+          - type: text
+            variant: body
+            content: "1440 x 900"
+            color: text-secondary
+            align: center
+
+  - id: wide
+    title: "Desktop (Wide)"
+    viewport: { width: 1920, height: 1080 }
+    children:
+      - type: stack
+        padding: xl
+        gap: sm
+        align: center
+        justify: center
+        height: "full"
+        children:
+          - type: icon
+            name: globe
+            size: 48
+            color: accent
+          - type: text
+            variant: h2
+            content: "Wide Desktop"
+            align: center
+          - type: text
+            variant: body
+            content: "1920 x 1080"
+            color: text-secondary
+            align: center

@@ -1,0 +1,39 @@
+riss: "0.1"
+meta:
+  name: Test - Sidebar Navigation All Parameters
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: sidebar_navigation_all_paramet
+    title: Test - Sidebar Navigation All Parameters
+    children:
+      - block: sidebar-nav
+        logo: Nexus Platform
+        logo-icon: layers
+        items:
+          - icon: home
+            label: Overview
+            active: true
+          - icon: inbox
+            label: Notifications
+            badge: "5"
+          - icon: chart
+            label: Analytics
+          - icon: users
+            label: Customers
+            badge: New
+          - icon: file
+            label: Invoices
+          - icon: settings
+            label: Settings
+        footer:
+          avatar: MR
+          name: Marcus Reed
+          subtitle: Admin
+        width: 300
+        collapsible: true
+        background: surface

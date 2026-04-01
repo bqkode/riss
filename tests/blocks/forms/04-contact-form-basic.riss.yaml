@@ -1,0 +1,24 @@
+riss: "0.1"
+meta:
+  name: Test - Contact Form Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: contact_form_basic
+    title: Test - Contact Form Basic
+    children:
+      - block: contact-form
+        title: Get in touch
+        description: Have a question or want to work together? Fill out the form below and we will get back to you within 24 hours.
+        fields:
+          - name
+          - email
+          - phone
+          - company
+          - subject
+          - message
+        cta-label: Send message

@@ -1,0 +1,36 @@
+riss: "0.1"
+meta:
+  name: Test - Feature Grid Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: feature_grid_basic
+    title: Test - Feature Grid Basic
+    children:
+      - block: feature-grid
+        title: Everything you need to ship with confidence
+        subtitle: A complete toolkit for modern development teams, from planning through production monitoring.
+        columns: 3
+        items:
+          - icon: zap
+            title: Instant deployments
+            description: Push to main and your changes are live in under 30 seconds. Zero-downtime rolling deploys come standard.
+          - icon: shield
+            title: Built-in security
+            description: Automatic vulnerability scanning, dependency audits, and runtime protection included with every plan.
+          - icon: bar-chart
+            title: Real-time analytics
+            description: Monitor request latency, error rates, and throughput with dashboards that update in real time.
+          - icon: git-branch
+            title: Preview environments
+            description: Every pull request gets its own isolated preview URL for testing and stakeholder review.
+          - icon: refresh-cw
+            title: Automatic rollbacks
+            description: Deployments that fail health checks are automatically rolled back to the last known good state.
+          - icon: globe
+            title: Edge network
+            description: Serve content from 80+ global edge locations for sub-50ms response times anywhere in the world.

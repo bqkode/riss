@@ -1,0 +1,148 @@
+# Test: stack element with all gap tokens
+# Verifies that stack arranges children vertically with correct spacing
+riss: "0.1"
+meta:
+  name: "Test - Stack Basic Gap Tokens"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: stack_gap_tokens
+    title: "Stack Gap Tokens"
+    path: /test/stack-gaps
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # gap: none (0px)
+          - type: section
+            title: "gap: none"
+            children:
+              - type: stack
+                gap: none
+                padding: sm
+                background: surface
+                children:
+                  - type: text
+                    content: "Astrid Haugen"
+                  - type: text
+                    content: "Bjorn Eriksen"
+                  - type: text
+                    content: "Camilla Nordby"
+
+          # gap: xs (4px)
+          - type: section
+            title: "gap: xs"
+            children:
+              - type: stack
+                gap: xs
+                padding: sm
+                background: surface
+                children:
+                  - type: text
+                    content: "Oslo Sentrum"
+                  - type: text
+                    content: "Bergen Bryggen"
+                  - type: text
+                    content: "Trondheim Solsiden"
+
+          # gap: sm (8px)
+          - type: section
+            title: "gap: sm"
+            children:
+              - type: stack
+                gap: sm
+                padding: sm
+                background: surface
+                children:
+                  - type: text
+                    content: "Mandag 08:00 - 16:00"
+                  - type: text
+                    content: "Tirsdag 08:00 - 16:00"
+                  - type: text
+                    content: "Onsdag 08:00 - 16:00"
+
+          # gap: md (16px)
+          - type: section
+            title: "gap: md"
+            children:
+              - type: stack
+                gap: md
+                padding: sm
+                background: surface
+                children:
+                  - type: text
+                    variant: h4
+                    content: "Kontaktinformasjon"
+                  - type: text
+                    content: "Epost: lars.berg@example.no"
+                  - type: text
+                    content: "Telefon: +47 912 34 567"
+
+          # gap: lg (24px)
+          - type: section
+            title: "gap: lg"
+            children:
+              - type: stack
+                gap: lg
+                padding: sm
+                background: surface
+                children:
+                  - type: text
+                    variant: h3
+                    content: "Bestillingssammendrag"
+                  - type: text
+                    content: "3 varer i handlekurven"
+                  - type: text
+                    content: "Totalsum: 1 249 kr"
+
+          # gap: xl (32px)
+          - type: section
+            title: "gap: xl"
+            children:
+              - type: stack
+                gap: xl
+                padding: sm
+                background: surface
+                children:
+                  - type: text
+                    variant: h2
+                    content: "Velkommen tilbake"
+                  - type: text
+                    content: "Du har 5 uleste meldinger"
+                  - type: text
+                    content: "Neste avtale: fredag kl. 14:00"
+
+          # gap: 2xl (48px)
+          - type: section
+            title: "gap: 2xl"
+            children:
+              - type: stack
+                gap: 2xl
+                padding: sm
+                background: surface
+                children:
+                  - type: text
+                    variant: h2
+                    content: "Seksjon A"
+                  - type: text
+                    variant: h2
+                    content: "Seksjon B"
+
+          # gap: 3xl (64px)
+          - type: section
+            title: "gap: 3xl"
+            children:
+              - type: stack
+                gap: 3xl
+                padding: sm
+                background: surface
+                children:
+                  - type: text
+                    variant: h1
+                    content: "Topp"
+                  - type: text
+                    variant: h1
+                    content: "Bunn"

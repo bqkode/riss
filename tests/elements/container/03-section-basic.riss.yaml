@@ -1,0 +1,108 @@
+# Test: Section element with title, title-variant, and nested children
+# Verifies section rendering with and without title, different title variants,
+# and various child content (lists, text).
+riss: "0.1"
+meta:
+  name: Test - Section Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: section_basic
+    title: Test - Section Basic
+    children:
+      - type: scroll
+        children:
+          - type: stack
+            padding: md
+            gap: lg
+            children:
+              - type: section
+                title: Siste aktivitet
+                children:
+                  - type: list
+                    children:
+                      - type: list-item
+                        leading: icon:clock
+                        title: Innlogging fra Oslo
+                        subtitle: I dag kl. 08:14
+                      - type: list-item
+                        leading: icon:mail
+                        title: Melding fra Ingrid Solberg
+                        subtitle: I dag kl. 07:55
+                      - type: list-item
+                        leading: icon:download
+                        title: "Faktura #2041 lastet ned"
+                        subtitle: I gar kl. 16:30
+              - type: section
+                children:
+                  - type: text
+                    content: Denne seksjonen har ingen tittel. Den grupperer innhold logisk uten synlig overskrift.
+                  - type: text
+                    variant: body-sm
+                    color: text-secondary
+                    content: Brukes for semantisk gruppering av relaterte elementer.
+              - type: section
+                title: Kommende hendelser
+                title-variant: h3
+                children:
+                  - type: list
+                    dividers: true
+                    children:
+                      - type: list-item
+                        leading: icon:calendar
+                        title: Teamsamling i Bergen
+                        subtitle: 15. april - Hele dagen
+                        trailing: icon:chevron-right
+                      - type: list-item
+                        leading: icon:calendar
+                        title: Kvartalsrapport frist
+                        subtitle: 20. april kl. 17:00
+                        trailing: icon:chevron-right
+              - type: section
+                title: Kontaktpersoner
+                title-variant: h4
+                children:
+                  - type: list
+                    children:
+                      - type: list-item
+                        leading: avatar
+                        title: Astrid Haugen
+                        subtitle: Prosjektleder
+                      - type: list-item
+                        leading: avatar
+                        title: Magnus Lie
+                        subtitle: Utvikler
+              - type: section
+                title: Innstillinger
+                title-variant: label
+                children:
+                  - type: text
+                    variant: body-sm
+                    content: Administrer kontoinformasjon, varsler og personverninnstillinger.
+                  - type: button
+                    label: Apne innstillinger
+                    variant: outline
+                    size: sm
+              - type: section
+                title: Prosjektoversikt
+                title-variant: h3
+                children:
+                  - type: section
+                    title: Aktive prosjekter
+                    title-variant: h4
+                    children:
+                      - type: text
+                        content: Nettbutikk-redesign for Fjordkraft AS
+                      - type: text
+                        content: Mobilapp for Stavanger Kommune
+                  - type: section
+                    title: Fullforte prosjekter
+                    title-variant: h4
+                    children:
+                      - type: text
+                        color: text-secondary
+                        content: Ingen fullforte prosjekter denne maneden.

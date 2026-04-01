@@ -1,0 +1,54 @@
+# Test: Image element — basic aspect ratios and labels
+# Verifies different aspect ratios render correctly with descriptive labels.
+
+riss: "0.1"
+meta:
+  name: "Test - Image Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: image_basic
+    title: "Image Aspect Ratios"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          # 16/9 — wide hero banner
+          - type: text
+            variant: label
+            content: "16/9 — HERO BANNER"
+          - type: image
+            aspect: "16/9"
+            label: "Hero Banner"
+            rounded: md
+
+          # 4/3 — product photo
+          - type: text
+            variant: label
+            content: "4/3 — PRODUKTBILDE"
+          - type: image
+            aspect: "4/3"
+            label: "Product Photo"
+            rounded: md
+
+          # 3/2 — editorial photo
+          - type: text
+            variant: label
+            content: "3/2 — REDAKSJONELT BILDE"
+          - type: image
+            aspect: "3/2"
+            label: "Profile Cover"
+            rounded: md
+
+          # 1/1 — square thumbnail
+          - type: text
+            variant: label
+            content: "1/1 — KVADRATISK"
+          - type: image
+            aspect: "1/1"
+            label: "Kvadratisk bilde"
+            rounded: md

@@ -1,0 +1,49 @@
+riss: "0.1"
+meta:
+  name: "Test - Bottom Navigation Variants"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: bottom_nav_variants
+    title: "Test - Bottom Navigation Variants"
+    children:
+      - block: bottom-nav
+        variant: icon-label
+        active-color: "#2563EB"
+        items:
+          - icon: home
+            label: "Home"
+            active: true
+          - icon: search
+            label: "Explore"
+          - icon: plus
+            label: "Create"
+          - icon: heart
+            label: "Saved"
+          - icon: user
+            label: "Account"
+
+      - block: bottom-nav
+        variant: icon-only
+        active-color: "#7C3AED"
+        items:
+          - icon: home
+            active: true
+          - icon: search
+          - icon: plus
+          - icon: heart
+          - icon: user
+
+      - block: bottom-nav
+        variant: label-only
+        active-color: "#059669"
+        items:
+          - label: "Home"
+            active: true
+          - label: "Explore"
+          - label: "Create"
+          - label: "Saved"
+          - label: "Account"

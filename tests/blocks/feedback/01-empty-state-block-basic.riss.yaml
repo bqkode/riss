@@ -1,0 +1,23 @@
+riss: "0.1"
+meta:
+  name: Test - Empty State Block Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: empty_state_block_basic
+    title: Test - Empty State Block Basic
+    children:
+      - block: empty-state-block
+        icon: inbox
+        title: No messages yet
+        message: When you receive messages, they will appear here. Start a conversation to get going.
+        cta-label: Compose
+      - block: empty-state-block
+        image-label: Empty search results illustration
+        title: No results found
+        message: Try adjusting your search terms or filters to find what you are looking for.
+        cta-label: Clear filters

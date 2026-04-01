@@ -1,0 +1,139 @@
+# Test: spinner element with sizes and colors
+# Verifies all size and color combinations.
+riss: "0.1"
+meta:
+  name: "Test - Spinner Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: spinner_sizes
+    title: "Spinner - Sizes and Colors"
+    path: /test/spinner
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Sizes
+          - type: section
+            title: "Sizes"
+            children:
+              - type: stack
+                padding: md
+                gap: lg
+                children:
+                  - type: row
+                    gap: lg
+                    align: center
+                    children:
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: spinner
+                            size: 16
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "16px"
+
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: spinner
+                            size: 24
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "24px"
+
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: spinner
+                            size: 32
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "32px"
+
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: spinner
+                            size: 48
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "48px"
+
+          # Colors
+          - type: section
+            title: "Colors"
+            children:
+              - type: stack
+                padding: md
+                gap: lg
+                children:
+                  - type: row
+                    gap: lg
+                    align: center
+                    children:
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: spinner
+                            size: 32
+                            color: text-secondary
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "text-secondary"
+
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: spinner
+                            size: 32
+                            color: accent
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "accent"
+
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: spinner
+                            size: 32
+                            color: success
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "success"
+
+          # Spinner in context: loading state
+          - type: section
+            title: "Loading Context"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                align: center
+                children:
+                  - type: spinner
+                    size: 48
+                    color: accent
+                  - type: text
+                    variant: body
+                    color: text-secondary
+                    align: center
+                    content: "Loading your dashboard..."

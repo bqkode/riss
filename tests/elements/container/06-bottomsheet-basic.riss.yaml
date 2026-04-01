@@ -1,0 +1,54 @@
+# Test: Bottomsheet element with title and list-item children with icons
+# Verifies basic bottomsheet rendering anchored at the bottom of the viewport.
+riss: "0.1"
+meta:
+  name: Test - Bottomsheet Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: bottomsheet_basic
+    title: Test - Bottomsheet Basic
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: Mine dokumenter
+          - type: text
+            color: text-secondary
+            content: Velg et dokument for a se handlinger.
+      - type: bottomsheet
+        title: Handlinger
+        children:
+          - type: list
+            dividers: true
+            children:
+              - type: list-item
+                leading: icon:share
+                title: Del med andre
+                subtitle: Send en lenke via e-post eller melding
+              - type: list-item
+                leading: icon:download
+                title: Last ned
+                subtitle: Lagre en kopi pa enheten din
+              - type: list-item
+                leading: icon:copy
+                title: Kopier lenke
+                subtitle: Kopier dokumentlenken til utklippstavlen
+              - type: list-item
+                leading: icon:edit
+                title: Gi nytt navn
+                subtitle: Endre dokumentnavnet
+              - type: list-item
+                leading: icon:star
+                title: Legg til i favoritter
+              - type: list-item
+                leading: icon:trash
+                title: Slett
+                subtitle: Flytt til papirkurven

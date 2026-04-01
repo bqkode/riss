@@ -1,0 +1,60 @@
+riss: "0.1"
+meta:
+  name: Test - Product Card Grid Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#059669"
+screens:
+  - id: product_card_grid_basic
+    title: Test - Product Card Grid Basic
+    children:
+      - block: product-card-grid
+        columns: 3
+        show-rating: true
+        show-cart-button: true
+        items:
+          - image-label: Fjelljakke in forest green
+            title: Fjelljakke Expedition
+            price: kr 1,299
+            original-price: kr 1,799
+            rating: 4.5
+            badge: Sale
+            cta-label: Add to Cart
+          - image-label: Tursko hiking boots
+            title: Tursko Allround GTX
+            price: kr 1,299
+            original-price: kr 1,799
+            rating: 4.5
+            badge: Sale
+            cta-label: Add to Cart
+          - image-label: Ullgenser merino sweater
+            title: Ullgenser Merino 200
+            price: kr 1,299
+            original-price: kr 1,799
+            rating: 4.5
+            badge: Sale
+            cta-label: Add to Cart
+          - image-label: Ryggsekk hiking backpack
+            title: Ryggsekk Fjord 45L
+            price: kr 1,299
+            original-price: kr 1,799
+            rating: 4.5
+            badge: Sale
+            cta-label: Add to Cart
+          - image-label: Vindjakke windbreaker
+            title: Vindjakke Storm Pro
+            price: kr 1,299
+            original-price: kr 1,799
+            rating: 4.5
+            badge: Sale
+            cta-label: Add to Cart
+          - image-label: Softshell bukse pants
+            title: Softshell Bukse Flex
+            price: kr 1,299
+            original-price: kr 1,799
+            rating: 4.5
+            badge: Sale
+            cta-label: Add to Cart

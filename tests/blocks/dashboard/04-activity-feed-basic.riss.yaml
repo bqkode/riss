@@ -1,0 +1,41 @@
+riss: "0.1"
+meta:
+  name: Test - Activity Feed Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: activity_feed_basic
+    title: Test - Activity Feed Basic
+    children:
+      - block: activity-feed
+        title: Recent Activity
+        items:
+          - icon: user-plus
+            text: Ingrid Haugen joined the team
+            time: 2 minutes ago
+            action: joined
+          - avatar: Lars Erik Dahl
+            text: Lars Erik Dahl updated the pricing page
+            time: 15 minutes ago
+            action: updated
+          - avatar: Marte Solberg
+            text: Marte Solberg approved the Q1 budget
+            time: 1 hour ago
+            action: approved
+          - icon: upload
+            text: Brand assets uploaded to shared drive
+            time: 3 hours ago
+            action: uploaded
+          - avatar: Kristoffer Moen
+            text: Kristoffer Moen commented on Project Aurora
+            time: 5 hours ago
+            action: commented
+          - icon: alert-circle
+            text: Server response time exceeded threshold
+            time: Yesterday at 23:14
+            action: alert
+        show-more: View all

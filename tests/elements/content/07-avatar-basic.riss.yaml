@@ -1,0 +1,212 @@
+# Test: Avatar element — sizes, initials, and colors
+# Verifies avatar rendering at all standard sizes with different initials and color tokens.
+
+riss: "0.1"
+meta:
+  name: "Test - Avatar Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: avatar_sizes
+    title: "Avatar Sizes"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "ST\u00D8RRELSER"
+
+          - type: row
+            gap: md
+            align: end
+            children:
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 24
+                    initials: "A"
+                  - type: text
+                    variant: caption
+                    content: "24"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 32
+                    initials: "BQ"
+                  - type: text
+                    variant: caption
+                    content: "32"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 40
+                    initials: "KN"
+                  - type: text
+                    variant: caption
+                    content: "40"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 48
+                    initials: "OH"
+                  - type: text
+                    variant: caption
+                    content: "48"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 64
+                    initials: "EL"
+                  - type: text
+                    variant: caption
+                    content: "64"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 80
+                    initials: "SH"
+                  - type: text
+                    variant: caption
+                    content: "80"
+
+  - id: avatar_initials
+    title: "Avatar Initials"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "INITIALER"
+
+          - type: row
+            gap: md
+            children:
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 48
+                    initials: "A"
+                  - type: text
+                    variant: caption
+                    content: "Astrid"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 48
+                    initials: "BQ"
+                  - type: text
+                    variant: caption
+                    content: "Bj\u00F8rn Q."
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 48
+                    initials: "KN"
+                  - type: text
+                    variant: caption
+                    content: "Kari N."
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 48
+                    initials: "OH"
+                  - type: text
+                    variant: caption
+                    content: "Ole H."
+
+  - id: avatar_colors
+    title: "Avatar Colors"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "FARGETOKENS"
+
+          - type: row
+            gap: md
+            children:
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 48
+                    initials: "PH"
+                    color: placeholder
+                  - type: text
+                    variant: caption
+                    content: "placeholder"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 48
+                    initials: "AC"
+                    color: accent
+                  - type: text
+                    variant: caption
+                    content: "accent"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 48
+                    initials: "AS"
+                    color: accent-soft
+                  - type: text
+                    variant: caption
+                    content: "accent-soft"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: avatar
+                    size: 48
+                    initials: "OK"
+                    color: success
+                  - type: text
+                    variant: caption
+                    content: "success"

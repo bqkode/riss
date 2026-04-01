@@ -1,0 +1,280 @@
+# Edge case: every spacing token on gap, padding, and margin
+# Tokens: none(0), xs(4), sm(8), md(16), lg(24), xl(32), 2xl(48), 3xl(64)
+riss: "0.1"
+meta:
+  name: "All Spacing Tokens"
+  viewport: { width: 412, height: 915 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: spacing_tokens
+    title: "Spacing Tokens"
+    path: /test/spacing
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: md
+            gap: lg
+            children:
+
+              # --- Gap between stack children ---
+              - type: section
+                title: "Gap (space between children)"
+                children:
+                  - type: stack
+                    gap: md
+                    children:
+                      - type: card
+                        variant: filled
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "gap: none (0px)"
+                          - type: stack
+                            gap: none
+                            children:
+                              - type: chip
+                                label: "A"
+                              - type: chip
+                                label: "B"
+
+                      - type: card
+                        variant: filled
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "gap: xs (4px)"
+                          - type: stack
+                            gap: xs
+                            children:
+                              - type: chip
+                                label: "A"
+                              - type: chip
+                                label: "B"
+
+                      - type: card
+                        variant: filled
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "gap: sm (8px)"
+                          - type: stack
+                            gap: sm
+                            children:
+                              - type: chip
+                                label: "A"
+                              - type: chip
+                                label: "B"
+
+                      - type: card
+                        variant: filled
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "gap: md (16px)"
+                          - type: stack
+                            gap: md
+                            children:
+                              - type: chip
+                                label: "A"
+                              - type: chip
+                                label: "B"
+
+                      - type: card
+                        variant: filled
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "gap: lg (24px)"
+                          - type: stack
+                            gap: lg
+                            children:
+                              - type: chip
+                                label: "A"
+                              - type: chip
+                                label: "B"
+
+                      - type: card
+                        variant: filled
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "gap: xl (32px)"
+                          - type: stack
+                            gap: xl
+                            children:
+                              - type: chip
+                                label: "A"
+                              - type: chip
+                                label: "B"
+
+                      - type: card
+                        variant: filled
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "gap: 2xl (48px)"
+                          - type: stack
+                            gap: 2xl
+                            children:
+                              - type: chip
+                                label: "A"
+                              - type: chip
+                                label: "B"
+
+                      - type: card
+                        variant: filled
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "gap: 3xl (64px)"
+                          - type: stack
+                            gap: 3xl
+                            children:
+                              - type: chip
+                                label: "A"
+                              - type: chip
+                                label: "B"
+
+              # --- Padding on cards ---
+              - type: section
+                title: "Padding (inner spacing)"
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: card
+                        padding: none
+                        children:
+                          - type: text
+                            variant: label
+                            content: "padding: none (0px)"
+                      - type: card
+                        padding: xs
+                        children:
+                          - type: text
+                            variant: label
+                            content: "padding: xs (4px)"
+                      - type: card
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "padding: sm (8px)"
+                      - type: card
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "padding: md (16px)"
+                      - type: card
+                        padding: lg
+                        children:
+                          - type: text
+                            variant: label
+                            content: "padding: lg (24px)"
+                      - type: card
+                        padding: xl
+                        children:
+                          - type: text
+                            variant: label
+                            content: "padding: xl (32px)"
+                      - type: card
+                        padding: 2xl
+                        children:
+                          - type: text
+                            variant: label
+                            content: "padding: 2xl (48px)"
+                      - type: card
+                        padding: 3xl
+                        children:
+                          - type: text
+                            variant: label
+                            content: "padding: 3xl (64px)"
+
+              # --- Margin on elements ---
+              - type: section
+                title: "Margin (outer spacing)"
+                children:
+                  - type: stack
+                    gap: none
+                    background: surface
+                    padding: sm
+                    rounded: md
+                    children:
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        margin: none
+                        children:
+                          - type: text
+                            variant: label
+                            content: "margin: none (0px)"
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        margin: xs
+                        children:
+                          - type: text
+                            variant: label
+                            content: "margin: xs (4px)"
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        margin: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "margin: sm (8px)"
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        margin: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "margin: md (16px)"
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        margin: lg
+                        children:
+                          - type: text
+                            variant: label
+                            content: "margin: lg (24px)"
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        margin: xl
+                        children:
+                          - type: text
+                            variant: label
+                            content: "margin: xl (32px)"
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        margin: 2xl
+                        children:
+                          - type: text
+                            variant: label
+                            content: "margin: 2xl (48px)"
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        margin: 3xl
+                        children:
+                          - type: text
+                            variant: label
+                            content: "margin: 3xl (64px)"

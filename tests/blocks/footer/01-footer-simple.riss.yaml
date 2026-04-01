@@ -1,0 +1,28 @@
+riss: "0.1"
+meta:
+  name: Test - Footer Simple
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: footer_simple
+    title: Test - Footer Simple
+    children:
+      - block: footer
+        variant: simple
+        logo: Fjordtech
+        links:
+          - About
+          - Blog
+          - Careers
+          - Contact
+          - Privacy
+          - Terms
+        social:
+          - twitter
+          - github
+          - linkedin
+        copyright: © 2026 Fjordtech AS. All rights reserved.

@@ -1,0 +1,122 @@
+# Test: slider element
+# Verifies: min, max, value, label, show-value true/false
+riss: "0.1"
+meta:
+  name: "Test - Slider Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: slider_basic
+    title: "Slider Basic"
+    path: /test/slider-basic
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Volume slider with show-value
+          - type: section
+            title: "Volume (show-value: true)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: slider
+                    label: "Volume"
+                    min: 0
+                    max: 100
+                    value: 75
+                    show-value: true
+
+          # Brightness slider with show-value
+          - type: section
+            title: "Brightness (show-value: true)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: slider
+                    label: "Brightness"
+                    min: 0
+                    max: 100
+                    value: 50
+                    show-value: true
+
+          # Price range slider
+          - type: section
+            title: "Price Range (show-value: true)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: slider
+                    label: "Price Range"
+                    min: 0
+                    max: 500
+                    value: 200
+                    show-value: true
+
+          # show-value: false
+          - type: section
+            title: "Font Size (show-value: false)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: slider
+                    label: "Font Size"
+                    min: 10
+                    max: 32
+                    value: 16
+                    show-value: false
+
+          # Min value
+          - type: section
+            title: "At Minimum"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: slider
+                    label: "Opacity"
+                    min: 0
+                    max: 100
+                    value: 0
+                    show-value: true
+
+          # Max value
+          - type: section
+            title: "At Maximum"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: slider
+                    label: "Quality"
+                    min: 0
+                    max: 100
+                    value: 100
+                    show-value: true
+
+          # Custom range
+          - type: section
+            title: "Custom Range (1-10)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: slider
+                    label: "Difficulty Level"
+                    min: 1
+                    max: 10
+                    value: 7
+                    show-value: true

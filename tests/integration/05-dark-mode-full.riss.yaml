@@ -1,0 +1,379 @@
+riss: "0.1"
+meta:
+  name: "Integration - FjordFit Dark Mode"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: dark
+    accent: "#2563EB"
+
+screens:
+  - id: home
+    title: "FjordFit Dark - Home"
+    path: /home
+    children:
+      - type: navbar
+        title: "FjordFit"
+        trailing:
+          - icon:bell
+          - icon:settings
+
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: lg
+            gap: md
+            children:
+              - type: text
+                variant: h3
+                content: "God kveld, Kristoffer"
+              - type: text
+                variant: body-sm
+                color: text-secondary
+                content: "Onsdag 1. april 2026"
+
+          - type: row
+            padding: md
+            gap: sm
+            children:
+              - type: card
+                children:
+                  - type: stack
+                    padding: md
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: footprints
+                        color: accent
+                      - type: text
+                        variant: h2
+                        content: "11,204"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Skritt"
+              - type: card
+                children:
+                  - type: stack
+                    padding: md
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: flame
+                        color: accent
+                      - type: text
+                        variant: h2
+                        content: "687"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Kalorier"
+
+          - type: row
+            padding: md
+            gap: sm
+            children:
+              - type: card
+                children:
+                  - type: stack
+                    padding: md
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: map-pin
+                        color: accent
+                      - type: text
+                        variant: h2
+                        content: "8.7 km"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Distanse"
+              - type: card
+                children:
+                  - type: stack
+                    padding: md
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: timer
+                        color: accent
+                      - type: text
+                        variant: h2
+                        content: "62 min"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Aktive minutter"
+
+          - type: section
+            title: "Ukeaktivitet"
+            children:
+              - type: card
+                children:
+                  - type: placeholder
+                    label: "Weekly activity chart - dark theme"
+                    aspect: "16/9"
+
+          - type: section
+            title: "Siste treningsokter"
+            children:
+              - type: list
+                items:
+                  - title: "Kveldsloep langs Bygdoy"
+                    subtitle: "I dag kl. 19:15 - 7.3 km - 38 min"
+                    leading: icon:activity
+                  - title: "Svomming Toyen bad"
+                    subtitle: "I gar - 60 min - 420 kcal"
+                    leading: icon:waves
+                  - title: "Styrketrening Bislett"
+                    subtitle: "Tirsdag - 50 min - 345 kcal"
+                    leading: icon:dumbbell
+                  - title: "Sykling Maridalsveien"
+                    subtitle: "Mandag - 22.4 km - 58 min"
+                    leading: icon:bike
+                  - title: "Yoga hjemme"
+                    subtitle: "Sondag - 30 min - 120 kcal"
+                    leading: icon:heart
+
+      - type: tabbar
+        items:
+          - icon: home
+            label: "Hjem"
+            active: true
+          - icon: dumbbell
+            label: "Trening"
+          - icon: bar-chart
+            label: "Fremgang"
+          - icon: user
+            label: "Profil"
+
+  - id: workouts
+    title: "FjordFit Dark - Workouts"
+    path: /workouts
+    children:
+      - type: navbar
+        title: "Trening"
+        trailing: icon:search
+
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: lg
+            gap: sm
+            children:
+              - type: text
+                variant: h4
+                content: "Anbefalte treningsokter"
+              - type: text
+                variant: body-sm
+                color: text-secondary
+                content: "Basert pa dine mal og tidligere aktivitet"
+
+          - type: section
+            title: "Loeping"
+            children:
+              - type: list
+                items:
+                  - title: "Intervalltrening 4x4"
+                    subtitle: "32 min - 380 kcal - Hoy intensitet"
+                    leading: icon:zap
+                    trailing: icon:chevron-right
+                  - title: "Rolig langtur"
+                    subtitle: "60 min - 480 kcal - Lav intensitet"
+                    leading: icon:activity
+                    trailing: icon:chevron-right
+                  - title: "Bakkeloep"
+                    subtitle: "25 min - 290 kcal - Middels intensitet"
+                    leading: icon:trending-up
+                    trailing: icon:chevron-right
+
+          - type: section
+            title: "Sykling"
+            children:
+              - type: list
+                items:
+                  - title: "Pendlertur"
+                    subtitle: "45 min - 350 kcal - Lav intensitet"
+                    leading: icon:bike
+                    trailing: icon:chevron-right
+                  - title: "Fjellsykling Grefsenkollen"
+                    subtitle: "75 min - 620 kcal - Hoy intensitet"
+                    leading: icon:mountain
+                    trailing: icon:chevron-right
+
+          - type: section
+            title: "Svomming"
+            children:
+              - type: list
+                items:
+                  - title: "Teknikktrening"
+                    subtitle: "40 min - 320 kcal - Middels intensitet"
+                    leading: icon:waves
+                    trailing: icon:chevron-right
+                  - title: "Utholdenhet 2000m"
+                    subtitle: "50 min - 440 kcal - Hoy intensitet"
+                    leading: icon:timer
+                    trailing: icon:chevron-right
+
+          - type: section
+            title: "Styrke"
+            children:
+              - type: list
+                items:
+                  - title: "Helkroppsprogram"
+                    subtitle: "45 min - 310 kcal - Middels intensitet"
+                    leading: icon:dumbbell
+                    trailing: icon:chevron-right
+                  - title: "Kjernetrening"
+                    subtitle: "20 min - 180 kcal - Middels intensitet"
+                    leading: icon:target
+                    trailing: icon:chevron-right
+
+      - type: tabbar
+        items:
+          - icon: home
+            label: "Hjem"
+          - icon: dumbbell
+            label: "Trening"
+            active: true
+          - icon: bar-chart
+            label: "Fremgang"
+          - icon: user
+            label: "Profil"
+
+  - id: profile
+    title: "FjordFit Dark - Profile"
+    path: /profile
+    children:
+      - type: navbar
+        title: "Profil"
+        trailing: icon:settings
+
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: lg
+            gap: md
+            align: center
+            children:
+              - type: avatar
+                initials: "KM"
+                size: xl
+              - type: text
+                variant: h3
+                content: "Kristoffer Moen"
+              - type: text
+                variant: body-sm
+                color: text-secondary
+                content: "Triatlonentusiast og fjellloper fra Tromso"
+
+          - type: row
+            padding: md
+            gap: sm
+            children:
+              - type: card
+                children:
+                  - type: stack
+                    padding: sm
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h2
+                        content: "218"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Treningsokter"
+              - type: card
+                children:
+                  - type: stack
+                    padding: sm
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h2
+                        content: "42"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Dager i rad"
+              - type: card
+                children:
+                  - type: stack
+                    padding: sm
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h2
+                        content: "1,284"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Totalt km"
+
+          - type: section
+            title: "Prestasjoner"
+            children:
+              - type: list
+                items:
+                  - title: "Arktisk loper"
+                    subtitle: "Loept 500 km totalt"
+                    leading: icon:award
+                  - title: "Nordlystreningeen"
+                    subtitle: "50 treningsokter etter kl. 18:00"
+                    leading: icon:moon
+                  - title: "Midnattssolen"
+                    subtitle: "Trent 7 dager i strekk"
+                    leading: icon:sun
+                  - title: "Fjordsvommeren"
+                    subtitle: "Svommet 50 km totalt"
+                    leading: icon:waves
+
+          - type: section
+            title: "Innstillinger"
+            children:
+              - type: list
+                items:
+                  - title: "Rediger profil"
+                    leading: icon:edit
+                    trailing: icon:chevron-right
+                  - title: "Treningsmal"
+                    leading: icon:target
+                    trailing: icon:chevron-right
+                  - title: "Varsler"
+                    leading: icon:bell
+                    trailing: icon:chevron-right
+                  - title: "Utseende"
+                    subtitle: "Mork modus"
+                    leading: icon:moon
+                    trailing: icon:chevron-right
+                  - title: "Tilkoblede enheter"
+                    leading: icon:watch
+                    trailing: icon:chevron-right
+                  - title: "Personvern og data"
+                    leading: icon:shield
+                    trailing: icon:chevron-right
+                  - title: "Hjelp og stotte"
+                    leading: icon:help-circle
+                    trailing: icon:chevron-right
+                  - title: "Logg ut"
+                    leading: icon:log-out
+                    trailing: icon:chevron-right
+
+      - type: tabbar
+        items:
+          - icon: home
+            label: "Hjem"
+          - icon: dumbbell
+            label: "Trening"
+          - icon: bar-chart
+            label: "Fremgang"
+          - icon: user
+            label: "Profil"
+            active: true

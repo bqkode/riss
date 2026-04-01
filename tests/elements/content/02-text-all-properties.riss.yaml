@@ -1,0 +1,137 @@
+# Test: Text element with ALL properties
+# Verifies weight, align, color tokens, and max-lines truncation.
+
+riss: "0.1"
+meta:
+  name: "Test - Text All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: text_weights
+    title: "Text Weights"
+    children:
+      - type: stack
+        gap: sm
+        padding: lg
+        children:
+          # Weight variants
+          - type: text
+            variant: label
+            content: "SKRIFTVEKTER"
+
+          - type: text
+            variant: body
+            weight: normal
+            content: "Normal — Dagligvarer fra Meny Majorstuen"
+
+          - type: text
+            variant: body
+            weight: medium
+            content: "Medium — Dagligvarer fra Meny Majorstuen"
+
+          - type: text
+            variant: body
+            weight: semibold
+            content: "Semibold — Dagligvarer fra Meny Majorstuen"
+
+          - type: text
+            variant: body
+            weight: bold
+            content: "Bold — Dagligvarer fra Meny Majorstuen"
+
+  - id: text_alignment
+    title: "Text Alignment"
+    children:
+      - type: stack
+        gap: sm
+        padding: lg
+        children:
+          # Align variants
+          - type: text
+            variant: label
+            content: "TEKSTJUSTERING"
+
+          - type: text
+            variant: body
+            align: left
+            content: "Venstrejustert tekst"
+
+          - type: text
+            variant: body
+            align: center
+            content: "Midtstilt tekst"
+
+          - type: text
+            variant: body
+            align: right
+            content: "H\u00F8yrejustert tekst"
+
+  - id: text_colors
+    title: "Text Colors"
+    children:
+      - type: stack
+        gap: sm
+        padding: lg
+        children:
+          # Color token variants
+          - type: text
+            variant: label
+            content: "FARGETOKENS"
+
+          - type: text
+            color: text
+            content: "text — Hovedtekst i prim\u00E6rfarge"
+
+          - type: text
+            color: text-secondary
+            content: "text-secondary — Sekund\u00E6rtekst, dempet"
+
+          - type: text
+            color: text-disabled
+            content: "text-disabled — Deaktivert tekst"
+
+          - type: text
+            color: accent
+            content: "accent — Aksentfarge for lenker og handlinger"
+
+          - type: text
+            color: success
+            content: "success — Betaling gjennomf\u00F8rt"
+
+          - type: text
+            color: warning
+            content: "warning — Kontoen n\u00E6rmer seg grensen"
+
+          - type: text
+            color: error
+            content: "error — Transaksjonen feilet"
+
+  - id: text_max_lines
+    title: "Text Max Lines"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          # max-lines truncation
+          - type: text
+            variant: label
+            content: "MAKS LINJER (AVKORTING)"
+
+          - type: text
+            variant: body
+            max-lines: 1
+            content: "max-lines: 1 — Erik Hansen bestilte en stor leveranse med m\u00F8bler og interiartikler fra Bohus Alna til sin nye leilighet p\u00E5 L\u00F8ren."
+
+          - type: text
+            variant: body
+            max-lines: 2
+            content: "max-lines: 2 — Kristin Nordby overf\u00F8rte 15 200 kr til sparekontoen sin for \u00E5 dekke sommerferiens reiseutgifter. Pengene ble trukket fra brukskontoen og vil v\u00E6re tilgjengelige umiddelbart."
+
+          - type: text
+            variant: body
+            max-lines: 3
+            content: "max-lines: 3 — Familien Larsen planlegger \u00E5 pusse opp kj\u00F8kkenet i sommer. De har f\u00E5tt tilbud fra tre forskjellige h\u00E5ndverkere og sammenligner pris, kvalitet og leveringstid. Budsjettet er satt til 180 000 kr inkludert nye hvitevarer, benkeplater i stein og nytt gulvbelegg fra Flisekompaniet."

@@ -1,0 +1,21 @@
+riss: "0.1"
+meta:
+  name: Test - Testimonial Card Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: testimonial_card_basic
+    title: Test - Testimonial Card Basic
+    children:
+      - block: testimonial-card
+        quote: Vi gikk fra manuell rapportering til sanntidsinnsikt på under to uker. Teamet sparer nå over 20 timer i uka, og beslutningene våre er langt bedre forankret i data.
+        author: Ingrid Halvorsen
+        role: VP of Engineering
+        company: Kodeværk AS
+        avatar:
+          initials: IH
+        rating: 5

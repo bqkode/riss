@@ -1,0 +1,30 @@
+riss: "0.1"
+meta:
+  name: Test - Pricing Card Highlighted
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: pricing_card_highlighted
+    title: Test - Pricing Card Highlighted
+    children:
+      - block: pricing-card
+        name: Pro
+        price: kr 499
+        period: /month
+        description: The most popular choice for scaling teams. Full access to all features and priority support.
+        highlighted: true
+        badge: Popular
+        features:
+          - Unlimited projects
+          - 100 GB storage
+          - Priority support with 1-hour SLA
+          - Advanced analytics & reporting
+          - Custom integrations
+          - Team management & roles
+          - API access with higher rate limits
+        cta-label: Start free trial
+        cta-variant: primary

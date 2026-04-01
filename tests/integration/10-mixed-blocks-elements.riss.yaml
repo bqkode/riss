@@ -1,0 +1,221 @@
+# Integration test: mixing RissBlocks and raw elements as direct screen children.
+# Verifies that blocks and elements can be interleaved freely in children.
+riss: "0.1"
+
+meta:
+  name: "MixedLayout"
+  viewport: { width: 1440, height: 900 }
+  theme:
+    mode: light
+    accent: "#6366F1"
+
+screens:
+  - id: mixed_layout_demo
+    title: "Mixed Layout Demo"
+    path: /
+    children:
+      # 1. Block: top navigation
+      - block: top-nav
+        logo: "Acme Inc"
+        items:
+          - label: "Product"
+          - label: "Features"
+          - label: "Pricing"
+          - label: "Docs"
+        cta-label: "Get Started"
+        cta-secondary-label: "Sign In"
+
+      # 2. Block: hero section
+      - block: hero
+        heading: "Build better products, faster"
+        subheading: "The all-in-one platform for teams that ship. From ideation to production in record time."
+        cta-label: "Start Free Trial"
+        cta-secondary-label: "Watch Demo"
+        image: true
+        align: center
+
+      # 3. Raw element: custom stack with social proof
+      - type: stack
+        padding: xl
+        gap: md
+        align: center
+        background: surface
+        children:
+          - type: text
+            variant: body
+            color: text-secondary
+            content: "Trusted by 2,000+ teams worldwide"
+            align: center
+          - type: row
+            gap: xl
+            justify: center
+            children:
+              - type: text
+                variant: h3
+                content: "99.9%"
+              - type: text
+                variant: h3
+                content: "50M+"
+              - type: text
+                variant: h3
+                content: "4.9/5"
+          - type: row
+            gap: xl
+            justify: center
+            children:
+              - type: text
+                variant: caption
+                color: text-secondary
+                content: "Uptime"
+              - type: text
+                variant: caption
+                color: text-secondary
+                content: "API Calls/Day"
+              - type: text
+                variant: caption
+                color: text-secondary
+                content: "Rating"
+
+      # 4. Block: feature grid
+      - block: feature-grid
+        title: "Everything you need to ship with confidence"
+        subtitle: "Purpose-built tools for every stage of your product development lifecycle."
+        columns: 3
+        items:
+          - icon: zap
+            title: "Lightning Fast"
+            description: "Sub-second build times and instant hot reloading keep your team in the flow."
+          - icon: shield
+            title: "Enterprise Security"
+            description: "SOC 2 Type II, GDPR compliant, with role-based access controls out of the box."
+          - icon: git-branch
+            title: "Git-Native Workflow"
+            description: "Branch previews, automated checks, and one-click rollbacks built into your CI pipeline."
+          - icon: bar-chart
+            title: "Real-Time Analytics"
+            description: "Track performance, errors, and user behavior with zero-config dashboards."
+          - icon: users
+            title: "Team Collaboration"
+            description: "Shared workspaces, inline comments, and live cursors for seamless teamwork."
+          - icon: globe
+            title: "Global Edge Network"
+            description: "Serve your app from 90+ edge locations for sub-50ms latency worldwide."
+
+      # 5. Raw element: row with two comparison cards
+      - type: row
+        padding: xl
+        gap: lg
+        children:
+          - type: card
+            grow: 1
+            padding: lg
+            children:
+              - type: text
+                variant: h4
+                content: "Before Acme"
+              - type: list
+                children:
+                  - type: list-item
+                    leading: icon:x
+                    title: "Manual deployments taking 45+ minutes"
+                  - type: list-item
+                    leading: icon:x
+                    title: "Scattered monitoring across 5 tools"
+                  - type: list-item
+                    leading: icon:x
+                    title: "No preview environments for PRs"
+                  - type: list-item
+                    leading: icon:x
+                    title: "Weekly release cycles"
+          - type: card
+            grow: 1
+            padding: lg
+            children:
+              - type: text
+                variant: h4
+                content: "After Acme"
+              - type: list
+                children:
+                  - type: list-item
+                    leading: icon:check
+                    title: "Automated deploys in under 30 seconds"
+                  - type: list-item
+                    leading: icon:check
+                    title: "Unified dashboard for all metrics"
+                  - type: list-item
+                    leading: icon:check
+                    title: "Every PR gets a preview URL"
+                  - type: list-item
+                    leading: icon:check
+                    title: "Ship multiple times per day"
+
+      # 6. Block: testimonial grid
+      - block: testimonial-grid
+        title: "What our customers say"
+        columns: 3
+        items:
+          - quote: "We cut our deployment time from 40 minutes to 25 seconds. The ROI was immediate and undeniable."
+            author: "Maria Lindqvist"
+            role: "VP of Engineering"
+            company: "Nordstream Tech"
+            avatar:
+              initials: "ML"
+            rating: 5
+          - quote: "The unified dashboard eliminated our tool sprawl overnight. One pane of glass for everything."
+            author: "Jonas Eriksson"
+            role: "CTO"
+            company: "Fjord Analytics"
+            avatar:
+              initials: "JE"
+            rating: 5
+          - quote: "Preview environments changed how our design team reviews work. Fewer meetings, faster feedback."
+            author: "Ingrid Haugen"
+            role: "Head of Design"
+            company: "Brygge Studio"
+            avatar:
+              initials: "IH"
+            rating: 4
+
+      # 7. Raw element: stack with alert and informational text
+      - type: stack
+        padding: xl
+        gap: md
+        align: center
+        children:
+          - type: alert
+            variant: info
+            title: "New: AI-Powered Error Triage"
+            content: "Our latest release automatically groups and prioritizes errors using machine learning. Enable it in your project settings."
+          - type: text
+            variant: body-sm
+            color: text-secondary
+            content: "Available on Pro and Enterprise plans. Upgrade from your billing dashboard."
+            align: center
+
+      # 8. Block: CTA banner
+      - block: cta-banner
+        heading: "Ready to ship faster?"
+        subheading: "Join 2,000+ teams already building with Acme. No credit card required for the 14-day free trial."
+        cta-label: "Start Free Trial"
+        cta-secondary-label: "Talk to Sales"
+        align: center
+        background: accent
+
+      # 9. Block: footer
+      - block: footer
+        variant: multi-column
+        logo: "Acme Inc"
+        columns:
+          - title: "Product"
+            links: ["Features", "Pricing", "Changelog", "Roadmap"]
+          - title: "Resources"
+            links: ["Documentation", "API Reference", "Guides", "Blog"]
+          - title: "Company"
+            links: ["About", "Careers", "Press", "Contact"]
+          - title: "Legal"
+            links: ["Privacy", "Terms", "Security", "GDPR"]
+        social:
+          - "twitter"
+          - "github"
+          - "linkedin"
+        copyright: "2026 Acme Inc. All rights reserved."

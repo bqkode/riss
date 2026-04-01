@@ -1,0 +1,49 @@
+riss: "0.1"
+meta:
+  name: Test - Stats Row Variants
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: stats_row_variants
+    title: Test - Stats Row Variants
+    children:
+      - block: stats-row
+        variant: inline
+        background: surface
+        items:
+          - value: 12,000+
+            label: Users onboarded
+            icon: users
+            trend: +18% this quarter
+          - value: kr 120M
+            label: Total volume
+            icon: trending-up
+            trend: +32% year over year
+          - value: 45 ms
+            label: Average response time
+            icon: zap
+            trend: "-12% from last month"
+      - block: stats-row
+        variant: card
+        background: accent-soft
+        items:
+          - value: 3,200+
+            label: Enterprise clients
+            icon: building
+            trend: +24% this year
+          - value: 99.99%
+            label: SLA compliance
+            icon: shield-check
+            trend: Maintained 12 months
+          - value: 15 min
+            label: Median support response
+            icon: clock
+            trend: "-40% since Q1"
+          - value: 4.9/5
+            label: G2 rating
+            icon: star
+            trend: Up from 4.7

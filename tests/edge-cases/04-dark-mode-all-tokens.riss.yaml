@@ -1,0 +1,150 @@
+# Edge case: dark mode with every color token used explicitly
+# Verifies that all 14 color tokens render correctly in dark mode
+riss: "0.1"
+meta:
+  name: "Dark Mode — All Color Tokens"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: dark
+    accent: "#818CF8"
+
+screens:
+  - id: dark_tokens
+    title: "All Color Tokens (Dark)"
+    path: /test/dark-tokens
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: md
+            gap: md
+            children:
+
+              # --- Text tokens ---
+              - type: section
+                title: "Text Colors"
+                children:
+                  - type: card
+                    variant: filled
+                    children:
+                      - type: text
+                        content: "color: text — Primary readable text"
+                        color: text
+                      - type: text
+                        content: "color: text-secondary — Muted captions and labels"
+                        color: text-secondary
+                      - type: text
+                        content: "color: text-disabled — Disabled or inactive text"
+                        color: text-disabled
+
+              # --- Background tokens ---
+              - type: section
+                title: "Background Surfaces"
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: card
+                        variant: filled
+                        background: background
+                        children:
+                          - type: text
+                            variant: label
+                            content: "background — #1A1A1A"
+                      - type: card
+                        variant: filled
+                        background: surface
+                        children:
+                          - type: text
+                            variant: label
+                            content: "surface — #2A2A2A"
+                      - type: card
+                        variant: elevated
+                        background: surface-raised
+                        children:
+                          - type: text
+                            variant: label
+                            content: "surface-raised — #333333"
+
+              # --- Border tokens ---
+              - type: section
+                title: "Borders"
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: card
+                        border:
+                          color: border
+                          width: 2
+                        children:
+                          - type: text
+                            variant: label
+                            content: "border — default"
+                      - type: card
+                        border:
+                          color: border-strong
+                          width: 2
+                        children:
+                          - type: text
+                            variant: label
+                            content: "border-strong — emphasized"
+
+              # --- Accent tokens ---
+              - type: section
+                title: "Accent"
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: button
+                        label: "accent — Primary Action"
+                        variant: primary
+                        full-width: true
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        children:
+                          - type: text
+                            content: "accent-soft — Tinted background"
+                            color: accent
+
+              # --- Semantic tokens ---
+              - type: section
+                title: "Semantic Colors"
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: alert
+                        variant: success
+                        title: "Success"
+                        message: "Operation completed."
+                      - type: text
+                        content: "Success text inline"
+                        color: success
+                      - type: alert
+                        variant: warning
+                        title: "Warning"
+                        message: "Check your settings."
+                      - type: text
+                        content: "Warning text inline"
+                        color: warning
+                      - type: alert
+                        variant: error
+                        title: "Error"
+                        message: "Something went wrong."
+                      - type: text
+                        content: "Error text inline"
+                        color: error
+
+              # --- Placeholder token ---
+              - type: section
+                title: "Placeholder"
+                children:
+                  - type: image
+                    aspect: "16/9"
+                    label: "placeholder — Image area"
+                    background: placeholder
+                    rounded: md

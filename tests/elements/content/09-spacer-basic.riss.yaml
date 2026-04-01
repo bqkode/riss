@@ -1,0 +1,135 @@
+# Test: Spacer element — fixed sizes, flexible grow, in rows and stacks
+# Verifies spacer behavior as both fixed-size gaps and flexible pushers.
+
+riss: "0.1"
+meta:
+  name: "Test - Spacer Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: spacer_fixed
+    title: "Fixed-Size Spacers"
+    children:
+      - type: stack
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "FASTE ST\u00D8RRELSER I STACK"
+
+          - type: text
+            variant: body-sm
+            content: "8px mellomrom under"
+          - type: spacer
+            size: 8
+          - type: divider
+
+          - type: text
+            variant: body-sm
+            content: "16px mellomrom under"
+          - type: spacer
+            size: 16
+          - type: divider
+
+          - type: text
+            variant: body-sm
+            content: "24px mellomrom under"
+          - type: spacer
+            size: 24
+          - type: divider
+
+          - type: text
+            variant: body-sm
+            content: "32px mellomrom under"
+          - type: spacer
+            size: 32
+          - type: divider
+
+          - type: text
+            variant: body-sm
+            content: "48px mellomrom under"
+          - type: spacer
+            size: 48
+          - type: divider
+
+          - type: text
+            variant: body-sm
+            content: "Slutt"
+
+  - id: spacer_flexible_row
+    title: "Flexible Spacer in Row"
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: label
+            content: "FLEKSIBEL SPACER I RAD (SKYVER ELEMENTER FRA HVERANDRE)"
+
+          # Spacer pushing elements to opposite ends
+          - type: card
+            padding: md
+            children:
+              - type: row
+                align: center
+                children:
+                  - type: text
+                    variant: body
+                    weight: semibold
+                    content: "Kari Nordmann"
+                  - type: spacer
+                  - type: text
+                    variant: body
+                    color: accent
+                    content: "1 250 kr"
+
+          # Spacer between three elements
+          - type: card
+            padding: md
+            children:
+              - type: row
+                align: center
+                children:
+                  - type: icon
+                    name: arrow-left
+                    size: 24
+                  - type: spacer
+                  - type: text
+                    variant: h4
+                    content: "Innstillinger"
+                  - type: spacer
+                  - type: icon
+                    name: more-vertical
+                    size: 24
+
+  - id: spacer_flexible_stack
+    title: "Flexible Spacer in Stack"
+    children:
+      - type: stack
+        padding: lg
+        height: "full"
+        children:
+          - type: text
+            variant: label
+            content: "FLEKSIBEL SPACER I STACK (SKYVER TIL BUNN)"
+
+          - type: text
+            variant: h3
+            content: "Velkommen tilbake, Erik"
+
+          - type: text
+            variant: body
+            color: text-secondary
+            content: "Du har 3 uleste meldinger og 1 ventende betaling."
+
+          # Flexible spacer pushes button to bottom
+          - type: spacer
+
+          - type: button
+            label: "G\u00E5 til oversikten"
+            variant: primary
+            full-width: true

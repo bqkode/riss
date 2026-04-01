@@ -1,0 +1,17 @@
+riss: "0.1"
+meta:
+  name: Test - Rating Block Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: rating_block_basic
+    title: Test - Rating Block Basic
+    children:
+      - block: rating-block
+        variant: compact
+        rating: 4.7
+        total-reviews: 1284

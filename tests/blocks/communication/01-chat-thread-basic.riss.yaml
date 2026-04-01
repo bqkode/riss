@@ -1,0 +1,39 @@
+riss: "0.1"
+meta:
+  name: Test - Chat Thread Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: chat_thread_basic
+    title: Test - Chat Thread Basic
+    children:
+      - block: chat-thread
+        header:
+          name: Ola Hansen
+          subtitle: Online
+          avatar: OH
+        messages:
+          - sender: other
+            text: Hei! Skal vi ta en fjelltur i helgen?
+            time: "10:32"
+          - sender: self
+            text: Ja, det hadde vært fint! Hvor tenker du?
+            time: "10:33"
+          - sender: other
+            text: Hva med Besseggen? Været ser bra ut på lørdag.
+            time: "10:35"
+          - sender: self
+            text: Perfekt! Jeg har ikke gått Besseggen på lenge. Skal vi starte tidlig?
+            time: "10:36"
+          - sender: other
+            text: Vi kan kjøre opp fredag kveld og overnatte på Gjendesheim. Starter turen kl 07 på lørdag?
+            time: "10:38"
+          - sender: self
+            text: Høres ut som en plan! Jeg booker hytte nå.
+            time: "10:40"
+        input: true
+        input-placeholder: Skriv en melding...

@@ -1,0 +1,97 @@
+# Test: Modal with ALL properties
+# Tests title, width ("half", "2/3", pixel value), and closable (true/false).
+# Two modals showing different widths and closable states.
+riss: "0.1"
+meta:
+  name: Test - Modal All Properties
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: modal_all_properties
+    title: Test - Modal All Properties
+    children:
+      - type: modal
+        title: Bekreft sletting
+        width: half
+        closable: true
+        children:
+          - type: text
+            content: Er du sikker pa at du vil slette prosjektet 'Nordlys Kampanje'? Denne handlingen kan ikke angres.
+          - type: row
+            gap: sm
+            justify: end
+            children:
+              - type: button
+                label: Nei, behold
+                variant: outline
+              - type: button
+                label: Ja, slett
+                variant: primary
+                color: error
+      - type: modal
+        title: Rediger profil
+        width: 2/3
+        closable: false
+        children:
+          - type: text
+            variant: body-sm
+            color: text-secondary
+            content: Oppdater profilinformasjonen din. Alle felt merket med * er obligatoriske.
+          - type: stack
+            gap: md
+            children:
+              - type: row
+                gap: md
+                children:
+                  - type: input
+                    label: Fornavn
+                    value: Henrik
+                    required: true
+                  - type: input
+                    label: Etternavn
+                    value: Ibsen
+                    required: true
+              - type: input
+                label: Stilling
+                value: Produktdesigner
+              - type: select
+                label: Avdeling
+                options:
+                  - Design
+                  - Utvikling
+                  - Salg
+                  - Ledelse
+                selected: 0
+          - type: row
+            gap: sm
+            justify: end
+            children:
+              - type: button
+                label: Avbryt
+                variant: ghost
+              - type: button
+                label: Lagre endringer
+                variant: primary
+      - type: modal
+        title: Hurtignotat
+        width: 400
+        closable: true
+        children:
+          - type: textarea
+            placeholder: Skriv et raskt notat...
+            rows: 4
+          - type: row
+            gap: sm
+            justify: end
+            children:
+              - type: button
+                label: Forkast
+                variant: ghost
+              - type: button
+                label: Lagre notat
+                variant: primary
+                leading-icon: check

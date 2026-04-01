@@ -1,0 +1,37 @@
+riss: "0.1"
+meta:
+  name: Test - Checkout Steps All Variants
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#059669"
+screens:
+  - id: checkout_steps_all_variants
+    title: Test - Checkout Steps All Variants
+    children:
+      - block: checkout-steps
+        variant: numbered
+        steps:
+          - Cart
+          - Shipping
+          - Payment
+          - Confirmation
+        current-step: 3
+      - block: checkout-steps
+        variant: dots
+        steps:
+          - Cart
+          - Shipping
+          - Payment
+          - Confirmation
+        current-step: 1
+      - block: checkout-steps
+        variant: bar
+        steps:
+          - Cart
+          - Shipping
+          - Payment
+          - Confirmation
+        current-step: 4

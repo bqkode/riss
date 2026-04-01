@@ -1,0 +1,40 @@
+riss: "0.1"
+meta:
+  name: Test - Accordion All Variants
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: accordion_all_variants
+    title: Test - Accordion All Variants
+    children:
+      - block: accordion
+        title: Default Variant
+        variant: default
+        single-expand: false
+        items:
+          - question: What payment methods do you accept?
+            answer: We accept Visa, Mastercard, Vipps, Klarna, and bank transfer.
+          - question: Is there a membership program?
+            answer: Yes, our Fjordklubben loyalty program offers exclusive discounts and early access to new products.
+      - block: accordion
+        title: Bordered Variant
+        variant: bordered
+        single-expand: true
+        items:
+          - question: Do you offer gift wrapping?
+            answer: Yes, we offer complimentary gift wrapping on all orders. Select the option at checkout.
+          - question: How do I use a promo code?
+            answer: Enter your promo code in the discount field during checkout. Only one code can be applied per order.
+      - block: accordion
+        title: Separated Variant
+        variant: separated
+        single-expand: true
+        items:
+          - question: Can I pick up my order in store?
+            answer: Click & Collect is available at our stores in Oslo, Bergen, and Trondheim. Orders are typically ready within 2 hours.
+          - question: Do you offer size guides?
+            answer: Yes, detailed size guides are available on every product page. We also offer free size consultations via chat.

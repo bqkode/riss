@@ -1,0 +1,38 @@
+riss: "0.1"
+meta:
+  name: Test - Media Gallery Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: media_gallery_basic
+    title: Test - Media Gallery Basic
+    children:
+      - block: media-gallery
+        columns: 3
+        gap: xs
+        items:
+          - label: Aurora borealis over Tromsø
+            aspect: 1/1
+            badge: Featured
+          - label: Fjord at sunset
+            aspect: 1/1
+          - label: Stavkirke in Borgund
+            aspect: 1/1
+            badge: New
+          - label: Reindeer in Finnmark
+            aspect: 1/1
+          - label: Trolltunga rock formation
+            aspect: 1/1
+          - label: Bergen Bryggen wharf
+            aspect: 1/1
+          - label: Midnight sun over Nordkapp
+            aspect: 1/1
+          - label: Snowy mountain village
+            aspect: 1/1
+            badge: Popular
+          - label: Coastal fishing boats
+            aspect: 1/1

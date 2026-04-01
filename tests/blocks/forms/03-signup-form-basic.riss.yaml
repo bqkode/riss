@@ -1,0 +1,25 @@
+riss: "0.1"
+meta:
+  name: Test - Signup Form Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: signup_form_basic
+    title: Test - Signup Form Basic
+    children:
+      - block: signup-form
+        logo: Nordfjord Digital
+        heading: Create your account
+        fields:
+          - name
+          - email
+          - password
+          - confirm-password
+        social:
+          - Google
+        terms: true
+        cta-label: Create account

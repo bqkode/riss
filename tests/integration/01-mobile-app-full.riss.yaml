@@ -1,0 +1,500 @@
+riss: "0.1"
+meta:
+  name: Integration - FjordFit Mobile App
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: home
+    title: FjordFit - Home
+    path: /home
+    children:
+      - type: navbar
+        title: FjordFit
+        trailing:
+          - icon:bell
+          - icon:settings
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: lg
+            gap: md
+            children:
+              - type: text
+                variant: h3
+                content: God morgen, Astrid
+              - type: text
+                variant: body-sm
+                color: text-secondary
+                content: Onsdag 1. april 2026
+          - type: row
+            padding: md
+            gap: sm
+            children:
+              - type: card
+                children:
+                  - type: stack
+                    padding: md
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: footprints
+                        color: accent
+                      - type: text
+                        variant: h2
+                        content: 8,432
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Skritt
+              - type: card
+                children:
+                  - type: stack
+                    padding: md
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: flame
+                        color: accent
+                      - type: text
+                        variant: h2
+                        content: "524"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Kalorier
+          - type: row
+            padding: md
+            gap: sm
+            children:
+              - type: card
+                children:
+                  - type: stack
+                    padding: md
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: map-pin
+                        color: accent
+                      - type: text
+                        variant: h2
+                        content: 6.2 km
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Distanse
+              - type: card
+                children:
+                  - type: stack
+                    padding: md
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: timer
+                        color: accent
+                      - type: text
+                        variant: h2
+                        content: 47 min
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Aktive minutter
+          - type: section
+            title: Ukeaktivitet
+            children:
+              - type: card
+                children:
+                  - type: placeholder
+                    label: Weekly activity chart
+                    aspect: 16/9
+          - type: section
+            title: Siste treningsokter
+            children:
+              - type: list
+                items:
+                  - title: Morgenloep langs Akerselva
+                    subtitle: I dag kl. 06:30 - 5.2 km - 28 min
+                    leading: icon:activity
+                  - title: Styrketrening Sagene
+                    subtitle: I gar - 45 min - 312 kcal
+                    leading: icon:dumbbell
+                  - title: Sykling til Sognsvann
+                    subtitle: Mandag - 14.8 km - 42 min
+                    leading: icon:bike
+                  - title: Fjelltur Nordmarka
+                    subtitle: Sondag - 9.1 km - 2t 15min
+                    leading: icon:mountain
+      - type: tabbar
+        items:
+          - icon: home
+            label: Hjem
+            active: true
+          - icon: dumbbell
+            label: Trening
+          - icon: bar-chart
+            label: Fremgang
+          - icon: user
+            label: Profil
+  - id: workouts
+    title: FjordFit - Workouts
+    path: /workouts
+    children:
+      - type: navbar
+        title: Trening
+        trailing: icon:search
+      - type: scroll
+        direction: vertical
+        children:
+          - type: section
+            title: Loeping
+            children:
+              - type: list
+                items:
+                  - title: Intervalltrening
+                    subtitle: 30 min - 320 kcal
+                    leading: icon:zap
+                    trailing: icon:chevron-right
+                  - title: Rolig langtur
+                    subtitle: 60 min - 480 kcal
+                    leading: icon:activity
+                    trailing: icon:chevron-right
+                  - title: Tempoloep
+                    subtitle: 45 min - 410 kcal
+                    leading: icon:timer
+                    trailing: icon:chevron-right
+          - type: section
+            title: Sykling
+            children:
+              - type: list
+                items:
+                  - title: Landevei
+                    subtitle: 90 min - 620 kcal
+                    leading: icon:bike
+                    trailing: icon:chevron-right
+                  - title: Terrengsykling
+                    subtitle: 60 min - 540 kcal
+                    leading: icon:mountain
+                    trailing: icon:chevron-right
+          - type: section
+            title: Svomming
+            children:
+              - type: list
+                items:
+                  - title: Banesvomming
+                    subtitle: 45 min - 380 kcal
+                    leading: icon:waves
+                    trailing: icon:chevron-right
+                  - title: Apent vann
+                    subtitle: 60 min - 450 kcal
+                    leading: icon:compass
+                    trailing: icon:chevron-right
+          - type: section
+            title: Fjelltur
+            children:
+              - type: list
+                items:
+                  - title: Dagstur
+                    subtitle: 4t - 860 kcal
+                    leading: icon:map
+                    trailing: icon:chevron-right
+                  - title: Topptur
+                    subtitle: 6t - 1200 kcal
+                    leading: icon:flag
+                    trailing: icon:chevron-right
+      - type: tabbar
+        items:
+          - icon: home
+            label: Hjem
+          - icon: dumbbell
+            label: Trening
+            active: true
+          - icon: bar-chart
+            label: Fremgang
+          - icon: user
+            label: Profil
+  - id: workout_detail
+    title: FjordFit - Workout Detail
+    path: /workouts/morning-run
+    children:
+      - type: navbar
+        title: Morgenloep
+        leading: icon:arrow-left
+        trailing: icon:share
+      - type: scroll
+        direction: vertical
+        children:
+          - type: placeholder
+            label: Route map along Akerselva
+            aspect: 16/9
+          - type: row
+            padding: md
+            gap: sm
+            children:
+              - type: card
+                children:
+                  - type: stack
+                    padding: sm
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h3
+                        content: 5.2 km
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Distanse
+              - type: card
+                children:
+                  - type: stack
+                    padding: sm
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h3
+                        content: "28:14"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Tid
+              - type: card
+                children:
+                  - type: stack
+                    padding: sm
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h3
+                        content: "5:26"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Tempo/km
+              - type: card
+                children:
+                  - type: stack
+                    padding: sm
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h3
+                        content: 42 m
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Stigning
+          - type: section
+            title: Kilometerfordeling
+            children:
+              - items:
+                  - date: Km 1
+                    title: 5:38/km
+                    description: Oppvarming langs Akerselva. Rolig start.
+                  - date: Km 2
+                    title: 5:22/km
+                    description: Fant rytmen. Jevnt tempo forbi Vulkan.
+                  - date: Km 3
+                    title: 5:18/km
+                    description: Raskeste kilometer. Flatt terreng ved Gronland.
+                  - date: Km 4
+                    title: 5:31/km
+                    description: Liten motbakke ved Toeyen. Holdt godt tempo.
+                  - date: Km 5
+                    title: 5:45/km
+                    description: Avslutning tilbake. Nedjogging siste 200m.
+                block: timeline
+          - type: stack
+            padding: lg
+            gap: sm
+            children:
+              - type: button
+                label: Gjenta treningsoekt
+                variant: primary
+                full-width: true
+              - type: button
+                label: Del resultat
+                variant: secondary
+                full-width: true
+  - id: progress
+    title: FjordFit - Progress
+    path: /progress
+    children:
+      - type: navbar
+        title: Fremgang
+      - type: tabs
+        items:
+          - label: Uke
+            active: true
+          - label: Maned
+          - label: Ar
+      - type: scroll
+        direction: vertical
+        children:
+          - type: section
+            title: Aktivitetsoversikt
+            children:
+              - type: card
+                children:
+                  - type: placeholder
+                    label: Weekly progress bar chart
+                    aspect: 16/9
+          - type: section
+            title: Sammenligning
+            children:
+              - type: list
+                items:
+                  - title: Skritt denne uken
+                    subtitle: 52,840 vs 48,200 forrige uke
+                    trailing: icon:trending-up
+                  - title: Kalorier brent
+                    subtitle: 3,680 vs 3,420 forrige uke
+                    trailing: icon:trending-up
+                  - title: Distanse totalt
+                    subtitle: 38.4 km vs 41.2 km forrige uke
+                    trailing: icon:trending-down
+                  - title: Treningsokter
+                    subtitle: 5 vs 4 forrige uke
+                    trailing: icon:trending-up
+          - type: section
+            title: Prestasjoner
+            children:
+              - type: list
+                items:
+                  - title: Fjordvandreren
+                    subtitle: Gatt 100 km totalt
+                    leading: icon:award
+                  - title: Morgenfugl
+                    subtitle: 10 treningsokter for kl. 07:00
+                    leading: icon:sunrise
+                  - title: Ukentlig kriger
+                    subtitle: Trent 5 dager i rad
+                    leading: icon:flame
+                  - title: Fartsdemon
+                    subtitle: Loept 1 km under 4:30
+                    leading: icon:zap
+      - type: tabbar
+        items:
+          - icon: home
+            label: Hjem
+          - icon: dumbbell
+            label: Trening
+          - icon: bar-chart
+            label: Fremgang
+            active: true
+          - icon: user
+            label: Profil
+  - id: profile
+    title: FjordFit - Profile
+    path: /profile
+    children:
+      - type: navbar
+        title: Profil
+        trailing: icon:settings
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: lg
+            gap: md
+            align: center
+            children:
+              - type: avatar
+                initials: AH
+                size: xl
+              - type: text
+                variant: h3
+                content: Astrid Haugen
+              - type: text
+                variant: body-sm
+                color: text-secondary
+                content: Aktiv loper og fjellentusiast fra Oslo
+          - type: row
+            padding: md
+            gap: sm
+            children:
+              - type: card
+                children:
+                  - type: stack
+                    padding: sm
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h2
+                        content: "142"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Treningsokter
+              - type: card
+                children:
+                  - type: stack
+                    padding: sm
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h2
+                        content: "28"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Dager i rad
+              - type: card
+                children:
+                  - type: stack
+                    padding: sm
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h2
+                        content: "847"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: Totalt km
+          - type: section
+            title: Innstillinger
+            children:
+              - type: list
+                items:
+                  - title: Rediger profil
+                    leading: icon:edit
+                    trailing: icon:chevron-right
+                  - title: Treningsmal
+                    leading: icon:target
+                    trailing: icon:chevron-right
+                  - title: Varsler
+                    leading: icon:bell
+                    trailing: icon:chevron-right
+                  - title: Tilkoblede enheter
+                    leading: icon:watch
+                    trailing: icon:chevron-right
+                  - title: Personvern
+                    leading: icon:shield
+                    trailing: icon:chevron-right
+                  - title: Hjelp og stotte
+                    leading: icon:help-circle
+                    trailing: icon:chevron-right
+                  - title: Logg ut
+                    leading: icon:log-out
+                    trailing: icon:chevron-right
+      - type: tabbar
+        items:
+          - icon: home
+            label: Hjem
+          - icon: dumbbell
+            label: Trening
+          - icon: bar-chart
+            label: Fremgang
+          - icon: user
+            label: Profil
+            active: true

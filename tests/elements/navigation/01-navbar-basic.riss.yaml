@@ -1,0 +1,48 @@
+# Test: navbar element with basic properties
+# Verifies title, leading icon, and trailing (single + array) rendering.
+riss: "0.1"
+meta:
+  name: "Test - Navbar Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: navbar_single_trailing
+    title: "Navbar - Single Trailing Icon"
+    path: /test/navbar-single
+    children:
+      # Navbar with single trailing icon
+      - type: navbar
+        title: "Settings"
+        leading: icon:arrow-left
+        trailing: icon:more-vertical
+
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: body
+            content: "This screen tests a navbar with a single trailing icon."
+
+  - id: navbar_array_trailing
+    title: "Navbar - Array Trailing Icons"
+    path: /test/navbar-array
+    children:
+      # Navbar with array of trailing icons
+      - type: navbar
+        title: "Settings"
+        leading: icon:arrow-left
+        trailing:
+          - icon:search
+          - icon:more-vertical
+
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: body
+            content: "This screen tests a navbar with two trailing icons passed as an array."

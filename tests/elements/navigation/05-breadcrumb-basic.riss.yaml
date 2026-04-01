@@ -1,0 +1,91 @@
+# Test: breadcrumb element with items and separators
+# Verifies breadcrumb rendering with different separator characters.
+riss: "0.1"
+meta:
+  name: "Test - Breadcrumb Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: breadcrumb_variants
+    title: "Breadcrumb - Separators"
+    path: /test/breadcrumb
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Default separator: "/"
+          - type: section
+            title: "separator: / (default)"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: breadcrumb
+                    items:
+                      - "Home"
+                      - "Products"
+                      - "Running Shoes"
+
+          # Separator: ">"
+          - type: section
+            title: "separator: >"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: breadcrumb
+                    separator: ">"
+                    items:
+                      - "Home"
+                      - "Electronics"
+                      - "Headphones"
+                      - "Sony WH-1000XM5"
+
+          # Separator: "→"
+          - type: section
+            title: "separator: →"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: breadcrumb
+                    separator: "→"
+                    items:
+                      - "Dashboard"
+                      - "Reports"
+                      - "Monthly Revenue"
+
+          # Short breadcrumb (2 items)
+          - type: section
+            title: "Two items only"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: breadcrumb
+                    items:
+                      - "Account"
+                      - "Privacy Settings"
+
+          # Long breadcrumb (5 items)
+          - type: section
+            title: "Deep navigation path"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: breadcrumb
+                    items:
+                      - "Home"
+                      - "Categories"
+                      - "Clothing"
+                      - "Men"
+                      - "Winter Jackets"

@@ -1,0 +1,27 @@
+riss: "0.1"
+meta:
+  name: "Test - Breadcrumb Header Basic"
+  viewport: { width: 1440, height: 900 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: breadcrumb_header_basic
+    title: "Test - Breadcrumb Header Basic"
+    children:
+      - block: breadcrumb-header
+        breadcrumb:
+          - "Home"
+          - "Projects"
+          - "Website Redesign"
+        title: "Website Redesign"
+        description: "Manage tasks, milestones, and team members for the website redesign project."
+
+      - block: breadcrumb-header
+        breadcrumb:
+          - "Settings"
+          - "Organization"
+          - "Billing"
+        title: "Billing & Plans"
+        description: "View your current plan, update payment methods, and download invoices."

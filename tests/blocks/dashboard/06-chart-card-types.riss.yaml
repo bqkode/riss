@@ -1,0 +1,58 @@
+riss: "0.1"
+meta:
+  name: Test - Chart Card All Types
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: chart_card_all_types
+    title: Test - Chart Card All Types
+    children:
+      - block: chart-card
+        title: Monthly Revenue
+        subtitle: Jan - Dec 2025
+        chart-type: line
+        chart-label: Revenue over time
+        aspect: 16/9
+        actions:
+          - label: Export
+            icon: download
+      - block: chart-card
+        title: Sales by Region
+        subtitle: Nordic markets breakdown
+        chart-type: bar
+        chart-label: Regional sales comparison
+        aspect: 16/9
+        actions:
+          - label: Export
+            icon: download
+      - block: chart-card
+        title: Traffic Sources
+        subtitle: Where visitors come from
+        chart-type: pie
+        chart-label: Traffic source distribution
+        aspect: 16/9
+        actions:
+          - label: Export
+            icon: download
+      - block: chart-card
+        title: Budget Allocation
+        subtitle: Q1 2026 spending categories
+        chart-type: donut
+        chart-label: Budget by department
+        aspect: 16/9
+        actions:
+          - label: Export
+            icon: download
+      - block: chart-card
+        title: Active Users
+        subtitle: Daily active users over 90 days
+        chart-type: area
+        chart-label: User activity trend
+        aspect: 16/9
+        actions:
+          - label: Export
+            icon: download

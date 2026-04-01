@@ -1,0 +1,368 @@
+riss: "0.1"
+
+meta:
+  name: "FlowDemo"
+  description: "Demonstrates screen flow with next property on elements and blocks"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#6366F1"
+
+screens:
+  # Entry screen — buttons branch to signup or login
+  - id: welcome
+    title: "Welcome"
+    children:
+      - type: stack
+        padding: xl
+        justify: center
+        height: "full"
+        gap: lg
+        align: center
+        children:
+          - type: icon
+            name: zap
+            size: 64
+            color: accent
+          - type: text
+            variant: h1
+            content: "Velkommen til Fjordly"
+            align: center
+          - type: text
+            variant: body
+            content: "Din personlige reiseplanlegger for norske fjorder og fjell."
+            color: text-secondary
+            align: center
+          - type: spacer
+            size: 32
+          - type: button
+            label: "Opprett konto"
+            variant: primary
+            size: lg
+            full-width: true
+            next: signup
+          - type: button
+            label: "Logg inn"
+            variant: outline
+            size: lg
+            full-width: true
+            next: login
+
+  # Signup — leads to onboarding
+  - id: signup
+    title: "Sign Up"
+    path: "/signup"
+    children:
+      - type: navbar
+        title: "Opprett konto"
+        leading: icon:arrow-left
+      - type: scroll
+        grow: 1
+        padding: lg
+        gap: md
+        children:
+          - type: input
+            label: "Fullt navn"
+            placeholder: "Ola Nordmann"
+            required: true
+          - type: input
+            label: "E-post"
+            placeholder: "ola@example.no"
+            leading-icon: mail
+            required: true
+          - type: input
+            label: "Passord"
+            placeholder: "Minst 8 tegn"
+            leading-icon: lock
+            trailing-icon: eye-off
+            required: true
+          - type: checkbox
+            label: "Jeg godtar vilkarene og personvernreglene"
+          - type: button
+            label: "Opprett konto"
+            variant: primary
+            size: lg
+            full-width: true
+            next: onboarding
+
+  # Login — leads to home
+  - id: login
+    title: "Login"
+    path: "/login"
+    children:
+      - type: navbar
+        title: "Logg inn"
+        leading: icon:arrow-left
+      - type: scroll
+        grow: 1
+        padding: lg
+        gap: md
+        children:
+          - type: input
+            label: "E-post"
+            placeholder: "ola@example.no"
+            leading-icon: mail
+          - type: input
+            label: "Passord"
+            placeholder: "Ditt passord"
+            leading-icon: lock
+            trailing-icon: eye-off
+          - type: row
+            justify: between
+            align: center
+            children:
+              - type: checkbox
+                label: "Husk meg"
+              - type: button
+                label: "Glemt passord?"
+                variant: text
+                size: sm
+          - type: button
+            label: "Logg inn"
+            variant: primary
+            size: lg
+            full-width: true
+            next: home
+
+  # Onboarding — leads to home
+  - id: onboarding
+    title: "Onboarding"
+    path: "/onboarding"
+    children:
+      - type: stack
+        padding: xl
+        justify: center
+        height: "full"
+        gap: lg
+        align: center
+        children:
+          - type: image
+            aspect: "4/3"
+            label: "Fjord Illustration"
+            rounded: lg
+          - type: text
+            variant: h2
+            content: "Velg dine interesser"
+            align: center
+          - type: text
+            variant: body-sm
+            content: "Vi tilpasser opplevelsen din basert pa hva du liker."
+            color: text-secondary
+            align: center
+          - type: row
+            gap: sm
+            wrap: true
+            justify: center
+            children:
+              - type: chip
+                label: "Fjordturer"
+              - type: chip
+                label: "Fjellvandring"
+                variant: outlined
+              - type: chip
+                label: "Nordlys"
+                variant: outlined
+              - type: chip
+                label: "Breforing"
+              - type: chip
+                label: "Kayakk"
+                variant: outlined
+              - type: chip
+                label: "Skiturer"
+          - type: spacer
+          - type: button
+            label: "Kom i gang"
+            variant: primary
+            size: lg
+            full-width: true
+            next: home
+
+  # Home — branches to trip detail or search
+  - id: home
+    title: "Home"
+    path: "/"
+    children:
+      - type: navbar
+        title: "Fjordly"
+        trailing:
+          - icon:bell
+          - icon:user
+      - type: scroll
+        grow: 1
+        padding: lg
+        gap: lg
+        children:
+          - type: text
+            variant: h2
+            content: "God morgen, Ola"
+          - type: text
+            variant: body-sm
+            content: "Hva vil du oppleve i dag?"
+            color: text-secondary
+          - type: input
+            placeholder: "Sok etter opplevelser..."
+            leading-icon: search
+            next: search
+          - type: text
+            variant: h4
+            content: "Populaere turer"
+          - type: scroll
+            direction: horizontal
+            height: 200
+            gap: md
+            next: trip_detail
+            children:
+              - type: card
+                width: 160
+                rounded: lg
+                children:
+                  - type: image
+                    aspect: "3/4"
+                    label: "Geirangerfjorden"
+                    rounded: lg
+              - type: card
+                width: 160
+                rounded: lg
+                children:
+                  - type: image
+                    aspect: "3/4"
+                    label: "Trolltunga"
+                    rounded: lg
+              - type: card
+                width: 160
+                rounded: lg
+                children:
+                  - type: image
+                    aspect: "3/4"
+                    label: "Lofoten"
+                    rounded: lg
+      - type: tabbar
+        items:
+          - icon: home
+            label: "Hjem"
+            active: true
+          - icon: search
+            label: "Sok"
+          - icon: heart
+            label: "Favoritter"
+          - icon: user
+            label: "Profil"
+
+  # Trip detail — end of flow (no next)
+  - id: trip_detail
+    title: "Trip Detail"
+    path: "/trip/:id"
+    children:
+      - type: navbar
+        leading: icon:arrow-left
+        trailing:
+          - icon:heart
+          - icon:share
+      - type: scroll
+        grow: 1
+        children:
+          - type: image
+            aspect: "16/9"
+            label: "Geirangerfjorden Panorama"
+          - type: stack
+            padding: lg
+            gap: md
+            children:
+              - type: text
+                variant: h2
+                content: "Geirangerfjorden cruise"
+              - type: row
+                gap: xs
+                align: center
+                children:
+                  - type: icon
+                    name: star
+                    size: 16
+                    color: warning
+                  - type: text
+                    variant: body-sm
+                    content: "4.8 (342 anmeldelser)"
+                    color: text-secondary
+              - type: row
+                gap: sm
+                children:
+                  - type: chip
+                    label: "3 timer"
+                  - type: chip
+                    label: "Bat"
+                    variant: outlined
+                  - type: chip
+                    label: "Familie"
+                    variant: outlined
+              - type: divider
+              - type: text
+                variant: body
+                content: "Opplev en av Norges mest ikoniske fjorder fra vannet. Cruiset tar deg forbi De syv sostrene og Friaren, med stopp ved Flydalsjuvet."
+                color: text-secondary
+      - type: row
+        padding: lg
+        gap: md
+        border:
+          sides: top
+        children:
+          - type: stack
+            gap: none
+            children:
+              - type: text
+                variant: caption
+                content: "Fra"
+                color: text-secondary
+              - type: text
+                variant: h3
+                content: "kr 890"
+                color: accent
+          - type: spacer
+          - type: button
+            label: "Bestill na"
+            variant: primary
+            size: lg
+
+  # Search — end of flow (no next)
+  - id: search
+    title: "Search"
+    path: "/search"
+    children:
+      - type: navbar
+        title: "Sok"
+        leading: icon:arrow-left
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: input
+            placeholder: "Sok etter turer, steder..."
+            leading-icon: search
+          - type: row
+            gap: sm
+            children:
+              - type: chip
+                label: "Fjordturer"
+              - type: chip
+                label: "Vandring"
+                variant: outlined
+              - type: chip
+                label: "Vinter"
+                variant: outlined
+          - type: text
+            variant: label
+            content: "NYLIGE SOK"
+            color: text-secondary
+          - type: list
+            children:
+              - type: list-item
+                leading: "icon:clock"
+                title: "Trolltunga dagstur"
+                trailing: "icon:close"
+              - type: list-item
+                leading: "icon:clock"
+                title: "Lofoten nordlyssafari"
+                trailing: "icon:close"
+              - type: list-item
+                leading: "icon:clock"
+                title: "Besseggen"
+                trailing: "icon:close"

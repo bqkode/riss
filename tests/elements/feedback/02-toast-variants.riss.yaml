@@ -1,0 +1,87 @@
+# Test: toast element with ALL 3 variants
+# Verifies default, success, error variants and action button.
+riss: "0.1"
+meta:
+  name: "Test - Toast Variants"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: toast_default
+    title: "Toast - Default"
+    path: /test/toast-default
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: "Notifications"
+          - type: text
+            variant: body
+            content: "This screen demonstrates the default toast variant."
+
+      - type: toast
+        message: "Link copied to clipboard"
+        variant: default
+
+  - id: toast_success
+    title: "Toast - Success"
+    path: /test/toast-success
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: "Profile"
+          - type: text
+            variant: body
+            content: "This screen demonstrates the success toast variant."
+
+      - type: toast
+        message: "Profile updated successfully"
+        variant: success
+
+  - id: toast_error
+    title: "Toast - Error"
+    path: /test/toast-error
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: "Upload"
+          - type: text
+            variant: body
+            content: "This screen demonstrates the error toast variant."
+
+      - type: toast
+        message: "Upload failed. File exceeds 10 MB limit."
+        variant: error
+
+  - id: toast_with_action
+    title: "Toast - With Action"
+    path: /test/toast-action
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: "Inbox"
+          - type: text
+            variant: body
+            content: "This screen demonstrates a toast with an action button."
+
+      - type: toast
+        message: "Conversation archived"
+        variant: default
+        action: "Undo"

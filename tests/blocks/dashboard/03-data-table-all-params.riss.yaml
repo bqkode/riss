@@ -1,0 +1,69 @@
+riss: "0.1"
+meta:
+  name: Test - Data Table All Parameters
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: data_table_all_parameters
+    title: Test - Data Table All Parameters
+    children:
+      - block: data-table
+        title: Team Members
+        search: true
+        filters:
+          - label: Role
+            options:
+              - Admin
+              - Editor
+              - Viewer
+          - label: Status
+            options:
+              - Active
+              - Inactive
+        columns:
+          - label: Name
+            width: 200px
+            align: left
+          - label: Email
+            width: 260px
+            align: left
+          - label: Role
+            width: 120px
+            align: center
+          - label: Status
+            width: 100px
+            align: center
+        rows:
+          - - Ingrid Haugen
+            - ingrid.haugen@nordmail.no
+            - Admin
+            - Active
+          - - Lars Erik Dahl
+            - lars.dahl@fjordpost.no
+            - Editor
+            - Active
+          - - Silje Nygård
+            - silje.nygard@bergen.no
+            - Viewer
+            - Inactive
+          - - Kristoffer Moen
+            - k.moen@tromsmail.no
+            - Editor
+            - Active
+          - - Marte Solberg
+            - marte.solberg@oslo.no
+            - Admin
+            - Active
+        pagination: true
+        total-rows: 248
+        actions:
+          - label: Edit
+            icon: edit
+          - label: Delete
+            icon: trash
+        striped: true
+        selectable: true

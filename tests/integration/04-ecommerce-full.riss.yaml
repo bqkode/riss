@@ -1,0 +1,257 @@
+riss: "0.1"
+meta:
+  name: Integration - Fjellsport Ecommerce
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#059669"
+screens:
+  - id: products
+    title: Fjellsport - Products
+    path: /products
+    children:
+      - type: navbar
+        title: Fjellsport
+        trailing:
+          - icon:search
+          - icon:heart
+      - type: scroll
+        direction: vertical
+        children:
+          - block: product-card-grid
+            columns: 2
+            show-rating: true
+            show-cart-button: true
+            items:
+              - image-label: Fjelljakke Expedition in dark green
+                title: Fjelljakke Expedition
+                price: kr 2,499
+                original-price: kr 3,199
+                rating: 4.7
+                badge: Salg
+                cta-label: Legg i handlekurv
+              - image-label: Tursko Nordmarka GTX hiking boots
+                title: Tursko Nordmarka GTX
+                price: kr 1,899
+                rating: 4.5
+                cta-label: Legg i handlekurv
+              - image-label: Ullgenser Lofoten merino wool
+                title: Ullgenser Lofoten 250
+                price: kr 1,199
+                rating: 4.8
+                badge: Ny
+                cta-label: Legg i handlekurv
+              - image-label: Ryggsekk Jotunheimen 55L
+                title: Ryggsekk Jotunheimen 55L
+                price: kr 1,799
+                original-price: kr 2,299
+                rating: 4.6
+                badge: Salg
+                cta-label: Legg i handlekurv
+              - image-label: Vindjakke Hardanger Pro
+                title: Vindjakke Hardanger Pro
+                price: kr 1,399
+                rating: 4.4
+                cta-label: Legg i handlekurv
+              - image-label: Dunjakke Trolltunga 800
+                title: Dunjakke Trolltunga 800
+                price: kr 3,499
+                rating: 4.9
+                badge: Bestselger
+                cta-label: Legg i handlekurv
+      - block: bottom-nav
+        items:
+          - icon: home
+            label: Hjem
+            active: true
+          - icon: grid
+            label: Kategorier
+          - icon: shopping-cart
+            label: Handlekurv
+            badge: "3"
+          - icon: user
+            label: Konto
+  - id: product_detail
+    title: Fjellsport - Product Detail
+    path: /products/fjelljakke-expedition
+    children:
+      - type: navbar
+        title: Fjelljakke Expedition
+        leading: icon:arrow-left
+        trailing: icon:share
+      - type: scroll
+        direction: vertical
+        children:
+          - block: product-detail
+            image-label: Fjelljakke Expedition in dark green
+            image-count: 5
+            category: Jakker
+            title: Fjelljakke Expedition
+            price: kr 2,499
+            original-price: kr 3,199
+            rating: 4.7
+            reviews: 134
+            description: Vartoppmodell for krevende fjellforhold. 3-lags Gore-Tex Pro-membran gir overlegen beskyttelse mot vind og regn, samtidig som den puster utmerket. Forsterket i skulder- og albueomradet for ekstra slitestyrke. Perfekt for alt fra dagsturer til ekspedisjoner.
+            variants:
+              - label: Storrelse
+                options:
+                  - XS
+                  - S
+                  - M
+                  - L
+                  - XL
+                  - XXL
+                selected: L
+              - label: Farge
+                options:
+                  - Morkgronn
+                  - Sort
+                  - Mellombla
+                  - Rust
+                selected: Morkgronn
+            cta-label: Legg i handlekurv
+            wishlist: true
+      - type: row
+        padding: md
+        gap: sm
+        children:
+          - type: button
+            label: Legg i handlekurv - kr 2,499
+            variant: primary
+            full-width: true
+            icon: shopping-cart
+  - id: cart
+    title: Fjellsport - Cart
+    path: /cart
+    children:
+      - type: navbar
+        title: Handlekurv
+        leading: icon:arrow-left
+        trailing:
+          type: text
+          variant: body-sm
+          content: 3 varer
+      - type: scroll
+        direction: vertical
+        children:
+          - block: cart-summary
+            items:
+              - title: Fjelljakke Expedition
+                subtitle: "Str: L / Farge: Morkgronn"
+                price: kr 2,499
+                quantity: 1
+                image-label: Fjelljakke Expedition product photo
+              - title: Ullgenser Lofoten 250
+                subtitle: "Str: M / Farge: Naturhvit"
+                price: kr 1,199
+                quantity: 1
+                image-label: Ullgenser Lofoten product photo
+              - title: Tursko Nordmarka GTX
+                subtitle: "Str: 43 / Farge: Brun"
+                price: kr 1,899
+                quantity: 1
+                image-label: Tursko Nordmarka product photo
+            subtotal: kr 5,597
+            shipping: Gratis
+            discount: "-kr 700"
+            total: kr 4,897
+            cta-label: Ga til kassen
+            promo-code: true
+      - block: bottom-nav
+        items:
+          - icon: home
+            label: Hjem
+          - icon: grid
+            label: Kategorier
+          - icon: shopping-cart
+            label: Handlekurv
+            active: true
+            badge: "3"
+          - icon: user
+            label: Konto
+  - id: checkout
+    title: Fjellsport - Checkout
+    path: /checkout/shipping
+    children:
+      - type: navbar
+        title: Kasse
+        leading: icon:arrow-left
+      - type: scroll
+        direction: vertical
+        children:
+          - block: checkout-steps
+            variant: numbered
+            steps:
+              - Handlekurv
+              - Levering
+              - Betaling
+              - Bekreftelse
+            current-step: 2
+          - type: stack
+            padding: lg
+            gap: lg
+            children:
+              - type: text
+                variant: h3
+                content: Leveringsadresse
+              - type: input
+                label: Fullt navn
+                placeholder: Ola Nordmann
+                value: Astrid Haugen
+              - type: input
+                label: Gateadresse
+                placeholder: Storgata 1
+                value: Markveien 24B
+              - type: row
+                gap: sm
+                children:
+                  - type: input
+                    label: Postnummer
+                    placeholder: "0000"
+                    value: "0554"
+                  - type: input
+                    label: Poststed
+                    placeholder: Oslo
+                    value: Oslo
+              - type: input
+                label: Telefon
+                placeholder: +47 000 00 000
+                value: +47 982 34 567
+              - type: input
+                label: E-post
+                placeholder: din@epost.no
+                value: astrid.haugen@gmail.com
+              - type: divider
+              - type: text
+                variant: h4
+                content: Leveringsmetode
+              - type: radio
+                name: shipping-method
+                options:
+                  - label: Posten - Pakke i postkassen (2-4 dager)
+                    value: posten-mailbox
+                    subtitle: Gratis
+                  - label: Posten - Pakke til hentested (1-3 dager)
+                    value: posten-pickup
+                    subtitle: kr 49
+                  - label: Bring - Hjemlevering neste dag
+                    value: bring-home
+                    subtitle: kr 129
+                selected: posten-mailbox
+              - type: button
+                label: Ga til betaling
+                variant: primary
+                full-width: true
+      - block: bottom-nav
+        items:
+          - icon: home
+            label: Hjem
+          - icon: grid
+            label: Kategorier
+          - icon: shopping-cart
+            label: Handlekurv
+            badge: "3"
+          - icon: user
+            label: Konto

@@ -1,0 +1,36 @@
+riss: "0.1"
+meta:
+  name: Test - Stat Cards Row Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: stat_cards_row_basic
+    title: Test - Stat Cards Row Basic
+    children:
+      - block: stat-cards-row
+        columns: 4
+        items:
+          - label: Total Revenue
+            value: kr 2,450,000
+            trend: +12.5%
+            trend-direction: up
+            icon: banknote
+          - label: Active Users
+            value: 8,342
+            trend: +4.2%
+            trend-direction: up
+            icon: users
+          - label: Bounce Rate
+            value: 24.8%
+            trend: "-2.1%"
+            trend-direction: down
+            icon: activity
+          - label: Avg. Session
+            value: 4m 32s
+            trend: +0.8%
+            trend-direction: up
+            icon: clock

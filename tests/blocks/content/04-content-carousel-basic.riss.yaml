@@ -1,0 +1,33 @@
+riss: "0.1"
+meta:
+  name: Test - Content Carousel Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: content_carousel_basic
+    title: Test - Content Carousel Basic
+    children:
+      - block: content-carousel
+        title: Explore our latest resources
+        card-width: 240
+        show-more: true
+        items:
+          - image-label: Getting started guide cover
+            title: Getting Started Guide
+            subtitle: Learn the fundamentals in under 10 minutes
+          - image-label: API reference documentation
+            title: API Reference
+            subtitle: Complete endpoint documentation with examples
+          - image-label: Video tutorial thumbnail
+            title: Video Tutorials
+            subtitle: Step-by-step walkthroughs for common workflows
+          - image-label: Case study cover image
+            title: Customer Stories
+            subtitle: How leading teams use our platform to ship faster
+          - image-label: Changelog screenshot
+            title: What's New
+            subtitle: Latest features and improvements from this quarter

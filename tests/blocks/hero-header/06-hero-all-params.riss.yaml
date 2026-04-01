@@ -1,0 +1,24 @@
+riss: "0.1"
+meta:
+  name: Test - Hero with All Parameters
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: hero_with_all_parameters
+    title: Test - Hero with All Parameters
+    children:
+      - block: hero
+        variant: split
+        heading: The analytics platform built for growth teams
+        subheading: Track every metric that matters. Real-time dashboards, cohort analysis, and predictive insights powered by machine learning.
+        cta-label: Start free trial
+        cta-secondary-label: View live demo
+        image: Dashboard Screenshot
+        image-position: right
+        background: accent-soft
+        align: left
+        badge: New in 2026

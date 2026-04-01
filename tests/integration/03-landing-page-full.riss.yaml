@@ -1,0 +1,226 @@
+riss: "0.1"
+meta:
+  name: Integration - Skyforge Landing Page
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: integration_skyforge_landing_p
+    title: Integration - Skyforge Landing Page
+    children:
+      - block: announcement-bar
+        message: Skyforge 2.0 er her! Ny AI-drevet arbeidsflyt som sparer teamet ditt 10 timer i uken.
+        action: Les mer
+      - block: top-nav
+        logo: Skyforge
+        items:
+          - label: Funksjoner
+          - label: Priser
+          - label: Kunder
+          - label: Dokumentasjon
+          - label: Blogg
+        cta-label: Kom i gang gratis
+        cta-secondary-label: Logg inn
+      - block: hero
+        variant: split
+        heading: Bygg raskere. Lever smartere. Skaler uten grenser.
+        subheading: Skyforge gir utviklerteam alt de trenger for a ga fra ide til produksjon pa minutter. Automatiserte pipelines, sanntidsovervaking og sikkert samarbeid i en plattform.
+        cta-label: Start gratis provperiode
+        cta-secondary-label: Se en demo
+        image-label: Skyforge dashboard showing deployment pipeline
+      - block: logo-bar
+        title: Brukt av ledende nordiske selskaper
+        variant: inline
+        logos: 6
+        labels:
+          - Equinor
+          - DNB
+          - Telenor
+          - Vipps
+          - Kahoot
+          - Schibsted
+      - block: feature-grid
+        title: Alt du trenger for moderne utvikling
+        subtitle: En komplett verktoyskasse for team som vil levere med kvalitet og fart.
+        columns: 3
+        items:
+          - icon: zap
+            title: Lynrask deploy
+            description: Push til main og endringene er live pa under 30 sekunder. Nullnedetid-utrulling er standard.
+          - icon: shield
+            title: Innebygd sikkerhet
+            description: Automatisk sarbarhetsskanning, avhengighetsrevisjon og kjoretidbeskyttelse inkludert i alle planer.
+          - icon: bar-chart
+            title: Sanntidsanalyse
+            description: Overvak responstid, feilrater og gjennomstromming med dashbord som oppdateres i sanntid.
+          - icon: git-branch
+            title: Forhandsvisning per PR
+            description: Hver pull request far sin egen isolerte forhandsvisnings-URL for testing og tilbakemelding.
+          - icon: refresh-cw
+            title: Automatisk tilbakerulling
+            description: Deployeringer som feiler helsesjekker rulles automatisk tilbake til siste kjente gode tilstand.
+          - icon: globe
+            title: Globalt edge-nettverk
+            description: Server innhold fra 80+ globale edge-lokasjoner for responstider under 50ms over hele verden.
+      - block: alternating-rows
+        start-position: right
+        gap: 64
+        items:
+          - heading: Visuell pipeline-bygger
+            body: Dra og slipp CI/CD-steg for a lage tilpassede arbeidsflyter. Se statusen pa hver bygge- og teststeg i sanntid, med automatiske varsler nar noe gar galt.
+            image-label: Visual pipeline builder interface
+          - heading: Teamsamarbeid i sanntid
+            body: Rediger konfigurasjon sammen, kommenter pa deployeringer og del innsikt direkte i plattformen. Integrer med Slack, Teams og din foretrukne kommunikasjonsplattform.
+            image-label: Team collaboration features
+          - heading: Kraftig overvaking og innsikt
+            body: Fa dyp innsikt i applikasjonens ytelse med distribuert sporing, loggaggregering og tilpassede dashbord. Oppdag problemer for brukerne merker dem.
+            image-label: Monitoring dashboard with metrics
+      - block: stats-row
+        variant: inline
+        items:
+          - value: 12,000+
+            label: Aktive team
+          - value: 4.2M
+            label: Deployeringer i maneden
+          - value: 99.99%
+            label: Oppetidsgaranti
+          - value: < 30s
+            label: Gjennomsnittlig deploy-tid
+      - block: testimonial-grid
+        title: Hva kundene vare sier
+        columns: 3
+        items:
+          - quote: Skyforge forandret maten vi jobber pa. Vi kuttet deploy-tiden fra 45 minutter til under ett minutt, og teamet elsker den visuelle pipeline-byggeren.
+            author: Lars Eriksen
+            role: CTO
+            company: Nordvik Digital
+            avatar:
+              initials: LE
+            rating: 5
+          - quote: Endelig en plattform bygd for nordiske team. Integrasjonene med vare eksisterende verktoy var smertefrie, og stotten har vert enstaende fra dag en.
+            author: Marte Solberg
+            role: VP Engineering
+            company: Fjordtech Solutions
+            avatar:
+              initials: MS
+            rating: 5
+          - quote: Vi migrerte 200 mikrotjenester til Skyforge pa tre uker. Overvakingsfunksjonene alene sparte oss for hundretusener i aret.
+            author: Henrik Dahl
+            role: Platform Lead
+            company: Brygge Systems
+            avatar:
+              initials: HD
+            rating: 5
+      - block: pricing-table
+        title: Enkel og transparent prising
+        subtitle: Start gratis og skaler etter behov. Ingen skjulte kostnader.
+        toggle:
+          - Manedlig
+          - Arlig
+        tiers:
+          - name: Starter
+            price: kr 0
+            period: /maned
+            description: For enkeltpersoner og smaprosjekter
+            features:
+              - Opptil 3 prosjekter
+              - 1 000 byggemminutter/maned
+              - Fellesskapsstotte
+              - Grunnleggende overvaking
+              - 1 teammmedlem
+            cta-label: Kom i gang
+            cta-variant: secondary
+          - name: Pro
+            price: kr 499
+            period: /maned
+            description: For voksende team som trenger mer kraft
+            highlighted: true
+            badge: Mest populaer
+            features:
+              - Ubegrensede prosjekter
+              - 10 000 byggemminutter/maned
+              - Prioritert stotte
+              - Avansert overvaking
+              - Opptil 25 teammedlemmer
+              - Tilpassede arbeidsflyter
+              - SSO-integrasjon
+            cta-label: Start gratis provperiode
+            cta-variant: primary
+          - name: Enterprise
+            price: Tilpasset
+            description: For store organisasjoner med avanserte behov
+            features:
+              - Alt i Pro
+              - Ubegrensede byggemminutter
+              - Dedikert kundeansvarlig
+              - SLA-garanti med 99.99% oppetid
+              - SCIM-provisjonering
+              - Revisjonslogger
+              - Egne kontrakter og fakturering
+            cta-label: Kontakt salg
+            cta-variant: secondary
+      - block: accordion
+        title: Ofte stilte sporsmal
+        variant: default
+        items:
+          - question: Hvor lang tid tar det a komme i gang med Skyforge?
+            answer: De fleste team er oppe og kjorer pa under 15 minutter. Var onboarding-veiviser guider deg gjennom oppsettet, og vi tilbyr gratis migrering fra andre CI/CD-plattformer.
+          - question: Stottes alle programmeringssprak?
+            answer: Ja, Skyforge er sprakuavhengig. Vi har forhandskonfigurerte maler for Node.js, Python, Go, Java, Rust, .NET og mange flere. Du kan ogsa lage helt tilpassede byggmiljoer.
+          - question: Hvordan fungerer prismodellen for storre team?
+            answer: Pro-planen dekker opptil 25 teammedlemmer. For storre organisasjoner tilbyr Enterprise-planen ubegrensede brukere med volumrabatter. Kontakt salg for en tilpasset pris.
+          - question: Er dataene mine trygge pa Skyforge?
+            answer: Absolutt. Vi er ISO 27001-sertifisert og GDPR-kompatible. All data krypteres bade i transit og i hvile. Vi tilbyr ogsa mulighet for hosting i Norge og EU.
+          - question: Kan jeg integrere Skyforge med mine eksisterende verktoy?
+            answer: Skyforge integrerer med over 50 verktoy inkludert GitHub, GitLab, Bitbucket, Slack, Teams, Jira, PagerDuty og mange flere. Vi har ogsa et apent API for tilpassede integrasjoner.
+      - block: cta-banner
+        heading: Klar til a bygge raskere?
+        subheading: Bli med over 12 000 team som allerede leverer med Skyforge. Start din gratis provperiode i dag - ingen kredittkort krevd.
+        cta-label: Start gratis provperiode
+        cta-secondary-label: Bestill en demo
+        align: center
+        background: surface
+      - block: footer
+        variant: multi-column
+        logo: Skyforge
+        tagline: Moderne utviklerverktoy for nordiske team
+        columns:
+          - title: Produkt
+            links:
+              - Funksjoner
+              - Priser
+              - Integrasjoner
+              - Endringslogg
+              - Dokumentasjon
+              - API-referanse
+          - title: Ressurser
+            links:
+              - Blogg
+              - Guider
+              - Webinarer
+              - Casestudier
+              - Status
+          - title: Selskap
+            links:
+              - Om oss
+              - Karriere
+              - Presse
+              - Partnere
+              - Kontakt
+          - title: Juridisk
+            links:
+              - Personvern
+              - Vilkar
+              - Informasjonskapsler
+              - GDPR
+              - Sikkerhet
+        social:
+          - twitter
+          - github
+          - linkedin
+          - youtube
+        copyright: 2026 Skyforge AS. Alle rettigheter reservert.
+        newsletter: true

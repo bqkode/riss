@@ -1,0 +1,151 @@
+# Test: skeleton element with ALL 6 variants
+# Verifies text, rect, circle, card, avatar, and list-item skeleton shapes.
+riss: "0.1"
+meta:
+  name: "Test - Skeleton Variants"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: skeleton_variants
+    title: "Skeleton - All Variants"
+    path: /test/skeleton
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Text variant with different line counts
+          - type: section
+            title: "variant: text"
+            children:
+              - type: stack
+                padding: md
+                gap: lg
+                children:
+                  - type: stack
+                    gap: xs
+                    children:
+                      - type: text
+                        variant: caption
+                        color: text-secondary
+                        content: "lines: 1"
+                      - type: skeleton
+                        variant: text
+                        lines: 1
+
+                  - type: stack
+                    gap: xs
+                    children:
+                      - type: text
+                        variant: caption
+                        color: text-secondary
+                        content: "lines: 3"
+                      - type: skeleton
+                        variant: text
+                        lines: 3
+
+                  - type: stack
+                    gap: xs
+                    children:
+                      - type: text
+                        variant: caption
+                        color: text-secondary
+                        content: "lines: 5"
+                      - type: skeleton
+                        variant: text
+                        lines: 5
+
+          # Rect variant
+          - type: section
+            title: "variant: rect"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: skeleton
+                    variant: rect
+                    width: "full"
+                    height: 120
+
+                  - type: skeleton
+                    variant: rect
+                    width: 200
+                    height: 80
+
+          # Circle variant
+          - type: section
+            title: "variant: circle"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: row
+                    gap: md
+                    children:
+                      - type: skeleton
+                        variant: circle
+                        size: 48
+
+                      - type: skeleton
+                        variant: circle
+                        size: 64
+
+                      - type: skeleton
+                        variant: circle
+                        size: 32
+
+          # Card variant
+          - type: section
+            title: "variant: card"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: skeleton
+                    variant: card
+                    height: 200
+
+                  - type: skeleton
+                    variant: card
+                    height: 120
+
+          # Avatar variant
+          - type: section
+            title: "variant: avatar"
+            children:
+              - type: stack
+                padding: md
+                gap: md
+                children:
+                  - type: row
+                    gap: md
+                    children:
+                      - type: skeleton
+                        variant: avatar
+                        size: 40
+
+                      - type: skeleton
+                        variant: avatar
+                        size: 64
+
+          # List-item variant
+          - type: section
+            title: "variant: list-item"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: skeleton
+                    variant: list-item
+
+                  - type: skeleton
+                    variant: list-item
+
+                  - type: skeleton
+                    variant: list-item

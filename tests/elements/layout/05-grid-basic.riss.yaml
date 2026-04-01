@@ -1,0 +1,479 @@
+# Test: grid element with different column counts and gap tokens
+# Verifies grid layout with 1, 2, 3, 4, and 6 columns
+riss: "0.1"
+meta:
+  name: "Test - Grid Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: grid_columns
+    title: "Grid Column Counts"
+    path: /test/grid-columns
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # 1 column
+          - type: section
+            title: "columns: 1"
+            children:
+              - type: grid
+                columns: 1
+                gap: sm
+                children:
+                  - type: card
+                    padding: md
+                    children:
+                      - type: text
+                        content: "Registrer ny pasient"
+                  - type: card
+                    padding: md
+                    children:
+                      - type: text
+                        content: "Se timebestillinger"
+                  - type: card
+                    padding: md
+                    children:
+                      - type: text
+                        content: "Laboratorieresultater"
+
+          # 2 columns
+          - type: section
+            title: "columns: 2"
+            children:
+              - type: grid
+                columns: 2
+                gap: sm
+                children:
+                  - type: card
+                    padding: md
+                    children:
+                      - type: stack
+                        gap: xs
+                        align: center
+                        children:
+                          - type: icon
+                            name: users
+                            size: 24
+                          - type: text
+                            variant: h3
+                            content: "1 247"
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "Aktive brukere"
+                  - type: card
+                    padding: md
+                    children:
+                      - type: stack
+                        gap: xs
+                        align: center
+                        children:
+                          - type: icon
+                            name: chart
+                            size: 24
+                          - type: text
+                            variant: h3
+                            content: "89%"
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "Oppmote"
+                  - type: card
+                    padding: md
+                    children:
+                      - type: stack
+                        gap: xs
+                        align: center
+                        children:
+                          - type: icon
+                            name: clock
+                            size: 24
+                          - type: text
+                            variant: h3
+                            content: "14 min"
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "Snitt ventetid"
+                  - type: card
+                    padding: md
+                    children:
+                      - type: stack
+                        gap: xs
+                        align: center
+                        children:
+                          - type: icon
+                            name: star
+                            size: 24
+                          - type: text
+                            variant: h3
+                            content: "4.6"
+                          - type: text
+                            variant: caption
+                            color: text-secondary
+                            content: "Tilfredshet"
+
+          # 3 columns
+          - type: section
+            title: "columns: 3"
+            children:
+              - type: grid
+                columns: 3
+                gap: sm
+                children:
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: avatar
+                            size: 32
+                            initials: "EL"
+                          - type: text
+                            variant: caption
+                            content: "Erik Lien"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: avatar
+                            size: 32
+                            initials: "MH"
+                          - type: text
+                            variant: caption
+                            content: "Maria Hansen"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: avatar
+                            size: 32
+                            initials: "TO"
+                          - type: text
+                            variant: caption
+                            content: "Thomas Olsen"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: avatar
+                            size: 32
+                            initials: "LB"
+                          - type: text
+                            variant: caption
+                            content: "Lise Berg"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: avatar
+                            size: 32
+                            initials: "KA"
+                          - type: text
+                            variant: caption
+                            content: "Knut Aasen"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        align: center
+                        gap: xs
+                        children:
+                          - type: avatar
+                            size: 32
+                            initials: "SN"
+                          - type: text
+                            variant: caption
+                            content: "Sara Nes"
+
+          # 4 columns
+          - type: section
+            title: "columns: 4"
+            children:
+              - type: grid
+                columns: 4
+                gap: xs
+                children:
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        align: center
+                        children:
+                          - type: icon
+                            name: home
+                          - type: text
+                            variant: caption
+                            content: "Hjem"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        align: center
+                        children:
+                          - type: icon
+                            name: search
+                          - type: text
+                            variant: caption
+                            content: "Sok"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        align: center
+                        children:
+                          - type: icon
+                            name: bell
+                          - type: text
+                            variant: caption
+                            content: "Varsler"
+                  - type: card
+                    padding: sm
+                    children:
+                      - type: stack
+                        align: center
+                        children:
+                          - type: icon
+                            name: settings
+                          - type: text
+                            variant: caption
+                            content: "Innst."
+
+          # 6 columns
+          - type: section
+            title: "columns: 6"
+            children:
+              - type: grid
+                columns: 6
+                gap: xs
+                children:
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    rounded: sm
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Ma"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    rounded: sm
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Ti"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    rounded: sm
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "On"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    rounded: sm
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "To"
+                  - type: stack
+                    padding: xs
+                    background: surface
+                    border: true
+                    rounded: sm
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Fr"
+                  - type: stack
+                    padding: xs
+                    background: accent-soft
+                    border: true
+                    rounded: sm
+                    align: center
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Lo"
+
+  # Screen 2: Grid with different gap tokens
+  - id: grid_gaps
+    title: "Grid Gap Tokens"
+    path: /test/grid-gaps
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: section
+            title: "gap: none"
+            children:
+              - type: grid
+                columns: 2
+                gap: none
+                children:
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle A"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle B"
+
+          - type: section
+            title: "gap: xs"
+            children:
+              - type: grid
+                columns: 2
+                gap: xs
+                children:
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle A"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle B"
+
+          - type: section
+            title: "gap: sm"
+            children:
+              - type: grid
+                columns: 2
+                gap: sm
+                children:
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle A"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle B"
+
+          - type: section
+            title: "gap: md"
+            children:
+              - type: grid
+                columns: 2
+                gap: md
+                children:
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle A"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle B"
+
+          - type: section
+            title: "gap: lg"
+            children:
+              - type: grid
+                columns: 2
+                gap: lg
+                children:
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle A"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle B"
+
+          - type: section
+            title: "gap: xl"
+            children:
+              - type: grid
+                columns: 2
+                gap: xl
+                children:
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle A"
+                  - type: stack
+                    padding: sm
+                    background: surface
+                    border: true
+                    children:
+                      - type: text
+                        variant: caption
+                        content: "Celle B"

@@ -1,0 +1,33 @@
+riss: "0.1"
+meta:
+  name: Test - Avatar List Stacked
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: avatar_list_stacked
+    title: Test - Avatar List Stacked
+    children:
+      - block: avatar-list
+        stacked: true
+        max-visible: 5
+        items:
+          - name: Erik Solberg
+            initials: ES
+          - name: Ingrid Haugen
+            initials: IH
+          - name: Lars Pedersen
+            initials: LP
+          - name: Astrid Bakke
+            initials: AB
+          - name: Magnus Dahl
+            initials: MD
+          - name: Sofie Lund
+            initials: SL
+          - name: Henrik Moen
+            initials: HM
+          - name: Thea Kristiansen
+            initials: TK

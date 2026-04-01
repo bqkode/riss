@@ -1,0 +1,229 @@
+# Test: Progress with ALL properties — value, height, color, background, rounded, label
+# Verifies every configurable property of the progress element.
+
+riss: "0.1"
+meta:
+  name: "Test - Progress All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: progress_heights
+    title: "Progress Heights"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "H\u00D8YDE (TYKKELSE P\u00C5 LINJEN)"
+
+          # height: 4 (default)
+          - type: text
+            variant: caption
+            content: "height: 4 (standard)"
+          - type: progress
+            value: 60
+            height: 4
+            color: accent
+
+          # height: 8
+          - type: text
+            variant: caption
+            content: "height: 8"
+          - type: progress
+            value: 60
+            height: 8
+            color: accent
+
+          # height: 12
+          - type: text
+            variant: caption
+            content: "height: 12"
+          - type: progress
+            value: 60
+            height: 12
+            color: accent
+
+  - id: progress_colors_and_bg
+    title: "Progress Colors & Background"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "FARGE + BAKGRUNN"
+
+          # Default background (surface)
+          - type: text
+            variant: caption
+            content: "color: accent, background: surface (standard)"
+          - type: progress
+            value: 55
+            height: 8
+            color: accent
+            background: surface
+
+          # accent with placeholder background
+          - type: text
+            variant: caption
+            content: "color: accent, background: placeholder"
+          - type: progress
+            value: 55
+            height: 8
+            color: accent
+            background: placeholder
+
+          # success
+          - type: text
+            variant: caption
+            content: "color: success, background: surface"
+          - type: progress
+            value: 80
+            height: 8
+            color: success
+            background: surface
+
+          # warning
+          - type: text
+            variant: caption
+            content: "color: warning, background: surface"
+          - type: progress
+            value: 45
+            height: 8
+            color: warning
+            background: surface
+
+          # error
+          - type: text
+            variant: caption
+            content: "color: error, background: surface"
+          - type: progress
+            value: 90
+            height: 8
+            color: error
+            background: surface
+
+  - id: progress_rounded
+    title: "Progress Rounded"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "AVRUNDING"
+
+          # rounded: true (default)
+          - type: text
+            variant: caption
+            content: "rounded: true (standard)"
+          - type: progress
+            value: 70
+            height: 12
+            color: accent
+            rounded: true
+
+          # rounded: false
+          - type: text
+            variant: caption
+            content: "rounded: false"
+          - type: progress
+            value: 70
+            height: 12
+            color: accent
+            rounded: false
+
+  - id: progress_labels
+    title: "Progress Labels"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "MED ETIKETT"
+
+          # Label showing percentage
+          - type: progress
+            value: 42
+            height: 8
+            color: accent
+            label: "Nedlasting: 42%"
+
+          - type: spacer
+            size: 16
+
+          # Label showing contextual info
+          - type: progress
+            value: 75
+            height: 8
+            color: success
+            label: "Sparem\u00E5l: 37 500 kr av 50 000 kr"
+
+          - type: spacer
+            size: 16
+
+          - type: progress
+            value: 88
+            height: 8
+            color: warning
+            label: "Lagring: 4,4 GB av 5 GB brukt"
+
+          - type: spacer
+            size: 16
+
+          - type: progress
+            value: 100
+            height: 8
+            color: error
+            label: "Budsjett: 18 200 kr av 15 000 kr"
+
+  - id: progress_combined
+    title: "Progress Combined"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "ALLE EGENSKAPER KOMBINERT"
+
+          # Full combination test
+          - type: progress
+            value: 65
+            height: 12
+            color: accent
+            background: placeholder
+            rounded: true
+            label: "Prosjekt Fjordheim: 65% fullf\u00F8rt"
+
+          - type: spacer
+            size: 8
+
+          - type: progress
+            value: 30
+            height: 4
+            color: warning
+            background: surface
+            rounded: false
+            label: "Leveranse: 30%"
+
+          - type: spacer
+            size: 8
+
+          - type: progress
+            value: 100
+            height: 8
+            color: success
+            background: surface
+            rounded: true
+            label: "Opplasting ferdig"

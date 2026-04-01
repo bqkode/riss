@@ -1,0 +1,181 @@
+# Edge case: custom block with 5+ optional params, each gated by if: "{{param}}"
+# Tests that omitted params correctly hide elements
+riss: "0.1"
+meta:
+  name: "Custom Block Conditionals"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+blocks:
+  - id: user-card
+    description: "A user profile card with many optional fields"
+    params:
+      - name: name
+        required: true
+      - name: role
+        required: true
+      - name: avatar-initials
+        default: null
+      - name: email
+        default: null
+      - name: phone
+        default: null
+      - name: department
+        default: null
+      - name: location
+        default: null
+      - name: action-label
+        default: null
+    template:
+      - type: card
+        padding: md
+        children:
+          - type: row
+            gap: md
+            align: center
+            children:
+              # Avatar — only if initials provided
+              - type: avatar
+                size: 48
+                initials: "{{avatar-initials}}"
+                if: "{{avatar-initials}}"
+
+              - type: stack
+                gap: xs
+                grow: 1
+                children:
+                  - type: text
+                    variant: h4
+                    content: "{{name}}"
+                  - type: text
+                    variant: caption
+                    content: "{{role}}"
+                    color: text-secondary
+
+          # Email row — conditional
+          - type: row
+            gap: sm
+            align: center
+            margin-y: xs
+            if: "{{email}}"
+            children:
+              - type: icon
+                name: mail
+                size: 16
+                color: text-secondary
+              - type: text
+                variant: body-sm
+                content: "{{email}}"
+
+          # Phone row — conditional
+          - type: row
+            gap: sm
+            align: center
+            margin-y: xs
+            if: "{{phone}}"
+            children:
+              - type: icon
+                name: phone
+                size: 16
+                color: text-secondary
+              - type: text
+                variant: body-sm
+                content: "{{phone}}"
+
+          # Department — conditional
+          - type: row
+            gap: sm
+            align: center
+            margin-y: xs
+            if: "{{department}}"
+            children:
+              - type: icon
+                name: folder
+                size: 16
+                color: text-secondary
+              - type: text
+                variant: body-sm
+                content: "{{department}}"
+
+          # Location — conditional
+          - type: row
+            gap: sm
+            align: center
+            margin-y: xs
+            if: "{{location}}"
+            children:
+              - type: icon
+                name: map-pin
+                size: 16
+                color: text-secondary
+              - type: text
+                variant: body-sm
+                content: "{{location}}"
+
+          # Action button — conditional
+          - type: button
+            label: "{{action-label}}"
+            variant: outline
+            size: sm
+            full-width: true
+            margin-y: sm
+            if: "{{action-label}}"
+
+screens:
+  - id: conditionals_test
+    title: "Block Conditionals"
+    path: /test/conditionals
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: md
+            gap: md
+            children:
+
+              # Instance 1: All params provided — everything visible
+              - type: section
+                title: "1. All params provided"
+                children:
+                  - block: user-card
+                    name: "Ingrid Solberg"
+                    role: "Engineering Manager"
+                    avatar-initials: "IS"
+                    email: "ingrid.solberg@example.no"
+                    phone: "+47 923 45 678"
+                    department: "Platform Engineering"
+                    location: "Oslo, Norway"
+                    action-label: "View Profile"
+
+              # Instance 2: Only required params — all optional hidden
+              - type: section
+                title: "2. Required only (optionals hidden)"
+                children:
+                  - block: user-card
+                    name: "Lars Kristiansen"
+                    role: "Contractor"
+
+              # Instance 3: Mix — avatar, email, department
+              - type: section
+                title: "3. Mix (avatar, email, department)"
+                children:
+                  - block: user-card
+                    name: "Maja Eriksen"
+                    role: "Product Designer"
+                    avatar-initials: "ME"
+                    email: "maja.eriksen@example.no"
+                    department: "Design Systems"
+
+              # Instance 4: Different mix — phone, location, action
+              - type: section
+                title: "4. Mix (phone, location, action)"
+                children:
+                  - block: user-card
+                    name: "Henrik Dahl"
+                    role: "Field Technician"
+                    phone: "+47 456 78 901"
+                    location: "Bergen, Norway"
+                    action-label: "Send Message"

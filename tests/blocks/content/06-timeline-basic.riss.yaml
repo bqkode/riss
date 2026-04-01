@@ -1,0 +1,35 @@
+riss: "0.1"
+meta:
+  name: Test - Timeline Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: timeline_basic
+    title: Test - Timeline Basic
+    children:
+      - block: timeline
+        items:
+          - date: January 2024
+            title: Company founded
+            description: Started with a three-person team and a shared vision to simplify developer tooling for modern engineering organizations.
+            icon: rocket
+          - date: June 2024
+            title: Seed funding secured
+            description: Raised $4.2M in seed funding led by Horizon Ventures to accelerate product development and hire our founding engineering team.
+            icon: dollar
+          - date: November 2024
+            title: Public beta launch
+            description: Opened the platform to 500 beta users and processed over 1 million API requests in the first week of availability.
+            icon: globe
+          - date: May 2025
+            title: Series A funding
+            description: Closed a $18M Series A round to expand into the European market and build out enterprise features including SSO and audit logs.
+            icon: trending-up
+          - date: February 2026
+            title: 10,000 customers milestone
+            description: Reached 10,000 paying customers across 42 countries with a net revenue retention rate of 135 percent.
+            icon: flag

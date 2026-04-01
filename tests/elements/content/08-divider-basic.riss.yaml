@@ -1,0 +1,159 @@
+# Test: Divider element — direction, color, thickness, and margin
+# Verifies horizontal/vertical dividers with different visual properties.
+
+riss: "0.1"
+meta:
+  name: "Test - Divider Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: divider_horizontal
+    title: "Horizontal Dividers"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "RETNING: HORIZONTAL (STANDARD)"
+
+          # Default divider
+          - type: text
+            variant: body-sm
+            content: "Standard skillelinje (1px, border)"
+          - type: divider
+
+          # Color: border-strong
+          - type: text
+            variant: body-sm
+            content: "Sterk skillelinje (border-strong)"
+          - type: divider
+            color: border-strong
+
+          # Color: accent
+          - type: text
+            variant: body-sm
+            content: "Aksentfarget skillelinje (accent)"
+          - type: divider
+            color: accent
+
+          - type: spacer
+            size: 16
+
+          # Thickness variants
+          - type: text
+            variant: label
+            content: "TYKKELSE"
+
+          - type: text
+            variant: caption
+            content: "thickness: 1"
+          - type: divider
+            thickness: 1
+
+          - type: text
+            variant: caption
+            content: "thickness: 2"
+          - type: divider
+            thickness: 2
+
+          - type: text
+            variant: caption
+            content: "thickness: 4"
+          - type: divider
+            thickness: 4
+
+          - type: spacer
+            size: 16
+
+          # margin-y variants
+          - type: text
+            variant: label
+            content: "MARGIN-Y"
+
+          - type: text
+            variant: caption
+            content: "Tekst f\u00F8r (margin-y: sm)"
+          - type: divider
+            margin-y: sm
+          - type: text
+            variant: caption
+            content: "Tekst etter"
+
+          - type: text
+            variant: caption
+            content: "Tekst f\u00F8r (margin-y: md)"
+          - type: divider
+            margin-y: md
+          - type: text
+            variant: caption
+            content: "Tekst etter"
+
+          - type: text
+            variant: caption
+            content: "Tekst f\u00F8r (margin-y: lg)"
+          - type: divider
+            margin-y: lg
+          - type: text
+            variant: caption
+            content: "Tekst etter"
+
+  - id: divider_vertical
+    title: "Vertical Dividers"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "RETNING: VERTICAL"
+
+          # Vertical dividers in a row context
+          - type: row
+            gap: md
+            align: center
+            height: 60
+            children:
+              - type: text
+                variant: body-sm
+                content: "Venstre"
+
+              - type: divider
+                direction: vertical
+                color: border
+
+              - type: text
+                variant: body-sm
+                content: "Midten"
+
+              - type: divider
+                direction: vertical
+                color: border-strong
+
+              - type: text
+                variant: body-sm
+                content: "H\u00F8yre"
+
+          # Vertical with different colors
+          - type: row
+            gap: md
+            align: center
+            height: 60
+            children:
+              - type: text
+                variant: body-sm
+                content: "Seksjon A"
+
+              - type: divider
+                direction: vertical
+                color: accent
+                thickness: 2
+
+              - type: text
+                variant: body-sm
+                content: "Seksjon B"

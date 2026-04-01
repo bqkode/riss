@@ -1,0 +1,27 @@
+riss: "0.1"
+meta:
+  name: Test - Profile Header Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: profile_header_basic
+    title: Test - Profile Header Basic
+    children:
+      - block: profile-header
+        name: Kari Nordmann
+        subtitle: "@kari.nordmann"
+        avatar: KN
+        stats:
+          - label: Posts
+            value: "142"
+          - label: Followers
+            value: 3.8K
+          - label: Following
+            value: "284"
+        actions:
+          - Follow
+          - Message

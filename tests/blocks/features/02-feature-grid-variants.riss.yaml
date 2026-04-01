@@ -1,0 +1,64 @@
+riss: "0.1"
+meta:
+  name: Test - Feature Grid Variants
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: feature_grid_variants
+    title: Test - Feature Grid Variants
+    children:
+      - block: feature-grid
+        title: Platform capabilities
+        variant: icon-top
+        columns: 3
+        align: center
+        items:
+          - icon: cpu
+            title: Compute
+            description: Serverless functions and containers that scale to zero when idle and burst instantly under load.
+          - icon: database
+            title: Storage
+            description: Managed Postgres, Redis, and object storage with automatic backups and point-in-time recovery.
+          - icon: lock
+            title: Auth
+            description: Drop-in authentication with social logins, MFA, and role-based access control out of the box.
+      - block: feature-grid
+        title: Developer experience
+        variant: icon-left
+        columns: 2
+        align: left
+        items:
+          - icon: terminal
+            title: CLI tooling
+            description: A powerful command-line interface for managing projects, environments, and deployments without leaving your terminal.
+          - icon: code
+            title: SDK support
+            description: Official client libraries for JavaScript, Python, Go, and Ruby with full TypeScript definitions.
+          - icon: book
+            title: Documentation
+            description: Comprehensive guides, API references, and interactive examples that keep pace with every release.
+          - icon: message-circle
+            title: Community
+            description: An active Discord server with over 12,000 members sharing tips, plugins, and integration patterns.
+      - block: feature-grid
+        title: Enterprise features
+        variant: card
+        columns: 4
+        align: center
+        items:
+          - icon: shield
+            title: SSO
+            description: SAML and OIDC single sign-on for seamless identity management.
+          - icon: file-text
+            title: Audit logs
+            description: Immutable records of every action taken across your organization.
+          - icon: users
+            title: Teams
+            description: Granular permissions with custom roles and team-level scoping.
+          - icon: headphones
+            title: Priority support
+            description: Dedicated account manager with guaranteed response SLAs.

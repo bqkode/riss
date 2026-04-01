@@ -1,0 +1,82 @@
+# Test: all 5 button variants
+# Verifies that each variant renders with correct visual style:
+#   primary  - filled accent background, white text
+#   secondary - filled surface background, default text
+#   outline  - border only, transparent background
+#   ghost    - no border or background, hover-implied
+#   text     - like ghost but with underline on text
+riss: "0.1"
+meta:
+  name: "Test - Button Variants"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: button_variants
+    title: "Button Variants"
+    path: /test/button-variants
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # primary - filled accent bg, white text
+          - type: section
+            title: "variant: primary"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Create Account"
+                    variant: primary
+
+          # secondary - filled surface bg, default text
+          - type: section
+            title: "variant: secondary"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "View Details"
+                    variant: secondary
+
+          # outline - border only, transparent background
+          - type: section
+            title: "variant: outline"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Export Report"
+                    variant: outline
+
+          # ghost - no border or background
+          - type: section
+            title: "variant: ghost"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Cancel"
+                    variant: ghost
+
+          # text - underline on text
+          - type: section
+            title: "variant: text"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: button
+                    label: "Learn more"
+                    variant: text

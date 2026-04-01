@@ -1,0 +1,20 @@
+riss: "0.1"
+meta:
+  name: Test - CTA Banner Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: cta_banner_basic
+    title: Test - CTA Banner Basic
+    children:
+      - block: cta-banner
+        heading: Ready to transform your workflow?
+        subheading: Join thousands of teams already shipping faster with our platform. Start your free trial today.
+        cta-label: Get started for free
+        cta-secondary-label: Talk to sales
+        align: center
+        background: surface

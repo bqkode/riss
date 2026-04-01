@@ -1,0 +1,106 @@
+# Test: tabbar element with basic properties
+# Verifies 5-item tabbar with icons, labels, active state, badge, and background.
+riss: "0.1"
+meta:
+  name: "Test - Tabbar Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: tabbar_default
+    title: "Tabbar - Default Active Home"
+    path: /test/tabbar-default
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: "Hjem"
+          - type: text
+            variant: body
+            content: "Velkommen tilbake, Astrid. Du har 3 nye varsler og 2 ventende bestillinger."
+
+      # Tabbar with Home active and badge on Saved
+      - type: tabbar
+        items:
+          - icon: home
+            label: "Home"
+            active: true
+          - icon: search
+            label: "Search"
+          - icon: plus
+            label: "Create"
+          - icon: heart
+            label: "Saved"
+            badge: "3"
+          - icon: user
+            label: "Profile"
+
+  - id: tabbar_search_active
+    title: "Tabbar - Search Active"
+    path: /test/tabbar-search
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: "Search"
+          - type: input
+            placeholder: "Search for places, events, people..."
+            leading-icon: search
+
+      - type: tabbar
+        items:
+          - icon: home
+            label: "Home"
+          - icon: search
+            label: "Search"
+            active: true
+          - icon: plus
+            label: "Create"
+          - icon: heart
+            label: "Saved"
+            badge: "3"
+          - icon: user
+            label: "Profile"
+
+  - id: tabbar_custom_background
+    title: "Tabbar - Custom Background"
+    path: /test/tabbar-bg
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: "Profile"
+          - type: text
+            variant: body
+            content: "Astrid Haugen"
+          - type: text
+            variant: body-sm
+            color: text-secondary
+            content: "astrid.haugen@example.no"
+
+      # Tabbar with surface background
+      - type: tabbar
+        background: surface
+        items:
+          - icon: home
+            label: "Home"
+          - icon: search
+            label: "Search"
+          - icon: plus
+            label: "Create"
+          - icon: heart
+            label: "Saved"
+          - icon: user
+            label: "Profile"
+            active: true

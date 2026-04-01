@@ -1,0 +1,257 @@
+# Test: Chip with ALL properties — variant, color tokens, removable, multiple in rows
+# Verifies every combination of chip variant and color token.
+
+riss: "0.1"
+meta:
+  name: "Test - Chip All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: chip_filled_colors
+    title: "Filled Chip Colors"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "FILLED + FARGETOKENS"
+
+          # surface (default for filled)
+          - type: text
+            variant: caption
+            content: "color: surface (standard)"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Overf\u00F8ring"
+                variant: filled
+                color: surface
+
+              - type: chip
+                label: "Sparing"
+                variant: filled
+                color: surface
+
+          # accent
+          - type: text
+            variant: caption
+            content: "color: accent"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Aktiv"
+                variant: filled
+                color: accent
+
+              - type: chip
+                label: "Valgt"
+                variant: filled
+                color: accent
+
+          # accent-soft
+          - type: text
+            variant: caption
+            content: "color: accent-soft"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Anbefalt"
+                variant: filled
+                color: accent-soft
+
+              - type: chip
+                label: "Populaer"
+                variant: filled
+                color: accent-soft
+
+          # success
+          - type: text
+            variant: caption
+            content: "color: success"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Betalt"
+                variant: filled
+                color: success
+
+              - type: chip
+                label: "Godkjent"
+                variant: filled
+                color: success
+
+          # error
+          - type: text
+            variant: caption
+            content: "color: error"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Avvist"
+                variant: filled
+                color: error
+
+              - type: chip
+                label: "Utg\u00E5tt"
+                variant: filled
+                color: error
+
+  - id: chip_outlined_colors
+    title: "Outlined Chip Colors"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "OUTLINED + FARGETOKENS"
+
+          - type: text
+            variant: caption
+            content: "color: surface"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Standard"
+                variant: outlined
+                color: surface
+
+          - type: text
+            variant: caption
+            content: "color: accent"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Premium"
+                variant: outlined
+                color: accent
+
+          - type: text
+            variant: caption
+            content: "color: accent-soft"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Favoritt"
+                variant: outlined
+                color: accent-soft
+
+          - type: text
+            variant: caption
+            content: "color: success"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "P\u00E5 lager"
+                variant: outlined
+                color: success
+
+          - type: text
+            variant: caption
+            content: "color: error"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Utsolgt"
+                variant: outlined
+                color: error
+
+  - id: chip_removable_colors
+    title: "Removable Chips in Context"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "REMOVABLE MED FARGER"
+
+          # Mixed removable chips in a filter context
+          - type: text
+            variant: body-sm
+            content: "Valgte filtre:"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Under 500 kr"
+                variant: filled
+                color: accent-soft
+                removable: true
+
+              - type: chip
+                label: "Gratis frakt"
+                variant: filled
+                color: success
+                removable: true
+
+              - type: chip
+                label: "4+ stjerner"
+                variant: filled
+                color: accent
+                removable: true
+
+              - type: chip
+                label: "Kun norske"
+                variant: outlined
+                color: accent
+                removable: true
+
+          - type: spacer
+            size: 16
+
+          - type: text
+            variant: body-sm
+            content: "Kategorier:"
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "M\u00F8bler"
+                variant: outlined
+                color: surface
+
+              - type: chip
+                label: "Belysning"
+                variant: filled
+                color: accent
+                removable: false
+
+              - type: chip
+                label: "Tekstiler"
+                variant: outlined
+                color: surface
+
+              - type: chip
+                label: "Dekor"
+                variant: outlined
+                color: surface

@@ -1,0 +1,189 @@
+# Test: input with ALL properties
+# Verifies: placeholder, value, label, helper, error, leading-icon,
+#   trailing-icon, variant, disabled, required
+riss: "0.1"
+meta:
+  name: "Test - Input All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: input_all_props
+    title: "Input All Properties"
+    path: /test/input-all-props
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Placeholder only
+          - type: section
+            title: "Placeholder"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    placeholder: "What are you looking for?"
+
+          # Pre-filled value
+          - type: section
+            title: "Pre-filled Value"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    label: "Display Name"
+                    value: "Sarah Chen"
+
+          # Label + placeholder
+          - type: section
+            title: "Label + Placeholder"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    label: "Email Address"
+                    placeholder: "you@company.com"
+
+          # Helper text
+          - type: section
+            title: "Helper Text"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    label: "Password"
+                    placeholder: "Create a password"
+                    helper: "Must be at least 8 characters with one number"
+
+          # Error message (renders in error color)
+          - type: section
+            title: "Error Message"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    label: "Email Address"
+                    value: "sarah@invalid"
+                    error: "Please enter a valid email address"
+
+          # Leading icons
+          - type: section
+            title: "Leading Icons"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    placeholder: "Search files and folders..."
+                    leading-icon: search
+                  - type: input
+                    label: "Email"
+                    placeholder: "you@company.com"
+                    leading-icon: mail
+                  - type: input
+                    label: "Password"
+                    placeholder: "Enter your password"
+                    leading-icon: lock
+
+          # Trailing icons
+          - type: section
+            title: "Trailing Icons"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    label: "Password"
+                    placeholder: "Enter your password"
+                    trailing-icon: eye
+                  - type: input
+                    label: "Password"
+                    value: "mysecretpass"
+                    trailing-icon: eye-off
+                  - type: input
+                    label: "Search"
+                    value: "React hooks"
+                    trailing-icon: close
+
+          # All 3 variants with labels
+          - type: section
+            title: "Variants with Labels"
+            children:
+              - type: stack
+                gap: md
+                padding: md
+                children:
+                  - type: input
+                    label: "Outlined Input"
+                    placeholder: "Default style"
+                    variant: outlined
+                  - type: input
+                    label: "Filled Input"
+                    placeholder: "Filled background"
+                    variant: filled
+                  - type: input
+                    label: "Underline Input"
+                    placeholder: "Bottom border only"
+                    variant: underline
+
+          # Disabled state
+          - type: section
+            title: "Disabled"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    label: "Account ID"
+                    value: "USR-84729"
+                    disabled: true
+
+          # Required (shows *)
+          - type: section
+            title: "Required"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    label: "Full Name"
+                    placeholder: "Enter your full name"
+                    required: true
+                  - type: input
+                    label: "Phone Number"
+                    placeholder: "+1 (555) 000-0000"
+                    required: true
+                    leading-icon: phone
+
+          # Combined: all properties together
+          - type: section
+            title: "Combined Properties"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: input
+                    label: "Work Email"
+                    placeholder: "you@company.com"
+                    leading-icon: mail
+                    trailing-icon: check
+                    variant: outlined
+                    required: true
+                    helper: "We will send a verification link to this address"

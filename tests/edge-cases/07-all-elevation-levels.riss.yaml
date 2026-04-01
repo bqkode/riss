@@ -1,0 +1,121 @@
+# Edge case: every elevation value on cards
+# Values: none, sm, md, lg
+riss: "0.1"
+meta:
+  name: "All Elevation Levels"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: elevation_levels
+    title: "Elevation Levels"
+    path: /test/elevation
+    children:
+      - type: stack
+        padding: lg
+        gap: lg
+        justify: center
+        height: "full"
+        children:
+          - type: text
+            variant: h3
+            content: "Shadow / Elevation"
+            align: center
+
+          - type: row
+            gap: md
+            justify: center
+            align: start
+            wrap: true
+            children:
+              - type: card
+                elevation: none
+                padding: lg
+                width: 150
+                border: false
+                background: surface-raised
+                children:
+                  - type: stack
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "none"
+                        align: center
+                      - type: text
+                        variant: caption
+                        content: "No shadow"
+                        color: text-secondary
+                        align: center
+
+              - type: card
+                elevation: sm
+                padding: lg
+                width: 150
+                border: false
+                background: surface-raised
+                children:
+                  - type: stack
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "sm"
+                        align: center
+                      - type: text
+                        variant: caption
+                        content: "Subtle"
+                        color: text-secondary
+                        align: center
+
+              - type: card
+                elevation: md
+                padding: lg
+                width: 150
+                border: false
+                background: surface-raised
+                children:
+                  - type: stack
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "md"
+                        align: center
+                      - type: text
+                        variant: caption
+                        content: "Default"
+                        color: text-secondary
+                        align: center
+
+              - type: card
+                elevation: lg
+                padding: lg
+                width: 150
+                border: false
+                background: surface-raised
+                children:
+                  - type: stack
+                    gap: xs
+                    align: center
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "lg"
+                        align: center
+                      - type: text
+                        variant: caption
+                        content: "Prominent"
+                        color: text-secondary
+                        align: center
+
+          - type: text
+            variant: caption
+            content: "All cards have border: false and background: surface-raised to isolate the shadow."
+            color: text-secondary
+            align: center

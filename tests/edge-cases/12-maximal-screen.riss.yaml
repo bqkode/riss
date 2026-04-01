@@ -1,0 +1,668 @@
+# Edge case: single massive screen using EVERY element type at least once
+# Desktop viewport, roles, annotations, dark mode theme, accent color
+riss: "0.1"
+meta:
+  name: "Maximal Screen — Every Element"
+  viewport: { width: 1440, height: 900 }
+  theme:
+    mode: dark
+    accent: "#818CF8"
+  roles:
+    - id: admin
+      label: "Admin"
+      color: "#DC2626"
+    - id: editor
+      label: "Editor"
+      color: "#2563EB"
+
+screens:
+  - id: maximal
+    title: "Maximal Element Test"
+    path: /test/maximal
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+
+          # ─── Navigation ─────────────────────────────────────
+          - type: navbar
+            title: "Maximal App"
+            subtitle: "Every element in one screen"
+            leading: "menu"
+            trailing:
+              - "icon:search"
+              - "icon:bell"
+              - "icon:user"
+            background: surface
+            border-bottom: true
+
+          - type: breadcrumb
+            items:
+              - "Home"
+              - "Tests"
+              - "Maximal"
+
+          - type: tabs
+            variant: underline
+            items:
+              - label: "Overview"
+                active: true
+              - label: "Details"
+              - label: "Analytics"
+              - label: "Settings"
+
+          - type: tabs
+            variant: filled
+            items:
+              - label: "Day"
+              - label: "Week"
+                active: true
+              - label: "Month"
+
+          - type: tabs
+            variant: pill
+            items:
+              - label: "All"
+                active: true
+              - label: "Active"
+              - label: "Archived"
+
+          # ─── Layout: stack, row, grid ───────────────────────
+          - type: stack
+            padding: lg
+            gap: lg
+            children:
+
+              - type: annotation
+                content: "This screen exercises every element type defined in the Riss v0.1 spec."
+                position: top-right
+                color: info
+
+              # Row with text variants
+              - type: row
+                gap: lg
+                align: start
+                children:
+                  - type: stack
+                    gap: sm
+                    width: "half"
+                    children:
+                      - type: text
+                        variant: h1
+                        content: "Heading 1"
+                      - type: text
+                        variant: h2
+                        content: "Heading 2"
+                      - type: text
+                        variant: h3
+                        content: "Heading 3"
+                      - type: text
+                        variant: h4
+                        content: "Heading 4"
+                      - type: text
+                        variant: h5
+                        content: "Heading 5"
+                      - type: text
+                        variant: h6
+                        content: "Heading 6"
+                  - type: stack
+                    gap: sm
+                    width: "half"
+                    children:
+                      - type: text
+                        variant: body
+                        content: "Body text with normal weight and comfortable line height for long-form reading."
+                      - type: text
+                        variant: body-sm
+                        content: "Body small — compact secondary content."
+                      - type: text
+                        variant: caption
+                        content: "Caption — timestamps, metadata"
+                        color: text-secondary
+                      - type: text
+                        variant: label
+                        content: "LABEL — form labels, section titles"
+                      - type: text
+                        variant: overline
+                        content: "OVERLINE — category markers"
+                      - type: text
+                        variant: code
+                        content: "const x = { code: true };"
+
+              - type: divider
+
+              # ─── Content elements ───────────────────────────
+              - type: section
+                title: "Content Elements"
+                children:
+                  - type: row
+                    gap: md
+                    align: start
+                    children:
+                      - type: image
+                        aspect: "16/9"
+                        label: "Hero Banner"
+                        rounded: md
+                        width: "2/3"
+
+                      - type: stack
+                        gap: md
+                        width: "1/3"
+                        children:
+                          - type: row
+                            gap: sm
+                            align: center
+                            children:
+                              - type: icon
+                                name: star
+                                size: 24
+                                color: warning
+                              - type: icon
+                                name: heart
+                                size: 24
+                                color: error
+                              - type: icon
+                                name: bookmark
+                                size: 24
+                                color: accent
+                              - type: icon
+                                name: share
+                                size: 24
+                                color: text-secondary
+
+                          - type: row
+                            gap: sm
+                            align: center
+                            children:
+                              - type: avatar
+                                size: 40
+                                initials: "AB"
+                              - type: avatar
+                                size: 40
+                                initials: "CD"
+                              - type: avatar
+                                size: 40
+                                initials: "EF"
+
+                          - type: row
+                            gap: sm
+                            children:
+                              - type: badge
+                                content: "3"
+                                color: error
+                              - type: badge
+                                content: "New"
+                                color: accent
+                              - type: badge
+
+                          - type: row
+                            gap: sm
+                            wrap: true
+                            children:
+                              - type: chip
+                                label: "Design"
+                                variant: filled
+                              - type: chip
+                                label: "Engineering"
+                                variant: outlined
+                              - type: chip
+                                label: "Removable"
+                                variant: outlined
+                                removable: true
+
+                          - type: progress
+                            value: 73
+                            label: "Storage used"
+                            color: accent
+
+              - type: divider
+
+              # ─── Card variants ──────────────────────────────
+              - type: section
+                title: "Card Variants"
+                children:
+                  - type: grid
+                    columns: 3
+                    gap: md
+                    children:
+                      - type: card
+                        variant: outlined
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "Outlined Card"
+                          - type: text
+                            variant: body-sm
+                            content: "Default card with 1px border."
+                            color: text-secondary
+
+                      - type: card
+                        variant: elevated
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "Elevated Card"
+                          - type: text
+                            variant: body-sm
+                            content: "Raised surface with shadow."
+                            color: text-secondary
+
+                      - type: card
+                        variant: filled
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "Filled Card"
+                          - type: text
+                            variant: body-sm
+                            content: "Solid surface background."
+                            color: text-secondary
+
+              - type: divider
+
+              # ─── Interactive elements ───────────────────────
+              - type: section
+                title: "Buttons"
+                children:
+                  - type: row
+                    gap: sm
+                    wrap: true
+                    align: center
+                    children:
+                      - type: button
+                        label: "Primary"
+                        variant: primary
+                      - type: button
+                        label: "Secondary"
+                        variant: secondary
+                      - type: button
+                        label: "Outline"
+                        variant: outline
+                      - type: button
+                        label: "Ghost"
+                        variant: ghost
+                      - type: button
+                        label: "Text Link"
+                        variant: text
+                      - type: button
+                        label: "With Icon"
+                        variant: primary
+                        leading-icon: plus
+                      - type: button
+                        label: "Trailing"
+                        variant: outline
+                        trailing-icon: chevron-right
+                      - type: button
+                        leading-icon: settings
+                        icon-only: true
+                        variant: ghost
+                        label: "Settings"
+                      - type: button
+                        label: "Disabled"
+                        variant: primary
+                        disabled: true
+                        annotation: "Disabled buttons should appear muted with no hover state"
+
+              - type: section
+                title: "Form Inputs"
+                children:
+                  - type: grid
+                    columns: 2
+                    gap: md
+                    children:
+                      - type: input
+                        label: "Full Name"
+                        placeholder: "Ingrid Solberg"
+                        variant: outlined
+
+                      - type: input
+                        label: "Search"
+                        placeholder: "Find anything..."
+                        leading-icon: search
+                        variant: filled
+
+                      - type: input
+                        label: "Website"
+                        value: "https://example.no"
+                        variant: underline
+
+                      - type: input
+                        label: "Password"
+                        placeholder: "Enter password"
+                        trailing-icon: eye-off
+                        error: "Must be at least 8 characters"
+
+                      - type: textarea
+                        label: "Description"
+                        placeholder: "Tell us about your project..."
+                        rows: 3
+
+                      - type: stack
+                        gap: md
+                        children:
+                          - type: checkbox
+                            label: "Accept terms and conditions"
+                            checked: true
+                          - type: checkbox
+                            label: "Subscribe to newsletter"
+                            checked: false
+
+                      - type: radio
+                        label: "Priority"
+                        options:
+                          - "Low"
+                          - "Medium"
+                          - "High"
+                          - "Critical"
+                        selected: 1
+
+                      - type: stack
+                        gap: md
+                        children:
+                          - type: toggle
+                            label: "Enable notifications"
+                            checked: true
+                          - type: toggle
+                            label: "Dark mode"
+                            checked: true
+                          - type: toggle
+                            label: "Maintenance mode"
+                            checked: false
+                            disabled: true
+
+                      - type: select
+                        label: "Country"
+                        placeholder: "Choose a country..."
+                        options:
+                          - "Norway"
+                          - "Sweden"
+                          - "Denmark"
+                          - "Finland"
+                          - "Iceland"
+                        selected: 0
+
+                      - type: slider
+                        label: "Volume"
+                        min: 0
+                        max: 100
+                        value: 65
+                        show-value: true
+
+              - type: divider
+
+              # ─── Data display ───────────────────────────────
+              - type: section
+                title: "List & Table"
+                children:
+                  - type: row
+                    gap: lg
+                    align: start
+                    children:
+                      - type: list
+                        dividers: true
+                        width: "half"
+                        children:
+                          - type: list-item
+                            leading: avatar
+                            title: "Kari Nordmann"
+                            subtitle: "Product Manager"
+                            trailing: "icon:chevron-right"
+                          - type: list-item
+                            leading: "icon:mail"
+                            title: "Inbox"
+                            trailing: "badge:5"
+                          - type: list-item
+                            leading: "checkbox"
+                            title: "Review pull request #142"
+                            trailing: "text:Due today"
+                          - type: list-item
+                            leading: "image"
+                            title: "Project Thumbnail"
+                            subtitle: "Last updated 2h ago"
+                            trailing: "toggle"
+                            size: lg
+
+                      - type: table
+                        width: "half"
+                        striped: true
+                        columns:
+                          - label: "Name"
+                            width: "1/3"
+                          - label: "Role"
+                            width: "1/3"
+                          - label: "Status"
+                            width: "1/3"
+                            align: center
+                        rows:
+                          - ["Astrid Haugen", "Admin", "Active"]
+                          - ["Bjorn Eriksen", "Editor", "Active"]
+                          - ["Camilla Nordby", "Viewer", "Inactive"]
+                          - ["Daniel Fjeld", "Editor", "Pending"]
+
+              - type: placeholder
+                label: "Interactive Chart — Revenue Over Time"
+                icon: chart
+                aspect: "21/9"
+                annotation: "Replace with real chart component in implementation"
+
+              - type: divider
+
+              # ─── Feedback elements ──────────────────────────
+              - type: section
+                title: "Alerts & Feedback"
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: alert
+                        variant: info
+                        title: "System Update"
+                        message: "A new version is available. Refresh to update."
+                        dismissable: true
+                      - type: alert
+                        variant: success
+                        title: "Deployment Complete"
+                        message: "v2.4.1 deployed to production successfully."
+                      - type: alert
+                        variant: warning
+                        title: "Rate Limit"
+                        message: "You have 12 API calls remaining this hour."
+                      - type: alert
+                        variant: error
+                        title: "Connection Failed"
+                        message: "Unable to reach the database cluster. Retrying in 30s."
+                        dismissable: true
+
+              - type: row
+                gap: lg
+                align: start
+                children:
+                  - type: stack
+                    gap: md
+                    width: "half"
+                    children:
+                      - type: text
+                        variant: label
+                        content: "Skeleton Loading"
+                      - type: skeleton
+                        variant: card
+                        height: 120
+                      - type: skeleton
+                        variant: text
+                        lines: 3
+                      - type: row
+                        gap: sm
+                        children:
+                          - type: skeleton
+                            variant: avatar
+                            size: 40
+                          - type: skeleton
+                            variant: list-item
+
+                  - type: stack
+                    gap: md
+                    width: "half"
+                    children:
+                      - type: empty-state
+                        icon: inbox
+                        title: "No messages yet"
+                        message: "When teammates mention you, their messages appear here."
+                        action: "Browse Channels"
+
+                      - type: row
+                        gap: md
+                        justify: center
+                        children:
+                          - type: spinner
+                            size: 24
+                            color: accent
+                          - type: spinner
+                            size: 32
+                            color: text-secondary
+
+              - type: divider
+
+              # ─── Scroll container ──────────────────────────
+              - type: section
+                title: "Horizontal Scroll"
+                children:
+                  - type: scroll
+                    direction: horizontal
+                    height: 140
+                    children:
+                      - type: card
+                        width: 220
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "Scroll Card 1"
+                          - type: text
+                            variant: caption
+                            content: "Horizontal scrollable content"
+                            color: text-secondary
+                      - type: card
+                        width: 220
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "Scroll Card 2"
+                          - type: text
+                            variant: caption
+                            content: "Swipe to see more"
+                            color: text-secondary
+                      - type: card
+                        width: 220
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "Scroll Card 3"
+                          - type: text
+                            variant: caption
+                            content: "Third scrollable card"
+                            color: text-secondary
+                      - type: card
+                        width: 220
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "Scroll Card 4"
+                          - type: text
+                            variant: caption
+                            content: "Overflow test"
+                            color: text-secondary
+
+              - type: divider
+
+              # ─── Role-restricted elements ───────────────────
+              - type: section
+                title: "Role-Restricted Elements"
+                children:
+                  - type: button
+                    label: "Delete All Records"
+                    variant: primary
+                    color: error
+                    leading-icon: trash
+                    role: admin
+                    annotation: "Destructive action — admin only"
+
+                  - type: card
+                    padding: md
+                    role: [admin, editor]
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "Edit Content Panel"
+                      - type: input
+                        placeholder: "Quick edit..."
+
+              - type: spacer
+                size: 32
+
+              # ─── Toast (floating) ──────────────────────────
+              - type: toast
+                message: "Changes saved successfully"
+                variant: success
+                action: "Undo"
+
+              # ─── Modal overlay ─────────────────────────────
+              - type: modal
+                title: "Confirm Action"
+                width: "1/3"
+                closable: true
+                children:
+                  - type: text
+                    content: "Are you sure you want to proceed? This action cannot be undone."
+                  - type: row
+                    gap: sm
+                    justify: end
+                    children:
+                      - type: button
+                        label: "Cancel"
+                        variant: outline
+                      - type: button
+                        label: "Confirm"
+                        variant: primary
+
+              # ─── Bottom sheet ──────────────────────────────
+              - type: bottomsheet
+                title: "Quick Actions"
+                height: "auto"
+                handle: true
+                children:
+                  - type: list
+                    children:
+                      - type: list-item
+                        leading: "icon:share"
+                        title: "Share"
+                      - type: list-item
+                        leading: "icon:copy"
+                        title: "Copy Link"
+                      - type: list-item
+                        leading: "icon:download"
+                        title: "Export as PDF"
+                      - type: list-item
+                        leading: "icon:trash"
+                        title: "Delete"
+
+          # ─── Tab bar (bottom navigation) ────────────────
+          - type: tabbar
+            items:
+              - icon: home
+                label: "Home"
+                active: true
+              - icon: search
+                label: "Search"
+              - icon: plus
+                label: "Create"
+              - icon: bell
+                label: "Alerts"
+                badge: "3"
+              - icon: user
+                label: "Profile"

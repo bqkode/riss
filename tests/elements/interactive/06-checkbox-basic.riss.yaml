@@ -1,0 +1,98 @@
+# Test: checkbox element
+# Verifies: checked true/false, disabled true/false, various labels
+riss: "0.1"
+meta:
+  name: "Test - Checkbox Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: checkbox_basic
+    title: "Checkbox Basic"
+    path: /test/checkbox-basic
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Unchecked (default)
+          - type: section
+            title: "Unchecked"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: checkbox
+                    label: "Subscribe to weekly newsletter"
+                    checked: false
+                  - type: checkbox
+                    label: "Send me product updates"
+                    checked: false
+
+          # Checked
+          - type: section
+            title: "Checked"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: checkbox
+                    label: "I agree to the terms and conditions"
+                    checked: true
+                  - type: checkbox
+                    label: "Remember my payment details"
+                    checked: true
+
+          # Disabled unchecked
+          - type: section
+            title: "Disabled (unchecked)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: checkbox
+                    label: "Two-factor authentication (requires admin approval)"
+                    checked: false
+                    disabled: true
+
+          # Disabled checked
+          - type: section
+            title: "Disabled (checked)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: checkbox
+                    label: "Receive critical security alerts"
+                    checked: true
+                    disabled: true
+
+          # Mixed list of checkboxes (realistic settings form)
+          - type: section
+            title: "Notification Preferences"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: checkbox
+                    label: "Email notifications for new messages"
+                    checked: true
+                  - type: checkbox
+                    label: "Push notifications for mentions"
+                    checked: true
+                  - type: checkbox
+                    label: "Weekly activity digest"
+                    checked: false
+                  - type: checkbox
+                    label: "Marketing emails and promotions"
+                    checked: false
+                  - type: checkbox
+                    label: "SMS alerts for account changes"
+                    checked: false
+                    disabled: true

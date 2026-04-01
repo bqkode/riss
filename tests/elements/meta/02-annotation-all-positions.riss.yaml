@@ -1,0 +1,195 @@
+# Test: annotation with ALL 5 positions and ALL 4 colors
+# Verifies position and color combinations, numbered annotations, and legend rendering.
+riss: "0.1"
+meta:
+  name: "Test - Annotation All Positions"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: annotation_positions
+    title: "Annotation - All Positions"
+    path: /test/annotation-positions
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Position: top-left
+          - type: section
+            title: "position: top-left"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: annotation
+                    content: "Navigation header must be sticky on scroll."
+                    position: top-left
+                    color: default
+
+                  - type: card
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "Dashboard Header"
+                      - type: text
+                        content: "Welcome back, Kari. Here is your weekly summary."
+
+          # Position: top-right
+          - type: section
+            title: "position: top-right"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: annotation
+                    content: "Badge count fetched from notification service every 30 seconds."
+                    position: top-right
+                    color: info
+
+                  - type: card
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "Notifications"
+                      - type: text
+                        content: "You have 7 unread notifications from your team."
+
+          # Position: bottom-left
+          - type: section
+            title: "position: bottom-left"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: card
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "Payment Form"
+                      - type: text
+                        content: "Enter your card details to complete the purchase."
+
+                  - type: annotation
+                    content: "PCI compliance required. Never store raw card numbers."
+                    position: bottom-left
+                    color: warning
+
+          # Position: bottom-right
+          - type: section
+            title: "position: bottom-right"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: card
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "Export Options"
+                      - type: text
+                        content: "Download your data as CSV, Excel, or PDF."
+
+                  - type: annotation
+                    content: "Large exports should be handled async with email notification."
+                    position: bottom-right
+                    color: accent
+
+          # Position: inline (default)
+          - type: section
+            title: "position: inline"
+            children:
+              - type: stack
+                padding: md
+                gap: sm
+                children:
+                  - type: annotation
+                    content: "This inline annotation appears in the normal document flow."
+                    position: inline
+                    color: default
+
+  - id: annotation_colors
+    title: "Annotation - All Colors"
+    path: /test/annotation-colors
+    children:
+      - type: stack
+        padding: lg
+        gap: lg
+        children:
+          # Color: default
+          - type: annotation
+            content: "Default color annotation. Used for general design notes and clarifications."
+            position: inline
+            color: default
+
+          # Color: info
+          - type: annotation
+            content: "Info color annotation. Used for technical implementation details and API references."
+            position: inline
+            color: info
+
+          # Color: warning
+          - type: annotation
+            content: "Warning color annotation. Used for constraints, limitations, or areas needing special attention."
+            position: inline
+            color: warning
+
+          # Color: accent
+          - type: annotation
+            content: "Accent color annotation. Used for highlighting key design decisions or priorities."
+            position: inline
+            color: accent
+
+  - id: annotation_numbered
+    title: "Annotation - Numbered Legend"
+    path: /test/annotation-numbered
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: "Order Confirmation"
+
+          - type: card
+            annotation: "Order summary must show itemized breakdown with tax calculation."
+            children:
+              - type: text
+                variant: h4
+                content: "Order Summary"
+              - type: text
+                content: "3 items totalling kr 4 297"
+
+          - type: card
+            annotation: "Shipping address pulled from user profile. Allow editing before confirmation."
+            children:
+              - type: text
+                variant: h4
+                content: "Shipping Address"
+              - type: text
+                content: "Storgata 15, 0184 Oslo, Norway"
+
+          - type: card
+            annotation: "Payment method displays last 4 digits only. Must be PCI compliant."
+            children:
+              - type: text
+                variant: h4
+                content: "Payment Method"
+              - type: text
+                content: "Visa ending in 4242"
+
+          - type: button
+            label: "Confirm Order"
+            variant: primary
+            annotation: "Disable button during processing. Show spinner and prevent double-submission."
+
+          - type: text
+            variant: caption
+            color: text-secondary
+            content: "The renderer auto-numbers these annotations as 1 through 4 and displays a legend below the screen."

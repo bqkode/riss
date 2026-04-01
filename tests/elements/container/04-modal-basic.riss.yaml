@@ -1,0 +1,59 @@
+# Test: Modal element with title, form children, centered on dimmed backdrop
+# Verifies basic modal rendering with text, inputs, and action buttons.
+riss: "0.1"
+meta:
+  name: Test - Modal Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: modal_basic
+    title: Test - Modal Basic
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: Kontooversikt
+          - type: text
+            color: text-secondary
+            content: Denne siden vises bak modalen med dempet bakgrunn.
+      - type: modal
+        title: Opprett ny kontakt
+        children:
+          - type: text
+            variant: body-sm
+            color: text-secondary
+            content: Fyll inn informasjonen under for a legge til en ny kontakt i adresseboken.
+          - type: stack
+            gap: md
+            children:
+              - type: input
+                label: Fornavn
+                placeholder: F.eks. Sigrid
+                required: true
+              - type: input
+                label: Etternavn
+                placeholder: F.eks. Larsen
+                required: true
+              - type: input
+                label: E-post
+                placeholder: sigrid.larsen@eksempel.no
+              - type: input
+                label: Telefon
+                placeholder: +47 900 00 000
+          - type: row
+            gap: sm
+            justify: end
+            children:
+              - type: button
+                label: Avbryt
+                variant: outline
+              - type: button
+                label: Lagre kontakt
+                variant: primary

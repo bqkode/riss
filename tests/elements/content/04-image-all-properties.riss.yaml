@@ -1,0 +1,160 @@
+# Test: Image element with ALL properties
+# Verifies aspect, width, height override, label, background, rounded, and icon toggle.
+
+riss: "0.1"
+meta:
+  name: "Test - Image All Properties"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: image_aspect_and_size
+    title: "Image Aspect & Size"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          # Aspect ratio with default full width
+          - type: text
+            variant: label
+            content: "ASPEKT 16/9, FULL BREDDE"
+          - type: image
+            aspect: "16/9"
+            label: "Fjordcruise Geirangerfjorden"
+
+          # Explicit width override
+          - type: text
+            variant: label
+            content: "FAST BREDDE 200px, ASPEKT 1/1"
+          - type: image
+            aspect: "1/1"
+            width: 200
+            label: "Profilbilde 200x200"
+
+          # Explicit height override (overrides aspect)
+          - type: text
+            variant: label
+            content: "EKSPLISITT H\u00D8YDE 120px (OVERSTYRER ASPEKT)"
+          - type: image
+            aspect: "16/9"
+            height: 120
+            label: "H\u00F8yde overstyrt til 120px"
+
+  - id: image_backgrounds
+    title: "Image Backgrounds"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          # Background: placeholder (default)
+          - type: text
+            variant: label
+            content: "BAKGRUNN: PLACEHOLDER (STANDARD)"
+          - type: image
+            aspect: "4/3"
+            background: placeholder
+            label: "Standard plassholder"
+
+          # Background: surface
+          - type: text
+            variant: label
+            content: "BAKGRUNN: SURFACE"
+          - type: image
+            aspect: "4/3"
+            background: surface
+            label: "Surface-bakgrunn"
+
+          # Background: accent-soft
+          - type: text
+            variant: label
+            content: "BAKGRUNN: ACCENT-SOFT"
+          - type: image
+            aspect: "4/3"
+            background: accent-soft
+            label: "Aksentfarget bakgrunn"
+
+  - id: image_rounded
+    title: "Image Rounded Tokens"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          # All rounded tokens
+          - type: text
+            variant: label
+            content: "ROUNDED: NONE"
+          - type: image
+            aspect: "16/9"
+            rounded: none
+            label: "rounded: none"
+
+          - type: text
+            variant: label
+            content: "ROUNDED: SM"
+          - type: image
+            aspect: "16/9"
+            rounded: sm
+            label: "rounded: sm"
+
+          - type: text
+            variant: label
+            content: "ROUNDED: MD"
+          - type: image
+            aspect: "16/9"
+            rounded: md
+            label: "rounded: md"
+
+          - type: text
+            variant: label
+            content: "ROUNDED: LG"
+          - type: image
+            aspect: "16/9"
+            rounded: lg
+            label: "rounded: lg"
+
+          - type: text
+            variant: label
+            content: "ROUNDED: XL"
+          - type: image
+            aspect: "16/9"
+            rounded: xl
+            label: "rounded: xl"
+
+          - type: text
+            variant: label
+            content: "ROUNDED: FULL"
+          - type: image
+            aspect: "1/1"
+            width: 120
+            rounded: full
+            label: "rounded: full"
+
+  - id: image_icon_toggle
+    title: "Image Icon Toggle"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          # icon: true (default)
+          - type: text
+            variant: label
+            content: "ICON: TRUE (STANDARD)"
+          - type: image
+            aspect: "16/9"
+            icon: true
+            label: "Med bildeikon"
+
+          # icon: false
+          - type: text
+            variant: label
+            content: "ICON: FALSE"
+          - type: image
+            aspect: "16/9"
+            icon: false
+            label: "Uten bildeikon"

@@ -1,0 +1,107 @@
+# Integration test: annotations — inline properties, standalone elements,
+# all 5 positions, all 4 colors, and numbered legend generation.
+riss: "0.1"
+
+meta:
+  name: "NotesApp"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#6366F1"
+
+screens:
+  - id: notes_screen
+    title: "Notes"
+    path: /notes
+    children:
+      - type: navbar
+        title: "My Notes"
+        leading: icon:menu
+        trailing:
+          - icon:search
+          - icon:plus
+
+      - type: scroll
+        grow: 1
+        padding: lg
+        gap: md
+        children:
+          # (1) Inline annotation on a button
+          - type: button
+            label: "Save Note"
+            variant: primary
+            full-width: true
+            annotation: "Must validate title and body are non-empty before enabling"
+
+          # (2) Standalone annotation — top-left, default color
+          - type: annotation
+            content: "Sticky header must remain visible during scroll. Z-index above cards."
+            position: top-left
+            color: default
+
+          # (3) Standalone annotation — top-right, info color
+          - type: annotation
+            content: "Search results fetched via Algolia. Debounce input by 300ms."
+            position: top-right
+            color: info
+
+          # (4) Annotation on an input element
+          - type: input
+            label: "Note Title"
+            placeholder: "Enter a descriptive title..."
+            annotation: "Max 120 characters. Show remaining count below field."
+
+          # (5) Standalone annotation — bottom-left, warning color
+          - type: annotation
+            content: "Offline mode: queue edits in local storage. Sync on reconnect."
+            position: bottom-left
+            color: warning
+
+          # (6) Annotation on an image placeholder
+          - type: image
+            alt: "Note cover image"
+            width: "100%"
+            height: 200
+            annotation: "Support JPEG, PNG, WebP. Max 5MB. Show progress bar during upload."
+
+          # (7) Annotation on a card — bottom-right, accent color
+          - type: card
+            padding: md
+            annotation: "Tap to expand note. Long-press for context menu (edit, share, delete)."
+            children:
+              - type: text
+                variant: h4
+                content: "Meeting Notes — Q2 Planning"
+              - type: text
+                variant: body-sm
+                color: text-secondary
+                content: "Discussed roadmap priorities, resource allocation, and timeline for the next quarter..."
+              - type: row
+                justify: between
+                align: center
+                children:
+                  - type: text
+                    variant: caption
+                    color: text-secondary
+                    content: "Updated 2 hours ago"
+                  - type: icon
+                    name: bookmark
+                    size: 16
+                    color: text-secondary
+
+          # (8) Standalone annotation — bottom-right, accent color
+          - type: annotation
+            content: "Pagination: load 20 notes per page. Infinite scroll with skeleton loading."
+            position: bottom-right
+            color: accent
+
+          # (9) Standalone annotation — inline, info color
+          - type: annotation
+            content: "Empty state: show illustration + 'Create your first note' CTA when list is empty."
+            position: inline
+            color: info
+
+          - type: text
+            variant: caption
+            color: text-secondary
+            content: "The renderer auto-numbers annotations (1) through (9) and displays a legend below the screen."

@@ -1,0 +1,52 @@
+riss: "0.1"
+meta:
+  name: Test - Footer Multi-Column
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: footer_multi_column
+    title: Test - Footer Multi-Column
+    children:
+      - block: footer
+        variant: multi-column
+        logo: Fjordtech
+        tagline: Building the future of Nordic tech
+        columns:
+          - title: Product
+            links:
+              - Features
+              - Pricing
+              - Integrations
+              - Changelog
+              - Documentation
+          - title: Developers
+            links:
+              - API Reference
+              - SDKs
+              - Guides
+              - Status
+              - Open Source
+          - title: Company
+            links:
+              - About
+              - Blog
+              - Careers
+              - Press
+              - Contact
+          - title: Legal
+            links:
+              - Privacy
+              - Terms
+              - Cookie Policy
+              - GDPR
+              - Security
+        social:
+          - twitter
+          - github
+          - linkedin
+        copyright: © 2026 Fjordtech AS. All rights reserved.
+        newsletter: true

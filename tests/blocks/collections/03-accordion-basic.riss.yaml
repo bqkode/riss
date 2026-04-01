@@ -1,0 +1,27 @@
+riss: "0.1"
+meta:
+  name: Test - Accordion Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: accordion_basic
+    title: Test - Accordion Basic
+    children:
+      - block: accordion
+        title: Frequently Asked Questions
+        variant: default
+        items:
+          - question: How long does shipping take within Norway?
+            answer: Standard shipping within Norway takes 2-4 business days. Express delivery is available for next-day delivery to most major cities including Oslo, Bergen, and Trondheim.
+          - question: What is your return policy?
+            answer: We offer a 60-day open return policy on all items. Products must be in original condition with tags attached. Return shipping is free for all orders within Norway.
+          - question: Do you ship to other Nordic countries?
+            answer: Yes, we ship to Sweden, Denmark, Finland, and Iceland. Delivery times vary between 3-7 business days depending on the destination. Customs fees may apply.
+          - question: How can I track my order?
+            answer: Once your order has been shipped, you will receive a tracking number via email and SMS. You can track your package through Posten or Bring's tracking portal.
+          - question: Can I change or cancel my order after placing it?
+            answer: You can modify or cancel your order within 1 hour of placing it. After that, the order enters processing and cannot be changed. Please contact our customer service for assistance.

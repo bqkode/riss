@@ -1,0 +1,129 @@
+# Edge case: 6+ levels of deeply nested elements
+# Verifies that the renderer handles deep nesting without breaking layout
+# Nesting: screen > stack > row > card > stack > row > stack > text
+riss: "0.1"
+meta:
+  name: "Deep Nesting Test"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#6366F1"
+
+screens:
+  - id: deep_nesting
+    title: "Deep Nesting (8 levels)"
+    path: /test/deep-nesting
+    children:
+      # Level 1: stack (screen root)
+      - type: stack
+        padding: md
+        gap: md
+        background: background
+        children:
+          - type: text
+            variant: label
+            content: "Level 1 — Stack"
+            color: text-secondary
+
+          # Level 2: row
+          - type: row
+            gap: sm
+            padding: sm
+            background: surface
+            border: true
+            rounded: md
+            children:
+              - type: text
+                variant: label
+                content: "L2 — Row"
+                color: text-secondary
+
+              # Level 3: card
+              - type: card
+                padding: md
+                grow: 1
+                border:
+                  color: accent
+                  width: 2
+                  style: solid
+                children:
+                  - type: text
+                    variant: label
+                    content: "L3 — Card"
+                    color: accent
+
+                  # Level 4: stack
+                  - type: stack
+                    gap: sm
+                    padding: sm
+                    background: surface
+                    border: true
+                    rounded: sm
+                    children:
+                      - type: text
+                        variant: label
+                        content: "L4 — Stack"
+                        color: text-secondary
+
+                      # Level 5: row
+                      - type: row
+                        gap: xs
+                        padding: xs
+                        background: surface-raised
+                        border:
+                          color: border-strong
+                          width: 1
+                          style: dashed
+                        rounded: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "L5 — Row"
+                            color: text-secondary
+
+                          # Level 6: stack
+                          - type: stack
+                            gap: xs
+                            padding: sm
+                            background: surface
+                            border: true
+                            rounded: md
+                            grow: 1
+                            children:
+                              - type: text
+                                variant: label
+                                content: "L6 — Stack"
+                                color: text-secondary
+
+                              # Level 7: row
+                              - type: row
+                                gap: xs
+                                padding: xs
+                                background: background
+                                border:
+                                  color: accent
+                                  width: 1
+                                  style: dashed
+                                rounded: sm
+                                children:
+                                  # Level 8: stack with text (deepest)
+                                  - type: stack
+                                    gap: xs
+                                    padding: sm
+                                    background: accent-soft
+                                    rounded: sm
+                                    grow: 1
+                                    children:
+                                      - type: text
+                                        variant: caption
+                                        content: "L7 — Row"
+                                        color: text-secondary
+                                      - type: text
+                                        variant: body-sm
+                                        weight: semibold
+                                        content: "Level 8 — Deepest"
+                                        color: accent
+                                      - type: text
+                                        variant: caption
+                                        content: "If you can read this, deep nesting works."
+                                        color: text-secondary

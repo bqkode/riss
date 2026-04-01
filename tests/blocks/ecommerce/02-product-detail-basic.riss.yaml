@@ -1,0 +1,38 @@
+riss: "0.1"
+meta:
+  name: Test - Product Detail Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#059669"
+screens:
+  - id: product_detail_basic
+    title: Test - Product Detail Basic
+    children:
+      - block: product-detail
+        image-label: Product Photo
+        image-count: 4
+        category: Outdoor Gear
+        title: Fjelljakke Pro
+        price: kr 2,499
+        original-price: kr 3,199
+        rating: 4.2
+        reviews: 87
+        description: Teknisk fjelljakke designet for norske forhold. Vanntett, vindtett og pustende med forsterket Dermizax-membran. Perfekt for turer i fjellet hele året.
+        variants:
+          - label: Size
+            options:
+              - S
+              - M
+              - L
+              - XL
+            selected: M
+          - label: Color
+            options:
+              - Black
+              - Navy
+              - Olive
+        cta-label: Add to Cart
+        wishlist: true

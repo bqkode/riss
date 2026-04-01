@@ -1,0 +1,78 @@
+# Test: annotation as standalone element and inline property
+# Verifies both usage patterns: standalone annotation element and annotation on other elements.
+riss: "0.1"
+meta:
+  name: "Test - Annotation Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: annotation_standalone
+    title: "Annotation - Standalone"
+    path: /test/annotation-standalone
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          # Standalone annotation with default inline position
+          - type: annotation
+            content: "This section requires API integration with the user service endpoint."
+            position: inline
+
+          - type: card
+            children:
+              - type: text
+                variant: h4
+                content: "User Profile"
+              - type: text
+                content: "Displays the current user's name, email, and avatar."
+
+          # Another standalone annotation
+          - type: annotation
+            content: "Card must update in real-time when profile changes are saved."
+
+          - type: card
+            children:
+              - type: text
+                variant: h4
+                content: "Recent Activity"
+              - type: text
+                content: "Shows the last 10 actions performed by the user."
+
+  - id: annotation_inline
+    title: "Annotation - Inline on Elements"
+    path: /test/annotation-inline
+    children:
+      - type: stack
+        padding: lg
+        gap: md
+        children:
+          # Button with annotation property
+          - type: button
+            label: "Submit Order"
+            variant: primary
+            annotation: "Must validate all required fields before enabling. Disable if cart is empty."
+
+          - type: button
+            label: "Cancel"
+            variant: ghost
+            annotation: "Show confirmation dialog before discarding changes."
+
+          # Input with annotation
+          - type: input
+            label: "Email Address"
+            placeholder: "name@example.com"
+            annotation: "Validate email format on blur. Show inline error for invalid addresses."
+
+          # Card with annotation
+          - type: card
+            annotation: "This card should collapse on mobile viewports below 375px width."
+            children:
+              - type: text
+                variant: h4
+                content: "Shipping Details"
+              - type: text
+                content: "Estimated delivery: 3-5 business days within Norway."

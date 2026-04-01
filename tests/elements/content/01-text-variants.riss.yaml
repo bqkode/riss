@@ -1,0 +1,81 @@
+# Test: All 12 text variants
+# Verifies that every typography variant renders at the correct size and weight.
+
+riss: "0.1"
+meta:
+  name: "Test - Text Variants"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: text_variants
+    title: "Text Variants"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          # h1 — 32px bold
+          - type: text
+            variant: h1
+            content: "Velkommen til Fjordbank"
+
+          # h2 — 24px bold
+          - type: text
+            variant: h2
+            content: "Dine kontoer"
+
+          # h3 — 20px semibold
+          - type: text
+            variant: h3
+            content: "Siste transaksjoner"
+
+          # h4 — 18px semibold
+          - type: text
+            variant: h4
+            content: "Overf\u00F8ringsdetaljer"
+
+          # h5 — 16px semibold
+          - type: text
+            variant: h5
+            content: "Betalingsmottaker"
+
+          # h6 — 14px semibold
+          - type: text
+            variant: h6
+            content: "Sorter etter dato"
+
+          - type: divider
+            margin-y: sm
+
+          # body — 16px normal
+          - type: text
+            variant: body
+            content: "Brukskontoen din har en tilgjengelig saldo p\u00E5 24 500 kr. Neste l\u00F8nnsutbetaling er planlagt 25. april."
+
+          # body-sm — 14px normal
+          - type: text
+            variant: body-sm
+            content: "Kortbetaling hos Kiwi Gr\u00FCnerl\u00F8kka, 15. mars 2026. Bel\u00F8p: 347 kr."
+
+          # caption — 12px normal
+          - type: text
+            variant: caption
+            content: "Sist oppdatert: 01.04.2026 kl. 09:15"
+
+          # label — 12px medium
+          - type: text
+            variant: label
+            content: "KONTONUMMER"
+
+          # overline — 10px semibold
+          - type: text
+            variant: overline
+            content: "NY FUNKSJON"
+
+          # code — 14px mono
+          - type: text
+            variant: code
+            content: "NO93 8601 1117 947"

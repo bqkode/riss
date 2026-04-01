@@ -1,0 +1,73 @@
+riss: "0.1"
+meta:
+  name: Test - Product Detail All Parameters
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#059669"
+screens:
+  - id: product_detail_all_parameters
+    title: Test - Product Detail All Parameters
+    children:
+      - block: product-detail
+        image-label: Randonee ski boots close-up
+        image-count: 6
+        image-aspect: 4/3
+        category: Ski & Alpint
+        title: Randonee Topptur Elite
+        subtitle: Profesjonell randonee-sko for krevende terreng
+        price: kr 6,999
+        original-price: kr 8,499
+        currency: NOK
+        rating: 4.8
+        reviews: 214
+        badge: Bestselger
+        description: Vår mest avanserte randonee-sko med karbon-forsterket skall og Vibram-såle. Utviklet i samarbeid med norske fjellguider for optimal ytelse i bratt terreng. Vekt kun 1350g per sko.
+        features:
+          - Karbon-forsterket skall
+          - Vibram Megagrip-såle
+          - BOA Fit System
+          - Walk/Ski-modus
+          - "Vekt: 1350g"
+        variants:
+          - label: Size
+            options:
+              - "38"
+              - "39"
+              - "40"
+              - "41"
+              - "42"
+              - "43"
+              - "44"
+              - "45"
+            selected: "43"
+          - label: Color
+            options:
+              - Anthracite
+              - Electric Blue
+            selected: Anthracite
+          - label: Flex
+            options:
+              - "120"
+              - "130"
+            selected: "130"
+        cta-label: Legg i handlekurv
+        cta-secondary-label: Kjøp nå
+        wishlist: true
+        share: true
+        sku: RT-ELITE-43-ANT
+        availability: In stock
+        delivery-estimate: 2-4 virkedager
+        return-policy: 60 dagers åpent kjøp
+        tabs:
+          - Description
+          - Specifications
+          - Reviews
+        related-count: 4
+        breadcrumbs:
+          - Hjem
+          - Ski & Alpint
+          - Randonee
+          - Randonee Topptur Elite

@@ -1,0 +1,27 @@
+riss: "0.1"
+meta:
+  name: Test - Top Navigation All Parameters
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: top_navigation_all_parameters
+    title: Test - Top Navigation All Parameters
+    children:
+      - block: top-nav
+        logo: CloudBase
+        logo-icon: cloud
+        items:
+          - label: Dashboard
+            active: true
+          - label: Projects
+          - label: Deployments
+          - label: Settings
+        cta-label: Upgrade Plan
+        cta-secondary-label: Feedback
+        search: true
+        avatar: BQ
+        sticky: true

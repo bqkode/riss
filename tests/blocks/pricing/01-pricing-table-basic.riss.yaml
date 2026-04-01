@@ -1,0 +1,59 @@
+riss: "0.1"
+meta:
+  name: Test - Pricing Table Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: pricing_table_basic
+    title: Test - Pricing Table Basic
+    children:
+      - block: pricing-table
+        title: Simple, transparent pricing
+        subtitle: Start free and scale as you grow. No hidden fees.
+        toggle:
+          - Monthly
+          - Annual
+        tiers:
+          - name: Free
+            price: kr 0
+            period: /month
+            description: For individuals and small experiments
+            features:
+              - Up to 3 projects
+              - 1 GB storage
+              - Community support
+              - Basic analytics
+            cta-label: Get started
+            cta-variant: secondary
+          - name: Pro
+            price: kr 299
+            period: /month
+            description: For growing teams that need more power
+            highlighted: true
+            badge: Most popular
+            features:
+              - Unlimited projects
+              - 50 GB storage
+              - Priority support
+              - Advanced analytics
+              - Custom integrations
+              - Team collaboration
+            cta-label: Start free trial
+            cta-variant: primary
+          - name: Enterprise
+            price: Custom
+            description: For large organizations with advanced needs
+            features:
+              - Everything in Pro
+              - Unlimited storage
+              - Dedicated account manager
+              - SLA guarantee
+              - SSO & SCIM provisioning
+              - Audit logs
+              - Custom contracts
+            cta-label: Contact sales
+            cta-variant: secondary

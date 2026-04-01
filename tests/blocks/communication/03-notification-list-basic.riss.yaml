@@ -1,0 +1,47 @@
+riss: "0.1"
+meta:
+  name: Test - Notification List Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: notification_list_basic
+    title: Test - Notification List Basic
+    children:
+      - block: notification-list
+        title: Notifications
+        mark-all-read: true
+        items:
+          - icon: heart
+            text: Ingrid Haugen liked your photo from Lofoten
+            time: 5 min ago
+            unread: true
+            action: View
+          - avatar: ES
+            text: Erik Solberg started following you
+            time: 23 min ago
+            unread: true
+            action: Follow back
+          - icon: message
+            text: New comment on your post about Besseggen
+            time: 1 hour ago
+            unread: true
+            action: Reply
+          - icon: cart
+            text: "Your order #NOR-2847 has been shipped"
+            time: 3 hours ago
+            unread: false
+            action: Track
+          - avatar: SL
+            text: Sofie Lund mentioned you in a comment
+            time: Yesterday
+            unread: false
+            action: View
+          - icon: star
+            text: You earned the 'Fjellvenn' achievement badge
+            time: 2 days ago
+            unread: false
+            action: View

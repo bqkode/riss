@@ -1,0 +1,20 @@
+riss: "0.1"
+meta:
+  name: Test - Hero Split with Image Right
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: hero_split_with_image_right
+    title: Test - Hero Split with Image Right
+    children:
+      - block: hero
+        variant: split
+        heading: Automate your workflows in seconds
+        subheading: Connect your favorite tools and let intelligent automation handle the rest. No code required.
+        cta-label: Get started free
+        image: true
+        image-position: right

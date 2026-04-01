@@ -1,0 +1,105 @@
+# Test: radio element
+# Verifies: options (3-5 items), selected (index 0, 1, null),
+#   direction (vertical, horizontal), label
+riss: "0.1"
+meta:
+  name: "Test - Radio Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: radio_basic
+    title: "Radio Basic"
+    path: /test/radio-basic
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # 3 options, first selected, vertical
+          - type: section
+            title: "3 Options, selected: 0, vertical"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: radio
+                    label: "Delivery method"
+                    options:
+                      - "Standard shipping (5-7 business days)"
+                      - "Express shipping (2-3 business days)"
+                      - "Overnight delivery (next business day)"
+                    selected: 0
+                    direction: vertical
+
+          # 4 options, second selected, vertical
+          - type: section
+            title: "4 Options, selected: 1, vertical"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: radio
+                    label: "Payment method"
+                    options:
+                      - "Credit or debit card"
+                      - "PayPal"
+                      - "Bank transfer"
+                      - "Apple Pay"
+                    selected: 1
+                    direction: vertical
+
+          # 5 options, none selected (null)
+          - type: section
+            title: "5 Options, selected: null, vertical"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: radio
+                    label: "How did you hear about us?"
+                    options:
+                      - "Search engine"
+                      - "Social media"
+                      - "Friend or colleague"
+                      - "Blog or article"
+                      - "Podcast or video"
+                    direction: vertical
+
+          # Horizontal direction, 3 options
+          - type: section
+            title: "3 Options, selected: 0, horizontal"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: radio
+                    label: "Plan"
+                    options:
+                      - "Monthly"
+                      - "Quarterly"
+                      - "Annual"
+                    selected: 0
+                    direction: horizontal
+
+          # Horizontal direction, none selected
+          - type: section
+            title: "4 Options, selected: null, horizontal"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: radio
+                    label: "Team size"
+                    options:
+                      - "1-5"
+                      - "6-20"
+                      - "21-100"
+                      - "100+"
+                    direction: horizontal

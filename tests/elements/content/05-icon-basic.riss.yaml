@@ -1,0 +1,294 @@
+# Test: Icon element — common icons, sizes, and colors
+# Verifies rendering of frequently used icons at different sizes and color tokens.
+
+riss: "0.1"
+meta:
+  name: "Test - Icon Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: icon_common
+    title: "Common Icons"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "VANLIGE IKONER (24px)"
+
+          # Row of commonly used icons
+          - type: row
+            gap: lg
+            wrap: true
+            children:
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: home
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "home"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: search
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "search"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: settings
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "settings"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: user
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "user"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: bell
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "bell"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: heart
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "heart"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: star
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "star"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: plus
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "plus"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: close
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "close"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: check
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "check"
+
+  - id: icon_sizes
+    title: "Icon Sizes"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "ST\u00D8RRELSER (home-ikon)"
+
+          - type: row
+            gap: lg
+            align: end
+            children:
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: home
+                    size: 16
+                  - type: text
+                    variant: caption
+                    content: "16"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: home
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "20"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: home
+                    size: 24
+                  - type: text
+                    variant: caption
+                    content: "24"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: home
+                    size: 32
+                  - type: text
+                    variant: caption
+                    content: "32"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: home
+                    size: 48
+                  - type: text
+                    variant: caption
+                    content: "48"
+
+  - id: icon_colors
+    title: "Icon Colors"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "FARGETOKENS (heart-ikon, 32px)"
+
+          - type: row
+            gap: lg
+            wrap: true
+            children:
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: heart
+                    size: 32
+                    color: text
+                  - type: text
+                    variant: caption
+                    content: "text"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: heart
+                    size: 32
+                    color: text-secondary
+                  - type: text
+                    variant: caption
+                    content: "secondary"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: heart
+                    size: 32
+                    color: accent
+                  - type: text
+                    variant: caption
+                    content: "accent"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: heart
+                    size: 32
+                    color: success
+                  - type: text
+                    variant: caption
+                    content: "success"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: heart
+                    size: 32
+                    color: warning
+                  - type: text
+                    variant: caption
+                    content: "warning"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: heart
+                    size: 32
+                    color: error
+                  - type: text
+                    variant: caption
+                    content: "error"

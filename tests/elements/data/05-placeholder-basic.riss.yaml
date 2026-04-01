@@ -1,0 +1,113 @@
+# Test: placeholder element with all property combinations
+# Verifies label, icon, aspect ratio, height, and background options.
+riss: "0.1"
+meta:
+  name: "Test - Placeholder Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: placeholder_variants
+    title: "Placeholder - All Variants"
+    path: /test/placeholder
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # With aspect ratio 4/3 and icon
+          - type: section
+            title: "Interactive Map (4/3)"
+            children:
+              - type: stack
+                padding: md
+                children:
+                  - type: placeholder
+                    label: "Interactive Map"
+                    icon: map-pin
+                    aspect: "4/3"
+
+          # With aspect ratio 16/9
+          - type: section
+            title: "Video Player (16/9)"
+            children:
+              - type: stack
+                padding: md
+                children:
+                  - type: placeholder
+                    label: "Video Player"
+                    icon: play
+                    aspect: "16/9"
+
+          # With aspect ratio 1/1
+          - type: section
+            title: "3D Model Viewer (1/1)"
+            children:
+              - type: stack
+                padding: md
+                children:
+                  - type: placeholder
+                    label: "3D Model Viewer"
+                    aspect: "1/1"
+
+          # With fixed height 200
+          - type: section
+            title: "Chart (height: 200)"
+            children:
+              - type: stack
+                padding: md
+                children:
+                  - type: placeholder
+                    label: "Chart"
+                    icon: chart
+                    height: 200
+
+          # With fixed height 300
+          - type: section
+            title: "Data Visualization (height: 300)"
+            children:
+              - type: stack
+                padding: md
+                children:
+                  - type: placeholder
+                    label: "Revenue Dashboard"
+                    icon: chart
+                    height: 300
+
+          # Background: placeholder (default)
+          - type: section
+            title: "background: placeholder"
+            children:
+              - type: stack
+                padding: md
+                children:
+                  - type: placeholder
+                    label: "Default Background"
+                    height: 200
+                    background: placeholder
+
+          # Background: surface
+          - type: section
+            title: "background: surface"
+            children:
+              - type: stack
+                padding: md
+                children:
+                  - type: placeholder
+                    label: "Surface Background"
+                    height: 200
+                    background: surface
+
+          # Background: accent-soft
+          - type: section
+            title: "background: accent-soft"
+            children:
+              - type: stack
+                padding: md
+                children:
+                  - type: placeholder
+                    label: "Accent Soft Background"
+                    icon: map-pin
+                    height: 200
+                    background: accent-soft

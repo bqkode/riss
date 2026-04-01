@@ -1,0 +1,18 @@
+riss: "0.1"
+meta:
+  name: Test - Hero with Email Input Newsletter Signup
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: hero_with_email_input_newslett
+    title: Test - Hero with Email Input Newsletter Signup
+    children:
+      - block: hero
+        variant: with-input
+        heading: Stay ahead of the curve
+        subheading: Join 120,000 product leaders who get our weekly digest on design, engineering, and startup strategy.
+        cta-label: Subscribe

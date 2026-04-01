@@ -1,0 +1,203 @@
+# Edge case: every size fraction value on width and height
+# Values: "full", "half", "auto", "1/3", "2/3", "1/4", "3/4"
+riss: "0.1"
+meta:
+  name: "All Size Fractions"
+  viewport: { width: 820, height: 1180 }
+  theme:
+    mode: light
+    accent: "#6366F1"
+
+screens:
+  - id: size_fractions
+    title: "Size Fractions"
+    path: /test/size-fractions
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: md
+            gap: lg
+            children:
+
+              # --- full ---
+              - type: section
+                title: "width: full (100%)"
+                children:
+                  - type: row
+                    gap: sm
+                    children:
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        width: "full"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "full"
+                            align: center
+
+              # --- half + half ---
+              - type: section
+                title: "width: half (50%)"
+                children:
+                  - type: row
+                    gap: sm
+                    children:
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        width: "half"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "half"
+                            align: center
+                      - type: card
+                        variant: filled
+                        background: surface
+                        width: "half"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "half"
+                            align: center
+
+              # --- 1/3 + 2/3 ---
+              - type: section
+                title: "width: 1/3 + 2/3"
+                children:
+                  - type: row
+                    gap: sm
+                    children:
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        width: "1/3"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "1/3"
+                            align: center
+                      - type: card
+                        variant: filled
+                        background: surface
+                        width: "2/3"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "2/3"
+                            align: center
+
+              # --- 1/4 + 3/4 ---
+              - type: section
+                title: "width: 1/4 + 3/4"
+                children:
+                  - type: row
+                    gap: sm
+                    children:
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        width: "1/4"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "1/4"
+                            align: center
+                      - type: card
+                        variant: filled
+                        background: surface
+                        width: "3/4"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "3/4"
+                            align: center
+
+              # --- auto ---
+              - type: section
+                title: "width: auto (size to content)"
+                children:
+                  - type: row
+                    gap: sm
+                    children:
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        width: "auto"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "auto — fits content"
+                      - type: card
+                        variant: filled
+                        background: surface
+                        width: "auto"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "auto"
+
+              # --- Height fractions ---
+              - type: section
+                title: "Height fractions"
+                children:
+                  - type: row
+                    gap: sm
+                    height: 300
+                    children:
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        width: "1/4"
+                        height: "full"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "h: full"
+                            align: center
+                      - type: card
+                        variant: filled
+                        background: surface
+                        width: "1/4"
+                        height: "half"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "h: half"
+                            align: center
+                      - type: card
+                        variant: filled
+                        background: accent-soft
+                        width: "1/4"
+                        height: "1/3"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "h: 1/3"
+                            align: center
+                      - type: card
+                        variant: filled
+                        background: surface
+                        width: "1/4"
+                        height: "auto"
+                        padding: sm
+                        children:
+                          - type: text
+                            variant: label
+                            content: "h: auto"
+                            align: center

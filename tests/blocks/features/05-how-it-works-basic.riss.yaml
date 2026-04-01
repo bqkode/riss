@@ -1,0 +1,28 @@
+riss: "0.1"
+meta:
+  name: Test - How It Works Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: how_it_works_basic
+    title: Test - How It Works Basic
+    children:
+      - block: how-it-works
+        title: Get started in four simple steps
+        items:
+          - title: Connect your repository
+            description: Link your GitHub, GitLab, or Bitbucket repo. We detect your framework and configure build settings automatically.
+            icon: git-branch
+          - title: Configure your environment
+            description: Set environment variables, define build commands, and choose your deployment region from the dashboard.
+            icon: settings
+          - title: Push your code
+            description: Commit and push to your main branch. Our CI pipeline builds, tests, and deploys your changes in seconds.
+            icon: upload-cloud
+          - title: Go live
+            description: Your application is live on a global edge network with automatic SSL, CDN caching, and DDoS protection.
+            icon: globe

@@ -1,0 +1,22 @@
+{
+  "name": "riss-website",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build:docs": "node scripts/build-docs.mjs",
+    "dev": "npm run build:docs && vite",
+    "build": "npm run build:docs && tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "marked": "^17.0.5",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.1"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.1",
+    "zod": "^4.3.6"
+  }
+}

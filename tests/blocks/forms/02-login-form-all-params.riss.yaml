@@ -1,0 +1,37 @@
+riss: "0.1"
+meta:
+  name: Test - Login Form All Parameters
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: login_form_all_parameters
+    title: Test - Login Form All Parameters
+    children:
+      - block: login-form
+        email: true
+        password: true
+        cta-label: Log in
+      - block: login-form
+        logo: Nordfjord Digital
+        heading: Sign in to your workspace
+        subheading: Access your projects, invoices, and team dashboard
+        email: true
+        password: true
+        remember-me: true
+        forgot-password: true
+        social:
+          - Google
+          - Apple
+          - BankID
+        signup-link: true
+        cta-label: Continue
+        background: accent-soft
+        align: center
+        divider-text: or continue with
+        error-message: Invalid email or password. Please try again.
+        loading: false
+        disabled: false

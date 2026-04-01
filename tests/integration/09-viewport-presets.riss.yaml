@@ -1,0 +1,506 @@
+# Integration test: viewport presets — one screen per common device size.
+# Verifies rendering at 6 different viewport dimensions with appropriate content.
+riss: "0.1"
+
+meta:
+  name: "ViewportPresets"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  # iPhone 14 / 15 standard
+  - id: iphone_standard
+    title: "Login"
+    path: /login
+    viewport: { width: 390, height: 844 }
+    children:
+      - type: stack
+        grow: 1
+        padding: xl
+        gap: lg
+        justify: center
+        children:
+          - type: text
+            variant: h2
+            content: "Welcome Back"
+            align: center
+          - type: text
+            variant: body
+            color: text-secondary
+            content: "Sign in to continue to your account"
+            align: center
+          - type: input
+            label: "Email"
+            placeholder: "you@example.com"
+          - type: input
+            label: "Password"
+            placeholder: "Enter your password"
+          - type: button
+            label: "Sign In"
+            variant: primary
+            full-width: true
+          - type: row
+            justify: center
+            children:
+              - type: button
+                label: "Forgot password?"
+                variant: text
+                size: sm
+
+  # iPhone SE
+  - id: iphone_se
+    title: "Notifications"
+    path: /notifications
+    viewport: { width: 375, height: 667 }
+    children:
+      - type: navbar
+        title: "Notifications"
+        leading: icon:arrow-left
+
+      - type: scroll
+        grow: 1
+        children:
+          - type: list
+            children:
+              - type: list-item
+                leading: icon:mail
+                title: "New message from Erik"
+                subtitle: "Hey, are we still on for the meeting?"
+              - type: list-item
+                leading: icon:check-circle
+                title: "Task completed"
+                subtitle: "Sprint backlog item #142 marked done"
+              - type: list-item
+                leading: icon:alert-circle
+                title: "Server alert"
+                subtitle: "CPU usage exceeded 90% on prod-west-2"
+              - type: list-item
+                leading: icon:user-plus
+                title: "New team member"
+                subtitle: "Sofia Andersson joined the design team"
+              - type: list-item
+                leading: icon:calendar
+                title: "Reminder"
+                subtitle: "Quarterly review starts in 1 hour"
+
+  # Android (Pixel 7 / Samsung Galaxy)
+  - id: android
+    title: "Dashboard"
+    path: /home
+    viewport: { width: 412, height: 915 }
+    children:
+      - type: navbar
+        title: "Dashboard"
+        trailing:
+          - icon:bell
+          - icon:user
+
+      - type: scroll
+        grow: 1
+        padding: lg
+        gap: md
+        children:
+          - type: text
+            variant: h3
+            content: "Good morning, Nils"
+
+          - type: row
+            gap: sm
+            children:
+              - type: card
+                grow: 1
+                padding: md
+                children:
+                  - type: text
+                    variant: caption
+                    color: text-secondary
+                    content: "Steps"
+                  - type: text
+                    variant: h3
+                    content: "8,421"
+                  - type: progress
+                    value: 84
+              - type: card
+                grow: 1
+                padding: md
+                children:
+                  - type: text
+                    variant: caption
+                    color: text-secondary
+                    content: "Calories"
+                  - type: text
+                    variant: h3
+                    content: "1,840"
+                  - type: progress
+                    value: 62
+
+          - type: card
+            padding: md
+            children:
+              - type: text
+                variant: h4
+                content: "Today's Schedule"
+              - type: list
+                children:
+                  - type: list-item
+                    title: "Team standup"
+                    subtitle: "9:00 AM"
+                  - type: list-item
+                    title: "Design review"
+                    subtitle: "11:30 AM"
+                  - type: list-item
+                    title: "Lunch with Sofia"
+                    subtitle: "12:30 PM"
+
+  # iPad (10th gen)
+  - id: ipad
+    title: "Projects"
+    path: /projects
+    viewport: { width: 820, height: 1180 }
+    children:
+      - type: navbar
+        title: "Projects"
+        trailing:
+          - icon:search
+          - icon:plus
+
+      - type: row
+        grow: 1
+        children:
+          # Left column: project list
+          - type: scroll
+            width: 320
+            padding: md
+            gap: sm
+            children:
+              - type: input
+                placeholder: "Search projects..."
+                leading-icon: search
+              - type: list
+                children:
+                  - type: list-item
+                    title: "Mobile App Redesign"
+                    subtitle: "12 tasks remaining"
+                    selected: true
+                  - type: list-item
+                    title: "API v3 Migration"
+                    subtitle: "8 tasks remaining"
+                  - type: list-item
+                    title: "Marketing Website"
+                    subtitle: "3 tasks remaining"
+                  - type: list-item
+                    title: "Internal Dashboard"
+                    subtitle: "21 tasks remaining"
+
+          # Right column: project detail
+          - type: scroll
+            grow: 1
+            padding: lg
+            gap: md
+            children:
+              - type: text
+                variant: h2
+                content: "Mobile App Redesign"
+              - type: text
+                variant: body
+                color: text-secondary
+                content: "Redesign the consumer mobile app with updated branding and improved navigation patterns."
+              - type: row
+                gap: md
+                children:
+                  - type: card
+                    grow: 1
+                    padding: md
+                    children:
+                      - type: text
+                        variant: caption
+                        color: text-secondary
+                        content: "Progress"
+                      - type: text
+                        variant: h3
+                        content: "68%"
+                      - type: progress
+                        value: 68
+                  - type: card
+                    grow: 1
+                    padding: md
+                    children:
+                      - type: text
+                        variant: caption
+                        color: text-secondary
+                        content: "Due Date"
+                      - type: text
+                        variant: h3
+                        content: "Apr 30"
+
+  # Desktop / Laptop
+  - id: desktop_laptop
+    title: "Analytics"
+    path: /analytics
+    viewport: { width: 1440, height: 900 }
+    children:
+      - type: navbar
+        title: "Analytics"
+        leading: icon:bar-chart
+        trailing:
+          - icon:bell
+          - icon:settings
+          - icon:user
+
+      - type: scroll
+        grow: 1
+        padding: xl
+        gap: lg
+        children:
+          - type: row
+            justify: between
+            align: center
+            children:
+              - type: text
+                variant: h2
+                content: "Overview"
+              - type: row
+                gap: sm
+                children:
+                  - type: button
+                    label: "Last 7 days"
+                    variant: outline
+                    size: sm
+                  - type: button
+                    label: "Export"
+                    variant: secondary
+                    size: sm
+                    leading-icon: download
+
+          - type: grid
+            columns: 4
+            gap: md
+            children:
+              - type: card
+                padding: lg
+                children:
+                  - type: text
+                    variant: caption
+                    color: text-secondary
+                    content: "Page Views"
+                  - type: text
+                    variant: h2
+                    content: "1.24M"
+              - type: card
+                padding: lg
+                children:
+                  - type: text
+                    variant: caption
+                    color: text-secondary
+                    content: "Unique Visitors"
+                  - type: text
+                    variant: h2
+                    content: "342K"
+              - type: card
+                padding: lg
+                children:
+                  - type: text
+                    variant: caption
+                    color: text-secondary
+                    content: "Avg. Duration"
+                  - type: text
+                    variant: h2
+                    content: "3m 18s"
+              - type: card
+                padding: lg
+                children:
+                  - type: text
+                    variant: caption
+                    color: text-secondary
+                    content: "Conversion"
+                  - type: text
+                    variant: h2
+                    content: "4.8%"
+
+          - type: row
+            gap: lg
+            children:
+              - type: card
+                grow: 2
+                padding: lg
+                children:
+                  - type: text
+                    variant: h4
+                    content: "Traffic Over Time"
+                  - type: image
+                    alt: "Line chart showing traffic trends"
+                    width: "100%"
+                    height: 280
+              - type: card
+                grow: 1
+                padding: lg
+                children:
+                  - type: text
+                    variant: h4
+                    content: "Top Sources"
+                  - type: list
+                    children:
+                      - type: list-item
+                        title: "Google Search"
+                        trailing: "42%"
+                      - type: list-item
+                        title: "Direct"
+                        trailing: "28%"
+                      - type: list-item
+                        title: "Twitter / X"
+                        trailing: "15%"
+                      - type: list-item
+                        title: "Newsletter"
+                        trailing: "10%"
+                      - type: list-item
+                        title: "Other"
+                        trailing: "5%"
+
+  # Desktop Wide (1080p)
+  - id: desktop_wide
+    title: "Workspace"
+    path: /workspace
+    viewport: { width: 1920, height: 1080 }
+    children:
+      - type: row
+        grow: 1
+        children:
+          # Sidebar navigation
+          - type: stack
+            width: 260
+            padding: lg
+            gap: md
+            background: surface
+            children:
+              - type: text
+                variant: h4
+                content: "Workspace"
+              - type: list
+                children:
+                  - type: list-item
+                    leading: icon:home
+                    title: "Home"
+                    selected: true
+                  - type: list-item
+                    leading: icon:inbox
+                    title: "Inbox"
+                  - type: list-item
+                    leading: icon:folder
+                    title: "Projects"
+                  - type: list-item
+                    leading: icon:calendar
+                    title: "Calendar"
+                  - type: list-item
+                    leading: icon:users
+                    title: "Team"
+              - type: spacer
+              - type: list
+                children:
+                  - type: list-item
+                    leading: icon:settings
+                    title: "Settings"
+                  - type: list-item
+                    leading: icon:help-circle
+                    title: "Help & Support"
+
+          # Main content area
+          - type: scroll
+            grow: 1
+            padding: xl
+            gap: lg
+            children:
+              - type: row
+                justify: between
+                align: center
+                children:
+                  - type: stack
+                    gap: xs
+                    children:
+                      - type: text
+                        variant: h2
+                        content: "Home"
+                      - type: text
+                        variant: body
+                        color: text-secondary
+                        content: "Welcome back, Astrid. Here is what is happening across your workspace."
+                  - type: button
+                    label: "New Project"
+                    variant: primary
+                    leading-icon: plus
+
+              - type: grid
+                columns: 3
+                gap: md
+                children:
+                  - type: card
+                    padding: lg
+                    children:
+                      - type: text
+                        variant: caption
+                        color: text-secondary
+                        content: "Active Projects"
+                      - type: text
+                        variant: h2
+                        content: "12"
+                  - type: card
+                    padding: lg
+                    children:
+                      - type: text
+                        variant: caption
+                        color: text-secondary
+                        content: "Open Tasks"
+                      - type: text
+                        variant: h2
+                        content: "47"
+                  - type: card
+                    padding: lg
+                    children:
+                      - type: text
+                        variant: caption
+                        color: text-secondary
+                        content: "Team Members"
+                      - type: text
+                        variant: h2
+                        content: "8"
+
+              - type: row
+                gap: lg
+                children:
+                  - type: card
+                    grow: 1
+                    padding: lg
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "Recent Activity"
+                      - type: list
+                        children:
+                          - type: list-item
+                            title: "Erik updated API v3 Migration"
+                            subtitle: "15 minutes ago"
+                          - type: list-item
+                            title: "Sofia completed the onboarding flow"
+                            subtitle: "1 hour ago"
+                          - type: list-item
+                            title: "Nils created a new project"
+                            subtitle: "3 hours ago"
+                  - type: card
+                    grow: 1
+                    padding: lg
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "Upcoming Deadlines"
+                      - type: list
+                        children:
+                          - type: list-item
+                            title: "Mobile App Redesign"
+                            subtitle: "Apr 30, 2026"
+                          - type: list-item
+                            title: "Q2 OKR Review"
+                            subtitle: "May 15, 2026"
+                          - type: list-item
+                            title: "Security Audit"
+                            subtitle: "Jun 1, 2026"

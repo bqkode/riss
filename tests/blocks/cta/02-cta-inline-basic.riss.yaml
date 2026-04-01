@@ -1,0 +1,18 @@
+riss: "0.1"
+meta:
+  name: Test - CTA Inline Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: cta_inline_basic
+    title: Test - CTA Inline Basic
+    children:
+      - block: cta-inline
+        heading: Start building today
+        cta-label: Create your first project
+        icon: arrow-right
+        variant: card

@@ -1,0 +1,26 @@
+riss: "0.1"
+meta:
+  name: Test - Pricing Card Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: pricing_card_basic
+    title: Test - Pricing Card Basic
+    children:
+      - block: pricing-card
+        name: Pro
+        price: kr 299
+        period: /month
+        description: Everything you need to grow your business and collaborate with your team.
+        highlighted: false
+        features:
+          - Unlimited projects
+          - 50 GB storage
+          - Priority email support
+          - Advanced analytics dashboard
+          - API access
+        cta-label: Start free trial

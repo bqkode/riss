@@ -1,0 +1,34 @@
+riss: "0.1"
+meta:
+  name: Test - Page Header Basic and with Tabs
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: page_header_basic_and_with_tab
+    title: Test - Page Header Basic and with Tabs
+    children:
+      - block: page-header
+        title: Team Members
+        description: Manage your team members and their account permissions here.
+      - block: page-header
+        title: Project Analytics
+        description: Track performance metrics and user engagement across all channels.
+        breadcrumb:
+          - Home
+          - Projects
+          - Acme Corp
+        actions:
+          - label: Export
+            icon: download
+          - label: New
+            icon: plus
+            variant: primary
+        tabs:
+          - label: Overview
+            active: true
+          - label: Analytics
+          - label: Settings

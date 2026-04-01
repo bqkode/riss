@@ -1,0 +1,762 @@
+# Test: All 64 standard icon names from the spec
+# Verifies every icon in the v0.1 icon set renders correctly in a grid layout.
+
+riss: "0.1"
+meta:
+  name: "Test - Icon All Names"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: icons_grid_1
+    title: "Icons 1-32"
+    children:
+      - type: stack
+        padding: md
+        gap: sm
+        children:
+          - type: text
+            variant: label
+            content: "ALLE STANDARDIKONER (1/2)"
+
+          - type: grid
+            columns: 6
+            gap: sm
+            children:
+              # Row 1
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: home
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "home"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: search
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "search"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: settings
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "settings"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: user
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "user"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: users
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "users"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: bell
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "bell"
+
+              # Row 2
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: mail
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "mail"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: heart
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "heart"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: star
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "star"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: bookmark
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "bookmark"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: share
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "share"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: edit
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "edit"
+
+              # Row 3
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: trash
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "trash"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: plus
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "plus"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: minus
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "minus"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: close
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "close"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: check
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "check"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: chevron-left
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "chev-l"
+
+              # Row 4
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: chevron-right
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "chev-r"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: chevron-up
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "chev-u"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: chevron-down
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "chev-d"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: arrow-left
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "arr-l"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: arrow-right
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "arr-r"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: arrow-up
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "arr-u"
+
+              # Row 5
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: arrow-down
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "arr-d"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: menu
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "menu"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: more-horizontal
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "more-h"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: more-vertical
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "more-v"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: filter
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "filter"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: sort
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "sort"
+
+              # Row 6 (icons 31-32)
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: download
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "download"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: upload
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "upload"
+
+  - id: icons_grid_2
+    title: "Icons 33-64"
+    children:
+      - type: stack
+        padding: md
+        gap: sm
+        children:
+          - type: text
+            variant: label
+            content: "ALLE STANDARDIKONER (2/2)"
+
+          - type: grid
+            columns: 6
+            gap: sm
+            children:
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: camera
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "camera"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: image
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "image"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: video
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "video"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: mic
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "mic"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: phone
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "phone"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: map-pin
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "map-pin"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: clock
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "clock"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: calendar
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "calendar"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: link
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "link"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: lock
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "lock"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: unlock
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "unlock"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: eye
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "eye"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: eye-off
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "eye-off"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: info
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "info"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: help
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "help"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: warning
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "warning"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: error
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "error"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: play
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "play"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: pause
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "pause"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: skip-forward
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "skip-f"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: skip-back
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "skip-b"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: refresh
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "refresh"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: copy
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "copy"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: file
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "file"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: folder
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "folder"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: chart
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "chart"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: globe
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "globe"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: inbox
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "inbox"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: dollar-sign
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "dollar"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: credit-card
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "card"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: shield
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "shield"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: zap
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "zap"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: icon
+                    name: code
+                    size: 20
+                  - type: text
+                    variant: caption
+                    content: "code"

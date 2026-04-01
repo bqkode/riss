@@ -1,0 +1,73 @@
+riss: "0.1"
+meta:
+  name: Test - Timeline Variants
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: timeline_variants
+    title: Test - Timeline Variants
+    children:
+      - block: timeline
+        variant: default
+        color: accent
+        items:
+          - date: Q1 2026
+            title: Platform redesign
+            description: Complete overhaul of the dashboard UI with a focus on accessibility and performance.
+            icon: layout
+          - date: Q2 2026
+            title: API v3 release
+            description: New versioned API with GraphQL support, rate limiting improvements, and webhook reliability enhancements.
+            icon: code
+          - date: Q3 2026
+            title: Mobile app launch
+            description: Native iOS and Android apps for monitoring deployments and responding to incidents on the go.
+            icon: smartphone
+      - block: timeline
+        variant: alternating
+        color: "#059669"
+        items:
+          - date: Week 1
+            title: Discovery and research
+            description: Stakeholder interviews, competitive analysis, and user journey mapping to define project scope.
+            icon: search
+          - date: Week 2
+            title: Wireframes and prototyping
+            description: Low-fidelity wireframes reviewed with the team, followed by interactive prototypes for user testing.
+            icon: pen-tool
+          - date: Week 3
+            title: Visual design
+            description: High-fidelity mockups, design system updates, and asset preparation for the development handoff.
+            icon: palette
+          - date: Week 4
+            title: Development and QA
+            description: Front-end implementation, integration testing, and cross-browser validation before the production release.
+            icon: terminal
+      - block: timeline
+        variant: compact
+        color: "#7C3AED"
+        items:
+          - date: 9:00 AM
+            title: Standup
+            description: Daily sync with the engineering team.
+            icon: users
+          - date: 10:00 AM
+            title: Sprint planning
+            description: Review backlog and assign stories for the upcoming sprint.
+            icon: clipboard
+          - date: 12:00 PM
+            title: Design review
+            description: Walk through new mockups with the product team.
+            icon: eye
+          - date: 2:00 PM
+            title: Deep work block
+            description: Focused development time with no meetings.
+            icon: code
+          - date: 4:30 PM
+            title: Demo and retro
+            description: End-of-sprint demo followed by a team retrospective.
+            icon: presentation

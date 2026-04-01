@@ -1,0 +1,237 @@
+# Test: Badge element — with content, dot style, and color tokens
+# Verifies badge rendering as counters, labels, dots, and in different colors.
+
+riss: "0.1"
+meta:
+  name: "Test - Badge Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: badge_content
+    title: "Badge with Content"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "MED INNHOLD (TELLER/TEKST)"
+
+          - type: row
+            gap: lg
+            align: center
+            children:
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    content: "3"
+                    color: error
+                  - type: text
+                    variant: caption
+                    content: "\"3\""
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    content: "12"
+                    color: error
+                  - type: text
+                    variant: caption
+                    content: "\"12\""
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    content: "99+"
+                    color: error
+                  - type: text
+                    variant: caption
+                    content: "\"99+\""
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    content: "New"
+                    color: accent
+                  - type: text
+                    variant: caption
+                    content: "\"New\""
+
+  - id: badge_dot
+    title: "Badge Dot Style"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "UTEN INNHOLD (PRIKKSTIL)"
+
+          # Dot badges with different colors
+          - type: row
+            gap: lg
+            align: center
+            children:
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    color: error
+                  - type: text
+                    variant: caption
+                    content: "error"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    color: success
+                  - type: text
+                    variant: caption
+                    content: "success"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    color: warning
+                  - type: text
+                    variant: caption
+                    content: "warning"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    color: accent
+                  - type: text
+                    variant: caption
+                    content: "accent"
+
+  - id: badge_colors
+    title: "Badge Colors"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          - type: text
+            variant: label
+            content: "FARGEVARIANTER MED INNHOLD"
+
+          - type: row
+            gap: lg
+            align: center
+            children:
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    content: "5"
+                    color: error
+                  - type: text
+                    variant: caption
+                    content: "error"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    content: "OK"
+                    color: success
+                  - type: text
+                    variant: caption
+                    content: "success"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    content: "!"
+                    color: warning
+                  - type: text
+                    variant: caption
+                    content: "warning"
+
+              - type: stack
+                align: center
+                gap: xs
+                children:
+                  - type: badge
+                    content: "7"
+                    color: accent
+                  - type: text
+                    variant: caption
+                    content: "accent"
+
+          - type: divider
+            margin-y: md
+
+          # Badges used in context — notification list
+          - type: text
+            variant: label
+            content: "I KONTEKST"
+
+          - type: row
+            gap: sm
+            align: center
+            children:
+              - type: icon
+                name: bell
+                size: 24
+              - type: text
+                variant: body
+                content: "Varsler"
+              - type: spacer
+              - type: badge
+                content: "3"
+                color: error
+
+          - type: row
+            gap: sm
+            align: center
+            children:
+              - type: icon
+                name: mail
+                size: 24
+              - type: text
+                variant: body
+                content: "Meldinger"
+              - type: spacer
+              - type: badge
+                content: "12"
+                color: accent
+
+          - type: row
+            gap: sm
+            align: center
+            children:
+              - type: icon
+                name: inbox
+                size: 24
+              - type: text
+                variant: body
+                content: "Innboks"
+              - type: spacer
+              - type: badge
+                color: success

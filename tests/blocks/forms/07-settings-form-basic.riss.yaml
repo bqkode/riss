@@ -1,0 +1,37 @@
+riss: "0.1"
+meta:
+  name: Test - Settings Form Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: settings_form_basic
+    title: Test - Settings Form Basic
+    children:
+      - block: settings-form
+        title: Account Settings
+        groups:
+          - title: Notifications
+            items:
+              - type: toggle
+                label: Email notifications
+                checked: true
+              - type: toggle
+                label: Push notifications
+                checked: false
+              - type: toggle
+                label: SMS alerts
+          - title: Privacy
+            items:
+              - type: toggle
+                label: Profile visible
+              - type: select
+                label: Who can message me
+                options:
+                  - Everyone
+                  - Contacts only
+                  - Nobody
+        save-button: true

@@ -1,0 +1,101 @@
+# Test: toggle element
+# Verifies: checked true/false, disabled true/false, various labels
+riss: "0.1"
+meta:
+  name: "Test - Toggle Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: toggle_basic
+    title: "Toggle Basic"
+    path: /test/toggle-basic
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # Checked (on)
+          - type: section
+            title: "Checked (on)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: toggle
+                    label: "Dark mode"
+                    checked: true
+                  - type: toggle
+                    label: "Notifications"
+                    checked: true
+
+          # Unchecked (off)
+          - type: section
+            title: "Unchecked (off)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: toggle
+                    label: "Auto-save"
+                    checked: false
+                  - type: toggle
+                    label: "Location services"
+                    checked: false
+
+          # Disabled on
+          - type: section
+            title: "Disabled (on)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: toggle
+                    label: "Two-factor authentication"
+                    checked: true
+                    disabled: true
+
+          # Disabled off
+          - type: section
+            title: "Disabled (off)"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: toggle
+                    label: "Beta features"
+                    checked: false
+                    disabled: true
+
+          # Realistic settings screen
+          - type: section
+            title: "App Settings"
+            children:
+              - type: stack
+                gap: sm
+                padding: md
+                children:
+                  - type: toggle
+                    label: "Dark mode"
+                    checked: false
+                  - type: toggle
+                    label: "Notifications"
+                    checked: true
+                  - type: toggle
+                    label: "Auto-save"
+                    checked: true
+                  - type: toggle
+                    label: "Sound effects"
+                    checked: false
+                  - type: toggle
+                    label: "Sync across devices"
+                    checked: true
+                  - type: toggle
+                    label: "Usage analytics"
+                    checked: false
+                    disabled: true

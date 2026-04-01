@@ -1,0 +1,24 @@
+riss: "0.1"
+meta:
+  name: Test - Logo Bar Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: logo_bar_basic
+    title: Test - Logo Bar Basic
+    children:
+      - block: logo-bar
+        title: Trusted by leading teams
+        variant: inline
+        logos: 6
+        labels:
+          - Equinor
+          - DNB
+          - Telenor
+          - Vipps
+          - Finn.no
+          - Kahoot

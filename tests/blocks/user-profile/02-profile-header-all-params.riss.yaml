@@ -1,0 +1,34 @@
+riss: "0.1"
+meta:
+  name: Test - Profile Header All Parameters
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: profile_header_all_parameters
+    title: Test - Profile Header All Parameters
+    children:
+      - block: profile-header
+        cover: true
+        avatar: KN
+        avatar-size: 96
+        name: Kari Nordmann
+        subtitle: "@kari.nordmann"
+        bio: UX-designer fra Oslo. Lidenskapelig opptatt av tilgjengelig design og nordisk minimalisme. Elsker fjellturer og kaffe.
+        stats:
+          - label: Posts
+            value: "142"
+          - label: Followers
+            value: 3.8K
+          - label: Following
+            value: "284"
+        actions:
+          - Follow
+          - Message
+        tabs:
+          - Posts
+          - Media
+          - Likes

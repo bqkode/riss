@@ -1,0 +1,16 @@
+riss: "0.1"
+meta:
+  name: Test - Announcement Bar Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: announcement_bar_basic
+    title: Test - Announcement Bar Basic
+    children:
+      - block: announcement-bar
+        message: We just raised our Series B! Read about our plans for 2026.
+        action: Read the blog post

@@ -1,0 +1,40 @@
+riss: "0.1"
+meta:
+  name: Test - Avatar List Basic
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: avatar_list_basic
+    title: Test - Avatar List Basic
+    children:
+      - block: avatar-list
+        stacked: false
+        items:
+          - name: Erik Solberg
+            initials: ES
+            subtitle: CEO & Founder
+            status: online
+          - name: Ingrid Haugen
+            initials: IH
+            subtitle: CTO
+            status: online
+          - name: Lars Pedersen
+            initials: LP
+            subtitle: Lead Designer
+            status: away
+          - name: Astrid Bakke
+            initials: AB
+            subtitle: Head of Engineering
+            status: offline
+          - name: Magnus Dahl
+            initials: MD
+            subtitle: Product Manager
+            status: online
+          - name: Sofie Lund
+            initials: SL
+            subtitle: Frontend Developer
+            status: offline

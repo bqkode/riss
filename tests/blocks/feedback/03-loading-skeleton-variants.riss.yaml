@@ -1,0 +1,30 @@
+riss: "0.1"
+meta:
+  name: Test - Loading Skeleton All Variants
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: loading_skeleton_all_variants
+    title: Test - Loading Skeleton All Variants
+    children:
+      - block: loading-skeleton
+        variant: card-grid
+        count: 6
+        columns: 3
+      - block: loading-skeleton
+        variant: list
+        count: 5
+      - block: loading-skeleton
+        variant: detail
+        count: 1
+      - block: loading-skeleton
+        variant: form
+        count: 4
+      - block: loading-skeleton
+        variant: feed
+        count: 3
+        columns: 1

@@ -1,0 +1,62 @@
+riss: "0.1"
+meta:
+  name: Test - Page Header All Parameters
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: page_header_all_parameters
+    title: Test - Page Header All Parameters
+    children:
+      - block: page-header
+        title: Invoice Management
+        description: Review, approve, and export invoices for all client accounts.
+        breadcrumb:
+          - Dashboard
+          - Finance
+          - Invoices
+        actions:
+          - label: Filter
+            icon: filter
+          - label: Export CSV
+            icon: download
+          - label: Create Invoice
+            icon: plus
+            variant: primary
+        tabs:
+          - label: All Invoices
+            active: true
+          - label: Pending
+          - label: Paid
+          - label: Overdue
+        divider: true
+      - block: page-header
+        title: API Keys
+        description: Manage authentication tokens for external integrations.
+        breadcrumb:
+          - Settings
+          - Developer
+          - API Keys
+        actions:
+          - label: Revoke All
+            variant: danger
+          - label: Generate Key
+            icon: plus
+            variant: primary
+        tabs:
+          - label: Active
+            active: true
+          - label: Expired
+        divider: false
+      - block: page-header
+        title: User Activity Log
+        breadcrumb:
+          - Admin
+          - Audit
+        actions:
+          - label: Refresh
+            icon: refresh
+        divider: true

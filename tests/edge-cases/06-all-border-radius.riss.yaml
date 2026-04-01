@@ -1,0 +1,148 @@
+# Edge case: every border radius token on cards and images
+# Tokens: none(0), sm(4), md(8), lg(12), xl(16), full(9999)
+riss: "0.1"
+meta:
+  name: "All Border Radius Tokens"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: border_radius
+    title: "Border Radius Tokens"
+    path: /test/border-radius
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          - type: stack
+            padding: md
+            gap: lg
+            children:
+
+              # --- Cards ---
+              - type: section
+                title: "Cards with border radius"
+                children:
+                  - type: stack
+                    gap: sm
+                    children:
+                      - type: card
+                        rounded: none
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "rounded: none (0px)"
+                      - type: card
+                        rounded: sm
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "rounded: sm (4px)"
+                      - type: card
+                        rounded: md
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "rounded: md (8px)"
+                      - type: card
+                        rounded: lg
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "rounded: lg (12px)"
+                      - type: card
+                        rounded: xl
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "rounded: xl (16px)"
+                      - type: card
+                        rounded: full
+                        padding: md
+                        children:
+                          - type: text
+                            variant: label
+                            content: "rounded: full (9999px)"
+                            align: center
+
+              # --- Images ---
+              - type: section
+                title: "Images with border radius"
+                children:
+                  - type: grid
+                    columns: 3
+                    gap: sm
+                    children:
+                      - type: stack
+                        gap: xs
+                        align: center
+                        children:
+                          - type: image
+                            aspect: "1/1"
+                            rounded: none
+                          - type: text
+                            variant: caption
+                            content: "none"
+                            align: center
+                      - type: stack
+                        gap: xs
+                        align: center
+                        children:
+                          - type: image
+                            aspect: "1/1"
+                            rounded: sm
+                          - type: text
+                            variant: caption
+                            content: "sm"
+                            align: center
+                      - type: stack
+                        gap: xs
+                        align: center
+                        children:
+                          - type: image
+                            aspect: "1/1"
+                            rounded: md
+                          - type: text
+                            variant: caption
+                            content: "md"
+                            align: center
+                      - type: stack
+                        gap: xs
+                        align: center
+                        children:
+                          - type: image
+                            aspect: "1/1"
+                            rounded: lg
+                          - type: text
+                            variant: caption
+                            content: "lg"
+                            align: center
+                      - type: stack
+                        gap: xs
+                        align: center
+                        children:
+                          - type: image
+                            aspect: "1/1"
+                            rounded: xl
+                          - type: text
+                            variant: caption
+                            content: "xl"
+                            align: center
+                      - type: stack
+                        gap: xs
+                        align: center
+                        children:
+                          - type: image
+                            aspect: "1/1"
+                            rounded: full
+                          - type: text
+                            variant: caption
+                            content: "full"
+                            align: center

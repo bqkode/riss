@@ -1,0 +1,131 @@
+# Test: Chip element — variants, labels, and removable toggle
+# Verifies filled/outlined chips with different labels and the removable property.
+
+riss: "0.1"
+meta:
+  name: "Test - Chip Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: chip_variants
+    title: "Chip Variants"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          # Filled variant (default)
+          - type: text
+            variant: label
+            content: "VARIANT: FILLED (STANDARD)"
+
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Alle"
+                variant: filled
+
+              - type: chip
+                label: "Elektronikk"
+                variant: filled
+
+              - type: chip
+                label: "Kl\u00E6r"
+                variant: filled
+
+              - type: chip
+                label: "Hjem & hage"
+                variant: filled
+
+          - type: spacer
+            size: 16
+
+          # Outlined variant
+          - type: text
+            variant: label
+            content: "VARIANT: OUTLINED"
+
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Oslo"
+                variant: outlined
+
+              - type: chip
+                label: "Bergen"
+                variant: outlined
+
+              - type: chip
+                label: "Trondheim"
+                variant: outlined
+
+              - type: chip
+                label: "Stavanger"
+                variant: outlined
+
+  - id: chip_removable
+    title: "Chip Removable"
+    children:
+      - type: stack
+        gap: md
+        padding: lg
+        children:
+          # removable: false (default)
+          - type: text
+            variant: label
+            content: "REMOVABLE: FALSE (STANDARD)"
+
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Frokost"
+                removable: false
+
+              - type: chip
+                label: "Lunsj"
+                removable: false
+
+              - type: chip
+                label: "Middag"
+                removable: false
+
+          - type: spacer
+            size: 16
+
+          # removable: true
+          - type: text
+            variant: label
+            content: "REMOVABLE: TRUE"
+
+          - type: row
+            gap: sm
+            wrap: true
+            children:
+              - type: chip
+                label: "Laksefilet"
+                removable: true
+
+              - type: chip
+                label: "Br\u00F8d"
+                removable: true
+
+              - type: chip
+                label: "Melk"
+                removable: true
+
+              - type: chip
+                label: "Egg"
+                removable: true
+
+              - type: chip
+                label: "Sm\u00F8r"
+                removable: true

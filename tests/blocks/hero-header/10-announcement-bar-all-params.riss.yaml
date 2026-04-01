@@ -1,0 +1,28 @@
+riss: "0.1"
+meta:
+  name: Test - Announcement Bar All Parameters
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: announcement_bar_all_parameter
+    title: Test - Announcement Bar All Parameters
+    children:
+      - block: announcement-bar
+        message: Version 4.0 is here with a completely redesigned editor.
+        action: See what's new
+        color: accent-soft
+        dismissable: true
+      - block: announcement-bar
+        message: All systems operational. Infrastructure migration completed successfully.
+        action: View status page
+        color: success
+        dismissable: true
+      - block: announcement-bar
+        message: Scheduled maintenance on April 5, 2026 from 2:00 AM to 4:00 AM UTC.
+        action: Learn more
+        color: warning
+        dismissable: false

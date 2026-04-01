@@ -1,0 +1,36 @@
+riss: "0.1"
+meta:
+  name: Test - Cart Summary Basic
+  viewport:
+    width: 390
+    height: 844
+  theme:
+    mode: light
+    accent: "#059669"
+screens:
+  - id: cart_summary_basic
+    title: Test - Cart Summary Basic
+    children:
+      - block: cart-summary
+        items:
+          - title: Fjelljakke Pro
+            subtitle: "Size: M / Color: Navy"
+            price: kr 2,499
+            quantity: 1
+            image-label: Fjelljakke Pro product photo
+          - title: Ullgenser Merino 200
+            subtitle: "Size: L / Color: Charcoal"
+            price: kr 899
+            quantity: 2
+            image-label: Ullgenser Merino product photo
+          - title: Tursko Allround GTX
+            subtitle: "Size: 43 / Color: Brown"
+            price: kr 1,599
+            quantity: 1
+            image-label: Tursko hiking boots product photo
+        subtotal: kr 5,896
+        shipping: kr 0
+        discount: "-kr 590"
+        total: kr 5,306
+        cta-label: Checkout
+        promo-code: true

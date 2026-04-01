@@ -1,0 +1,374 @@
+# Test: row element with gap tokens, align, and justify
+# Verifies horizontal layout with icon+text combos and button groups
+riss: "0.1"
+meta:
+  name: "Test - Row Basic"
+  viewport: { width: 390, height: 844 }
+  theme:
+    mode: light
+    accent: "#2563EB"
+
+screens:
+  - id: row_gaps
+    title: "Row Gap Tokens"
+    path: /test/row-gaps
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # gap: none
+          - type: section
+            title: "gap: none"
+            children:
+              - type: row
+                gap: none
+                padding: sm
+                background: surface
+                children:
+                  - type: icon
+                    name: user
+                  - type: text
+                    content: "Ingrid Solberg"
+
+          # gap: xs
+          - type: section
+            title: "gap: xs"
+            children:
+              - type: row
+                gap: xs
+                padding: sm
+                background: surface
+                children:
+                  - type: icon
+                    name: map-pin
+                  - type: text
+                    content: "Stavanger, Norge"
+
+          # gap: sm
+          - type: section
+            title: "gap: sm"
+            children:
+              - type: row
+                gap: sm
+                padding: sm
+                background: surface
+                children:
+                  - type: icon
+                    name: mail
+                  - type: text
+                    content: "henrik.dahl@example.no"
+
+          # gap: md
+          - type: section
+            title: "gap: md"
+            children:
+              - type: row
+                gap: md
+                padding: sm
+                background: surface
+                children:
+                  - type: icon
+                    name: phone
+                  - type: text
+                    content: "+47 923 45 678"
+
+          # gap: lg
+          - type: section
+            title: "gap: lg"
+            children:
+              - type: row
+                gap: lg
+                padding: sm
+                background: surface
+                children:
+                  - type: icon
+                    name: calendar
+                  - type: text
+                    content: "15. mars 2026"
+
+          # gap: xl
+          - type: section
+            title: "gap: xl"
+            children:
+              - type: row
+                gap: xl
+                padding: sm
+                background: surface
+                children:
+                  - type: icon
+                    name: clock
+                  - type: text
+                    content: "Kl. 09:30"
+
+          # gap: 2xl
+          - type: section
+            title: "gap: 2xl"
+            children:
+              - type: row
+                gap: 2xl
+                padding: sm
+                background: surface
+                children:
+                  - type: text
+                    content: "Venstre"
+                  - type: text
+                    content: "Hoyre"
+
+          # gap: 3xl
+          - type: section
+            title: "gap: 3xl"
+            children:
+              - type: row
+                gap: 3xl
+                padding: sm
+                background: surface
+                children:
+                  - type: text
+                    content: "Start"
+                  - type: text
+                    content: "Slutt"
+
+  - id: row_align
+    title: "Row Align"
+    path: /test/row-align
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # align: start (top-aligned)
+          - type: section
+            title: "align: start"
+            children:
+              - type: row
+                gap: sm
+                align: start
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: avatar
+                    size: 48
+                    initials: "KN"
+                  - type: stack
+                    gap: xs
+                    children:
+                      - type: text
+                        variant: h4
+                        content: "Kristoffer Nilsen"
+                      - type: text
+                        variant: body-sm
+                        color: text-secondary
+                        content: "Produktsjef, Telenor Digital"
+                      - type: text
+                        variant: caption
+                        color: text-secondary
+                        content: "Sist aktiv for 2 timer siden"
+
+          # align: center (vertically centered)
+          - type: section
+            title: "align: center"
+            children:
+              - type: row
+                gap: sm
+                align: center
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: icon
+                    name: bell
+                    size: 24
+                  - type: text
+                    content: "3 nye varsler"
+
+          # align: end (bottom-aligned)
+          - type: section
+            title: "align: end"
+            children:
+              - type: row
+                gap: sm
+                align: end
+                padding: md
+                background: surface
+                border: true
+                height: 80
+                children:
+                  - type: text
+                    variant: h2
+                    content: "4 890"
+                  - type: text
+                    variant: caption
+                    color: text-secondary
+                    content: "kr"
+
+          # align: stretch
+          - type: section
+            title: "align: stretch"
+            children:
+              - type: row
+                gap: sm
+                align: stretch
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    justify: center
+                    children:
+                      - type: text
+                        content: "Strukket A"
+                  - type: stack
+                    padding: sm
+                    background: accent-soft
+                    justify: center
+                    children:
+                      - type: text
+                        content: "Strukket B"
+                        variant: h3
+
+  - id: row_justify
+    title: "Row Justify"
+    path: /test/row-justify
+    children:
+      - type: scroll
+        direction: vertical
+        children:
+          # justify: start
+          - type: section
+            title: "justify: start"
+            children:
+              - type: row
+                gap: sm
+                justify: start
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: button
+                    label: "Avbryt"
+                    variant: outline
+                  - type: button
+                    label: "Lagre"
+                    variant: primary
+
+          # justify: center
+          - type: section
+            title: "justify: center"
+            children:
+              - type: row
+                gap: sm
+                justify: center
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: button
+                    label: "Forrige"
+                    variant: outline
+                  - type: button
+                    label: "Neste"
+                    variant: primary
+
+          # justify: end
+          - type: section
+            title: "justify: end"
+            children:
+              - type: row
+                gap: sm
+                justify: end
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: button
+                    label: "Forkast"
+                    variant: outline
+                  - type: button
+                    label: "Bekreft"
+                    variant: primary
+
+          # justify: between
+          - type: section
+            title: "justify: between"
+            children:
+              - type: row
+                gap: sm
+                justify: between
+                padding: md
+                background: surface
+                border: true
+                align: center
+                children:
+                  - type: text
+                    variant: h4
+                    content: "Maren Lund"
+                  - type: icon
+                    name: chevron-right
+
+          # justify: around
+          - type: section
+            title: "justify: around"
+            children:
+              - type: row
+                justify: around
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: icon
+                    name: home
+                  - type: icon
+                    name: search
+                  - type: icon
+                    name: heart
+                  - type: icon
+                    name: user
+
+          # justify: evenly
+          - type: section
+            title: "justify: evenly"
+            children:
+              - type: row
+                justify: evenly
+                padding: md
+                background: surface
+                border: true
+                children:
+                  - type: stack
+                    align: center
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: home
+                      - type: text
+                        variant: caption
+                        content: "Hjem"
+                  - type: stack
+                    align: center
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: search
+                      - type: text
+                        variant: caption
+                        content: "Sok"
+                  - type: stack
+                    align: center
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: heart
+                      - type: text
+                        variant: caption
+                        content: "Favoritter"
+                  - type: stack
+                    align: center
+                    gap: xs
+                    children:
+                      - type: icon
+                        name: user
+                      - type: text
+                        variant: caption
+                        content: "Profil"

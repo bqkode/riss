@@ -1,0 +1,21 @@
+riss: "0.1"
+meta:
+  name: Test - Logo Bar Variants
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#2563EB"
+screens:
+  - id: logo_bar_variants
+    title: Test - Logo Bar Variants
+    children:
+      - block: logo-bar
+        title: Trusted by 200+ companies worldwide
+        variant: inline
+        logos: 5
+      - block: logo-bar
+        title: Our partners and customers
+        variant: scrolling
+        logos: 8

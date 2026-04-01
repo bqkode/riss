@@ -1,0 +1,19 @@
+riss: "0.1"
+meta:
+  name: Test - Hero Centered with CTAs
+  viewport:
+    width: 1440
+    height: 900
+  theme:
+    mode: light
+    accent: "#6366F1"
+screens:
+  - id: hero_centered_with_ctas
+    title: Test - Hero Centered with CTAs
+    children:
+      - block: hero
+        variant: centered
+        heading: Ship faster with modern developer tools
+        subheading: Build, test, and deploy production-ready applications in minutes. Trusted by over 50,000 engineering teams worldwide.
+        cta-label: Start building for free
+        cta-secondary-label: Talk to sales

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riss Wireframe Viewer</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <div id="toolbar">
+    <div class="toolbar-left">
+      <a href="/" class="logo">Riss</a>
+      <button id="btn-open" class="toolbar-btn" title="Open .riss.yaml file">Open File</button>
+      <div id="screen-nav" class="screen-nav"></div>
+    </div>
+    <div class="toolbar-center">
+      <span id="file-name" class="file-name">No file loaded</span>
+    </div>
+    <div class="toolbar-right">
+      <button id="btn-zoom-out" class="toolbar-btn-sm" title="Zoom out">&minus;</button>
+      <span id="zoom-level" class="zoom-level">100%</span>
+      <button id="btn-zoom-in" class="toolbar-btn-sm" title="Zoom in">+</button>
+      <button id="btn-zoom-fit" class="toolbar-btn-sm" title="Fit to window">Fit</button>
+      <div class="toolbar-divider"></div>
+      <button id="btn-theme" class="toolbar-btn-sm" title="Toggle light/dark preview">&#9789;</button>
+      <div class="toolbar-divider"></div>
+      <button id="btn-warnings" class="toolbar-btn warnings-toggle" title="Validation issues">
+        Issues <span id="warnings-badge" class="warnings-badge hidden"></span>
+      </button>
+      <div class="toolbar-divider"></div>
+      <a href="/docs/" class="toolbar-btn">Docs</a>
+    </div>
+  </div>
+  <div id="main">
+    <div id="canvas-container">
+      <div id="canvas-wrapper">
+        <canvas id="riss-canvas"></canvas>
+      </div>
+      <div id="empty-state">
+        <div class="empty-icon">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <rect x="8" y="8" width="48" height="48" rx="4" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="6 4"/>
+            <path d="M26 28L32 34L38 28" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="32" y1="20" x2="32" y2="34" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2>Riss Wireframe Viewer</h2>
+        <p>Drop a <code>.riss.yaml</code> file here to view it</p>
+        <p class="empty-hint">or click <strong>Open File</strong> to browse</p>
+      </div>
+    </div>
+    <div id="warnings-panel" class="hidden">
+      <div class="warnings-header">
+        <span id="warnings-summary" class="warnings-summary"></span>
+        <button id="warnings-copy" class="toolbar-btn warnings-copy-btn" title="Copy all issues to clipboard for LLM">Copy All</button>
+      </div>
+      <div id="warnings-list" class="warnings-list"></div>
+    </div>
+  </div>
+  <div id="drop-overlay" class="hidden">
+    <div class="drop-message">Drop <code>.riss.yaml</code> file here</div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
